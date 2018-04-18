@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Técnicas de Programação: Código-Fonte de testes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Técnicas de Programação
+   &#160;<span id="projectnumber">Lista 1</span>
+   </div>
+   <div id="projectbrief">Implementação das classes de Dominios e Entidades</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">testes.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="testes_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VOC_CTRL_TESTES_H_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VOC_CTRL_TESTES_H_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="unit-test-dominios_8h.html">unit-test-dominios.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="unit-test-entidades_8h.html">unit-test-entidades.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_teste.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_teste.html">Teste</a> {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> Execute();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_t_u_nome.html">TUNome</a> *teste_unidade_nome_;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_t_u_sobrenome.html">TUSobrenome</a> *teste_unidade_sobrenome_;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_t_u_senha.html">TUSenha</a> *teste_unidade_senha_;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_t_u_address.html">TUAddress</a> *teste_unidade_endereco_;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_t_u_email.html">TUEmail</a> *teste_unidade_email_;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_t_u_data.html">TUData</a> *teste_unidade_data_;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_t_u_telefone.html">TUTelefone</a> *teste_unidade_telefone_;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_t_u_texto_definicao.html">TUTextoDefinicao</a> *teste_unidade_texto_definicao_;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_t_u_idioma.html">TUIdioma</a> *teste_unidade_idioma_;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_t_u_preferencia.html">TUPreferencia</a> *teste_unidade_preferencia_;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_t_u_leitor.html">TULeitor</a> *teste_unidade_leitor_;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_t_u_desenvolvedor.html">TUDesenvolvedor</a> *teste_unidade_desenvolvedor_;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_t_u_administrador.html">TUAdministrador</a> *teste_unidade_administrador_;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_t_u_vocabulario.html">TUVocabulario</a> *teste_unidade_vocabulario_;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_t_u_termo.html">TUTermo</a> *teste_unidade_termo_;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_t_u_definicao.html">TUDefinicao</a> * teste_unidade_definicao_;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> RunTestes();</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> SetUpTestes();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> Destroy() {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">delete</span> teste_unidade_administrador_;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">delete</span> teste_unidade_data_;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">delete</span> teste_unidade_texto_definicao_;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">delete</span> teste_unidade_desenvolvedor_;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">delete</span> teste_unidade_email_;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">delete</span> teste_unidade_endereco_;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">delete</span> teste_unidade_idioma_;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">delete</span> teste_unidade_leitor_;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">delete</span> teste_unidade_nome_;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">delete</span> teste_unidade_preferencia_;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">delete</span> teste_unidade_senha_;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">delete</span> teste_unidade_sobrenome_;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">delete</span> teste_unidade_telefone_;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">delete</span> teste_unidade_vocabulario_;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">delete</span> teste_unidade_termo_;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">delete</span> teste_unidade_definicao_;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // VOC_CTRL_TESTES_H_</span></div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="ttc" id="class_t_u_sobrenome_html"><div class="ttname"><a href="class_t_u_sobrenome.html">TUSobrenome</a></div><div class="ttdoc">Testa vários Sobrenomes inválidos e um sobrenome válido, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00065">unit-test-dominios.h:65</a></div></div>
+<div class="ttc" id="class_t_u_preferencia_html"><div class="ttname"><a href="class_t_u_preferencia.html">TUPreferencia</a></div><div class="ttdoc">Testa várias preferências inválidas e uma preferência válida, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00403">unit-test-dominios.h:403</a></div></div>
+<div class="ttc" id="class_teste_html"><div class="ttname"><a href="class_teste.html">Teste</a></div><div class="ttdoc">Executará todos os testes de unidade de cada classe do sistema até o momento. </div><div class="ttdef"><b>Definition:</b> <a href="testes_8h_source.html#l00025">testes.h:25</a></div></div>
+<div class="ttc" id="unit-test-entidades_8h_html"><div class="ttname"><a href="unit-test-entidades_8h.html">unit-test-entidades.h</a></div><div class="ttdoc">Descrição de todas as classes de Teste de Unidade das classes de Entidade. </div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="class_t_u_nome_html"><div class="ttname"><a href="class_t_u_nome.html">TUNome</a></div><div class="ttdoc">Testa vários nomes inválidos e um nome válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00023">unit-test-dominios.h:23</a></div></div>
+<div class="ttc" id="class_t_u_texto_definicao_html"><div class="ttname"><a href="class_t_u_texto_definicao.html">TUTextoDefinicao</a></div><div class="ttdoc">Testa várias definições inválidas e uma definição válida, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00321">unit-test-dominios.h:321</a></div></div>
+<div class="ttc" id="class_t_u_senha_html"><div class="ttname"><a href="class_t_u_senha.html">TUSenha</a></div><div class="ttdoc">Testa várias senhas inválidas e uma senha válida, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00107">unit-test-dominios.h:107</a></div></div>
+<div class="ttc" id="class_t_u_email_html"><div class="ttname"><a href="class_t_u_email.html">TUEmail</a></div><div class="ttdoc">Testa vários e-mails inválidos e um e-mail válido, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00150">unit-test-dominios.h:150</a></div></div>
+<div class="ttc" id="class_t_u_data_html"><div class="ttname"><a href="class_t_u_data.html">TUData</a></div><div class="ttdoc">Testa várias datas inválidas e uma data válida, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00195">unit-test-dominios.h:195</a></div></div>
+<div class="ttc" id="unit-test-dominios_8h_html"><div class="ttname"><a href="unit-test-dominios_8h.html">unit-test-dominios.h</a></div><div class="ttdoc">Descrição de todas as classes de Teste de Unidade das classes de Domínio. </div></div>
+<div class="ttc" id="class_t_u_address_html"><div class="ttname"><a href="class_t_u_address.html">TUAddress</a></div><div class="ttdoc">Testa vários endereços inválidos e um endereço válido, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00279">unit-test-dominios.h:279</a></div></div>
+<div class="ttc" id="class_t_u_leitor_html"><div class="ttname"><a href="class_t_u_leitor.html">TULeitor</a></div><div class="ttdoc">Testa um Leitor inválido e um válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00024">unit-test-entidades.h:24</a></div></div>
+<div class="ttc" id="class_t_u_termo_html"><div class="ttname"><a href="class_t_u_termo.html">TUTermo</a></div><div class="ttdoc">Testa apenas um Termo válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00192">unit-test-entidades.h:192</a></div></div>
+<div class="ttc" id="class_t_u_idioma_html"><div class="ttname"><a href="class_t_u_idioma.html">TUIdioma</a></div><div class="ttdoc">Testa vários idiomas inválidos e um idioma válido, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00362">unit-test-dominios.h:362</a></div></div>
+<div class="ttc" id="class_t_u_vocabulario_html"><div class="ttname"><a href="class_t_u_vocabulario.html">TUVocabulario</a></div><div class="ttdoc">Testa apenas um Vocabulário válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00153">unit-test-entidades.h:153</a></div></div>
+<div class="ttc" id="class_t_u_desenvolvedor_html"><div class="ttname"><a href="class_t_u_desenvolvedor.html">TUDesenvolvedor</a></div><div class="ttdoc">Testa um Desenvolvedor inválido e um válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00065">unit-test-entidades.h:65</a></div></div>
+<div class="ttc" id="class_t_u_definicao_html"><div class="ttname"><a href="class_t_u_definicao.html">TUDefinicao</a></div><div class="ttdoc">Testa apenas uma Definição válida, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00231">unit-test-entidades.h:231</a></div></div>
+<div class="ttc" id="class_t_u_telefone_html"><div class="ttname"><a href="class_t_u_telefone.html">TUTelefone</a></div><div class="ttdoc">Testa vários telefones inválidos e um telefone válido, para verificar o lançamento de exceções...</div><div class="ttdef"><b>Definition:</b> <a href="unit-test-dominios_8h_source.html#l00236">unit-test-dominios.h:236</a></div></div>
+<div class="ttc" id="class_t_u_administrador_html"><div class="ttname"><a href="class_t_u_administrador.html">TUAdministrador</a></div><div class="ttdoc">Testa um Administrador inválido e um válido, para verificar o lançamento de exceções. </div><div class="ttdef"><b>Definition:</b> <a href="unit-test-entidades_8h_source.html#l00107">unit-test-entidades.h:107</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

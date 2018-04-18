@@ -1,0 +1,257 @@
+# depslib dependency file v1.0
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/dominios.h
+	<iostream>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/entidades.h
+	"dominios.h"
+	<iostream>
+
+1523885309 source:/home/aluno/Área de trabalho/VocCtrl/main.cpp
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/unit-test-dominios.h
+	"dominios.h"
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/dominios.h
+	<iostream>
+
+1523921406 source:/home/yuriserka/Downloads/VocCtrl/entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921400 /home/yuriserka/Downloads/VocCtrl/entidades.h
+	"dominios.h"
+	<iostream>
+
+1523920341 source:/home/yuriserka/Downloads/VocCtrl/main.cpp
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/unit-test-dominios.h
+	"dominios.h"
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921482 source:/home/yuriserka/Downloads/VocCtrl/unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921387 source:/home/yuriserka/Downloads/VocCtrl/main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523886672 source:c:\users\yserk\downloads\vocctrl\dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 c:\users\yserk\downloads\vocctrl\dominios.h
+	<iostream>
+
+1523921406 source:c:\users\yserk\downloads\vocctrl\entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932801 c:\users\yserk\downloads\vocctrl\entidades.h
+	"dominios.h"
+	<iostream>
+
+1523921387 source:c:\users\yserk\downloads\vocctrl\main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523932199 c:\users\yserk\downloads\vocctrl\unit-test-dominios.h
+	"dominios.h"
+
+1523932529 c:\users\yserk\downloads\vocctrl\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523932199 c:\users\yserk\downloads\vocctrl\testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523933069 source:c:\users\yserk\downloads\vocctrl\testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932199 source:c:\users\yserk\downloads\vocctrl\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932529 source:c:\users\yserk\downloads\vocctrl\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921406 source:c:\users\administrador\downloads\vocctrl\entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932801 c:\users\administrador\downloads\vocctrl\entidades.h
+	"dominios.h"
+	<iostream>
+
+1523886672 c:\users\administrador\downloads\vocctrl\dominios.h
+	<iostream>
+
+1523886672 source:c:\users\administrador\downloads\vocctrl\dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921387 source:c:\users\administrador\downloads\vocctrl\main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523932199 c:\users\administrador\downloads\vocctrl\unit-test-dominios.h
+	"dominios.h"
+
+1523934383 c:\users\administrador\downloads\vocctrl\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523932199 c:\users\administrador\downloads\vocctrl\testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523933858 source:c:\users\administrador\downloads\vocctrl\testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523933710 source:c:\users\administrador\downloads\vocctrl\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932529 source:c:\users\administrador\downloads\vocctrl\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+

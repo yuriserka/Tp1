@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="unit-test-entidades.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7626" topLine="223" />
+		</Cursor>
+	</File>
+	<File name="unit-test-dominios.cc" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7254" topLine="299" />
+		</Cursor>
+	</File>
+	<File name="unit-test-entidades.cc" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5476" topLine="193" />
+		</Cursor>
+	</File>
+	<File name="main.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="244" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="testes.cc" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2427" topLine="79" />
+		</Cursor>
+	</File>
+	<File name="entidades.cc" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="672" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="entidades.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10153" topLine="404" />
+		</Cursor>
+	</File>
+	<File name="dominios.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9180" topLine="389" />
+		</Cursor>
+	</File>
+	<File name="dominios.cc" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3625" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="unit-test-dominios.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9845" topLine="421" />
+		</Cursor>
+	</File>
+	<File name="testes.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1068" topLine="52" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>
