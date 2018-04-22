@@ -20,8 +20,8 @@ void Nome::ValidaNome(string _nome) {
         throw invalid_argument("A primeira letra do nome deve ser maiuscula.\n");
     }
 
-    for (unsigned i = 0; i < _nome.size(); i++) {
-        if (_nome[i] >= '0' && _nome[i] <= '9') {
+    for (char i : _nome) {
+        if (i >= '0' && i <= '9') {
             throw invalid_argument("Nao sao permitidos numeros no nome.\n");
         }
     }
@@ -45,8 +45,8 @@ void Sobrenome::ValidaSobrenome(string _sobrenome) {
         throw invalid_argument("A primeira letra do sobrenome deve ser maiuscula.\n");
     }
 
-    for (unsigned i = 0; i < _sobrenome.size(); i++) {
-        if (_sobrenome[i] >= '0' && _sobrenome[i] <= '9') {
+    for (char i : _sobrenome) {
+        if (i >= '0' && i <= '9') {
             throw invalid_argument("Nao sao permitidos numeros no sobrenome.\n");
         }
     }
@@ -55,6 +55,10 @@ void Sobrenome::ValidaSobrenome(string _sobrenome) {
 void Sobrenome::SetSobrenome(string _sobrenome) {
     ValidaSobrenome(_sobrenome);
     this->sobrenome_ = _sobrenome;
+}
+
+Sobrenome::Sobrenome(const string &_sobrenome) {
+    SetSobrenome(_sobrenome);
 }
 
 void Senha::ValidaSenha(string _senha) {
@@ -68,14 +72,14 @@ void Senha::ValidaSenha(string _senha) {
 
     int maiusc = 0, minusc = 0, nums = 0;
 
-    for (unsigned i = 0; i < _senha.size(); i++) {
-        if (_senha[i] >= '0' && _senha[i] <= '9') {
+    for (char i : _senha) {
+        if (i >= '0' && i <= '9') {
             nums++;
         }
-        if (_senha[i] >= 'A' && _senha[i] <= 'Z') {
+        if (i >= 'A' && i <= 'Z') {
             maiusc++;
         }
-        if (_senha[i] >= 'a' && _senha[i] <= 'z') {
+        if (i >= 'a' && i <= 'z') {
             minusc++;
         }
     }
@@ -91,8 +95,8 @@ void Senha::SetSenha(string _senha) {
 }
 
 void Email::ValidaEmail(string _email) {
-    unsigned j;
-    bool FullNumerical = false, temLetra = false;
+    unsigned j = 0;
+    bool FullNumerical, temletra = false;
 
     if (_email.size() <= kmin_email_size_) {
         throw invalid_argument("email muito pequeno.\n");
@@ -133,7 +137,7 @@ void Email::ValidaEmail(string _email) {
 
     for (unsigned i = j + 1; i < _email.size(); i++) {
         if ((_email[i] >= 'a' && _email[i] <= 'z') || (_email[i] >= 'A' && _email[i] <= 'Z')) {
-            temLetra = true;
+            temletra = true;
         }
 
         else if (_email[i] == '@') {
@@ -145,12 +149,7 @@ void Email::ValidaEmail(string _email) {
         }
     }
 
-    if (temLetra) {
-        FullNumerical = false;
-    }
-    else {
-        FullNumerical = true;
-    }
+    FullNumerical = !temletra;
 
     if (FullNumerical) {
         throw invalid_argument("Dominios nao podem conter apenas números.\n");
@@ -165,6 +164,7 @@ void Email::SetEmail(string _email) {
 void Data::ValidaData(string _data) {
     string::size_type sz;
     bool bissexto = false;
+    int dia_int_, mes_int_, ano_int_;
 
     if (_data.size() <= kmin_data_size_) {
         throw invalid_argument("Data muito curta.\n");
@@ -186,7 +186,7 @@ void Data::ValidaData(string _data) {
         bissexto = true;
     }
 
-    if ((dia_int_ > kmax_dia_kFevereiro_ && mes_int_ == kFevereiro && bissexto == false) || dia_int_ > kmax_dia_ ||
+    if ((dia_int_ > kmax_dia_kFevereiro_ && mes_int_ == kFevereiro && !bissexto) || dia_int_ > kmax_dia_ ||
         dia_int_ < kmin_dia_ || mes_int_ > kmax_mes_ || mes_int_ < kmin_mes_ || ano_int_ < kmin_ano_ || ano_int_ > kmax_ano_)
     {
         throw invalid_argument("Dia invalido.\n");

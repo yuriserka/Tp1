@@ -29,7 +29,7 @@ class Nome {
      *
      * @param _nome é a string passada.
      */
-    Nome(const string &_nome) {
+    explicit Nome(const string &_nome) {
       SetNome(_nome);
     }
 
@@ -37,7 +37,7 @@ class Nome {
      * @brief Construtor padrão da classe Nome.
      *
      */
-    Nome() {}
+    Nome() = default;
 
     /**
 	  * @brief Seta o nome do objeto da classe Nome
@@ -77,15 +77,13 @@ class Sobrenome {
      *
      * @param _sobrenome é a string passada.
      */
-    Sobrenome(const string &_sobrenome) {
-      SetSobrenome(_sobrenome);
-    }
+    explicit Sobrenome(const string &_sobrenome);
 
     /**
      * @brief Construtor padrão da classe Sobrenome.
      *
      */
-    Sobrenome() {}
+    Sobrenome() = default;
 
     /**
 	  * @brief Seta o sobrenome do objeto da classe Sobrenome.
@@ -128,7 +126,7 @@ class Senha {
      *
      * @param _senha é a string passada.
      */
-    Senha(const string &_senha) {
+    explicit Senha(const string &_senha) {
       SetSenha(_senha);
     }
 
@@ -136,7 +134,7 @@ class Senha {
      * @brief Construtor padrão da classe Senha.
      *
      */
-    Senha() {}
+    Senha() = default;
 
     /**
 	  * @brief Seta a senha do objeto da classe Senha
@@ -182,7 +180,7 @@ class Email {
      *
      * @param _email é a string passada.
      */
-    Email(const string &_email) {
+    explicit Email(const string &_email) {
       SetEmail(_email);
     }
 
@@ -190,7 +188,7 @@ class Email {
      * @brief Construtor padrão da classe Email.
      *
      */
-    Email() {}
+    Email() = default;
 
     /**
 	  * @brief Seta o e-mail do objeto da classe Email
@@ -232,7 +230,7 @@ class Data {
      *
      * @param _data é a string passada.
      */
-    Data(const string &_data) {
+    explicit Data(const string &_data) {
       SetData(_data);
     }
 
@@ -240,7 +238,7 @@ class Data {
      * @brief Construtor padrão da classe Data.
      *
      */
-    Data() {}
+    Data() = default;
 
     /**
 	  * @brief Seta a data do objeto da classe Data
@@ -258,8 +256,8 @@ class Data {
 	  */
     string GetData() const { return data_; }
 
-  private:
-    int dia_int_, mes_int_, ano_int_;
+    private:
+
     string data_;
     const static int kmax_dia_ = 31, kmin_dia_ = 1, kmax_mes_ = 12, kmin_mes_ = 1, kmax_ano_ = 2099, kmin_ano_ = 1900;
     const static int kmax_dia_kFevereiro_ = 28, kpos_barra_dia_ = 2, kpos_barra_mes_ = 5;
@@ -299,7 +297,7 @@ class Telefone {
      *
      * @param _telefone é a string passada.
      */
-    Telefone(const string &_telefone) {
+    explicit Telefone(const string &_telefone) {
       SetTelefone(_telefone);
     }
 
@@ -307,7 +305,7 @@ class Telefone {
      * @brief Construtor padrão da classe Telefone.
      *
      */
-    Telefone() {}
+    Telefone() = default;
 
     /**
 	  * @brief Seta o telefone do objeto da classe Telefone
@@ -350,7 +348,7 @@ class Address {
      *
      * @param _address é a string passada.
      */
-    Address(const string &_address) {
+    explicit Address(const string &_address) {
       SetAddress(_address);
     }
 
@@ -358,7 +356,7 @@ class Address {
      * @brief Construtor padrão da classe Address.
      *
      */
-    Address() {}
+    Address() = default;
 
     /**
 	  * @brief Seta o endereço do objeto da classe Address
@@ -398,7 +396,7 @@ class TextoDefinicao {
      *
      * @param _definicao é a string passada.
      */
-    TextoDefinicao(const string &_definicao) {
+    explicit TextoDefinicao(const string &_definicao) {
       SetDefinicao(_definicao);
     }
 
@@ -406,7 +404,7 @@ class TextoDefinicao {
      * @brief Construtor padrão da classe TextoDefinicao.
      *
      */
-    TextoDefinicao() {}
+    TextoDefinicao() = default;
 
     /**
     * @brief Seta a definição do objeto da classe TextoDeDefinicao
@@ -446,7 +444,7 @@ class Idioma {
      *
      * @param _idioma é a string passada.
      */
-    Idioma(const string &_idioma) {
+    explicit Idioma(const string &_idioma) {
       SetIdioma(_idioma);
     }
 
@@ -454,7 +452,7 @@ class Idioma {
      * @brief Construtor padrão da classe Idioma.
      *
      */
-    Idioma() {}
+    Idioma() = default;
 
     /**
 	  * @brief Seta o idioma do objeto da classe Idioma
@@ -492,7 +490,7 @@ class ClasseDoTermo {
      *
      * @param _preferencia é a string passada.
      */
-    ClasseDoTermo(const string &_preferencia) {
+    explicit ClasseDoTermo(const string &_preferencia) {
       SetPreferencia(_preferencia);
     }
 
@@ -500,7 +498,7 @@ class ClasseDoTermo {
      * @brief Construtor padrão da classe ClasseDoTermo.
      *
      */
-    ClasseDoTermo() {}
+    ClasseDoTermo() = default;
 
     /**
 	  * @brief Seta a preferência do objeto da classe ClasseDoTermo

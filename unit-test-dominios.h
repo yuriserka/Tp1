@@ -8,7 +8,7 @@ using namespace std;
 /**
  * @file unit-test-dominios.h
  * @author Yuri Serka do Carmo Rodrigues
- * @date 7 de kAbril de 2018
+ * @date 7 de Abril de 2018
  *
  * @brief Descrição de todas as classes de Teste de Unidade das classes de Domínio.
  *
@@ -32,7 +32,7 @@ class TUNome {
      * @return true se as exceções foram capturadas corretamente e o Nome é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string knome_invalido_1_ = "";
@@ -43,7 +43,7 @@ class TUNome {
     const string knome_valido_ = "Matheus";
 
     Nome *nome_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         nome_ = new Nome();
@@ -74,7 +74,7 @@ class TUSobrenome {
      * @return true se as exceções foram capturadas corretamente e o Sobrenome é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string ksobrenome_invalido_1_ = "oliveira";
@@ -85,7 +85,7 @@ class TUSobrenome {
     const string ksobrenome_valido_ = "Vieira";
 
     Sobrenome *sobrenome_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         sobrenome_ = new Sobrenome();
@@ -116,7 +116,7 @@ class TUSenha {
      * @return true se as exceções foram capturadas corretamente e a Senha é válida.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string ksenha_invalida_1_ = "1l2zx35h";
@@ -128,7 +128,7 @@ class TUSenha {
     const string ksenha_valida_ = "Yh4uw0ed";
 
     Senha *senha_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         senha_ = new Senha();
@@ -159,7 +159,7 @@ class TUEmail {
      * @return true se as exceções foram capturadas corretamente e o Email é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kemail_invalido_1_ = "lekdoido@110.com";
@@ -173,7 +173,7 @@ class TUEmail {
     const string kemail_valido_ = "jeremias@hotmail.com";
 
     Email *email_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         email_ = new Email();
@@ -204,7 +204,7 @@ class TUData {
      * @return true se as exceções foram capturadas corretamente e a Data é válida.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kdata_invalida_1_ = "31/02/2018";
@@ -214,7 +214,7 @@ class TUData {
     const string kdata_valida_ = "12/10/1950";
 
     Data *data_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         data_ = new Data();
@@ -245,7 +245,7 @@ class TUTelefone {
      * @return true se as exceções foram capturadas corretamente e o Telefone é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string ktelefone_invalido_1_ = "61 984s2-2584";
@@ -257,7 +257,7 @@ class TUTelefone {
     const string telefone_valido = "61 98354-3214";
 
     Telefone *telefone_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         telefone_ = new Telefone();
@@ -288,7 +288,7 @@ class TUAddress {
      * @return true se as exceções foram capturadas corretamente e o endereço é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kendereco_invalido_1_ = " Rua 14 Sul, ap. 301";
@@ -299,7 +299,7 @@ class TUAddress {
     const string kendereco_valido_ = "Rua 20 Sul, ap. 503";
 
     Address *endereco_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         endereco_ = new Address();
@@ -330,7 +330,7 @@ class TUTextoDefinicao {
      * @return true se as exceções foram capturadas corretamente e a definição é válida.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kdefinicao_invalida_1_ = "1.atração baseada no desejo sexual.";
@@ -340,7 +340,7 @@ class TUTextoDefinicao {
     const string kdefinicao_valida_ = "5.forte afeição por alguém.";
 
     TextoDefinicao *texto_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         texto_ = new TextoDefinicao();
@@ -371,7 +371,7 @@ class TUIdioma {
      * @return true se as exceções foram capturadas corretamente e o idioma é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kidioma_invalido_1_ = "XAN";
@@ -381,7 +381,7 @@ class TUIdioma {
     const string kidioma_valido_ = "POR";
 
     Idioma *idioma_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         idioma_ = new Idioma();
@@ -412,7 +412,7 @@ class TUPreferencia {
      * @return true se as exceções foram capturadas corretamente e a preferência é válida.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     const string kpreferencia_invalida_1_ = "XD";
@@ -422,7 +422,7 @@ class TUPreferencia {
     const string kpreferencia_valida_ = "NP";
 
     ClasseDoTermo *preferido_;
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
         preferido_ = new ClasseDoTermo();

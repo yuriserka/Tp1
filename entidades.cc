@@ -13,9 +13,9 @@ void Leitor::ValidaSenhaEntidades(const Senha &senha) {
 
     _nome[0] += ' ';
 
-    for (unsigned i = 0; i < _senha.size(); i++) {
-        if(_senha[i] >= 'A' && _senha[i] <= 'Z') {
-            _senha[i] += ' ';
+    for (char &i : _senha) {
+        if(i >= 'A' && i <= 'Z') {
+            i += ' ';
         }
     }
 

@@ -38,7 +38,7 @@ void TULeitor::SuccessTest() {
     }
 }
 
-bool TULeitor::Run() {
+int TULeitor::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -81,7 +81,7 @@ void TUDesenvolvedor::SuccessTest() {
     }
 }
 
-bool TUDesenvolvedor::Run() {
+int TUDesenvolvedor::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -130,7 +130,7 @@ void TUAdministrador::SuccessTest() {
     }
 }
 
-bool TUAdministrador::Run() {
+int TUAdministrador::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -156,7 +156,7 @@ void TUVocabulario::SuccessTest() {
     }
 }
 
-bool TUVocabulario::Run() {
+int TUVocabulario::Run() {
     SetUp();
     SuccessTest();
     Destroy();
@@ -181,7 +181,7 @@ void TUTermo::SuccessTest() {
     }
 }
 
-bool TUTermo::Run() {
+int TUTermo::Run() {
     SetUp();
     SuccessTest();
     Destroy();
@@ -203,7 +203,7 @@ void TUDefinicao::SuccessTest() {
     }
 }
 
-bool TUDefinicao::Run() {
+int TUDefinicao::Run() {
     SetUp();
     SuccessTest();
     Destroy();

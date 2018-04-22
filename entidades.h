@@ -45,7 +45,7 @@ class Leitor {
     * @brief Construtor padrão da classe Leitor.
     *
     */
-    Leitor() {}
+    Leitor() = default;
 
     /**
      * @brief Seta o objeto Nome do Leitor.
@@ -151,7 +151,7 @@ class Desenvolvedor : public Leitor {
      * @brief Construtor padrão da classe Desenvolvedor.
      *
      */
-    Desenvolvedor() {}
+    Desenvolvedor() = default;
 
     /**
      * @brief Seta o objeto Data do Desenvolvedor.
@@ -210,7 +210,7 @@ class Administrador : public Desenvolvedor {
      * @brief Construtor padrão da classe Administrador.
      *
      */
-    Administrador() {}
+    Administrador() = default;
 
     /**
      * @brief Seta o objeto Telefone do Administrador.
@@ -274,7 +274,7 @@ class VocabularioControlado {
      * @brief Construtor padrão da classe VocabularioControlado.
      *
      */
-    VocabularioControlado() {}
+    VocabularioControlado() = default;
 
     /**
      * @brief Seta o objeto Data do VocabularioControlado.
@@ -356,7 +356,7 @@ class Termo : public VocabularioControlado {
      * @brief Construtor padrão da classe Termo.
      *
      */
-    Termo() {}
+    Termo() = default;
 
     /**
      * @brief Seta o objeto ClasseDoTermo do Termo.
@@ -396,7 +396,7 @@ class Definicao {
       SetData(_data);
     }
 
-    Definicao() {}
+    Definicao() = default;
 
     /**
      * @brief Seta o objeto Data da Definicao.

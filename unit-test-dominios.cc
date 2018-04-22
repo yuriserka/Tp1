@@ -38,7 +38,7 @@ void TUNome::SuccessTest() {
     }
 }
 
-bool TUNome::Run() {
+int TUNome::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -77,7 +77,7 @@ void TUSobrenome::SuccessTest() {
     }
 }
 
-bool TUSobrenome::Run() {
+int TUSobrenome::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -118,7 +118,7 @@ void TUSenha::SuccessTest() {
     }
 }
 
-bool TUSenha::Run() {
+int TUSenha::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -155,7 +155,7 @@ void TUData::SuccessTest() {
     }
 }
 
-bool TUData::Run() {
+int TUData::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -200,7 +200,7 @@ void TUEmail::SuccessTest() {
     }
 }
 
-bool TUEmail::Run() {
+int TUEmail::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -241,7 +241,7 @@ void TUTelefone::SuccessTest() {
     }
 }
 
-bool TUTelefone::Run() {
+int TUTelefone::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -280,7 +280,7 @@ void TUAddress::SuccessTest() {
     }
 }
 
-bool TUAddress::Run() {
+int TUAddress::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -317,7 +317,7 @@ void TUTextoDefinicao::SuccessTest() {
     }
 }
  
-bool TUTextoDefinicao::Run() {
+int TUTextoDefinicao::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -354,7 +354,7 @@ void TUIdioma::SuccessTest() {
     }
 }
 
-bool TUIdioma::Run() {
+int TUIdioma::Run() {
     SetUp();
     SuccessTest();
     FailTest();
@@ -391,7 +391,7 @@ void TUPreferencia::SuccessTest() {
     }
 }
 
-bool TUPreferencia::Run() {
+int TUPreferencia::Run() {
     SetUp();
     SuccessTest();
     FailTest();

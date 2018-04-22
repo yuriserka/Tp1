@@ -19,6 +19,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Nome\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_sobrenome_->Run()) {
@@ -30,6 +31,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Sobrenome\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_senha_->Run()) {
@@ -41,6 +43,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade da Senha\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_endereco_->Run()) {
@@ -52,6 +55,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Endereco\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_email_->Run()) {
@@ -63,6 +67,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Email\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_data_->Run()) {
@@ -74,6 +79,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade da Data\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_telefone_->Run()) {
@@ -85,6 +91,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Telefone\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_texto_definicao_->Run()) {
@@ -96,6 +103,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade de Definicao\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_idioma_->Run()) {
@@ -107,6 +115,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade de Idioma\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_preferencia_->Run()) {
@@ -118,6 +127,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade de Preferencia\n";
             break;
         }
+        default:break;
     }
 
     cout << "\n\tRodando testes de unidade das Entidades\n\n";
@@ -131,6 +141,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Leitor\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_desenvolvedor_->Run()) {
@@ -142,6 +153,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Desenvolvedor\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_administrador_->Run()) {
@@ -153,6 +165,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Administrador\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_termo_->Run()) {
@@ -164,6 +177,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Termo\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_vocabulario_->Run()) {
@@ -175,6 +189,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade do Vocabulario\n";
             break;
         }
+        default:break;
     }
 
     switch(teste_unidade_definicao_->Run()) {
@@ -186,6 +201,7 @@ void Teste::RunTestes() {
             cout << "Falha no teste de unidade de Definicao\n";
             break;
         }
+        default:break;
     }
 }
 

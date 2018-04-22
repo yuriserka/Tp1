@@ -33,11 +33,11 @@ class TULeitor {
      * @return true se as exceções foram capturadas corretamente e o Leitor é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     Leitor *leitor_valido_, *leitor_invalido_;
-    bool estado_;
+    int estado_;
 
     const Nome knome_valido_ = Nome("Mion");
     const Sobrenome ksobrenome_valido_ = Sobrenome("Limonada");
@@ -74,11 +74,11 @@ class TUDesenvolvedor {
      * @return true se as exceções foram capturadas corretamente e o Desenvolvedor é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     Desenvolvedor *desenvolvedor_valido, *desenvolvedor_invalido;
-    bool estado_;
+    int estado_;
 
     const Nome knome_valido_ = Nome("Mion");
     const Sobrenome ksobrenome_valido_ = Sobrenome("Limonada");
@@ -116,11 +116,11 @@ class TUAdministrador {
      * @return true se as exceções foram capturadas corretamente e o Administrador é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     Administrador *admin_valido, *admin_invalido;
-    bool estado_;
+    int estado_;
 
     const Nome knome_valido_ = Nome("Mion");
     const Sobrenome ksobrenome_valido_ = Sobrenome("Limonada");
@@ -163,14 +163,14 @@ class TUVocabulario {
      * @return true se as exceções foram capturadas corretamente e o Vocabulário é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     VocabularioControlado *valido_;
     const Nome knome_valido_ = Nome("Vocab");
     const Idioma kidioma_valido_ = Idioma("POR");
     const Data kdata_valida_ = Data("10/10/2015");
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
       valido_ = new VocabularioControlado(knome_valido_, kidioma_valido_, kdata_valida_);
@@ -182,7 +182,6 @@ class TUVocabulario {
     }
 
     void SuccessTest();
-    void FailTest();
 };
 
 /**
@@ -202,14 +201,14 @@ class TUTermo {
      * @return true se as exceções foram capturadas corretamente e o Termo é válido.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     Termo *valido_;
     const Nome knome_valido_ = Nome("Termo");
     const ClasseDoTermo kclasse_valida_ = ClasseDoTermo("PT");
     const Data kdata_valida_ = Data("10/10/2015");
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
       valido_ = new Termo(knome_valido_, kclasse_valida_, kdata_valida_);
@@ -221,7 +220,6 @@ class TUTermo {
     }
 
     void SuccessTest();
-    void FailTest();
 };
 
 /**
@@ -241,13 +239,13 @@ class TUDefinicao {
      * @return true se as exceções foram capturadas corretamente e a Defininção é válida.
      * @return false se alguma exceção não foi devidamente capturada.
      */
-    bool Run();
+    int Run();
 
   private:
     Definicao *valido_;
     const TextoDefinicao kdefinicao_valida_ = TextoDefinicao("Rave é daora");
     const Data kdata_valida_ = Data("10/10/2015");
-    bool estado_;
+    int estado_;
 
     inline void SetUp() {
       valido_ = new Definicao(kdefinicao_valida_, kdata_valida_);
@@ -259,7 +257,6 @@ class TUDefinicao {
     }
 
     void SuccessTest();
-    void FailTest();
 };
 
 #endif // VOC_CTRL_TUENTIDADES_H_
