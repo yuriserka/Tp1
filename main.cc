@@ -10,10 +10,10 @@ using namespace std;
 
 int main() {
 
-    Teste teste;
-    teste.Execute();
-    
-    return 0;
+  Teste teste;
+  teste.Execute();
+
+  return 0;
 }
 
 

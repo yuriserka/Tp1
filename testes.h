@@ -23,55 +23,55 @@ using namespace std;
  *
  */
 class Teste {
-  public:
+ public:
 
-    /**
-     * @brief roda todos os testes de unidade dos Dominios e das Entidades que estão definidos nos arquivos
-     *  TUEndidades e TUDominios.
-     *
-     */
-    void Execute();
+  /**
+   * @brief roda todos os testes de unidade dos Dominios e das Entidades que estão definidos nos arquivos
+   *  TUEndidades e TUDominios.
+   *
+   */
+  void Execute();
 
-  private:
-    TUNome *teste_unidade_nome_;
-    TUSobrenome *teste_unidade_sobrenome_;
-    TUSenha *teste_unidade_senha_;
-    TUAddress *teste_unidade_endereco_;
-    TUEmail *teste_unidade_email_;
-    TUData *teste_unidade_data_;
-    TUTelefone *teste_unidade_telefone_;
-    TUTextoDefinicao *teste_unidade_texto_definicao_;
-    TUIdioma *teste_unidade_idioma_;
-    TUPreferencia *teste_unidade_preferencia_;
-    TULeitor *teste_unidade_leitor_;
-    TUDesenvolvedor *teste_unidade_desenvolvedor_;
-    TUAdministrador *teste_unidade_administrador_;
-    TUVocabulario *teste_unidade_vocabulario_;
-    TUTermo *teste_unidade_termo_;
-    TUDefinicao * teste_unidade_definicao_;
+ private:
+  TUNome *teste_unidade_nome_;
+  TUSobrenome *teste_unidade_sobrenome_;
+  TUSenha *teste_unidade_senha_;
+  TUAddress *teste_unidade_endereco_;
+  TUEmail *teste_unidade_email_;
+  TUData *teste_unidade_data_;
+  TUTelefone *teste_unidade_telefone_;
+  TUTextoDefinicao *teste_unidade_texto_definicao_;
+  TUIdioma *teste_unidade_idioma_;
+  TUPreferencia *teste_unidade_preferencia_;
+  TULeitor *teste_unidade_leitor_;
+  TUDesenvolvedor *teste_unidade_desenvolvedor_;
+  TUAdministrador *teste_unidade_administrador_;
+  TUVocabulario *teste_unidade_vocabulario_;
+  TUTermo *teste_unidade_termo_;
+  TUDefinicao *teste_unidade_definicao_;
 
-    void RunTestes();
+  void RunTestes();
 
-    void SetUpTestes();
+  void SetUpTestes();
 
-    inline void Destroy() {
-        delete teste_unidade_administrador_;
-        delete teste_unidade_data_;
-        delete teste_unidade_texto_definicao_;
-        delete teste_unidade_desenvolvedor_;
-        delete teste_unidade_email_;
-        delete teste_unidade_endereco_;
-        delete teste_unidade_idioma_;
-        delete teste_unidade_leitor_;
-        delete teste_unidade_nome_;
-        delete teste_unidade_preferencia_;
-        delete teste_unidade_senha_;
-        delete teste_unidade_sobrenome_;
-        delete teste_unidade_telefone_;
-        delete teste_unidade_vocabulario_;
-        delete teste_unidade_termo_;
-        delete teste_unidade_definicao_;
-    }
+  inline void Destroy() {
+    delete teste_unidade_administrador_;
+    delete teste_unidade_data_;
+    delete teste_unidade_texto_definicao_;
+    delete teste_unidade_desenvolvedor_;
+    delete teste_unidade_email_;
+    delete teste_unidade_endereco_;
+    delete teste_unidade_idioma_;
+    delete teste_unidade_leitor_;
+    delete teste_unidade_nome_;
+    delete teste_unidade_preferencia_;
+    delete teste_unidade_senha_;
+    delete teste_unidade_sobrenome_;
+    delete teste_unidade_telefone_;
+    delete teste_unidade_vocabulario_;
+    delete teste_unidade_termo_;
+    delete teste_unidade_definicao_;
+  }
 };
 
 #endif // VOC_CTRL_TESTES_H_

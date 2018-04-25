@@ -22,45 +22,45 @@ using namespace std;
  *
  */
 class Nome {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Nome.
-     *
-     * @param _nome é a string passada.
-     */
-    explicit Nome(const string &_nome) {
-      SetNome(_nome);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Nome.
+   *
+   * @param _nome é a string passada.
+   */
+  explicit Nome(const string &_nome) {
+    SetNome(_nome);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Nome.
-     *
-     */
-    Nome() = default;
+  /**
+   * @brief Construtor padrão da classe Nome.
+   *
+   */
+  Nome() = default;
 
-    /**
-	  * @brief Seta o nome do objeto da classe Nome
-	  *
-    * Seta o nome se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o nome do objeto da classe Nome
     *
-	  * @param _nome é a string q o usuário vai passar.
-	  */
-    void SetNome(string _nome);
-
-    /**
-    * @brief retorna o nome do objeto da classe Nome
-    *
-    * @return string nome.
+  * Seta o nome se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _nome é a string q o usuário vai passar.
     */
-    string GetNome() const { return nome_; }
+  void SetNome(string _nome);
 
-  private:
-    string nome_;
-    const static unsigned kmax_nome_size_ = 20;
-    const static unsigned kmin_nome_size_ = 1;
+  /**
+  * @brief retorna o nome do objeto da classe Nome
+  *
+  * @return string nome.
+  */
+  string GetNome() const { return nome_; }
 
-    void ValidaNome(string _nome);
+ private:
+  string nome_;
+  const static unsigned kmax_nome_size_ = 20;
+  const static unsigned kmin_nome_size_ = 1;
+
+  void ValidaNome(string _nome);
 };
 
 /**
@@ -70,43 +70,43 @@ class Nome {
  *
  */
 class Sobrenome {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Sobrenome.
-     *
-     * @param _sobrenome é a string passada.
-     */
-    explicit Sobrenome(const string &_sobrenome);
+  /**
+   * @brief Constrói um novo objeto da classe Sobrenome.
+   *
+   * @param _sobrenome é a string passada.
+   */
+  explicit Sobrenome(const string &_sobrenome);
 
-    /**
-     * @brief Construtor padrão da classe Sobrenome.
-     *
-     */
-    Sobrenome() = default;
+  /**
+   * @brief Construtor padrão da classe Sobrenome.
+   *
+   */
+  Sobrenome() = default;
 
-    /**
-	  * @brief Seta o sobrenome do objeto da classe Sobrenome.
-	  *
-    * Seta o sobrenome se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o sobrenome do objeto da classe Sobrenome.
     *
-	  * @param _sobrenome é a string que o usuário vai passar.
-	  */
-    void SetSobrenome(string _sobrenome);
+  * Seta o sobrenome se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _sobrenome é a string que o usuário vai passar.
+    */
+  void SetSobrenome(string _sobrenome);
 
-    /**
-	  * @brief retorna o sobrenome do objeto da classe Sobrenome.
-	  *
-	  * @return string sobrenome.
-	  */
-    string GetSobrenome() const { return sobrenome_; }
+  /**
+    * @brief retorna o sobrenome do objeto da classe Sobrenome.
+    *
+    * @return string sobrenome.
+    */
+  string GetSobrenome() const { return sobrenome_; }
 
-  private:
-    string sobrenome_;
-    const static unsigned kmax_sobrenome_size_ = 20;
-    const static unsigned kmin_sobrenome_size_ = 1;
+ private:
+  string sobrenome_;
+  const static unsigned kmax_sobrenome_size_ = 20;
+  const static unsigned kmin_sobrenome_size_ = 1;
 
-    void ValidaSobrenome(string _sobrenome);
+  void ValidaSobrenome(string _sobrenome);
 };
 
 /**
@@ -119,45 +119,45 @@ class Sobrenome {
  *
  */
 class Senha {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Senha.
-     *
-     * @param _senha é a string passada.
-     */
-    explicit Senha(const string &_senha) {
-      SetSenha(_senha);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Senha.
+   *
+   * @param _senha é a string passada.
+   */
+  explicit Senha(const string &_senha) {
+    SetSenha(_senha);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Senha.
-     *
-     */
-    Senha() = default;
+  /**
+   * @brief Construtor padrão da classe Senha.
+   *
+   */
+  Senha() = default;
 
-    /**
-	  * @brief Seta a senha do objeto da classe Senha
-	  *
-    * Seta a senha se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta a senha do objeto da classe Senha
     *
-	  * @param _senha é a string que o usuário vai passar.
-	  */
-    void SetSenha(string _senha);
+  * Seta a senha se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _senha é a string que o usuário vai passar.
+    */
+  void SetSenha(string _senha);
 
-    /**
-	  * @brief retorna a senha do objeto da classe Senha
-	  *
-	  * @return string senha.
-	  */
-    string GetSenha() const { return senha_; }
+  /**
+    * @brief retorna a senha do objeto da classe Senha
+    *
+    * @return string senha.
+    */
+  string GetSenha() const { return senha_; }
 
-  private:
-    string senha_;
-    const static unsigned kmax_senha_size_ = 8;
-    const static int kminimo_maiuscula_ = 1, kminimo_minuscula_ = 1, kminimo_numero_ = 1;
+ private:
+  string senha_;
+  const static unsigned kmax_senha_size_ = 8;
+  const static int kminimo_maiuscula_ = 1, kminimo_minuscula_ = 1, kminimo_numero_ = 1;
 
-    void ValidaSenha(string _senha);
+  void ValidaSenha(string _senha);
 };
 
 /**
@@ -173,44 +173,44 @@ class Senha {
  *
  */
 class Email {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Email.
-     *
-     * @param _email é a string passada.
-     */
-    explicit Email(const string &_email) {
-      SetEmail(_email);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Email.
+   *
+   * @param _email é a string passada.
+   */
+  explicit Email(const string &_email) {
+    SetEmail(_email);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Email.
-     *
-     */
-    Email() = default;
+  /**
+   * @brief Construtor padrão da classe Email.
+   *
+   */
+  Email() = default;
 
-    /**
-	  * @brief Seta o e-mail do objeto da classe Email
-	  *
-    * Seta o e-mail se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o e-mail do objeto da classe Email
     *
-	  * @param _email é a string que o usuário vai passar.
-	  */
-    void SetEmail(string _email);
+  * Seta o e-mail se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _email é a string que o usuário vai passar.
+    */
+  void SetEmail(string _email);
 
-    /**
-	  * @brief retorna o e-mail do objeto da classe Email.
-	  *
-	  * @return string email.
-	  */
-    string GetEmail() const { return email_; }
+  /**
+    * @brief retorna o e-mail do objeto da classe Email.
+    *
+    * @return string email.
+    */
+  string GetEmail() const { return email_; }
 
-  private:
-    string email_;
-    const static unsigned kmin_email_size_ = 1;
+ private:
+  string email_;
+  const static unsigned kmin_email_size_ = 1;
 
-    void ValidaEmail(string _email);
+  void ValidaEmail(string _email);
 };
 
 /**
@@ -223,64 +223,63 @@ class Email {
  *
  */
 class Data {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Data.
-     *
-     * @param _data é a string passada.
-     */
-    explicit Data(const string &_data) {
-      SetData(_data);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Data.
+   *
+   * @param _data é a string passada.
+   */
+  explicit Data(const string &_data) {
+    SetData(_data);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Data.
-     *
-     */
-    Data() = default;
+  /**
+   * @brief Construtor padrão da classe Data.
+   *
+   */
+  Data() = default;
 
-    /**
-	  * @brief Seta a data do objeto da classe Data
-	  *
-    * Seta a data se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta a data do objeto da classe Data
     *
-	  * @param _data é a string que o usuário vai passar.
-	  */
-    void SetData(string _data);
+  * Seta a data se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _data é a string que o usuário vai passar.
+    */
+  void SetData(string _data);
 
-    /**
-	  * @brief retorna a data do objeto da classe Data.
-	  *
-	  * @return string data.
-	  */
-    string GetData() const { return data_; }
+  /**
+    * @brief retorna a data do objeto da classe Data.
+    *
+    * @return string data.
+    */
+  string GetData() const { return data_; }
 
-    private:
+ private:
 
-    string data_;
-    const static int kmax_dia_ = 31, kmin_dia_ = 1, kmax_mes_ = 12, kmin_mes_ = 1, kmax_ano_ = 2099, kmin_ano_ = 1900;
-    const static int kmax_dia_kFevereiro_ = 28, kpos_barra_dia_ = 2, kpos_barra_mes_ = 5;
-    const static unsigned kmin_data_size_ = 1;
+  string data_;
+  const static int kmax_dia_ = 31, kmin_dia_ = 1, kmax_mes_ = 12, kmin_mes_ = 1, kmax_ano_ = 2099, kmin_ano_ = 1900;
+  const static int kmax_dia_kFevereiro_ = 28, kpos_barra_dia_ = 2, kpos_barra_mes_ = 5;
+  const static unsigned kmin_data_size_ = 1;
 
-    void ValidaData(string _data);
+  void ValidaData(string _data);
 
-    enum Meses
-    {
-        knull, // para os meses ficarem com o indice certo
-        kJaneiro,
-        kFevereiro,
-        kMarco,
-        kAbril,
-        kMaio,
-        kJunho,
-        kJulho,
-        kAgosto,
-        kSetembro,
-        kOutubro,
-        kNovembro,
-        kDezembro
-    };
+  enum Meses {
+    knull, // para os meses ficarem com o indice certo
+    kJaneiro,
+    kFevereiro,
+    kMarco,
+    kAbril,
+    kMaio,
+    kJunho,
+    kJulho,
+    kAgosto,
+    kSetembro,
+    kOutubro,
+    kNovembro,
+    kDezembro
+  };
 };
 
 /**
@@ -290,45 +289,45 @@ class Data {
  *
  */
 class Telefone {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe telefone.
-     *
-     * @param _telefone é a string passada.
-     */
-    explicit Telefone(const string &_telefone) {
-      SetTelefone(_telefone);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe telefone.
+   *
+   * @param _telefone é a string passada.
+   */
+  explicit Telefone(const string &_telefone) {
+    SetTelefone(_telefone);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Telefone.
-     *
-     */
-    Telefone() = default;
+  /**
+   * @brief Construtor padrão da classe Telefone.
+   *
+   */
+  Telefone() = default;
 
-    /**
-	  * @brief Seta o telefone do objeto da classe Telefone
-	  *
-    * Seta o telefone se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o telefone do objeto da classe Telefone
     *
-	  * @param _telefone é a string que o usuário vai passar.
-	  */
-    void SetTelefone(string _telefone);
+  * Seta o telefone se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _telefone é a string que o usuário vai passar.
+    */
+  void SetTelefone(string _telefone);
 
-    /**
-	  * @brief retorna o telefone do objeto da classe Telefone
-	  *
-	  * @return string telefone.
-	  */
-    string GetTelefone() const { return telefone_; }
+  /**
+    * @brief retorna o telefone do objeto da classe Telefone
+    *
+    * @return string telefone.
+    */
+  string GetTelefone() const { return telefone_; }
 
-  private:
-    string telefone_;
-    const static unsigned kmin_telefone_size_ = 1;
-    const static int kspace_pos_ = 2, khifen_pos_ = 8;
+ private:
+  string telefone_;
+  const static unsigned kmin_telefone_size_ = 1;
+  const static int kspace_pos_ = 2, khifen_pos_ = 8;
 
-    void ValidaTelefone(string _telefone);
+  void ValidaTelefone(string _telefone);
 };
 
 /**
@@ -341,45 +340,45 @@ class Telefone {
  *
  */
 class Address {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Address.
-     *
-     * @param _address é a string passada.
-     */
-    explicit Address(const string &_address) {
-      SetAddress(_address);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Address.
+   *
+   * @param _address é a string passada.
+   */
+  explicit Address(const string &_address) {
+    SetAddress(_address);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Address.
-     *
-     */
-    Address() = default;
+  /**
+   * @brief Construtor padrão da classe Address.
+   *
+   */
+  Address() = default;
 
-    /**
-	  * @brief Seta o endereço do objeto da classe Address
-	  *
-    * Seta o endereço se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o endereço do objeto da classe Address
     *
-	  * @param _address é a string que o usuário vai passar.
-	  */
-    void SetAddress(string _address);
+  * Seta o endereço se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _address é a string que o usuário vai passar.
+    */
+  void SetAddress(string _address);
 
-    /**
-	  * @brief retorna o endereço do objeto da classe Address.
-	  *
-	  * @return string endereço.
-	  */
-    string GetAddress() const { return address_; }
+  /**
+    * @brief retorna o endereço do objeto da classe Address.
+    *
+    * @return string endereço.
+    */
+  string GetAddress() const { return address_; }
 
-  private:
-    string address_;
-    const static unsigned kmax_address_size_ = 20;
-    const static unsigned kmin_address_size_ = 1;
+ private:
+  string address_;
+  const static unsigned kmax_address_size_ = 20;
+  const static unsigned kmin_address_size_ = 1;
 
-    void ValidaAddress(string _address);
+  void ValidaAddress(string _address);
 };
 
 /**
@@ -389,44 +388,44 @@ class Address {
  *
  */
 class TextoDefinicao {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe TextoDefinicao.
-     *
-     * @param _definicao é a string passada.
-     */
-    explicit TextoDefinicao(const string &_definicao) {
-      SetDefinicao(_definicao);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe TextoDefinicao.
+   *
+   * @param _definicao é a string passada.
+   */
+  explicit TextoDefinicao(const string &_definicao) {
+    SetDefinicao(_definicao);
+  }
 
-    /**
-     * @brief Construtor padrão da classe TextoDefinicao.
-     *
-     */
-    TextoDefinicao() = default;
+  /**
+   * @brief Construtor padrão da classe TextoDefinicao.
+   *
+   */
+  TextoDefinicao() = default;
 
-    /**
-    * @brief Seta a definição do objeto da classe TextoDeDefinicao
+  /**
+  * @brief Seta a definição do objeto da classe TextoDeDefinicao
+  *
+  * Seta a definição se estiver de acordo com os padrões estabelecidos.
+  *
+  * @param _definicao é a string que o usuário vai passar.
+  */
+  void SetDefinicao(string _definicao);
+
+  /**
+    * @brief retorna a definição do objeto da classe TextoDeDefinicao.
     *
-    * Seta a definição se estiver de acordo com os padrões estabelecidos.
-    *
-    * @param _definicao é a string que o usuário vai passar.
+    * @return string definicao.
     */
-    void SetDefinicao(string _definicao);
+  string GetDefinicao() const { return definicao_; }
 
-    /**
-	  * @brief retorna a definição do objeto da classe TextoDeDefinicao.
-	  *
-	  * @return string definicao.
-	  */
-    string GetDefinicao() const { return definicao_; }
+ private:
+  string definicao_;
+  const static unsigned kmax_definicao_size_ = 30;
 
-  private:
-    string definicao_;
-    const static unsigned kmax_definicao_size_ = 30;
-
-    void ValidaDefinicao(string _definicao);
+  void ValidaDefinicao(string _definicao);
 };
 
 /**
@@ -437,43 +436,43 @@ class TextoDefinicao {
  *
  */
 class Idioma {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe Idioma.
-     *
-     * @param _idioma é a string passada.
-     */
-    explicit Idioma(const string &_idioma) {
-      SetIdioma(_idioma);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe Idioma.
+   *
+   * @param _idioma é a string passada.
+   */
+  explicit Idioma(const string &_idioma) {
+    SetIdioma(_idioma);
+  }
 
-    /**
-     * @brief Construtor padrão da classe Idioma.
-     *
-     */
-    Idioma() = default;
+  /**
+   * @brief Construtor padrão da classe Idioma.
+   *
+   */
+  Idioma() = default;
 
-    /**
-	  * @brief Seta o idioma do objeto da classe Idioma
-	  *
-    * Seta o idioma se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta o idioma do objeto da classe Idioma
     *
-	  * @param _idioma é a string que o usuário vai passar.
-	  */
-    void SetIdioma(string _idioma);
+  * Seta o idioma se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _idioma é a string que o usuário vai passar.
+    */
+  void SetIdioma(string _idioma);
 
-    /**
-	  * @brief retorna o idioma do objeto da classe Idioma.
-	  *
-	  * @return string idioma.
-	  */
-    string GetIdioma() const { return idioma_; }
+  /**
+    * @brief retorna o idioma do objeto da classe Idioma.
+    *
+    * @return string idioma.
+    */
+  string GetIdioma() const { return idioma_; }
 
-  private:
-    string idioma_;
+ private:
+  string idioma_;
 
-    void ValidaIdioma(string _idioma);
+  void ValidaIdioma(string _idioma);
 };
 
 /**
@@ -483,43 +482,43 @@ class Idioma {
  *
  */
 class ClasseDoTermo {
-  public:
+ public:
 
-    /**
-     * @brief Constrói um novo objeto da classe ClasseDoTermo.
-     *
-     * @param _preferencia é a string passada.
-     */
-    explicit ClasseDoTermo(const string &_preferencia) {
-      SetPreferencia(_preferencia);
-    }
+  /**
+   * @brief Constrói um novo objeto da classe ClasseDoTermo.
+   *
+   * @param _preferencia é a string passada.
+   */
+  explicit ClasseDoTermo(const string &_preferencia) {
+    SetPreferencia(_preferencia);
+  }
 
-    /**
-     * @brief Construtor padrão da classe ClasseDoTermo.
-     *
-     */
-    ClasseDoTermo() = default;
+  /**
+   * @brief Construtor padrão da classe ClasseDoTermo.
+   *
+   */
+  ClasseDoTermo() = default;
 
-    /**
-	  * @brief Seta a preferência do objeto da classe ClasseDoTermo
-	  *
-    * Seta a preferência se estiver de acordo com os padrões estabelecidos.
+  /**
+    * @brief Seta a preferência do objeto da classe ClasseDoTermo
     *
-	  * @param _preferencia é a string que o usuário vai passar.
-	  */
-    void SetPreferencia(string _preferencia);
+  * Seta a preferência se estiver de acordo com os padrões estabelecidos.
+  *
+    * @param _preferencia é a string que o usuário vai passar.
+    */
+  void SetPreferencia(string _preferencia);
 
-    /**
-	  * @brief retorna a preferência do objeto da classe ClasseDoTermo.
-	  *
-	  * @return string preferencia.
-	  */
-    string GetPreferencia() const { return preferencia_; }
+  /**
+    * @brief retorna a preferência do objeto da classe ClasseDoTermo.
+    *
+    * @return string preferencia.
+    */
+  string GetPreferencia() const { return preferencia_; }
 
-  private:
-    string preferencia_;
+ private:
+  string preferencia_;
 
-    void ValidaPreferencia(string _preferencia);
+  void ValidaPreferencia(string _preferencia);
 };
 
 #endif // VOC_CTRL_DOMINIOS_H_
