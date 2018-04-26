@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void TULeitor::FailTest() {
+void TULeitor::CasoFalha() {
   try {
     leitor_invalido_ = new Leitor(knome_valido_, ksobrenome_valido_, ksenha_invalida_, kemail_valido_);
     estado_ = false;
@@ -17,7 +17,7 @@ void TULeitor::FailTest() {
   }
 }
 
-void TULeitor::SuccessTest() {
+void TULeitor::CasoSucesso() {
   try {
     if (leitor_valido_->GetNome().GetNome() != knome_valido_.GetNome()) {
       estado_ = false;
@@ -38,15 +38,7 @@ void TULeitor::SuccessTest() {
   }
 }
 
-int TULeitor::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUDesenvolvedor::FailTest() {
+void TUDesenvolvedor::CasoFalha() {
   try {
     desenvolvedor_invalido = new Desenvolvedor(knome_valido_, ksobrenome_valido_,
                                                ksenha_invalida_, kemail_valido_, kdata_valida_);
@@ -57,7 +49,7 @@ void TUDesenvolvedor::FailTest() {
   }
 }
 
-void TUDesenvolvedor::SuccessTest() {
+void TUDesenvolvedor::CasoSucesso() {
   try {
     if (desenvolvedor_valido->GetNome().GetNome() != knome_valido_.GetNome()) {
       estado_ = false;
@@ -81,15 +73,7 @@ void TUDesenvolvedor::SuccessTest() {
   }
 }
 
-int TUDesenvolvedor::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUAdministrador::FailTest() {
+void TUAdministrador::CasoFalha() {
   try {
     admin_invalido = new Administrador(knome_valido_, ksobrenome_valido_, ksenha_invalida_, kemail_valido_,
                                        kdata_valida_, telefone_valido, kendereco_valido_);
@@ -100,7 +84,7 @@ void TUAdministrador::FailTest() {
   }
 }
 
-void TUAdministrador::SuccessTest() {
+void TUAdministrador::CasoSucesso() {
   try {
     if (admin_valido->GetNome().GetNome() != knome_valido_.GetNome()) {
       estado_ = false;
@@ -130,15 +114,7 @@ void TUAdministrador::SuccessTest() {
   }
 }
 
-int TUAdministrador::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUVocabulario::SuccessTest() {
+void TUVocabulario::CasoSucesso() {
   try {
     if (valido_->GetNome().GetNome() != knome_valido_.GetNome()) {
       estado_ = false;
@@ -156,14 +132,7 @@ void TUVocabulario::SuccessTest() {
   }
 }
 
-int TUVocabulario::Run() {
-  SetUp();
-  SuccessTest();
-  Destroy();
-  return estado_;
-}
-
-void TUTermo::SuccessTest() {
+void TUTermo::CasoSucesso() {
   try {
     if (valido_->GetNome().GetNome() != knome_valido_.GetNome()) {
       estado_ = false;
@@ -181,14 +150,7 @@ void TUTermo::SuccessTest() {
   }
 }
 
-int TUTermo::Run() {
-  SetUp();
-  SuccessTest();
-  Destroy();
-  return estado_;
-}
-
-void TUDefinicao::SuccessTest() {
+void TUDefinicao::CasoSucesso() {
   try {
     if (valido_->GetDefinicao().GetDefinicao() != kdefinicao_valida_.GetDefinicao()) {
       estado_ = false;
@@ -203,11 +165,81 @@ void TUDefinicao::SuccessTest() {
   }
 }
 
-int TUDefinicao::Run() {
-  SetUp();
-  SuccessTest();
-  Destroy();
-  return estado_;
-}
+void TUEntidades::RunEntidades() {
+  SetUpEntidades();
+  cout << "\n\tRodando testes de unidade das Entidades\n\n";
 
+  switch (teste_unidade_leitor_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Leitor\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Leitor\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_desenvolvedor_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Desenvolvedor\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Desenvolvedor\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_administrador_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Administrador\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Administrador\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_termo_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Termo\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Termo\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_vocabulario_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Vocabulario\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Vocabulario\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_definicao_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade de Definicao\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade de Definicao\n";
+      break;
+    }
+    default:break;
+  }
+  DestroyEntidades();
+}
 

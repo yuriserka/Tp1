@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void TUNome::FailTest() {
+void TUNome::CasoFalha() {
   try {
     nome_->SetNome(knome_invalido_1_);
     estado_ = false;
@@ -25,7 +25,7 @@ void TUNome::FailTest() {
   }
 }
 
-void TUNome::SuccessTest() {
+void TUNome::CasoSucesso() {
   try {
     nome_->SetNome(knome_valido_);
     if (nome_->GetNome() != knome_valido_) {
@@ -38,15 +38,7 @@ void TUNome::SuccessTest() {
   }
 }
 
-int TUNome::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUSobrenome::FailTest() {
+void TUSobrenome::CasoFalha() {
   try {
     sobrenome_->SetSobrenome(ksobrenome_invalido_1_);
     estado_ = false;
@@ -64,7 +56,7 @@ void TUSobrenome::FailTest() {
   }
 }
 
-void TUSobrenome::SuccessTest() {
+void TUSobrenome::CasoSucesso() {
   try {
     sobrenome_->SetSobrenome(ksobrenome_valido_);
     if (sobrenome_->GetSobrenome() != ksobrenome_valido_) {
@@ -77,15 +69,7 @@ void TUSobrenome::SuccessTest() {
   }
 }
 
-int TUSobrenome::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUSenha::FailTest() {
+void TUSenha::CasoFalha() {
   try {
     senha_->SetSenha(ksenha_invalida_1_);
     estado_ = false;
@@ -105,7 +89,7 @@ void TUSenha::FailTest() {
   }
 }
 
-void TUSenha::SuccessTest() {
+void TUSenha::CasoSucesso() {
   try {
     senha_->SetSenha(ksenha_valida_);
     if (senha_->GetSenha() != ksenha_valida_) {
@@ -118,15 +102,7 @@ void TUSenha::SuccessTest() {
   }
 }
 
-int TUSenha::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUData::FailTest() {
+void TUData::CasoFalha() {
   try {
     data_->SetData(kdata_invalida_1_);
     estado_ = false;
@@ -142,7 +118,7 @@ void TUData::FailTest() {
   }
 }
 
-void TUData::SuccessTest() {
+void TUData::CasoSucesso() {
   try {
     data_->SetData(kdata_valida_);
     if (data_->GetData() != kdata_valida_) {
@@ -155,15 +131,7 @@ void TUData::SuccessTest() {
   }
 }
 
-int TUData::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUEmail::FailTest() {
+void TUEmail::CasoFalha() {
   try {
     email_->SetEmail(kemail_invalido_1_);
     estado_ = false;
@@ -187,7 +155,7 @@ void TUEmail::FailTest() {
   }
 }
 
-void TUEmail::SuccessTest() {
+void TUEmail::CasoSucesso() {
   try {
     email_->SetEmail(kemail_valido_);
     if (email_->GetEmail() != kemail_valido_) {
@@ -200,15 +168,7 @@ void TUEmail::SuccessTest() {
   }
 }
 
-int TUEmail::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUTelefone::FailTest() {
+void TUTelefone::CasoFalha() {
   try {
     telefone_->SetTelefone(ktelefone_invalido_1_);
     estado_ = false;
@@ -228,7 +188,7 @@ void TUTelefone::FailTest() {
   }
 }
 
-void TUTelefone::SuccessTest() {
+void TUTelefone::CasoSucesso() {
   try {
     telefone_->SetTelefone(telefone_valido);
     if (telefone_->GetTelefone() != telefone_valido) {
@@ -241,15 +201,7 @@ void TUTelefone::SuccessTest() {
   }
 }
 
-int TUTelefone::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUAddress::FailTest() {
+void TUAddress::CasoFalha() {
   try {
     endereco_->SetAddress(kendereco_invalido_1_);
     estado_ = false;
@@ -267,7 +219,7 @@ void TUAddress::FailTest() {
   }
 }
 
-void TUAddress::SuccessTest() {
+void TUAddress::CasoSucesso() {
   try {
     endereco_->SetAddress(kendereco_valido_);
     if (endereco_->GetAddress() != kendereco_valido_) {
@@ -280,15 +232,7 @@ void TUAddress::SuccessTest() {
   }
 }
 
-int TUAddress::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUTextoDefinicao::FailTest() {
+void TUTextoDefinicao::CasoFalha() {
   try {
     texto_->SetDefinicao(kdefinicao_invalida_1_);
     estado_ = false;
@@ -304,7 +248,7 @@ void TUTextoDefinicao::FailTest() {
   }
 }
 
-void TUTextoDefinicao::SuccessTest() {
+void TUTextoDefinicao::CasoSucesso() {
   try {
     texto_->SetDefinicao(kdefinicao_valida_);
     if (texto_->GetDefinicao() != kdefinicao_valida_) {
@@ -317,15 +261,7 @@ void TUTextoDefinicao::SuccessTest() {
   }
 }
 
-int TUTextoDefinicao::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUIdioma::FailTest() {
+void TUIdioma::CasoFalha() {
   try {
     idioma_->SetIdioma(kidioma_invalido_1_);
     estado_ = false;
@@ -341,7 +277,7 @@ void TUIdioma::FailTest() {
   }
 }
 
-void TUIdioma::SuccessTest() {
+void TUIdioma::CasoSucesso() {
   try {
     idioma_->SetIdioma(kidioma_valido_);
     if (idioma_->GetIdioma() != kidioma_valido_) {
@@ -354,15 +290,7 @@ void TUIdioma::SuccessTest() {
   }
 }
 
-int TUIdioma::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
-}
-
-void TUPreferencia::FailTest() {
+void TUPreferencia::CasoFalha() {
   try {
     preferido_->SetPreferencia(kpreferencia_invalida_1_);
     estado_ = false;
@@ -378,7 +306,7 @@ void TUPreferencia::FailTest() {
   }
 }
 
-void TUPreferencia::SuccessTest() {
+void TUPreferencia::CasoSucesso() {
   try {
     preferido_->SetPreferencia(kpreferencia_valida_);
     if (preferido_->GetPreferencia() != kpreferencia_valida_) {
@@ -391,11 +319,129 @@ void TUPreferencia::SuccessTest() {
   }
 }
 
-int TUPreferencia::Run() {
-  SetUp();
-  SuccessTest();
-  FailTest();
-  Destroy();
-  return estado_;
+void TUDominios::RunDominios() {
+  SetUpDominios();
+  cout << "\tRodando testes de unidade dos Dominios\n\n";
+
+  switch (teste_unidade_nome_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Nome\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Nome\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_sobrenome_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Sobrenome\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Sobrenome\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_senha_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade da Senha\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade da Senha\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_endereco_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Endereco\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Endereco\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_email_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Email\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Email\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_data_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade da Data\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade da Data\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_telefone_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade do Telefone\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade do Telefone\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_texto_definicao_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade de Definicao\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade de Definicao\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_idioma_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade de Idioma\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade de Idioma\n";
+      break;
+    }
+    default:break;
+  }
+
+  switch (teste_unidade_preferencia_->Run()) {
+    case true: {
+      cout << "Sucesso no teste de unidade de Preferencia\n";
+      break;
+    }
+    case false: {
+      cout << "Falha no teste de unidade de Preferencia\n";
+      break;
+    }
+    default:break;
+  }
+  DestroyDominios();
 }
 

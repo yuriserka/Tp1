@@ -11,7 +11,7 @@ using namespace std;
 /**
  * @file Testes.h
  * @author Yuri Serka do Carmo Rodrigues
- * @date 7 de kAbril de 2018
+ * @date 7 de Abril de 2018
  *
  * @brief Realizará os testes de unidade das classes de dominio e das entidades.
  *
@@ -30,47 +30,29 @@ class Teste {
    *  TUEndidades e TUDominios.
    *
    */
-  void Execute();
+  void Execute() {
+    SetUpTestes();
+    RunTestes();
+    Destroy();
+  }
 
  private:
-  TUNome *teste_unidade_nome_;
-  TUSobrenome *teste_unidade_sobrenome_;
-  TUSenha *teste_unidade_senha_;
-  TUAddress *teste_unidade_endereco_;
-  TUEmail *teste_unidade_email_;
-  TUData *teste_unidade_data_;
-  TUTelefone *teste_unidade_telefone_;
-  TUTextoDefinicao *teste_unidade_texto_definicao_;
-  TUIdioma *teste_unidade_idioma_;
-  TUPreferencia *teste_unidade_preferencia_;
-  TULeitor *teste_unidade_leitor_;
-  TUDesenvolvedor *teste_unidade_desenvolvedor_;
-  TUAdministrador *teste_unidade_administrador_;
-  TUVocabulario *teste_unidade_vocabulario_;
-  TUTermo *teste_unidade_termo_;
-  TUDefinicao *teste_unidade_definicao_;
+  TUDominios *teste_unidade_dominios_;
+  TUEntidades *teste_unidade_entidades_;
 
-  void RunTestes();
+  inline void SetUpTestes() {
+    teste_unidade_dominios_ = new TUDominios();
+    teste_unidade_entidades_ = new TUEntidades();
+  }
 
-  void SetUpTestes();
+  void RunTestes() {
+    teste_unidade_dominios_->RunDominios();
+    teste_unidade_entidades_->RunEntidades();
+  }
 
   inline void Destroy() {
-    delete teste_unidade_administrador_;
-    delete teste_unidade_data_;
-    delete teste_unidade_texto_definicao_;
-    delete teste_unidade_desenvolvedor_;
-    delete teste_unidade_email_;
-    delete teste_unidade_endereco_;
-    delete teste_unidade_idioma_;
-    delete teste_unidade_leitor_;
-    delete teste_unidade_nome_;
-    delete teste_unidade_preferencia_;
-    delete teste_unidade_senha_;
-    delete teste_unidade_sobrenome_;
-    delete teste_unidade_telefone_;
-    delete teste_unidade_vocabulario_;
-    delete teste_unidade_termo_;
-    delete teste_unidade_definicao_;
+    delete teste_unidade_dominios_;
+    delete teste_unidade_entidades_;
   }
 };
 
