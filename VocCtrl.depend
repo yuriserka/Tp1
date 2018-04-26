@@ -255,3 +255,72 @@
 	<stdexcept>
 	<exception>
 
+1524782579 source:c:\users\yserk\clionprojects\tp1\dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1524624405 c:\users\yserk\clionprojects\tp1\dominios.h
+	<iostream>
+
+1524624406 source:c:\users\yserk\clionprojects\tp1\entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1524624406 c:\users\yserk\clionprojects\tp1\entidades.h
+	"dominios.h"
+	<iostream>
+
+1524783818 source:c:\users\yserk\clionprojects\tp1\main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	"UI.h"
+	<iostream>
+
+1524768174 c:\users\yserk\clionprojects\tp1\unit-test-dominios.h
+	"dominios.h"
+
+1524768174 c:\users\yserk\clionprojects\tp1\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1524768174 c:\users\yserk\clionprojects\tp1\testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1524783818 c:\users\yserk\clionprojects\tp1\ui.h
+	<vector>
+	"entidades.h"
+
+1524763806 source:c:\users\yserk\clionprojects\tp1\testes.cc
+
+1524782821 source:c:\users\yserk\clionprojects\tp1\ui.cc
+	"UI.h"
+	"dominios.h"
+	"entidades.h"
+	<iostream>
+	<string>
+
+1524765402 source:c:\users\yserk\clionprojects\tp1\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1524767250 source:c:\users\yserk\clionprojects\tp1\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+

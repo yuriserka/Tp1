@@ -41,12 +41,13 @@
 		<Unit filename="entidades.cc" />
 		<Unit filename="entidades.h" />
 		<Unit filename="main.cc" />
-		<Unit filename="testes.cc" />
 		<Unit filename="testes.h" />
 		<Unit filename="unit-test-dominios.cc" />
 		<Unit filename="unit-test-dominios.h" />
 		<Unit filename="unit-test-entidades.cc" />
 		<Unit filename="unit-test-entidades.h" />
+		<Unit filename="UI.cc" />
+		<Unit filename="UI.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -11,9 +11,10 @@ add_executable(Trabalho
     entidades.cc
     entidades.h
     main.cc
-    testes.cc
     testes.h
     unit-test-dominios.cc
     unit-test-dominios.h
     unit-test-entidades.cc
-    unit-test-entidades.h)
+    unit-test-entidades.h
+    UI.cc
+    UI.h)

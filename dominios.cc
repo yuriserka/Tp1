@@ -196,15 +196,15 @@ void Data::SetData(string _data) {
 
 void Telefone::ValidaTelefone(string _telefone) {
   if (_telefone.size() <= kmin_telefone_size_) {
-    throw invalid_argument("Telefone muito pequeno");
+    throw invalid_argument("numero de Telefone muito pequeno");
   }
 
   if (_telefone[kspace_pos_] != ' ') {
-    throw invalid_argument("Telefone esta com formato incorreto\n");
+    throw invalid_argument("Telefone esta com espaco na posicao incorreta.\n");
   }
 
   if (_telefone[khifen_pos_] != '-') {
-    throw invalid_argument("Telefone esta com formato incorreto\n");
+    throw invalid_argument("Telefone esta com o hifen na posicao incorreta.\n");
   }
 
   for (unsigned i = 0; i < _telefone.size(); i++) {
