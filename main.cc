@@ -1,18 +1,9 @@
-#include "entidades.h"
-#include "dominios.h"
-#include "unit-test-dominios.h"
-#include "unit-test-entidades.h"
-#include "testes.h"
-#include "UI.h"
+#include "apresentacao.h"
 
-#include <iostream>
-
-using namespace std;
+#include "bits/stdc++.h"
 
 int main() {
-
-  ApresentacaoAutenticacao menu = ApresentacaoAutenticacao();
-
+  ApresentacaoControle menu = ApresentacaoControle();
   menu.RunMenu();
 
   return 0;

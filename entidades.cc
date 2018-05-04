@@ -1,12 +1,5 @@
 #include "entidades.h"
 
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <exception>
-
-using namespace std;
-
 void Leitor::ValidaSenhaEntidades(const Senha &senha) {
   string _nome = nome_.GetNome();
   string _senha = senha.GetSenha();

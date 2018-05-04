@@ -1,12 +1,8 @@
 #ifndef VOC_CTRL_TESTES_H_
 #define VOC_CTRL_TESTES_H_
 
-#include "unit-test-dominios.h"
-#include "unit-test-entidades.h"
-
-#include <iostream>
-
-using namespace std;
+#include "teste-entidades.h"
+#include "teste-dominios.h"
 
 /**
  * @file Testes.h

@@ -1,6 +1,7 @@
 #ifndef VOC_CTRL_TUDOMINIOS_H_
 #define VOC_CTRL_TUDOMINIOS_H_
 
+#include "bits/stdc++.h"
 #include "dominios.h"
 
 using namespace std;
@@ -21,6 +22,11 @@ using namespace std;
  */
 class TUBaseDominios {
  public:
+  /**
+   * @brief construtor padrão da classe TUBaseDominios.
+   */
+  TUBaseDominios() = default;
+
   /**
    * @brief roda os casos de falha e de sucesso dos testes de unidade.
    * @return 1 se tudo estiver ok.

@@ -1,8 +1,8 @@
 #ifndef VOC_CTRL_TUENTIDADES_H_
 #define VOC_CTRL_TUENTIDADES_H_
 
+#include "bits/stdc++.h"
 #include "entidades.h"
-#include "dominios.h"
 
 using namespace std;
 

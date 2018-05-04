@@ -1,54 +1,14 @@
-#include "UI.h"
-#include "dominios.h"
-#include "entidades.h"
-
-#include <iostream>
-#include <string>
+#include "servicos.h"
+#include "apresentacao.h"
 
 #ifdef _WIN32
 #define CLEAR "cls"
 #else
 #define CLEAR "clear"
 #endif
+ApresentacaoControle xis = ApresentacaoControle();
 
-using namespace std;
-
-void ApresentacaoAutenticacao::Controle() {
-  int opt;
-  do {
-    system(CLEAR);
-    cout << "\tVocabularios Controlados\n\n";
-    cout << "Selecione alguma das alternativas abaixo para usar o sistema: \n";
-    cout << "1- Entrar.\n2- Cadastrar.\n3- Sair do programa\n";
-    cout << "\topcao: ";
-    cin >> opt;
-  } while (opt < 1 or opt > 3);
-
-  if (opt == 3) {
-    exit(0);
-  } else {
-    opt == 1 ? Entrar() : Selecao();
-  }
-}
-
-void ApresentacaoAutenticacao::Selecao() {
-  int opt;
-  do {
-    system(CLEAR);
-    cout << "Deseja se cadastrar como: \n";
-    cout << "1- Administrador.\n2- Desenvolvedor.\n3- Leitor.\n";
-    cout << "\toption: ";
-    cin >> opt;
-  } while (opt < 1 or opt > 3);
-
-  if (opt == 1) {
-    CadastroAdministrador();
-  } else {
-    opt == 2 ? CadastroDesenvolvedor() : CadastroLeitor();
-  }
-}
-
-void ApresentacaoAutenticacao::CadastroAdministrador() {
+void ServicoAutenticacao::CadastroAdministrador() {
   system(CLEAR);
   Administrador novoadministrador;
 
@@ -107,15 +67,15 @@ void ApresentacaoAutenticacao::CadastroAdministrador() {
     cout << "\n\t" << e.what() << "\n";
     cout << "Deseja sair e se cadastrar como outra coisa? [y / n] : ";
     cin >> exit;
-    exit == 'y' ? Selecao() : CadastroAdministrador();
+    exit == 'y' ? xis.Selecao() : CadastroAdministrador();
   }
   vector_administradores_.push_back(novoadministrador);
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
   system("pause");
-  Controle();
+  xis.Controle();
 }
 
-void ApresentacaoAutenticacao::CadastroDesenvolvedor() {
+void ServicoAutenticacao::CadastroDesenvolvedor() {
   system(CLEAR);
   Desenvolvedor novodesenvolvedor;
 
@@ -162,15 +122,15 @@ void ApresentacaoAutenticacao::CadastroDesenvolvedor() {
     cout << "\n\t" << e.what() << "\n";
     cout << "Deseja sair e se cadastrar como outra coisa? [y / n] : ";
     cin >> exit;
-    exit == 'y' ? Selecao() : CadastroDesenvolvedor();
+    exit == 'y' ? xis.Selecao() : CadastroDesenvolvedor();
   }
   vector_desenvolvedores_.push_back(novodesenvolvedor);
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
   system("pause");
-  Controle();
+  xis.Controle();
 }
 
-void ApresentacaoAutenticacao::CadastroLeitor() {
+void ServicoAutenticacao::CadastroLeitor() {
   system(CLEAR);
   Leitor novoleitor;
 
@@ -211,37 +171,16 @@ void ApresentacaoAutenticacao::CadastroLeitor() {
     cout << "\n\t" << e.what() << "\n";
     cout << "Deseja sair e se cadastrar como outra coisa? [y / n] : ";
     cin >> exit;
-    exit == 'y' ? Selecao() : CadastroLeitor();
+    exit == 'y' ? xis.Selecao() : CadastroLeitor();
   }
 
   vector_leitores_.push_back(novoleitor);
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
   system("pause");
-  Controle();
+  xis.Controle();
 }
 
-void ApresentacaoAutenticacao::Entrar() {
-  system(CLEAR);
-  string senha, email;
-
-  try {
-    cout << "Digite seu e-mail: ";
-    cin >> email;
-    email_digitado_ = Email(email);
-
-    cout << "Digite sua senha: ";
-    cin >> senha;
-    senha_digitada_ = Senha(senha);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-  }
-
-  Autenticar() ? cout << "Logado com sucesso!.\n" :
-  cout << "\te-mail ou senha incorretos, tente novamente.\n", system("pause"), Controle();
-}
-
-bool ApresentacaoAutenticacao::Autenticar() {
+bool ServicoAutenticacao::Autenticar() {
   bool ok = true;
 
   for (auto const &leitor : vector_leitores_) {

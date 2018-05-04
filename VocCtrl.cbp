@@ -35,19 +35,23 @@
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-pedantic" />
 		</Compiler>
+		<Unit filename="apresentacao.cc" />
+        <Unit filename="apresentacao.h" />
 		<Unit filename="dominios.cc" />
 		<Unit filename="dominios.h" />
 		<Unit filename="entidades.cc" />
 		<Unit filename="entidades.h" />
+        <Unit filename="interfaces.h" />
 		<Unit filename="main.cc" />
+		<Unit filename="servicos.cc" />
+        <Unit filename="servicos.h" />
+		<Unit filename="teste-dominios.cc" />
+		<Unit filename="teste-dominios.h" />
+		<Unit filename="teste-entidades.cc" />
+		<Unit filename="teste-entidades.h" />
 		<Unit filename="testes.h" />
-		<Unit filename="unit-test-dominios.cc" />
-		<Unit filename="unit-test-dominios.h" />
-		<Unit filename="unit-test-entidades.cc" />
-		<Unit filename="unit-test-entidades.h" />
-		<Unit filename="UI.cc" />
-		<Unit filename="UI.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

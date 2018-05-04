@@ -1,11 +1,4 @@
-#include "unit-test-dominios.h"
-
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <exception>
-
-using namespace std;
+#include "teste-dominios.h"
 
 void TUNome::CasoFalha() {
   try {

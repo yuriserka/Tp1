@@ -1,9 +1,8 @@
 #ifndef VOC_CTRL_ENTIDADES_H_
 #define VOC_CTRL_ENTIDADES_H_
 
+#include "bits/stdc++.h"
 #include "dominios.h"
-
-#include <iostream>
 
 using namespace std;
 
@@ -40,7 +39,6 @@ class Leitor {
     SetSenha(_senha);
     SetEmail(_email);
   }
-
   /**
   * @brief Construtor padrão da classe Leitor.
   *

@@ -1,7 +1,7 @@
 #ifndef VOC_CTRL_DOMINIOS_H_
 #define VOC_CTRL_DOMINIOS_H_
 
-#include <iostream>
+#include "bits/stdc++.h"
 
 using namespace std;
 

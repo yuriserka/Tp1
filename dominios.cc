@@ -1,12 +1,5 @@
 #include "dominios.h"
 
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <exception>
-
-using namespace std;
-
 void Nome::ValidaNome(string _nome) {
   if (_nome.size() <= kmin_nome_size_) {
     throw invalid_argument("Nome muito pequeno.\n");

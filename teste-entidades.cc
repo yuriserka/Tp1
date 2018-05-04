@@ -1,11 +1,4 @@
-#include "unit-test-entidades.h"
-
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <exception>
-
-using namespace std;
+#include "teste-entidades.h"
 
 void TULeitor::CasoFalha() {
   try {
