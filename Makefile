@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -g -Wall -pedantic -std=c++11
 TARGet = main
 LIBS = 
-SRCS = entidades.cc dominios.cc unit-test-dominios.cc unit-test-entidades.cc testes.cc main.cc
+SRCS = apresentacao.cc entidades.cc dominios.cc servicos.cc main.cc
 OBJS = $(SRCS:.c = .o)
 MAIN = exec
 

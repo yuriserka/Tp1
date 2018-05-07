@@ -1,6 +1,4 @@
 #include "apresentacao.h"
-#include "dominios.h"
-#include "servicos.h"
 
 #ifdef _WIN32
 #define CLEAR "cls"
@@ -8,60 +6,240 @@
 #define CLEAR "clear"
 #endif
 
-void ApresentacaoControle::Controle() {
-  int opt;
-  ApresentacaoAutenticacao y = ApresentacaoAutenticacao();
-  do {
-    system(CLEAR);
-    cout << "\tVocabularios Controlados\n\n";
-    cout << "Selecione alguma das alternativas abaixo para usar o sistema: \n";
-    cout << "1- Entrar.\n2- Cadastrar.\n3- Sair do programa\n";
-    cout << "\topcao: ";
-    cin >> opt;
-  } while (opt < 1 or opt > 3);
+ServicoAutenticacao sa_;
+ApresentacaoAutenticacao aa_;
+ApresentacaoControle ac_;
+ApresentacaoUsuario au_;
+ApresentacaoVocabulo av_;
+ServicoUsuario su_;
 
-  if (opt == 3) {
-    exit(0);
-  } else {
-    opt == 1 ? y.Entrar() : Selecao();
+void ApresentacaoControle::Controle() {
+  system(CLEAR);
+  cout << "Sistema Vocabularios Controlados\n\n";
+  cout << "Escolha uma das opcoes abaixo.\n\n";
+  if (aa_.logado_) {
+    cout << "Logado como: " << aa_.email_logado_.GetEmail() << "\n\n";
+  }
+  cout << "1. Entrar\n2. Cadastrar\n3. Trocar de Conta\n4. Sair\n\topcao: ";
+  int opt;
+  cin >> opt;
+
+  switch (opt) {
+    case 1:aa_.Entrar();
+      break;
+    case 2:ac_.Cadastrar();
+      break;
+    case 3:ac_.TrocarConta();
+      break;
+    case 4:exit(0);
+      break;
   }
 }
 
-void ApresentacaoControle::Selecao() {
-  int opt;
-  do {
-    system(CLEAR);
-    cout << "Deseja se cadastrar como: \n";
-    cout << "1- Administrador.\n2- Desenvolvedor.\n3- Leitor.\n";
-    cout << "\toption: ";
-    cin >> opt;
-  } while (opt < 1 or opt > 3);
-
-  if (opt == 1) {
-    sa.CadastroAdministrador();
+void ApresentacaoControle::TrocarConta() {
+  if (aa_.logado_) {
+    aa_.logado_ = false;
+    cout << "Voce foi desconectado de sua conta.\n";
+    system("pause");
+    ac_.Controle();
   } else {
-    opt == 2 ? sa.CadastroDesenvolvedor() : sa.CadastroLeitor();
+    cout << "Voce nao esta logado em nenhuma conta ainda.\n";
+    system("pause");
+    ac_.Controle();
   }
+}
+
+void ApresentacaoControle::Cadastrar() {
+  if (aa_.logado_) {
+    cout << "Voce ja esta logado.\n";
+    system("pause");
+    ac_.ControleLogado();
+  }
+  system(CLEAR);
+  cout << "Deseja se cadastrar como: \n\n";
+  cout << "1. Administrador\n2. Desenvolvedor\n3. Leitor\n4. Voltar\n\tOpcao: ";
+  int opt;
+  cin >> opt;
+
+  switch (opt) {
+    case 1:sa_.CadastrarAdministrador();
+      break;
+    case 2:sa_.CadastrarDesenvolvedor();
+      break;
+    case 3:sa_.CadastrarLeitor();
+      break;
+    case 4:ac_.Controle();
+      break;
+  }
+  ac_.Controle();
 }
 
 void ApresentacaoAutenticacao::Entrar() {
+  if (logado_) {
+    ac_.ControleLogado();
+  }
+
   system(CLEAR);
-  string senha, email;
-  ApresentacaoControle y = ApresentacaoControle();
+  string iemail, isenha;
+  Email email;
+  Senha senha;
 
   try {
-    cout << "Digite seu e-mail: ";
-    cin >> email;
-    sa.email_digitado_ = Email(email);
+    cout << "Email: ";
+    cin >> iemail;
+    email = Email(iemail);
 
-    cout << "Digite sua senha: ";
-    cin >> senha;
-    sa.senha_digitada_ = Senha(senha);
+    if (tentativas > 2) {
+      char recover;
+      cout << "Esqueceu a senha ? (y/n)\n\tOpcao: ";
+      cin >> recover;
+
+      if (recover == 'y') {
+        try {
+          sa_.RecuperarSenha(email);
+        }
+        catch (exception &e) {
+          cout << "\n\t" << e.what() << "\n";
+          cout << "Eh necessario se cadastrar primeiro.\n";
+          system("pause");
+          ac_.Controle();
+        }
+      }
+    }
+
+    cout << "Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
   }
+  catch (exception &e) {
+    cout << "Formato incorreto!\n\t" << e.what() << "\n";
+    system("pause");
+    tentativas++;
+    aa_.Entrar();
+  }
+
+  this->logado_ = sa_.Autenticar(email, senha);
+  this->email_logado_ = email;
+  aa_.VerificaLogin();
+}
+
+void ApresentacaoAutenticacao::VerificaLogin() {
+  if (logado_ == true) {
+    tentativas = 0;
+    cout << "\tRedirecionando...\n";
+    system("pause");
+    ac_.ControleLogado();
+  } else {
+    email_logado_ = Email("i.n.v.a.l.i.d.o@sakudgiu.com.br.us");  // email aleatorio invalido
+    cout << "Email ou Senha incorretos!\n";
+    system("pause");
+    ac_.Controle();
+  }
+}
+
+void ApresentacaoControle::ControleLogado() {
+  system(CLEAR);
+  cout << "\tBem-vindo!\n\n";
+  cout << "Escolha uma das opcoes abaixo.\n\n";
+  cout << "1. Acessar Dados da Conta\n2. Acessar Vocabulos\n3. Voltar ao Menu Principal\n\topcao: ";
+  int opt;
+  cin >> opt;
+
+  switch (opt) {
+    case 1:au_.Controle();
+      break;
+    case 2:av_.Controle();
+      break;
+    case 3:ac_.Controle();
+      break;
+  }
+}
+
+void ApresentacaoUsuario::Controle() {
+  system(CLEAR);
+  cout << "\tGestao de Usuario\n\n";
+  cout << "Escolha uma das opcoes abaixo.\n\n";
+  cout << "1. Editar Dados da Conta\n2. Excluir conta\n3. Mostrar Dados\n4. Voltar\n\topcao: ";
+  int opt;
+  cin >> opt;
+
+  switch (opt) {
+    case 1:au_.Editar();
+      break;
+    case 2:au_.Excluir();
+      break;
+    case 3:au_.Mostrar();
+      break;
+    case 4:ac_.ControleLogado();
+      break;
+  }
+}
+
+void ApresentacaoUsuario::Editar() {
+  system(CLEAR);
+  char opt;
+  cout << "Voce tem certeza que deseja continuar? (y/n)\n\tOpcao: ";
+  cin >> opt;
+
+  if (opt == 'y') {
+    try {
+      cout << "\tDigite todos os seus Dados novamente.\n\n";
+      switch (su_.TipoConta(aa_.email_logado_)) {
+        case 0:su_.AtualizarLeitor(aa_.email_logado_);
+          break;
+        case 1:su_.AtualizarDesenvolvedor(aa_.email_logado_);
+          break;
+        case 2:su_.AtualizarAdministrador(aa_.email_logado_);
+          break;
+      }
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+    }
+  } else {
+    au_.Controle();
+  }
+  ac_.Controle();
+}
+
+void ApresentacaoUsuario::Excluir() {
+  system(CLEAR);
+  char opt;
+  cout << "Voce tem certeza que deseja continuar? (y/n)\n\tOpcao: ";
+  cin >> opt;
+
+  if (opt == 'y') {
+    try {
+      su_.Deletar(aa_.email_logado_);
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+    }
+  } else {
+    au_.Controle();
+  }
+  cout << "Conta deletada com sucesso\n";
+  aa_.email_logado_ = Email("i.n.v.a.l.i.d.o@sakudgiu.com.br.us");  // email aleatorio invalido
+  aa_.logado_ = false;
+  system("pause");
+  ac_.Controle();
+}
+
+void ApresentacaoUsuario::Mostrar() {
+  system(CLEAR);
+  cout << "\tSeus dados\n\n";
+  try {
+    su_.Procurador(aa_.email_logado_);
+  } 
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }
+  system("pause");
+  au_.Controle();
+}
 
-  sa.Autenticar() ? cout << "Logado com sucesso!.\n" :
-  cout << "\te-mail ou senha incorretos, tente novamente.\n", system("pause"), y.Controle();
+void ApresentacaoVocabulo::Controle() {
+  cout << "Tem que ver como implementar isso ainda\n";
+  system("pause");
+  ac_.ControleLogado();
 }

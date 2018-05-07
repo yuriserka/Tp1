@@ -3,7 +3,7 @@
 #include "bits/stdc++.h"
 
 int main() {
-  ApresentacaoControle menu = ApresentacaoControle();
+  ApresentacaoControle menu;
   menu.RunMenu();
 
   return 0;

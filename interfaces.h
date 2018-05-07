@@ -1,8 +1,11 @@
 #ifndef TRABALHO_INTERFACES_H
 #define TRABALHO_INTERFACES_H
 
+#include "dominios.h"
+
 class Interfaces {
-  virtual bool Autenticar() = 0;
+ protected:
+  virtual bool Autenticar(const Email &, const Senha &) = 0;
 };
 
 #endif //TRABALHO_INTERFACES_H

@@ -1,25 +1,32 @@
 #ifndef TRABALHO_SERVICOS_H
 #define TRABALHO_SERVICOS_H
 
-#include "bits/stdc++.h"
-#include "interfaces.h"
 #include "entidades.h"
+#include "interfaces.h"
 
 using namespace std;
 
 class ServicoAutenticacao : public Interfaces {
  public:
-  bool Autenticar() override;
-  void CadastroAdministrador();
-  void CadastroDesenvolvedor();
-  void CadastroLeitor();
-  Email email_digitado_;
-  Senha senha_digitada_;
+  bool Autenticar(const Email &, const Senha &) override;
+
+  void CadastrarAdministrador();
+  void CadastrarDesenvolvedor();
+  void CadastrarLeitor();
+  void RecuperarSenha(const Email &);
 
  private:
-  vector<Leitor> vector_leitores_;
-  vector<Desenvolvedor> vector_desenvolvedores_;
-  vector<Administrador> vector_administradores_;
+  bool verificado_;
+};
+
+class ServicoUsuario : public Leitor {
+ public:
+  void AtualizarLeitor(const Email &);
+  void AtualizarDesenvolvedor(const Email &);
+  void AtualizarAdministrador(const Email &);
+  void Procurador(const Email &);
+  void Deletar(const Email &);
+  int TipoConta(const Email &);
 };
 
 #endif //TRABALHO_SERVICOS_H

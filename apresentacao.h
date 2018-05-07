@@ -6,20 +6,39 @@
 
 using namespace std;
 
-class ApresentacaoControle {
+class ApresentacaoControle : public ServicoAutenticacao {
  public:
   inline void RunMenu() {
     Controle();
   }
   void Controle();
-  void Selecao();
-  ServicoAutenticacao sa = ServicoAutenticacao();
+  void ControleLogado();
+  void Cadastrar();
+  void TrocarConta();
 };
 
-class ApresentacaoAutenticacao : public ServicoAutenticacao {
+class ApresentacaoAutenticacao {
  public:
   void Entrar();
-  ServicoAutenticacao sa = ServicoAutenticacao();
+  void VerificaLogin();
+  Email email_logado_;
+  bool logado_ = false;
+ private:
+  int tentativas = 0;
+};
+
+class ApresentacaoVocabulo {
+ public:
+  void Controle();
+};
+
+class ApresentacaoUsuario {
+ public:
+  void Controle();
+ private:
+  void Editar();
+  void Excluir();
+  void Mostrar();
 };
 
 #endif //VOC_CTRL_UI_H

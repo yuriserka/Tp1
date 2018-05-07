@@ -110,6 +110,19 @@ class Leitor {
    */
   inline Email GetEmail() const { return email_; }
 
+  /**
+   * @brief overload do operador == para fazer comparações de Emails
+   * 
+   * Compara o Email do atual elemento da classe com o que está sendo procurado.
+   * 
+   * @param procurado é o email que é passado para a comparação
+   * @return true se forem iguais.
+   * @return false se forem diferentes.
+   */
+  bool operator==(const Email &procurado) {
+    return (this->email_.GetEmail().compare(procurado.GetEmail()) == 0);
+  }
+
  protected:
   void ValidaSenhaEntidades(const Senha &_senha);
   Nome nome_;
