@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class ApresentacaoControle : public ServicoAutenticacao {
+class ApresentacaoControle {
  public:
   inline void RunMenu() {
     Controle();
