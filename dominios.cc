@@ -87,58 +87,67 @@ void Senha::SetSenha(string _senha) {
   this->senha_ = _senha;
 }
 
-void Email::ValidaEmail(string _email) {
-  unsigned j = 0;
-  bool FullNumerical, temletra = false;
+void Email::ValidaEmail(string email) {
+  auto arroba = email.find('@');
 
-  if (_email.size() <= kmin_email_size_) {
+  if (arroba >= email.size()) {
+    throw invalid_argument("Email invalido");
+  }
+
+  if (email.size() <= kmin_email_size_) {
     throw invalid_argument("email muito pequeno.\n");
   }
 
-  for (unsigned i = 0; i < _email.size(); i++) {
-    if (_email[i] == '!' || _email[i] == '#' || _email[i] == '$' || _email[i] == '%' ||
-        _email[i] == '&' || _email[i] == '*' || _email[i] == '+' || _email[i] == '-' ||
-        _email[i] == '/' || _email[i] == '=' || _email[i] == '?' || _email[i] == '^' ||
-        _email[i] == '_' || _email[i] == '{' || _email[i] == '}' || _email[i] == '|' ||
-        _email[i] == '.' || _email[i] == ';' || (_email[i] >= 'A' && _email[i] <= 'Z') ||
-        (_email[i] >= 'a' && _email[i] <= 'z') || (_email[i] >= '0' && _email[i] <= '9')) {
-      continue;
-    } else if (_email[i] == '@') {
-      j = i;
-      break;
-    } else {
-      throw invalid_argument("E-mail contem caracteres nao permitidos.\n");
+  string local   = email.substr(0, email.find('@'));
+
+  if (local.size() <= kmin_email_size_) {
+    throw invalid_argument("Email invalido");
+  }
+
+  string dominio = email.substr(email.find('@') + 1, email.size() - 1);
+
+    int numero = 0;
+
+    if(local[0] == '.' || local[local.size() - 1] == '.') {
+        throw invalid_argument("O primeiro e o ultimo caracter da parte local do email nao podem ser '.'");
     }
-  }
-  if (_email.front() == '.' || _email.back() == '.') {
-    throw invalid_argument("O e-mail nao pode começar e nem terminar com ponto.\n");
-  }
-
-  if (_email[j - 1] == '.') {
-    throw invalid_argument("A parte local do e-mail nao pode terminar com '.'\n");
-  }
-
-  if (_email[j + 1] == '-' || _email.back() == '-') {
-    throw invalid_argument("Dominios nao podem comecar e nem terminar com hifen.\n");
-  }
-
-  for (unsigned i = j + 1; i < _email.size(); i++) {
-    if ((_email[i] >= 'a' && _email[i] <= 'z') || (_email[i] >= 'A' && _email[i] <= 'Z')) {
-      temletra = true;
-    } else if (_email[i] == '@') {
-      throw invalid_argument("nao sao permitidos dois @'s no e-mail.\n");
+    
+    if(dominio[0] == '-' || dominio[0] == '.' || dominio[dominio.size() - 1] == '-' || dominio[dominio.size() - 1] == '.') {
+        throw invalid_argument("O primeiro e o ultimo caracter da parte dominio do email nao podem ser '-' ou '.'");
+    }
+    
+    for(unsigned i = 0; i < local.size(); i++) {
+        if(!((local[i] >= 'A' && local[i] <= 'Z') ||
+             (local[i] >= 'a' && local[i] <= 'z') ||
+             (local[i] >= '0' && local[i] <= '9'))) {
+            if(!(local[i] == '!' || local[i] == '#' || local[i] == '$' ||
+                 local[i] == '%' || local[i] == '&' || local[i] == '\''||
+                 local[i] == '*' || local[i] == '+' || local[i] == '-' ||
+                 local[i] == '/' || local[i] == '=' || local[i] == '?' ||
+                 local[i] == '^' || local[i] == '_' || local[i] == '`' ||
+                 local[i] == '{' || local[i] == '|' || local[i] == '}' ||
+                 local[i] == '~' || local[i] == ';' || local[i] == '.')) {
+                throw invalid_argument("A parte local do email pode conter letras, numeros ou os caracteres '!' '#' '$' '%' '&' ''' '*' '+' '-' '/' '=' '?' '^' '_' '`' '{' '|' '}' '~' ';'");
+            }
+        }
     }
 
-    if (_email[i] == '.') {
-      break;
+    for(unsigned i = 0; i < dominio.size(); i++) {
+        if(dominio[i] >= '0' && dominio[i] <= '9') {
+            numero++;
+        } else {
+            if(!((dominio[i] >= 'A' && dominio[i] <= 'Z') ||
+                 (dominio[i] >= 'a' && dominio[i] <= 'z'))) {
+                if(!(dominio[i] == '-' || dominio[i] == '.')) {
+                    throw invalid_argument("A parte dominio do email pode conter letras, numeros ou os caracteres '-' '.'");
+                }
+            }
+        }
     }
-  }
 
-  FullNumerical = !temletra;
-
-  if (FullNumerical) {
-    throw invalid_argument("Dominios nao podem conter apenas números.\n");
-  }
+    if(numero == (int) dominio.size()) {
+        throw invalid_argument("A parte dominio do email nao pode conter somente numeros");
+    }
 }
 
 void Email::SetEmail(string _email) {

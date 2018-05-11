@@ -28,4 +28,12 @@ class InterfaceServicoAutenticacao {
     virtual ~InterfaceServicoAutenticacao() = default;
 };
 
+class InterfaceApresentacaoControle {
+  public:
+    virtual void Inicializar() = 0;
+    virtual void Logado() = 0;
+    virtual void SetCtrlAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
+    virtual ~InterfaceApresentacaoControle() = default;
+};
+
 #endif //TRABALHO_INTERFACES_H

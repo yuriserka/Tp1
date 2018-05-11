@@ -6,7 +6,7 @@
 #include "bits/stdc++.h"
 
 int main() {
-  InterfaceApresentacaoAutenticacao *ctrl_iaa;
+  /*InterfaceApresentacaoAutenticacao *ctrl_iaa;
   InterfaceServicoAutenticacao *stub_isa;
   ctrl_iaa = new CtrlApresentacaoAutenticacao();
   stub_isa = new StubAutenticacao();
@@ -36,8 +36,10 @@ int main() {
 
   delete ctrl_iaa;
   delete stub_isa;
+*/
+  CtrlApresentacaoControle *ctrl_ac = new CtrlApresentacaoControle();
+
+  ctrl_ac->Inicializar();
 
   return 0;
 }
-
-
