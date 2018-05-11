@@ -60,7 +60,7 @@ void ServicoAutenticacao::CadastrarAdministrador() {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     CadastrarAdministrador();
   }
 
@@ -77,7 +77,7 @@ void ServicoAutenticacao::CadastrarAdministrador() {
 
   v_admin_.push_back(novoadministrador);
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
-  system("pause");
+  system(PAUSE);
 }
 
 void ServicoAutenticacao::CadastrarDesenvolvedor() {
@@ -116,7 +116,7 @@ void ServicoAutenticacao::CadastrarDesenvolvedor() {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     CadastrarDesenvolvedor();
   }
 
@@ -133,7 +133,7 @@ void ServicoAutenticacao::CadastrarDesenvolvedor() {
 
   v_desenvolvedor_.push_back(novodesenvolvedor);
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
-  system("pause");
+  system(PAUSE);
 }
 
 void ServicoAutenticacao::CadastrarLeitor() {
@@ -166,7 +166,7 @@ void ServicoAutenticacao::CadastrarLeitor() {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     CadastrarLeitor();
   }
 
@@ -184,7 +184,7 @@ void ServicoAutenticacao::CadastrarLeitor() {
   v_leitor_.push_back(novoleitor);
 
   cout << "Conta criada com sucesso, agora voce pode fazer login!\n";
-  system("pause");
+  system(PAUSE);
 }
 
 bool ServicoAutenticacao::Autenticar(const Email &email_procurado, const Senha &senha_procurada) {
@@ -331,7 +331,7 @@ void ServicoUsuario::AtualizarLeitor(const Email &_email) {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     AtualizarLeitor(_email);
   }
 
@@ -350,7 +350,7 @@ void ServicoUsuario::AtualizarLeitor(const Email &_email) {
   v_leitor_.push_back(novoleitor);
 
   cout << "Conta alterada com sucesso\n";
-  system("pause");
+  system(PAUSE);
 }
 
 void ServicoUsuario::AtualizarDesenvolvedor(const Email &_email) {
@@ -385,7 +385,7 @@ void ServicoUsuario::AtualizarDesenvolvedor(const Email &_email) {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     AtualizarDesenvolvedor(_email);
   }
 
@@ -404,7 +404,7 @@ void ServicoUsuario::AtualizarDesenvolvedor(const Email &_email) {
   v_desenvolvedor_.push_back(novodesenvolvedor);
 
   cout << "Conta alterada com sucesso\n";
-  system("pause");
+  system(PAUSE);
 }
 
 void ServicoUsuario::AtualizarAdministrador(const Email &_email) {
@@ -451,7 +451,7 @@ void ServicoUsuario::AtualizarAdministrador(const Email &_email) {
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     AtualizarAdministrador(_email);
   }
 
@@ -470,5 +470,5 @@ void ServicoUsuario::AtualizarAdministrador(const Email &_email) {
   v_admin_.push_back(novoadministrador);
 
   cout << "Conta alterada com sucesso\n";
-  system("pause");
+  system(PAUSE);
 }

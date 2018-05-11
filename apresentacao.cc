@@ -1,11 +1,5 @@
 #include "apresentacao.h"
 
-#ifdef _WIN32
-#define CLEAR "cls"
-#else
-#define CLEAR "clear"
-#endif
-
 ServicoAutenticacao sa_;
 ApresentacaoAutenticacao aa_;
 ApresentacaoControle ac_;
@@ -40,11 +34,11 @@ void ApresentacaoControle::TrocarConta() {
   if (aa_.logado_) {
     aa_.logado_ = false;
     cout << "Voce foi desconectado de sua conta.\n";
-    system("pause");
+    system(PAUSE);
     ac_.Controle();
   } else {
     cout << "Voce nao esta logado em nenhuma conta ainda.\n";
-    system("pause");
+    system(PAUSE);
     ac_.Controle();
   }
 }
@@ -52,7 +46,7 @@ void ApresentacaoControle::TrocarConta() {
 void ApresentacaoControle::Cadastrar() {
   if (aa_.logado_) {
     cout << "Voce ja esta logado.\n";
-    system("pause");
+    system(PAUSE);
     ac_.ControleLogado();
   }
   system(CLEAR);
@@ -101,7 +95,7 @@ void ApresentacaoAutenticacao::Entrar() {
         catch (exception &e) {
           cout << "\n\t" << e.what() << "\n";
           cout << "Eh necessario se cadastrar primeiro.\n";
-          system("pause");
+          system(PAUSE);
           ac_.Controle();
         }
       }
@@ -113,7 +107,7 @@ void ApresentacaoAutenticacao::Entrar() {
   }
   catch (exception &e) {
     cout << "Formato incorreto!\n\t" << e.what() << "\n";
-    system("pause");
+    system(PAUSE);
     tentativas++;
     aa_.Entrar();
   }
@@ -125,14 +119,11 @@ void ApresentacaoAutenticacao::Entrar() {
 
 void ApresentacaoAutenticacao::VerificaLogin() {
   if (logado_ == true) {
-    tentativas = 0;
-    cout << "\tRedirecionando...\n";
-    system("pause");
     ac_.ControleLogado();
   } else {
     email_logado_ = Email("i.n.v.a.l.i.d.o@sakudgiu.com.br.us");  // email aleatorio invalido
     cout << "Email ou Senha incorretos!\n";
-    system("pause");
+    system(PAUSE);
     ac_.Controle();
   }
 }
@@ -221,7 +212,7 @@ void ApresentacaoUsuario::Excluir() {
   cout << "Conta deletada com sucesso\n";
   aa_.email_logado_ = Email("i.n.v.a.l.i.d.o@sakudgiu.com.br.us");  // email aleatorio invalido
   aa_.logado_ = false;
-  system("pause");
+  system(PAUSE);
   ac_.Controle();
 }
 
@@ -234,12 +225,12 @@ void ApresentacaoUsuario::Mostrar() {
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }
-  system("pause");
+  system(PAUSE);
   au_.Controle();
 }
 
 void ApresentacaoVocabulo::Controle() {
   cout << "Tem que ver como implementar isso ainda\n";
-  system("pause");
+  system(PAUSE);
   ac_.ControleLogado();
 }

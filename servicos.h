@@ -6,6 +6,14 @@
 
 using namespace std;
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#define PAUSE "pause"
+#else
+#define CLEAR "clear"
+#define PAUSE "read -p \"Digite Enter para sair"\" saindo"
+#endif
+
 class ServicoAutenticacao : public Interfaces {
  public:
   bool Autenticar(const Email &, const Senha &) override;
