@@ -114,21 +114,38 @@ void CtrlApresentacaoUsuario::Executar(const Email &email) {
     switch (opt) {
       case kmostrar:
         if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
-          Leitor novoleitor = stub_u->CriaLeitor(email);
+          Leitor novoleitor = ctrl_servico_usuario_->CriaLeitor(email);
           ctrl_servico_usuario_->ExibirLeitor(novoleitor);
         } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
-          Desenvolvedor novodesenvolvedor = stub_u->CriaDesenvolvedor(email);
+          Desenvolvedor novodesenvolvedor = ctrl_servico_usuario_->CriaDesenvolvedor(email);
           ctrl_servico_usuario_->ExibirDesenvolvedor(novodesenvolvedor);
         } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-          Administrador novoadministrador = stub_u->CriaAdministrador(email);
+          Administrador novoadministrador = ctrl_servico_usuario_->CriaAdministrador(email);
           ctrl_servico_usuario_->ExibirAdministrador(novoadministrador);
         } else {
           cout << "Email nao suportado pelos triggers\n";
           system(PAUSE);
         }
         break;
-      case keditar:break;
-      case kexcluir:break;
+      case keditar:
+        system(CLEAR);
+        if(ctrl_servico_usuario_->Editar(email).GetResultado() == Resultado::SUCESSO) {
+          cout << "Sucesso ao Editar" << endl;
+        } else {
+          cout << "Falha ao Editar" << endl;
+        }
+        system(PAUSE);
+        break;
+      case kexcluir:
+        system(CLEAR);
+        if(ctrl_servico_usuario_->Excluir(email).GetResultado() == Resultado::SUCESSO) {
+          cout << "Sucesso ao Excluir" << endl;
+          opt = kvoltar;
+        } else {
+          cout << "Falha ao Excluir" << endl;
+        }
+        system(PAUSE);
+        break;
       case kvoltar:break;
     }
   } while (opt != kvoltar);

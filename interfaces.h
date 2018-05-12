@@ -47,6 +47,9 @@ class InterfaceServicoUsuario {
   virtual void ExibirLeitor(const Leitor &) = 0;
   virtual void ExibirDesenvolvedor(const Desenvolvedor &) = 0;
   virtual void ExibirAdministrador(const Administrador &) = 0;
+  virtual Leitor CriaLeitor(const Email &) = 0;
+  virtual Desenvolvedor CriaDesenvolvedor(const Email &) = 0;
+  virtual Administrador CriaAdministrador(const Email &) = 0;
   virtual ~InterfaceServicoUsuario() = default;
 };
 

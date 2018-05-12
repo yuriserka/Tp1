@@ -20,9 +20,9 @@ class StubUsuario : public InterfaceServicoUsuario {
   void ExibirLeitor(const Leitor &) override;
   void ExibirDesenvolvedor(const Desenvolvedor &) override;
   void ExibirAdministrador(const Administrador &) override;
-  Leitor CriaLeitor(const Email &);
-  Desenvolvedor CriaDesenvolvedor(const Email &);
-  Administrador CriaAdministrador(const Email &);
+  Leitor CriaLeitor(const Email &) override;
+  Desenvolvedor CriaDesenvolvedor(const Email &) override;
+  Administrador CriaAdministrador(const Email &) override;
 };
 
 #endif  // TRABALHO__STUBS_H__

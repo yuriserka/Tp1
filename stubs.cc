@@ -23,15 +23,12 @@ Resultado StubUsuario::Editar(const Email &email) {
   Resultado resultado;
   resultado.SetResultado(Resultado::SUCESSO);
   return resultado;
-  system(PAUSE);
 }
 
 Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
-  if (email.GetEmail() == StubAutenticacao::ktrigger_erro_sistema_)
-    resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::SUCESSO);
   return resultado;
-  system(PAUSE);
 }
 
 void StubUsuario::ExibirLeitor(const Leitor &leitor) {
