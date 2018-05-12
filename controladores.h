@@ -3,17 +3,6 @@
 
 #include "interfaces.h"
 
-class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
- public:
-  ResultadoAutenticar Autenticar() override;
-  inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
-    this->ctrl_servico_autenticacao_ = isa;
-  }
-
- private:
-  InterfaceServicoAutenticacao *ctrl_servico_autenticacao_;
-};
-
 class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
  public:
   void Inicializar() override;
@@ -44,6 +33,17 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
   };
 };
 
+class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
+ public:
+  ResultadoAutenticar Autenticar() override;
+  inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
+    this->ctrl_servico_autenticacao_ = isa;
+  }
+
+ private:
+  InterfaceServicoAutenticacao *ctrl_servico_autenticacao_;
+};
+
 class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
  public:
   void Executar(const Email &_email) override;
@@ -54,9 +54,9 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
   InterfaceServicoUsuario *ctrl_servico_usuario_;
   enum {
     null,
+    kmostrar,
     keditar,
     kexcluir,
-    kmostrar,
     kvoltar
   };
 };

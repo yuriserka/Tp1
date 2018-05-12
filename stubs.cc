@@ -19,6 +19,21 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
+Resultado StubUsuario::Editar(const Email &email) {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+  system(PAUSE);
+}
+
+Resultado StubUsuario::Excluir(const Email &email) {
+  Resultado resultado;
+  if (email.GetEmail() == StubAutenticacao::ktrigger_erro_sistema_)
+    resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+  system(PAUSE);
+}
+
 void StubUsuario::ExibirLeitor(const Leitor &leitor) {
   system(CLEAR);
   cout << "Nome: " << leitor.GetNome().GetNome() << " ";
@@ -47,21 +62,6 @@ void StubUsuario::ExibirAdministrador(const Administrador &administrador) {
   cout << "Data de Nascimento: " << administrador.GetDataDeNascimento().GetData() << "\n";
   cout << "Telefone: " << administrador.GetTelefone().GetTelefone() << "\n";
   cout << "Endereco: " << administrador.GetEndereco().GetAddress() << "\n";
-  system(PAUSE);
-}
-
-Resultado StubUsuario::Editar(const Email &email) {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
-  return resultado;
-  system(PAUSE);
-}
-
-Resultado StubUsuario::Excluir(const Email &email) {
-  Resultado resultado;
-  if (email.GetEmail() == StubAutenticacao::ktrigger_erro_sistema_)
-    resultado.SetResultado(Resultado::SUCESSO);
-  return resultado;
   system(PAUSE);
 }
 
