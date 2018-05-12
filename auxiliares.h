@@ -4,32 +4,32 @@
 #include "dominios.h"
 
 class Resultado {
-  public:
-    const static int SUCESSO = 1;
-    const static int FALHA   = 0;
+ public:
+  const static int SUCESSO = 1;
+  const static int FALHA = 0;
 
-    inline void SetResultado(int valor) {
-      this->valor = valor;
-    }
+  inline void SetResultado(int valor) {
+    this->valor = valor;
+  }
 
-    inline int GetResultado() const {
-      return valor;
-    }
-  private:
-    int valor;
+  inline int GetResultado() const {
+    return valor;
+  }
+ private:
+  int valor;
 };
 
 class ResultadoAutenticar : public Resultado {
-  public:
-    inline void SetEmailResultado(const Email &email) {
-      this->email_ = email;
-    }
+ public:
+  inline void SetEmailResultado(const Email &email) {
+    this->email_ = email;
+  }
 
-    Email GetEmailResultado() const {
-      return email_;
-    }
-  private:
-    Email email_;
+  Email GetEmailResultado() const {
+    return email_;
+  }
+ private:
+  Email email_;
 };
 
 #endif // TRABALHO__AUX__H__

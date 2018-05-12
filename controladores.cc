@@ -9,7 +9,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   Email email;
   Senha senha;
 
-  while(true) {
+  while (true) {
     system(CLEAR);
     try {
       cout << "Email: ";
@@ -57,20 +57,17 @@ void CtrlApresentacaoControle::Inicializar() {
     cin >> opt;
     ResultadoAutenticar resultado;
 
-    switch(opt) {
-      case Controle::kentrar:
-        SetCtrlAutenticacao(ctrl_iaa);
+    switch (opt) {
+      case Controle::kentrar:SetCtrlAutenticacao(ctrl_iaa);
         resultado = ctrl_apresentacao_autenticacao_->Autenticar();
         if (resultado.GetResultado() == ResultadoAutenticar::SUCESSO) {
           ControleLogado(resultado.GetEmailResultado());
         }
         break;
-      case Controle::kcadastrar:
-        break;
-      case Controle::ksair:
-        break;
+      case Controle::kcadastrar:break;
+      case Controle::ksair:break;
     }
-  }while(opt != ksair);
+  } while (opt != ksair);
   delete ctrl_iaa;
   delete stub_a;
 }
@@ -84,21 +81,18 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
     cout << "\tBem-vindo!\n\n";
     cout << "Escolha uma das opcoes abaixo.\n\n";
     cout << kgestao_usuario << ". Acessar Conta\n";
-    cout << kgestao_vocabulo << ". Acessar Vocabulos\n"; 
+    cout << kgestao_vocabulo << ". Acessar Vocabulos\n";
     cout << kvoltar << ". Voltar ao Menu Principal\n\topcao: ";
     cin >> opt;
 
     switch (opt) {
-      case ControleLogado::kgestao_usuario: 
-        SetCtrlApresentacaoUsuario(ctrl_iau);
+      case ControleLogado::kgestao_usuario:SetCtrlApresentacaoUsuario(ctrl_iau);
         ctrl_apresentacao_usuario_->Executar(email);
         break;
-      case ControleLogado::kgestao_vocabulo:
-        break;
-      case ControleLogado::kvoltar:
-        break;
+      case ControleLogado::kgestao_vocabulo:break;
+      case ControleLogado::kvoltar:break;
     }
-  }while(opt != kvoltar);
+  } while (opt != kvoltar);
   delete ctrl_iau;
 }
 
@@ -121,10 +115,8 @@ void CtrlApresentacaoUsuario::Executar(const Email &email) {
     cin >> opt;
 
     switch (opt) {
-      case keditar:
-        break;
-      case kexcluir:
-        break;
+      case keditar:break;
+      case kexcluir:break;
       case kmostrar:
         if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
           ctrl_servico_usuario_->ExibirLeitor(novoleitor);
@@ -137,9 +129,8 @@ void CtrlApresentacaoUsuario::Executar(const Email &email) {
           system(PAUSE);
         }
         break;
-      case kvoltar:
-        break;
+      case kvoltar:break;
     }
-  }while(opt != kvoltar);
+  } while (opt != kvoltar);
   delete stub_u;
 }

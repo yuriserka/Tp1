@@ -6,71 +6,63 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/YSerk/CLionProjects/Tp1/apresentacao.cc
-apresentacao.h
-C:/Users/YSerk/CLionProjects/Tp1/apresentacao.h
-
-C:/Users/YSerk/CLionProjects/Tp1/apresentacao.h
-bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
-servicos.h
-C:/Users/YSerk/CLionProjects/Tp1/servicos.h
-
-C:/Users/YSerk/CLionProjects/Tp1/dominios.cc
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/auxiliares.h
 dominios.h
-C:/Users/YSerk/CLionProjects/Tp1/dominios.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.h
 
-C:/Users/YSerk/CLionProjects/Tp1/dominios.h
-bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
-
-C:/Users/YSerk/CLionProjects/Tp1/entidades.cc
-entidades.h
-C:/Users/YSerk/CLionProjects/Tp1/entidades.h
-
-C:/Users/YSerk/CLionProjects/Tp1/entidades.h
-bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
-dominios.h
-C:/Users/YSerk/CLionProjects/Tp1/dominios.h
-
-C:/Users/YSerk/CLionProjects/Tp1/interfaces.h
-dominios.h
-C:/Users/YSerk/CLionProjects/Tp1/dominios.h
-
-C:/Users/YSerk/CLionProjects/Tp1/main.cc
-apresentacao.h
-C:/Users/YSerk/CLionProjects/Tp1/apresentacao.h
-bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
-
-C:/Users/YSerk/CLionProjects/Tp1/servicos.cc
-apresentacao.h
-C:/Users/YSerk/CLionProjects/Tp1/apresentacao.h
-
-C:/Users/YSerk/CLionProjects/Tp1/servicos.h
-entidades.h
-C:/Users/YSerk/CLionProjects/Tp1/entidades.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/comandos.h
 interfaces.h
-C:/Users/YSerk/CLionProjects/Tp1/interfaces.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/interfaces.h
 
-C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.cc
-teste-dominios.h
-C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.cc
+controladores.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.h
+comandos.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/comandos.h
+stubs.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.h
 
-C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.h
-bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.h
+interfaces.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/interfaces.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.cc
 dominios.h
-C:/Users/YSerk/CLionProjects/Tp1/dominios.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.h
 
-C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.cc
-teste-entidades.h
-C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.h
-
-C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.h
 bits/stdc++.h
-C:/Users/YSerk/CLionProjects/Tp1/bits/stdc++.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/bits/stdc++.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.cc
 entidades.h
-C:/Users/YSerk/CLionProjects/Tp1/entidades.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.h
+bits/stdc++.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/bits/stdc++.h
+dominios.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/interfaces.h
+entidades.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.h
+auxiliares.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/auxiliares.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/main.cc
+controladores.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.h
+stubs.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.h
+bits/stdc++.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/bits/stdc++.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.cc
+stubs.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.h
+
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.h
+interfaces.h
+/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/interfaces.h
 

@@ -4,13 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/YSerk/CLionProjects/Tp1/apresentacao.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/apresentacao.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/dominios.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/dominios.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/entidades.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/entidades.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/main.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/main.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/servicos.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/servicos.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/teste-dominios.cc.obj"
-  "C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.cc" "C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir/teste-entidades.cc.obj"
+  "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.cc" "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir/controladores.cc.o"
+  "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.cc" "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir/dominios.cc.o"
+  "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.cc" "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir/entidades.cc.o"
+  "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/main.cc" "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir/main.cc.o"
+  "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.cc" "/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir/stubs.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

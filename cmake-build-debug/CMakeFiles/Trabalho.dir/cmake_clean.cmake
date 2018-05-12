@@ -1,15 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Trabalho.dir/dominios.cc.obj"
-  "CMakeFiles/Trabalho.dir/entidades.cc.obj"
-  "CMakeFiles/Trabalho.dir/teste-dominios.cc.obj"
-  "CMakeFiles/Trabalho.dir/teste-entidades.cc.obj"
-  "CMakeFiles/Trabalho.dir/apresentacao.cc.obj"
-  "CMakeFiles/Trabalho.dir/servicos.cc.obj"
-  "CMakeFiles/Trabalho.dir/main.cc.obj"
+  "CMakeFiles/Trabalho.dir/dominios.cc.o"
+  "CMakeFiles/Trabalho.dir/entidades.cc.o"
+  "CMakeFiles/Trabalho.dir/controladores.cc.o"
+  "CMakeFiles/Trabalho.dir/stubs.cc.o"
+  "CMakeFiles/Trabalho.dir/main.cc.o"
   "Trabalho.pdb"
-  "Trabalho.exe"
-  "Trabalho.exe.manifest"
-  "libTrabalho.dll.a"
+  "Trabalho"
 )
 
 # Per-language clean rules from dependency scanning.

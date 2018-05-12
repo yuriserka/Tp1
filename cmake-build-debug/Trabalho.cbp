@@ -8,126 +8,115 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug"/>
+				<Option working_dir="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Trabalho">
-				<Option output="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Trabalho.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/YSerk/CLionProjects/Tp1/."/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Trabalho/fast">
-				<Option output="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Trabalho.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/YSerk/CLionProjects/Tp1/."/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug"/>
+				<Option working_dir="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Trabalho">
+				<Option output="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Trabalho" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Trabalho/fast">
+				<Option output="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Trabalho" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuriserka/Área\ de\ Trabalho/programas/C++/TP1/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/apresentacao.cc">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.cc">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/apresentacao.h">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/controladores.h">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/dominios.cc">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.cc">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/dominios.h">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/dominios.h">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/entidades.cc">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.cc">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/entidades.h">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/entidades.h">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/interfaces.h">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/interfaces.h">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/main.cc">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/main.cc">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/servicos.cc">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.cc">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/servicos.h">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/stubs.h">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.cc">
-			<Option target="Trabalho"/>
-		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/teste-dominios.h">
-			<Option target="Trabalho"/>
-		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.cc">
-			<Option target="Trabalho"/>
-		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/teste-entidades.h">
-			<Option target="Trabalho"/>
-		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/testes.h">
-			<Option target="Trabalho"/>
-		</Unit>
-		<Unit filename="C:/Users/YSerk/CLionProjects/Tp1/CMakeLists.txt">
+		<Unit filename="/home/yuriserka/Área de Trabalho/programas/C++/TP1/Trabalho/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

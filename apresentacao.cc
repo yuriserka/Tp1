@@ -221,7 +221,7 @@ void ApresentacaoUsuario::Mostrar() {
   cout << "\tSeus dados\n\n";
   try {
     su_.Procurador(aa_.email_logado_);
-  } 
+  }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }

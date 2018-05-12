@@ -12,16 +12,16 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   if (email.GetEmail() == ktrigger_falha_) {
     resultado.SetResultado(ResultadoAutenticar::FALHA);
   } else if (email.GetEmail() == ktrigger_erro_sistema_) {
-    throw("Erro de Sistema!\n");
-    } else {
-        resultado.SetResultado(ResultadoAutenticar::SUCESSO);
-      }
+    throw ("Erro de Sistema!\n");
+  } else {
+    resultado.SetResultado(ResultadoAutenticar::SUCESSO);
+  }
   return resultado;
 }
 
 void StubUsuario::ExibirLeitor(const Leitor &leitor) {
   system(CLEAR);
-  cout << "Nome: " << leitor.GetNome().GetNome() << " "; 
+  cout << "Nome: " << leitor.GetNome().GetNome() << " ";
   cout << leitor.GetSobrenome().GetSobrenome() << "\n";
   cout << "Email: " << leitor.GetEmail().GetEmail() << "\n";
   cout << "Senha: " << leitor.GetSenha().GetSenha() << "\n";
@@ -30,7 +30,7 @@ void StubUsuario::ExibirLeitor(const Leitor &leitor) {
 
 void StubUsuario::ExibirDesenvolvedor(const Desenvolvedor &desenvolvedor) {
   system(CLEAR);
-  cout << "Nome: " << desenvolvedor.GetNome().GetNome() << " "; 
+  cout << "Nome: " << desenvolvedor.GetNome().GetNome() << " ";
   cout << desenvolvedor.GetSobrenome().GetSobrenome() << "\n";
   cout << "Email: " << desenvolvedor.GetEmail().GetEmail() << "\n";
   cout << "Senha: " << desenvolvedor.GetSenha().GetSenha() << "\n";
@@ -60,34 +60,34 @@ Resultado StubUsuario::Editar(const Email &email) {
 Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
   if (email.GetEmail() == StubAutenticacao::ktrigger_erro_sistema_)
-  resultado.SetResultado(Resultado::SUCESSO);
+    resultado.SetResultado(Resultado::SUCESSO);
   return resultado;
   system(PAUSE);
 }
 
 Leitor StubUsuario::CriaLeitor(const Email &email) {
   Leitor leitor = Leitor(
-      Nome("John"), Sobrenome("Leitor"), 
+      Nome("John"), Sobrenome("Leitor"),
       Senha("Leit1234"), email
-    );
+  );
   return leitor;
 }
 
 Desenvolvedor StubUsuario::CriaDesenvolvedor(const Email &email) {
   Desenvolvedor desenvolvedor = Desenvolvedor(
-      Nome("John"), 
-      Sobrenome("Desenvolvedor"), Senha("Dese1234"), 
+      Nome("John"),
+      Sobrenome("Desenvolvedor"), Senha("Dese1234"),
       email, Data("01/11/2027")
-    );
+  );
   return desenvolvedor;
 }
 
 Administrador StubUsuario::CriaAdministrador(const Email &email) {
   Administrador administrador = Administrador(
-      Nome("John"), 
-      Sobrenome("Administrador"), Senha("Admi1234"), 
-      email, Data("01/11/2027"), Telefone("61 99803-7458"), 
+      Nome("John"),
+      Sobrenome("Administrador"), Senha("Admi1234"),
+      email, Data("01/11/2027"), Telefone("61 99803-7458"),
       Address("Avenida Future")
-    );
+  );
   return administrador;
 }
