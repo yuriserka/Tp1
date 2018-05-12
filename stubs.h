@@ -10,6 +10,7 @@ class StubAutenticacao : public InterfaceServicoAutenticacao {
   const static string ktrigger_leitor_;
   const static string ktrigger_desenvolvedor_;
   const static string ktrigger_administrador_;
+  const static string ktrigger_senha_invalida_;
   Resultado Autenticar(const Email &, const Senha &) override;
 };
 
@@ -20,9 +21,9 @@ class StubUsuario : public InterfaceServicoUsuario {
   void ExibirLeitor(const Leitor &) override;
   void ExibirDesenvolvedor(const Desenvolvedor &) override;
   void ExibirAdministrador(const Administrador &) override;
-  Leitor CriaLeitor(const Email &) override;
-  Desenvolvedor CriaDesenvolvedor(const Email &) override;
-  Administrador CriaAdministrador(const Email &) override;
+  Leitor CriaLeitor(const Email &);
+  Desenvolvedor CriaDesenvolvedor(const Email &);
+  Administrador CriaAdministrador(const Email &);
 };
 
 #endif  // TRABALHO__STUBS_H__

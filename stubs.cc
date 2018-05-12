@@ -5,11 +5,13 @@ const string StubAutenticacao::ktrigger_erro_sistema_ = "errodesistema@gmail.com
 const string StubAutenticacao::ktrigger_leitor_ = "leitor@gmail.com";
 const string StubAutenticacao::ktrigger_desenvolvedor_ = "desenvolvedor@gmail.com";
 const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.com";
+const string StubAutenticacao::ktrigger_senha_invalida_ = "100Nha99";
 
 Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   ResultadoAutenticar resultado;
 
-  if (email.GetEmail() == ktrigger_falha_) {
+  if (email.GetEmail() == ktrigger_falha_ ||
+      senha.GetSenha() == ktrigger_senha_invalida_) {
     resultado.SetResultado(ResultadoAutenticar::FALHA);
   } else if (email.GetEmail() == ktrigger_erro_sistema_) {
     throw ("Erro de Sistema!\n");
@@ -17,6 +19,31 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
     resultado.SetResultado(ResultadoAutenticar::SUCESSO);
   }
   return resultado;
+}
+
+void StubUsuario::ExibirLeitor(const Leitor &leitor) {
+  cout << "Nome: " << leitor.GetNome().GetNome() << " ";
+  cout << leitor.GetSobrenome().GetSobrenome() << "\n";
+  cout << "Email: " << leitor.GetEmail().GetEmail() << "\n";
+  cout << "Senha: " << leitor.GetSenha().GetSenha() << "\n";
+}
+
+void StubUsuario::ExibirDesenvolvedor(const Desenvolvedor &desenvolvedor) {
+  cout << "Nome: " << desenvolvedor.GetNome().GetNome() << " ";
+  cout << desenvolvedor.GetSobrenome().GetSobrenome() << "\n";
+  cout << "Email: " << desenvolvedor.GetEmail().GetEmail() << "\n";
+  cout << "Senha: " << desenvolvedor.GetSenha().GetSenha() << "\n";
+  cout << "Data de Nascimento: " << desenvolvedor.GetDataDeNascimento().GetData() << "\n";
+}
+
+void StubUsuario::ExibirAdministrador(const Administrador &administrador) {
+  cout << "Nome: " << administrador.GetNome().GetNome() << " ";
+  cout << administrador.GetSobrenome().GetSobrenome() << "\n";
+  cout << "Email: " << administrador.GetEmail().GetEmail() << "\n";
+  cout << "Senha: " << administrador.GetSenha().GetSenha() << "\n";
+  cout << "Data de Nascimento: " << administrador.GetDataDeNascimento().GetData() << "\n";
+  cout << "Telefone: " << administrador.GetTelefone().GetTelefone() << "\n";
+  cout << "Endereco: " << administrador.GetEndereco().GetAddress() << "\n";
 }
 
 Resultado StubUsuario::Editar(const Email &email) {
@@ -29,37 +56,6 @@ Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
   resultado.SetResultado(Resultado::SUCESSO);
   return resultado;
-}
-
-void StubUsuario::ExibirLeitor(const Leitor &leitor) {
-  system(CLEAR);
-  cout << "Nome: " << leitor.GetNome().GetNome() << " ";
-  cout << leitor.GetSobrenome().GetSobrenome() << "\n";
-  cout << "Email: " << leitor.GetEmail().GetEmail() << "\n";
-  cout << "Senha: " << leitor.GetSenha().GetSenha() << "\n";
-  system(PAUSE);
-}
-
-void StubUsuario::ExibirDesenvolvedor(const Desenvolvedor &desenvolvedor) {
-  system(CLEAR);
-  cout << "Nome: " << desenvolvedor.GetNome().GetNome() << " ";
-  cout << desenvolvedor.GetSobrenome().GetSobrenome() << "\n";
-  cout << "Email: " << desenvolvedor.GetEmail().GetEmail() << "\n";
-  cout << "Senha: " << desenvolvedor.GetSenha().GetSenha() << "\n";
-  cout << "Data de Nascimento: " << desenvolvedor.GetDataDeNascimento().GetData() << "\n";
-  system(PAUSE);
-}
-
-void StubUsuario::ExibirAdministrador(const Administrador &administrador) {
-  system(CLEAR);
-  cout << "Nome: " << administrador.GetNome().GetNome() << " ";
-  cout << administrador.GetSobrenome().GetSobrenome() << "\n";
-  cout << "Email: " << administrador.GetEmail().GetEmail() << "\n";
-  cout << "Senha: " << administrador.GetSenha().GetSenha() << "\n";
-  cout << "Data de Nascimento: " << administrador.GetDataDeNascimento().GetData() << "\n";
-  cout << "Telefone: " << administrador.GetTelefone().GetTelefone() << "\n";
-  cout << "Endereco: " << administrador.GetEndereco().GetAddress() << "\n";
-  system(PAUSE);
 }
 
 Leitor StubUsuario::CriaLeitor(const Email &email) {

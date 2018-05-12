@@ -11,59 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43db81f-7ae1-4feb-8bb8-0948679b01fc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apresentacao.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apresentacao.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auxiliares.h" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliares.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdCXX/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/apresentacao.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/dominios.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/entidades.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/includes_CXX.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/main.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/objects.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/servicos.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/teste-dominios.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/teste-entidades.cc.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Trabalho.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Trabalho.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comandos.h" beforeDir="false" afterPath="$PROJECT_DIR$/comandos.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores.cc" beforeDir="false" afterPath="$PROJECT_DIR$/controladores.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores.h" beforeDir="false" afterPath="$PROJECT_DIR$/controladores.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dominios.cc" beforeDir="false" afterPath="$PROJECT_DIR$/dominios.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces.h" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs.cc" beforeDir="false" afterPath="$PROJECT_DIR$/stubs.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs.h" beforeDir="false" afterPath="$PROJECT_DIR$/stubs.h" afterDir="false" />
-    </list>
+    <list default="true" id="a43db81f-7ae1-4feb-8bb8-0948679b01fc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,7 +25,17 @@
     <favorites_list name="Trabalho" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="apresentacao.cc" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apresentacao.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3717">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -224,7 +182,7 @@
       <workItem from="1525559226943" duration="12566000" />
       <workItem from="1525666535218" duration="704000" />
       <workItem from="1526100085855" duration="121000" />
-      <workItem from="1526100212180" duration="383000" />
+      <workItem from="1526100212180" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="código com o formatado de acordo com o Google">
       <created>1524624726636</created>
@@ -261,11 +219,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525666967170</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="coloquei no padrão google">
+      <created>1526100825591</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1526100825591</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41849000" />
+    <option name="totallyTimeSpent" value="42194000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -279,11 +244,11 @@
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="706" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6252927" visible="true" weight="0.1392405" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6252927" visible="true" weight="0.1392405" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" sideWeight="0.49776787" visible="true" weight="0.28446773" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4966493" visible="true" weight="0.28446773" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5037202" side_tool="true" weight="0.28733766" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50335073" side_tool="true" visible="true" weight="0.28446773" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49627978" weight="0.28733766" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49702382" weight="0.2303665" />
       <window_info id="Structure" order="1" sideWeight="0.37470725" side_tool="true" weight="0.13988096" />
@@ -357,7 +322,8 @@
     <MESSAGE value="adicionado readme" />
     <MESSAGE value="comecei a fazer a parte o módulo de autenticação do usuário, tanto a parte de apresentação como a parte de serviços, mas ainda não sei se este é o modo correto de fazer as coisas." />
     <MESSAGE value="Do jeito que eu implementei ta funcionando, mas (SERÁ QUE DO JEITO CERTO?), mesmo assim, so falta agora a parte dos vocabularios, acho q da pra reaproveitar a função Tipoconta() e fazer algo semelhante ao que eu fiz pra atualizar a conta." />
-    <option name="LAST_COMMIT_MESSAGE" value="Do jeito que eu implementei ta funcionando, mas (SERÁ QUE DO JEITO CERTO?), mesmo assim, so falta agora a parte dos vocabularios, acho q da pra reaproveitar a função Tipoconta() e fazer algo semelhante ao que eu fiz pra atualizar a conta." />
+    <MESSAGE value="coloquei no padrão google" />
+    <option name="LAST_COMMIT_MESSAGE" value="coloquei no padrão google" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -492,13 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apresentacao.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3686">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -655,6 +614,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apresentacao.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3717">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>

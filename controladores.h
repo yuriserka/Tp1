@@ -2,6 +2,7 @@
 #define TRABALHO__CONTROLADORAS__H__
 
 #include "interfaces.h"
+#include "stubs.h"
 
 class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
  public:
@@ -53,12 +54,12 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
  private:
   InterfaceServicoUsuario *ctrl_servico_usuario_;
   enum {
-    null,
-    kmostrar,
+    knull,
     keditar,
     kexcluir,
     kvoltar
   };
+  void ShowDados(const Email &, StubUsuario *);
 };
 
 #endif // TRABALHO__CONTROLADORAS__H__
