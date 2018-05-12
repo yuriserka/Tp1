@@ -49,7 +49,9 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
 
     switch (opt) {
       case ControleLogado::kgestao_usuario:SetCtrlApresentacaoUsuario(ctrl_iau);
-        ctrl_apresentacao_usuario_->Executar(email);
+        if(ctrl_apresentacao_usuario_->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
+          opt = kvoltar;
+        }
         break;
       case ControleLogado::kgestao_vocabulo:break;
       case ControleLogado::kvoltar:break;
@@ -96,19 +98,24 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   return resultado;
 }
 
-void CtrlApresentacaoUsuario::Executar(const Email &email) {
-  StubUsuario *stub_u = new StubUsuario();
-  SetCtrlServicoUsuario(stub_u);
+ResultadoUsuario CtrlApresentacaoUsuario::Executar(const Email &email) {
+  ctrl_servico_usuario_ = new StubUsuario();
+  SetCtrlServicoUsuario(ctrl_servico_usuario_);
+  ResultadoUsuario resultado;
+  resultado.SetResultado(ResultadoUsuario::kok);
 
   int opt;
   do {
     system(CLEAR);
     cout << "\tGestao de Usuario\n\n";
     cout << "Seus Dados: \n\n";
-    ShowDados(email, stub_u);
+    if(ShowDados(email, ctrl_servico_usuario_).GetResultado() == Resultado::FALHA) {
+      resultado.SetResultado(ResultadoUsuario::kconta_excluida);
+      return resultado;
+    }
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << keditar << ". Editar Dados da Conta\n";
-    cout << kexcluir << ". Excluir conta\n";
+    cout << kexcluir << ". Excluir Conta\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
@@ -124,22 +131,25 @@ void CtrlApresentacaoUsuario::Executar(const Email &email) {
       case kexcluir:system(CLEAR);
         if (ctrl_servico_usuario_->Excluir(email).GetResultado() == Resultado::SUCESSO) {
           cout << "Sucesso ao Excluir\n" << endl;
+          resultado.SetResultado(ResultadoUsuario::kconta_excluida);
+          opt = kvoltar;
           system(PAUSE);
-          CtrlApresentacaoControle ret_inicio;
-          ret_inicio = CtrlApresentacaoControle();
-          ret_inicio.Inicializar();
         } else {
           cout << "Falha ao Excluir\n" << endl;
+          system(PAUSE);
         }
-        system(PAUSE);
         break;
       case kvoltar:break;
     }
-  } while (opt != kvoltar);
-  delete stub_u;
+  } while (opt != kvoltar && resultado.GetResultado() == ResultadoUsuario::kok);
+  delete ctrl_servico_usuario_;
+  return resultado;
 }
 
-void CtrlApresentacaoUsuario::ShowDados(const Email &email, StubUsuario *stub_u) {
+Resultado CtrlApresentacaoUsuario::ShowDados(const Email &email, InterfaceServicoUsuario *stub_u) {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+
   if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
     Leitor novoleitor = stub_u->CriaLeitor(email);
     ctrl_servico_usuario_->ExibirLeitor(novoleitor);
@@ -150,10 +160,9 @@ void CtrlApresentacaoUsuario::ShowDados(const Email &email, StubUsuario *stub_u)
     Administrador novoadministrador = stub_u->CriaAdministrador(email);
     ctrl_servico_usuario_->ExibirAdministrador(novoadministrador);
   } else {
-    cout << "Email nao suportado pelos triggers\n";
+    cout << "Email nao suportado pelos triggers\n\n";
+    resultado.SetResultado(Resultado::FALHA);
     system(PAUSE);
-    CtrlApresentacaoControle ret_inicio;
-    ret_inicio = CtrlApresentacaoControle();
-    ret_inicio.Inicializar();
   }
+  return resultado;
 }

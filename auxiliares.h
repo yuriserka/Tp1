@@ -32,4 +32,20 @@ class ResultadoAutenticar : public Resultado {
   Email email_;
 };
 
+class ResultadoUsuario {
+ public:
+  const static int kok = 0;
+  const static int kconta_excluida = 1;
+
+  inline void SetResultado(int valor) {
+    this->valor = valor;
+  }
+
+  inline int GetResultado() const {
+    return valor;
+  }
+ private:
+  int valor;
+};
+
 #endif // TRABALHO__AUX__H__

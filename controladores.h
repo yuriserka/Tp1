@@ -47,7 +47,7 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
 
 class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
  public:
-  void Executar(const Email &_email) override;
+  ResultadoUsuario Executar(const Email &_email) override;
   void inline SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
     this->ctrl_servico_usuario_ = isu;
   }
@@ -59,7 +59,7 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
     kexcluir,
     kvoltar
   };
-  void ShowDados(const Email &, StubUsuario *);
+  Resultado ShowDados(const Email &, InterfaceServicoUsuario *);
 };
 
 #endif // TRABALHO__CONTROLADORAS__H__
