@@ -13,4 +13,16 @@ class StubAutenticacao : public InterfaceServicoAutenticacao {
     Resultado Autenticar(const Email &, const Senha &) override;
 };
 
+class StubUsuario : public InterfaceServicoUsuario {
+  public:
+    Resultado Editar(const Email &) override;
+    Resultado Excluir(const Email &) override;
+    void ExibirLeitor(const Leitor &) override;
+    void ExibirDesenvolvedor(const Desenvolvedor &) override;
+    void ExibirAdministrador(const Administrador &) override;
+    Leitor CriaLeitor(const Email &);
+    Desenvolvedor CriaDesenvolvedor(const Email &);
+    Administrador CriaAdministrador(const Email &); 
+};
+
 #endif  // TRABALHO__STUBS_H__

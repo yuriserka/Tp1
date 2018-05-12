@@ -7,50 +7,58 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
   public:
     ResultadoAutenticar Autenticar() override;
     inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
-      this->CtrlServicoAutenticacao_ = isa;
+      this->ctrl_servico_autenticacao_ = isa;
     }
 
   private:
-    InterfaceServicoAutenticacao *CtrlServicoAutenticacao_;
+    InterfaceServicoAutenticacao *ctrl_servico_autenticacao_;
 };
 
 class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
   public:
     void Inicializar() override;
-    void Logado(const Email &) override;
+    void ControleLogado(const Email &) override;
     inline void SetCtrlAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
       this->ctrl_apresentacao_autenticacao_ = iaa;
+    }
+
+    inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override {
+      this->ctrl_apresentacao_usuario_ = iau;
     }
     
   private:
     InterfaceApresentacaoAutenticacao *ctrl_apresentacao_autenticacao_;
-    enum Options {
-      null, 
+    InterfaceApresentacaoUsuario *ctrl_apresentacao_usuario_;
+    enum Controle {
+      knullc, 
       kentrar,
       kcadastrar,
       ksair
+    };
+
+    enum ControleLogado {
+      knullcl,
+      kgestao_usuario,
+      kgestao_vocabulo,
+      kvoltar
     };
 };
 
 class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
   public:
     void Executar(const Email &_email) override;
-    // void inline SetCtrlServicoUsuario(InterfaceServicoUsuario *_stub_usuario) override {
-    //     this->stub_usuario_ = _stub_usuario;
-    // }
+    void inline SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
+      this->ctrl_servico_usuario_ = isu;
+    }
   private:
-    // InterfaceServicoUsuario *stub_usuario_;
-
+    InterfaceServicoUsuario *ctrl_servico_usuario_;
     enum {
       null,
-      keditar_,
-      kexcluir_,
-      ksair_
+      keditar,
+      kexcluir,
+      kmostrar,
+      kvoltar
     };
-
-    void ExibirLeitor(Leitor &);
-    void ExibirDesenvolvedor(Desenvolvedor &);
-    void ExibirAdministrador(Administrador &);
 };
 
 #endif // TRABALHO__CONTROLADORAS__H__

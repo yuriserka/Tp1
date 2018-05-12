@@ -10,14 +10,9 @@ add_executable(Trabalho
     dominios.h
     entidades.cc
     entidades.h
-    testes.h
-        teste-dominios.cc
-        teste-dominios.h
-        teste-entidades.cc
-        teste-entidades.h
-        apresentacao.cc
-        apresentacao.h
-        servicos.cc
-        servicos.h
-        interfaces.h
-        main.cc)
+    controladores.cc
+    controladores.h
+    stubs.cc
+    stubs.h
+    interfaces.h
+    main.cc)

@@ -1,45 +1,20 @@
-#include "dominios.h"
-#include "entidades.h"
-#include "interfaces.h"
 #include "controladores.h"
 #include "stubs.h"
 #include "bits/stdc++.h"
 
 int main() {
-  /*InterfaceApresentacaoAutenticacao *ctrl_iaa;
-  InterfaceServicoAutenticacao *stub_isa;
-  ctrl_iaa = new CtrlApresentacaoAutenticacao();
-  stub_isa = new StubAutenticacao();
 
-  ctrl_iaa->SetCtrlServicoAutenticacao(stub_isa);
-
-  cout << "VALOR DOS TRIGGERS:\n";
-  cout << "Trigger de falha           = " << StubAutenticacao::ktrigger_falha_ << "\n";
-  cout << "Trigger de erro de sistema = " << StubAutenticacao::ktrigger_erro_sistema_ << "\n";
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Falha de autenticacao:   " << StubAutenticacao::ktrigger_falha_ << "\n";
+  cout << "Trigger Erro de Sistema:         " << StubAutenticacao::ktrigger_erro_sistema_ << "\n";
+  cout << "Trigger para ser leitor:         " << StubAutenticacao::ktrigger_leitor_ << "\n";
+  cout << "Trigger para ser desenvolvedor:  " << StubAutenticacao::ktrigger_desenvolvedor_ << "\n";
+  cout << "Trigger para ser administrador:  " << StubAutenticacao::ktrigger_administrador_ << "\n";
 
   system(PAUSE);
 
-  ResultadoAutenticar resultado;
-
-  while(true) {
-    try {
-      resultado = ctrl_iaa->Autenticar();
-      if (resultado.GetResultado() == ResultadoAutenticar::SUCESSO) {
-        break;
-      }
-
-    } catch (exception &e) {
-      cout << "\n\t" << e.what() << "\n";
-    }
-    system(PAUSE);
-  }
-
-  delete ctrl_iaa;
-  delete stub_isa;
-*/
   CtrlApresentacaoControle *ctrl_ac = new CtrlApresentacaoControle();
-
   ctrl_ac->Inicializar();
-
+  delete ctrl_ac;
   return 0;
 }

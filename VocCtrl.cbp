@@ -37,21 +37,16 @@
 			<Add option="-fexceptions" />
 			<Add option="-pedantic" />
 		</Compiler>
-		<Unit filename="apresentacao.cc" />
-        <Unit filename="apresentacao.h" />
 		<Unit filename="dominios.cc" />
 		<Unit filename="dominios.h" />
 		<Unit filename="entidades.cc" />
 		<Unit filename="entidades.h" />
         <Unit filename="interfaces.h" />
+		<Unit filename="controladores.cc">
+		<Unit filename="controladores.h">
+		<Unit filename="stubs.cc">
+		<Unit filename="stubs.h">
 		<Unit filename="main.cc" />
-		<Unit filename="servicos.cc" />
-        <Unit filename="servicos.h" />
-		<Unit filename="teste-dominios.cc" />
-		<Unit filename="teste-dominios.h" />
-		<Unit filename="teste-entidades.cc" />
-		<Unit filename="teste-entidades.h" />
-		<Unit filename="testes.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
