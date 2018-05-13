@@ -220,85 +220,85 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual void ListarVocabularios() = 0;
+  virtual Resultado ListarVocabularios() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ApresentarVocabulario(const VocabularioControlado &) = 0;
+  virtual Resultado ApresentarVocabulario() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ConsultarTermo(const Termo &) = 0;
+  virtual Resultado ConsultarTermo() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ConsultarDefinicao(const Definicao &) = 0;
+  virtual Resultado ConsultarDefinicao() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void CadastrarDesenvolvedor(const Desenvolvedor &) = 0;
+  virtual Resultado CadastrarDesenvolvedor() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void CriarTermo(const Termo &) = 0;
+  virtual Resultado CriarTermo() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void EditarTermo() = 0;
+  virtual Resultado EditarTermo() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ExcluirTermo() = 0;
+  virtual Resultado ExcluirTermo() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void CriarDefinicao(const Definicao &) = 0;
+  virtual Resultado CriarDefinicao() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void EditarDefinicao() = 0;
+  virtual Resultado EditarDefinicao() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ExcluirDefinicao() = 0;
+  virtual Resultado ExcluirDefinicao() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void CriarVocabulario(const VocabularioControlado &) = 0;
+  virtual Resultado CriarVocabulario() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void EditarVocabulario() = 0;
+  virtual Resultado EditarVocabulario() = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ExcluirVocabulario() = 0;
+  virtual Resultado ExcluirVocabulario() = 0;
 
   /**
    * @brief Destroy the Interface Servico Vocabulario object

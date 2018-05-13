@@ -105,7 +105,6 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
 
 ResultadoUsuario CtrlApresentacaoUsuario::Executar(const Email &email) {
   ctrl_servico_usuario_ = new StubUsuario();
-  SetCtrlServicoUsuario(ctrl_servico_usuario_);
   ResultadoUsuario resultado;
   resultado.SetResultado(ResultadoUsuario::kok);
 
@@ -174,19 +173,25 @@ Resultado CtrlApresentacaoUsuario::ShowDados(const Email &email, InterfaceServic
 }
 
 void CtrlApresentacaoVocabulario::Executar(const Email &email) {
+  ctrl_servico_vocabulario_ = new StubVocabulario();
   ComandoAVocabulario *comando;
 
   if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
     comando = new ComandoAVocabularioLeitor();
-    comando->Exibir();
+    comando->Executar(ctrl_servico_vocabulario_);
     delete comando;
   } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
     comando = new ComandoAVocabularioDesenvolvedor();
-    comando->Exibir();
+    comando->Executar(ctrl_servico_vocabulario_);
     delete comando;
   } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
     comando = new ComandoAVocabularioAdministrador();
-    comando->Exibir();
+    comando->Executar(ctrl_servico_vocabulario_);
     delete comando;
+  } else {
+    system(CLEAR);
+    cout << "\tGestao de Vocabulos\n";
+    cout << "\nEmail nao suportado pelos triggers\n\n";
+    system(PAUSE);
   }
 }

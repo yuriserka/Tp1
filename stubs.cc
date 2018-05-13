@@ -84,3 +84,87 @@ Administrador StubUsuario::CriaAdministrador(const Email &email) {
   );
   return administrador;
 }
+
+Resultado StubVocabulario::ListarVocabularios() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ApresentarVocabulario() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ConsultarTermo() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ConsultarDefinicao() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::CadastrarDesenvolvedor() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::CriarTermo() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::EditarTermo() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ExcluirTermo() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::CriarDefinicao() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::EditarDefinicao() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ExcluirDefinicao() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::CriarVocabulario() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::EditarVocabulario() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}
+
+Resultado StubVocabulario::ExcluirVocabulario() {
+  Resultado resultado;
+  resultado.SetResultado(Resultado::SUCESSO);
+  return resultado;
+}

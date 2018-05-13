@@ -122,4 +122,95 @@ class StubUsuario : public InterfaceServicoUsuario {
   Administrador CriaAdministrador(const Email &) override;
 };
 
+/**
+ * @brief 
+ * 
+ */
+class StubVocabulario : public InterfaceServicoVocabulario {
+ public:
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ListarVocabularios() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ApresentarVocabulario() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ConsultarTermo() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ConsultarDefinicao() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado CadastrarDesenvolvedor() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado CriarTermo() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado EditarTermo() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ExcluirTermo() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado CriarDefinicao() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado EditarDefinicao() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ExcluirDefinicao() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado CriarVocabulario() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado EditarVocabulario() override;
+
+  /**
+   * @brief 
+   * 
+   */
+  Resultado ExcluirVocabulario() override;
+};
+
 #endif  // TRABALHO__STUBS_H__

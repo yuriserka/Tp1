@@ -14,13 +14,13 @@
 
 class ComandoAVocabulario {
     public:
-        virtual void Exibir() = 0;
+        virtual void Executar(InterfaceServicoVocabulario *) = 0;
         virtual ~ComandoAVocabulario() = default;
 };
 
 class ComandoAVocabularioLeitor : public ComandoAVocabulario {
     public:
-        void Exibir() override;
+        void Executar(InterfaceServicoVocabulario *) override;
     private:
         enum {         
             knull,
@@ -34,7 +34,7 @@ class ComandoAVocabularioLeitor : public ComandoAVocabulario {
 
 class ComandoAVocabularioDesenvolvedor : public ComandoAVocabulario {
     public:
-        void Exibir() override;
+        void Executar(InterfaceServicoVocabulario *) override;
     private:
         enum {         
             knull,
@@ -55,7 +55,7 @@ class ComandoAVocabularioDesenvolvedor : public ComandoAVocabulario {
 
 class ComandoAVocabularioAdministrador : public ComandoAVocabulario {
     public:
-        void Exibir() override;
+        void Executar(InterfaceServicoVocabulario *) override;
     private:
         enum {         
             knull,
