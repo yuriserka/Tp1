@@ -128,19 +128,19 @@ class InterfaceServicoUsuario {
    * @brief 
    * 
    */
-  virtual void ExibirLeitor(const Leitor &) = 0;
+  virtual void Exibir(const Leitor &) = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ExibirDesenvolvedor(const Desenvolvedor &) = 0;
+  virtual void Exibir(const Desenvolvedor &) = 0;
 
   /**
    * @brief 
    * 
    */
-  virtual void ExibirAdministrador(const Administrador &) = 0;
+  virtual void Exibir(const Administrador &) = 0;
 
   /**
    * @brief 

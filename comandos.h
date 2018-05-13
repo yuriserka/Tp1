@@ -12,4 +12,69 @@
 
 #include "interfaces.h"
 
+class ComandoAVocabulario {
+    public:
+        virtual void Exibir() = 0;
+        virtual ~ComandoAVocabulario() = default;
+};
+
+class ComandoAVocabularioLeitor : public ComandoAVocabulario {
+    public:
+        void Exibir() override;
+    private:
+        enum {         
+            knull,
+            klistarvocabularios,
+            kapresentarvocabulario,
+            kconsultartermo,
+            kconsultardefinicao,
+            kvoltar
+        };
+};
+
+class ComandoAVocabularioDesenvolvedor : public ComandoAVocabulario {
+    public:
+        void Exibir() override;
+    private:
+        enum {         
+            knull,
+            klistarvocabularios,
+            kapresentarvocabulario,
+            kconsultartermo,
+            kconsultardefinicao,
+            kcadastrardesenvolvedor,
+            kcriartermo,
+            keditartermo,
+            kexcluirtermo,
+            kcriardefinicao,
+            keditardefinicao,
+            kexcluirdefinicao,
+            kvoltar
+        };
+};
+
+class ComandoAVocabularioAdministrador : public ComandoAVocabulario {
+    public:
+        void Exibir() override;
+    private:
+        enum {         
+            knull,
+            klistarvocabularios,
+            kapresentarvocabulario,
+            kconsultartermo,
+            kconsultardefinicao,
+            kcadastrardesenvolvedor,
+            kcriartermo,
+            keditartermo,
+            kexcluirtermo,
+            kcriardefinicao,
+            keditardefinicao,
+            kexcluirdefinicao,
+            kcriarvocabulario,
+            keditarvocabulario,
+            kexcluirvocabulario,
+            kvoltar
+        };
+};
+
 #endif  // TRABALHO__COMANDOS__H__

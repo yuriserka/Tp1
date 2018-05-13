@@ -158,13 +158,13 @@ Resultado CtrlApresentacaoUsuario::ShowDados(const Email &email, InterfaceServic
 
   if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
     Leitor novoleitor = stub_u->CriaLeitor(email);
-    ctrl_servico_usuario_->ExibirLeitor(novoleitor);
+    ctrl_servico_usuario_->Exibir(novoleitor);
   } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
     Desenvolvedor novodesenvolvedor = stub_u->CriaDesenvolvedor(email);
-    ctrl_servico_usuario_->ExibirDesenvolvedor(novodesenvolvedor);
+    ctrl_servico_usuario_->Exibir(novodesenvolvedor);
   } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
     Administrador novoadministrador = stub_u->CriaAdministrador(email);
-    ctrl_servico_usuario_->ExibirAdministrador(novoadministrador);
+    ctrl_servico_usuario_->Exibir(novoadministrador);
   } else {
     cout << "Email nao suportado pelos triggers\n\n";
     resultado.SetResultado(Resultado::FALHA);
@@ -174,52 +174,19 @@ Resultado CtrlApresentacaoUsuario::ShowDados(const Email &email, InterfaceServic
 }
 
 void CtrlApresentacaoVocabulario::Executar(const Email &email) {
+  ComandoAVocabulario *comando;
 
-  int opt;
-  do {
-    system(CLEAR);
-    cout << "\tGestao de Vocabulos\n";
-    cout << "\nEscolha uma das opcoes abaixo.\n\n";
-    cout << klistarvocabularios << ". Listar Vocabularios\n";
-    cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
-    cout << kconsultartermo << ". Consultar Termo\n";
-    cout << kconsultardefinicao << ". Consultar Definicao\n";
-
-    if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ ||
-        email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-      cout << kcadastrardesenvolvedor << ". Cadastrar Desenvolvedor\n";
-      cout << kcriartermo << ". Criar Termo\n";
-      cout << keditartermo << ". Editar Termo\n";
-      cout << kexcluirtermo << ". Excluir Termo\n";
-      cout << kcriardefinicao << ". Criar Definicao\n";
-      cout << keditardefinicao << ". Editar Definicao\n";
-      cout << kexcluirdefinicao << ". Excluir Definicao\n";
-    }
-    if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-      cout << kcriarvocabulario << ". Criar Vocabulario\n";
-      cout << keditarvocabulario << ". Editar Vocabulario\n";
-      cout << kexcluirvocabulario << ". Excluir Vocabulario\n";
-    }
-    cout << kvoltar << ". Voltar\n\topcao: ";
-    cin >> opt;
-
-    switch (opt) {
-      case klistarvocabularios:break;
-      case kapresentarvocabulario:break;
-      case kconsultartermo:break;
-      case kconsultardefinicao:break;
-      case kcadastrardesenvolvedor:break;
-      case kcriartermo:break;
-      case keditartermo:break;
-      case kexcluirtermo:break;
-      case kcriardefinicao:break;
-      case keditardefinicao:break;
-      case kexcluirdefinicao:break;
-      case kcriarvocabulario:break;
-      case keditarvocabulario:break;
-      case kexcluirvocabulario:break;
-      case kvoltar:break;
-      default:break;
-    }
-  } while (opt != kvoltar);
+  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
+    comando = new ComandoAVocabularioLeitor();
+    comando->Exibir();
+    delete comando;
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+    comando = new ComandoAVocabularioDesenvolvedor();
+    comando->Exibir();
+    delete comando;
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+    comando = new ComandoAVocabularioAdministrador();
+    comando->Exibir();
+    delete comando;
+  }
 }

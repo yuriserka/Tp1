@@ -72,19 +72,19 @@ class StubUsuario : public InterfaceServicoUsuario {
    * @brief 
    * 
    */
-  void ExibirLeitor(const Leitor &) override;
+  void Exibir(const Leitor &) override;
 
   /**
    * @brief 
    * 
    */
-  void ExibirDesenvolvedor(const Desenvolvedor &) override;
+  void Exibir(const Desenvolvedor &) override;
 
   /**
    * @brief 
    * 
    */
-  void ExibirAdministrador(const Administrador &) override;
+  void Exibir(const Administrador &) override;
 
   /**
    * @brief 

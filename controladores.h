@@ -161,24 +161,6 @@ class CtrlApresentacaoVocabulario : public InterfaceApresentacaoVocabulario {
   
  private:
   InterfaceServicoVocabulario *ctrl_servico_vocabulario_;
-  enum {
-    knull,
-    klistarvocabularios,
-    kapresentarvocabulario,
-    kconsultartermo,
-    kconsultardefinicao,
-    kcadastrardesenvolvedor,
-    kcriartermo,
-    keditartermo,
-    kexcluirtermo,
-    kcriardefinicao,
-    keditardefinicao,
-    kexcluirdefinicao,
-    kcriarvocabulario,
-    keditarvocabulario,
-    kexcluirvocabulario,
-    kvoltar
-  };
 };
 
 #endif // TRABALHO__CONTROLADORAS__H__

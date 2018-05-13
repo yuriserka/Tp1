@@ -21,14 +21,14 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
-void StubUsuario::ExibirLeitor(const Leitor &leitor) {
+void StubUsuario::Exibir(const Leitor &leitor) {
   cout << "Nome: " << leitor.GetNome().GetNome() << " ";
   cout << leitor.GetSobrenome().GetSobrenome() << "\n";
   cout << "Email: " << leitor.GetEmail().GetEmail() << "\n";
   cout << "Senha: " << leitor.GetSenha().GetSenha() << "\n";
 }
 
-void StubUsuario::ExibirDesenvolvedor(const Desenvolvedor &desenvolvedor) {
+void StubUsuario::Exibir(const Desenvolvedor &desenvolvedor) {
   cout << "Nome: " << desenvolvedor.GetNome().GetNome() << " ";
   cout << desenvolvedor.GetSobrenome().GetSobrenome() << "\n";
   cout << "Email: " << desenvolvedor.GetEmail().GetEmail() << "\n";
@@ -36,7 +36,7 @@ void StubUsuario::ExibirDesenvolvedor(const Desenvolvedor &desenvolvedor) {
   cout << "Data de Nascimento: " << desenvolvedor.GetDataDeNascimento().GetData() << "\n";
 }
 
-void StubUsuario::ExibirAdministrador(const Administrador &administrador) {
+void StubUsuario::Exibir(const Administrador &administrador) {
   cout << "Nome: " << administrador.GetNome().GetNome() << " ";
   cout << administrador.GetSobrenome().GetSobrenome() << "\n";
   cout << "Email: " << administrador.GetEmail().GetEmail() << "\n";
