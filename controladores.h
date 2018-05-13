@@ -16,9 +16,14 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
     this->ctrl_apresentacao_usuario_ = iau;
   }
 
+  inline void SetCtrlApresentacaoVocabulario(InterfaceApresentacaoVocabulario *iav) override {
+    this->ctrl_apresentacao_vocabulario_ = iav;
+  }
+
  private:
   InterfaceApresentacaoAutenticacao *ctrl_apresentacao_autenticacao_;
   InterfaceApresentacaoUsuario *ctrl_apresentacao_usuario_;
+  InterfaceApresentacaoVocabulario *ctrl_apresentacao_vocabulario_;
   enum Controle {
     knullc,
     kentrar,
@@ -60,6 +65,34 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
     kvoltar
   };
   Resultado ShowDados(const Email &, InterfaceServicoUsuario *);
+};
+
+class CtrlApresentacaoVocabulario : public InterfaceApresentacaoVocabulario {
+ public:
+  void Executar(const Email &email) override;
+  void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *isv) override {
+    this->ctrl_servico_vocabulario_ = isv;
+  }
+ private:
+  InterfaceServicoVocabulario *ctrl_servico_vocabulario_;
+  enum {
+    knull,
+    klistarvocabularios,
+    kapresentarvocabulario,
+    kconsultartermo,
+    kconsultardefinicao,
+    kcadastrardesenvolvedor,
+    kcriartermo,
+    keditartermo,
+    kexcluirtermo,
+    kcriardefinicao,
+    keditardefinicao,
+    kexcluirdefinicao,
+    kcriarvocabulario,
+    keditarvocabulario,
+    kexcluirvocabulario,
+    kvoltar
+  };
 };
 
 #endif // TRABALHO__CONTROLADORAS__H__

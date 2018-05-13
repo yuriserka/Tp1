@@ -16,6 +16,8 @@ class InterfaceServicoAutenticacao;
 class InterfaceApresentacaoAutenticacao;
 class InterfaceServicoUsuario;
 class InterfaceApresentacaoUsuario;
+class InterfaceServicoVocabulario;
+class InterfaceApresentacaoVocabulario;
 class InterfaceApresentacaoControle;
 
 class InterfaceApresentacaoControle {
@@ -24,6 +26,7 @@ class InterfaceApresentacaoControle {
   virtual void ControleLogado(const Email &) = 0;
   virtual void SetCtrlAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
   virtual void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *) = 0;
+  virtual void SetCtrlApresentacaoVocabulario(InterfaceApresentacaoVocabulario *) = 0;
   virtual ~InterfaceApresentacaoControle() = default;
 };
 
@@ -58,6 +61,32 @@ class InterfaceApresentacaoUsuario {
   virtual ResultadoUsuario Executar(const Email &) = 0;
   virtual void SetCtrlServicoUsuario(InterfaceServicoUsuario *) = 0;
   virtual ~InterfaceApresentacaoUsuario() = default;
+};
+
+class InterfaceServicoVocabulario {
+ public:
+  virtual void ListarVocabularios() = 0;
+  virtual void ApresentarVocabulario(const VocabularioControlado &) = 0;
+  virtual void ConsultarTermo(const Termo &) = 0;
+  virtual void ConsultarDefinicao(const Definicao &) = 0;
+  virtual void CadastrarDesenvolvedor(const Desenvolvedor &) = 0;
+  virtual void CriarTermo(const Termo &) = 0;
+  virtual void EditarTermo() = 0;
+  virtual void ExcluirTermo() = 0;
+  virtual void CriarDefinicao(const Definicao &) = 0;
+  virtual void EditarDefinicao() = 0;
+  virtual void ExcluirDefinicao() = 0;
+  virtual void CriarVocabulario(const VocabularioControlado &) = 0;
+  virtual void EditarVocabulario() = 0;
+  virtual void ExcluirVocabulario() = 0;
+  virtual ~InterfaceServicoVocabulario() = default;
+};
+
+class InterfaceApresentacaoVocabulario {
+ public:
+  virtual void Executar(const Email &) = 0;
+  virtual void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *) = 0;
+  virtual ~InterfaceApresentacaoVocabulario() = default;
 };
 
 #endif //TRABALHO_INTERFACES_H

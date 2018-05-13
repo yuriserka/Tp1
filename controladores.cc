@@ -36,6 +36,7 @@ void CtrlApresentacaoControle::Inicializar() {
 
 void CtrlApresentacaoControle::ControleLogado(const Email &email) {
   InterfaceApresentacaoUsuario *ctrl_iau = new CtrlApresentacaoUsuario();
+  InterfaceApresentacaoVocabulario *ctrl_iav = new CtrlApresentacaoVocabulario();
 
   int opt;
   do {
@@ -48,13 +49,18 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
     cin >> opt;
 
     switch (opt) {
-      case ControleLogado::kgestao_usuario:SetCtrlApresentacaoUsuario(ctrl_iau);
+      case ControleLogado::kgestao_usuario:
+        SetCtrlApresentacaoUsuario(ctrl_iau);
         if(ctrl_apresentacao_usuario_->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
           opt = kvoltar;
         }
         break;
-      case ControleLogado::kgestao_vocabulo:break;
-      case ControleLogado::kvoltar:break;
+      case ControleLogado::kgestao_vocabulo:
+        SetCtrlApresentacaoVocabulario(ctrl_iav);
+        ctrl_apresentacao_vocabulario_->Executar(email);
+        break;
+      case ControleLogado::kvoltar:
+        break;
     }
   } while (opt != kvoltar);
   delete ctrl_iau;
@@ -139,7 +145,8 @@ ResultadoUsuario CtrlApresentacaoUsuario::Executar(const Email &email) {
           system(PAUSE);
         }
         break;
-      case kvoltar:break;
+      case kvoltar:
+        break;
     }
   } while (opt != kvoltar && resultado.GetResultado() == ResultadoUsuario::kok);
   delete ctrl_servico_usuario_;
@@ -165,4 +172,69 @@ Resultado CtrlApresentacaoUsuario::ShowDados(const Email &email, InterfaceServic
     system(PAUSE);
   }
   return resultado;
+}
+
+void CtrlApresentacaoVocabulario::Executar(const Email &email) {
+
+  int opt;
+  do {
+    system(CLEAR);
+    if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_ || email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+      cout << "\tGestao de Vocabulos\n";
+      cout << "\nEscolha uma das opcoes abaixo.\n\n";
+      cout << klistarvocabularios << ". Listar Vocabularios\n";
+      cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
+      cout << kconsultartermo << ". Consultar Termo\n";
+      cout << kconsultardefinicao << ". Consultar Definicao\n";
+    }
+    if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+      cout << kcadastrardesenvolvedor << ". Cadastrar Desenvolvedor\n";
+      cout << kcriartermo << ". Criar Termo\n";
+      cout << keditartermo << ". Editar Termo\n";
+      cout << kexcluirtermo << ". Excluir Termo\n";
+      cout << kcriardefinicao << ". Criar Definicao\n";
+      cout << keditardefinicao << ". Editar Definicao\n";
+      cout << kexcluirdefinicao << ". Excluir Definicao\n";
+    }
+    if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+      cout << kcriarvocabulario << ". Criar Vocabulario\n";
+      cout << keditarvocabulario << ". Editar Vocabulario\n";
+      cout << kexcluirvocabulario << ". Excluir Vocabulario\n";
+    }
+    cout << kvoltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    switch (opt) {
+      case klistarvocabularios:
+        break;
+      case kapresentarvocabulario:
+        break;
+      case kconsultartermo:
+        break;
+      case kconsultardefinicao:
+        break;
+      case kcadastrardesenvolvedor:
+        break;
+      case kcriartermo:
+        break;
+      case keditartermo:
+        break;
+      case kexcluirtermo:
+        break;
+      case kcriardefinicao:
+        break;
+      case keditardefinicao:
+        break;
+      case kexcluirdefinicao:
+        break;
+      case kcriarvocabulario:
+        break;
+      case keditarvocabulario:
+        break;
+      case kexcluirvocabulario:
+        break;
+      case kvoltar:
+        break;
+    }
+  } while(opt != kvoltar);
 }
