@@ -7,9 +7,9 @@
 using namespace std;
 
 /**
- * @file unit-test-entidades.h
+ * @file teste-entidades.h
  * @author Yuri Serka do Carmo Rodrigues
- * @date 7 de kAbril de 2018
+ * @date 7 de Abril de 2018
  *
  * @brief Descrição de todas as classes de Teste de Unidade das classes de Entidade.
  *
@@ -34,6 +34,12 @@ class TUBaseEntidades {
     Destroy();
     return estado_;
   }
+
+  /**
+   * @brief Destrutor do objeto TUBaseEntidades
+   * 
+   */
+  virtual ~TUBaseEntidades() = default;
 
  protected:
   int estado_;

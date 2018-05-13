@@ -5,7 +5,7 @@
 #include "teste-dominios.h"
 
 /**
- * @file Testes.h
+ * @file testes.h
  * @author Yuri Serka do Carmo Rodrigues
  * @date 7 de Abril de 2018
  *

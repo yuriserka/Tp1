@@ -28,6 +28,7 @@ void CtrlApresentacaoControle::Inicializar() {
         break;
       case Controle::kcadastrar:break;
       case Controle::ksair:break;
+      default:break;
     }
   } while (opt != ksair);
   delete ctrl_iaa;
@@ -49,18 +50,16 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
     cin >> opt;
 
     switch (opt) {
-      case ControleLogado::kgestao_usuario:
-        SetCtrlApresentacaoUsuario(ctrl_iau);
-        if(ctrl_apresentacao_usuario_->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
+      case ControleLogado::kgestao_usuario:SetCtrlApresentacaoUsuario(ctrl_iau);
+        if (ctrl_apresentacao_usuario_->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
           opt = kvoltar;
         }
         break;
-      case ControleLogado::kgestao_vocabulo:
-        SetCtrlApresentacaoVocabulario(ctrl_iav);
+      case ControleLogado::kgestao_vocabulo:SetCtrlApresentacaoVocabulario(ctrl_iav);
         ctrl_apresentacao_vocabulario_->Executar(email);
         break;
-      case ControleLogado::kvoltar:
-        break;
+      case ControleLogado::kvoltar:break;
+      default:break;
     }
   } while (opt != kvoltar);
   delete ctrl_iau;
@@ -72,7 +71,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   string iemail, isenha;
   Email email;
   Senha senha;
-
+  
   while (true) {
     system(CLEAR);
     try {
@@ -115,7 +114,7 @@ ResultadoUsuario CtrlApresentacaoUsuario::Executar(const Email &email) {
     system(CLEAR);
     cout << "\tGestao de Usuario\n\n";
     cout << "Seus Dados: \n\n";
-    if(ShowDados(email, ctrl_servico_usuario_).GetResultado() == Resultado::FALHA) {
+    if (ShowDados(email, ctrl_servico_usuario_).GetResultado() == Resultado::FALHA) {
       resultado.SetResultado(ResultadoUsuario::kconta_excluida);
       return resultado;
     }
@@ -145,8 +144,8 @@ ResultadoUsuario CtrlApresentacaoUsuario::Executar(const Email &email) {
           system(PAUSE);
         }
         break;
-      case kvoltar:
-        break;
+      case kvoltar:break;
+      default:break;
     }
   } while (opt != kvoltar && resultado.GetResultado() == ResultadoUsuario::kok);
   delete ctrl_servico_usuario_;
@@ -179,15 +178,15 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
   int opt;
   do {
     system(CLEAR);
-    if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_ || email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-      cout << "\tGestao de Vocabulos\n";
-      cout << "\nEscolha uma das opcoes abaixo.\n\n";
-      cout << klistarvocabularios << ". Listar Vocabularios\n";
-      cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
-      cout << kconsultartermo << ". Consultar Termo\n";
-      cout << kconsultardefinicao << ". Consultar Definicao\n";
-    }
-    if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+    cout << "\tGestao de Vocabulos\n";
+    cout << "\nEscolha uma das opcoes abaixo.\n\n";
+    cout << klistarvocabularios << ". Listar Vocabularios\n";
+    cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
+    cout << kconsultartermo << ". Consultar Termo\n";
+    cout << kconsultardefinicao << ". Consultar Definicao\n";
+
+    if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_ ||
+        email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
       cout << kcadastrardesenvolvedor << ". Cadastrar Desenvolvedor\n";
       cout << kcriartermo << ". Criar Termo\n";
       cout << keditartermo << ". Editar Termo\n";
@@ -205,36 +204,22 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:
-        break;
-      case kapresentarvocabulario:
-        break;
-      case kconsultartermo:
-        break;
-      case kconsultardefinicao:
-        break;
-      case kcadastrardesenvolvedor:
-        break;
-      case kcriartermo:
-        break;
-      case keditartermo:
-        break;
-      case kexcluirtermo:
-        break;
-      case kcriardefinicao:
-        break;
-      case keditardefinicao:
-        break;
-      case kexcluirdefinicao:
-        break;
-      case kcriarvocabulario:
-        break;
-      case keditarvocabulario:
-        break;
-      case kexcluirvocabulario:
-        break;
-      case kvoltar:
-        break;
+      case klistarvocabularios:break;
+      case kapresentarvocabulario:break;
+      case kconsultartermo:break;
+      case kconsultardefinicao:break;
+      case kcadastrardesenvolvedor:break;
+      case kcriartermo:break;
+      case keditartermo:break;
+      case kexcluirtermo:break;
+      case kcriardefinicao:break;
+      case keditardefinicao:break;
+      case kexcluirdefinicao:break;
+      case kcriarvocabulario:break;
+      case keditarvocabulario:break;
+      case kexcluirvocabulario:break;
+      case kvoltar:break;
+      default:break;
     }
-  } while(opt != kvoltar);
+  } while (opt != kvoltar);
 }

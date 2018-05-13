@@ -7,7 +7,7 @@
 using namespace std;
 
 /**
- * @file unit-test-dominios.h
+ * @file teste-dominios.h
  * @author Yuri Serka do Carmo Rodrigues
  * @date 7 de Abril de 2018
  *
@@ -39,6 +39,12 @@ class TUBaseDominios {
     Destroy();
     return estado_;
   }
+
+  /**
+   * @brief Destrutor do objeto TUBaseDominios 
+   * 
+   */
+  virtual ~TUBaseDominios() = default;
 
  protected:
   int estado_;
