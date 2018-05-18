@@ -3,9 +3,8 @@
 #include "stubs.h"
 
 void CtrlApresentacaoControle::Inicializar() {
-  InterfaceApresentacaoAutenticacao *ctrl_iaa = new CtrlApresentacaoAutenticacao();
-  StubAutenticacao *stub_a = new StubAutenticacao();
-  ctrl_iaa->SetCtrlServicoAutenticacao(stub_a);
+  ResultadoAutenticar resultado;
+
   int opt;
 
   do {
@@ -15,13 +14,11 @@ void CtrlApresentacaoControle::Inicializar() {
     cout << kentrar << ". Entrar\n";
     cout << kcadastrar << ". Cadastrar\n";
     cout << ksair << ". Sair\n\topcao: ";
-
     cin >> opt;
-    ResultadoAutenticar resultado;
+    
 
     switch (opt) {
-      case Controle::kentrar:SetCtrlAutenticacao(ctrl_iaa);
-        resultado = ctrl_apresentacao_autenticacao_->Autenticar();
+      case Controle::kentrar:resultado = ctrl_aa->Autenticar();
         if (resultado.GetResultado() == ResultadoAutenticar::SUCESSO) {
           ControleLogado(resultado.GetEmailResultado());
         }
@@ -31,15 +28,11 @@ void CtrlApresentacaoControle::Inicializar() {
       default:break;
     }
   } while (opt != ksair);
-  delete ctrl_iaa;
-  delete stub_a;
 }
 
 void CtrlApresentacaoControle::ControleLogado(const Email &email) {
-  InterfaceApresentacaoUsuario *ctrl_iau = new CtrlApresentacaoUsuario();
-  InterfaceApresentacaoVocabulario *ctrl_iav = new CtrlApresentacaoVocabulario();
-
   int opt;
+
   do {
     system(CLEAR);
     cout << "\tBem-vindo!\n\n";
@@ -50,19 +43,16 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
     cin >> opt;
 
     switch (opt) {
-      case ControleLogado::kgestao_usuario:SetCtrlApresentacaoUsuario(ctrl_iau);
-        if (ctrl_apresentacao_usuario_->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
+      case ControleLogado::kgestao_usuario:if (ctrl_au->Executar(email).GetResultado() == ResultadoUsuario::kconta_excluida) {
           opt = kvoltar;
         }
         break;
-      case ControleLogado::kgestao_vocabulo:SetCtrlApresentacaoVocabulario(ctrl_iav);
-        ctrl_apresentacao_vocabulario_->Executar(email);
+      case ControleLogado::kgestao_vocabulo:ctrl_av->Executar(email);
         break;
       case ControleLogado::kvoltar:break;
       default:break;
     }
   } while (opt != kvoltar);
-  delete ctrl_iau;
 }
 
 ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {

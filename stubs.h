@@ -12,6 +12,11 @@
  * 
  */
 
+class StubControle : public InterfaceServicoControle {
+  public:
+    void Construir() override;
+};
+
 /**
  * @brief 
  * 

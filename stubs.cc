@@ -1,3 +1,4 @@
+#include "controladores.h"
 #include "stubs.h"
 
 const string StubAutenticacao::ktrigger_falha_ = "falha@gmail.com";
@@ -6,6 +7,38 @@ const string StubAutenticacao::ktrigger_leitor_ = "leitor@gmail.com";
 const string StubAutenticacao::ktrigger_desenvolvedor_ = "desenvolvedor@gmail.com";
 const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.com";
 const string StubAutenticacao::ktrigger_senha_invalida_ = "100Nha99";
+
+void StubControle::Construir() {
+  InterfaceApresentacaoAutenticacao *ctrl_aa;
+  InterfaceApresentacaoUsuario *ctrl_au;
+  InterfaceApresentacaoVocabulario *ctrl_av;
+
+  ctrl_aa = new CtrlApresentacaoAutenticacao();
+  ctrl_au = new CtrlApresentacaoUsuario();
+  ctrl_av = new CtrlApresentacaoVocabulario();
+
+  InterfaceServicoAutenticacao *stub_a;
+  InterfaceServicoUsuario *stub_u;
+  InterfaceServicoVocabulario *stub_v;
+
+  stub_a = new StubAutenticacao();
+  stub_u = new StubUsuario();
+  stub_v = new StubVocabulario();
+
+  ctrl_aa->SetCtrlServicoAutenticacao(stub_a);
+  ctrl_au->SetCtrlServicoUsuario(stub_u);
+  ctrl_av->SetCtrlServicoVocabulario(stub_v);
+
+  InterfaceApresentacaoControle *ctrl_ac;
+
+  ctrl_ac = new CtrlApresentacaoControle();
+
+  ctrl_ac->SetCtrlApresentacaoAutenticacao(ctrl_aa);
+  ctrl_ac->SetCtrlApresentacaoUsuario(ctrl_au);
+  ctrl_ac->SetCtrlApresentacaoVocabulario(ctrl_av);
+
+  ctrl_ac->Inicializar();
+}
 
 Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   ResultadoAutenticar resultado;

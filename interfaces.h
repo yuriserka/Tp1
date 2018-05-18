@@ -19,6 +19,7 @@ class InterfaceApresentacaoUsuario;
 class InterfaceServicoVocabulario;
 class InterfaceApresentacaoVocabulario;
 class InterfaceApresentacaoControle;
+class InterfaceServicoControle;
 
 /**
  * @file 
@@ -51,7 +52,7 @@ class InterfaceApresentacaoControle {
    * @brief Set the Ctrl Autenticacao object
    * 
    */
-  virtual void SetCtrlAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
+  virtual void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
 
   /**
    * @brief Set the Ctrl Apresentacao Usuario object
@@ -70,6 +71,11 @@ class InterfaceApresentacaoControle {
    * 
    */
   virtual ~InterfaceApresentacaoControle() = default;
+};
+
+class InterfaceServicoControle {
+  public:
+    virtual void Construir() = 0;
 };
 
 /**

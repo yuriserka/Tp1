@@ -36,8 +36,8 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
    * 
    * @param iaa 
    */
-  inline void SetCtrlAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
-    this->ctrl_apresentacao_autenticacao_ = iaa;
+  inline void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
+    this->ctrl_aa = iaa;
   }
 
   /**
@@ -46,7 +46,7 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
    * @param iau 
    */
   inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override {
-    this->ctrl_apresentacao_usuario_ = iau;
+    this->ctrl_au = iau;
   }
 
   /**
@@ -55,13 +55,14 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
    * @param iav 
    */
   inline void SetCtrlApresentacaoVocabulario(InterfaceApresentacaoVocabulario *iav) override {
-    this->ctrl_apresentacao_vocabulario_ = iav;
+    this->ctrl_av = iav;
   }
 
  private:
-  InterfaceApresentacaoAutenticacao *ctrl_apresentacao_autenticacao_;
-  InterfaceApresentacaoUsuario *ctrl_apresentacao_usuario_;
-  InterfaceApresentacaoVocabulario *ctrl_apresentacao_vocabulario_;
+  InterfaceApresentacaoAutenticacao *ctrl_aa;
+  InterfaceApresentacaoUsuario *ctrl_au;
+  InterfaceApresentacaoVocabulario *ctrl_av;
+
   enum Controle {
     knullc,
     kentrar,
