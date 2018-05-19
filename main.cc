@@ -25,5 +25,7 @@ int main() {
   stub_c = new StubControle();
   stub_c->Construir();
 
+  delete stub_c;
+
   return 0;
 }

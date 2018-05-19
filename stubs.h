@@ -75,6 +75,31 @@ class StubAutenticacao : public InterfaceServicoAutenticacao {
  * @brief 
  * 
  */
+class StubCadastro : public InterfaceServicoCadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    void CadastrarLeitor() override;
+
+    /**
+     * @brief 
+     * 
+     */
+    void CadastrarDev() override;
+
+    /**
+     * @brief 
+     * 
+     */
+    void CadastrarAdm() override;
+};
+
+/**
+ * @brief 
+ * 
+ */
 class StubUsuario : public InterfaceServicoUsuario {
  public:
   /**

@@ -4,7 +4,6 @@
 
 void CtrlApresentacaoControle::Inicializar() {
   ResultadoAutenticar resultado;
-
   int opt;
 
   do {
@@ -22,7 +21,10 @@ void CtrlApresentacaoControle::Inicializar() {
           ControleLogado(resultado.GetEmailResultado());
         }
         break;
-      case Controle::kcadastrar:break;
+      case Controle::kcadastrar:
+        ctrl_ac->Cadastrar();
+        system(PAUSE);
+        break;
       case Controle::ksair:break;
       default:break;
     }
@@ -108,10 +110,47 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   return resultado;
 }
 
+void CtrlApresentacaoCadastro::Cadastrar() {
+  ctrl_servico_cadastro_ = new StubCadastro();
+  ComandoACadastro *comando;
+  int opt;
+
+  system(CLEAR);
+  cout << "Deseja se cadastrar como: \n\n";
+  cout << kadm << ". Administrador\n" << kdev << ". Desenvolvedor\n" << kleitor << ". Leitor\n";
+  cout << kvoltar << ". Voltar\n\tOpcao: ";
+  cin >> opt;
+
+  switch (opt) {
+    case Cadastro::kadm:
+      comando = new ComandoACadastroAdm();
+      comando->Executar(ctrl_servico_cadastro_);
+      delete comando;
+      break;
+    case Cadastro::kdev:
+      comando = new ComandoACadastroDev();
+      comando->Executar(ctrl_servico_cadastro_);
+      delete comando;
+      break;
+    case Cadastro::kleitor:
+      comando = new ComandoACadastroLeitor();
+      comando->Executar(ctrl_servico_cadastro_);
+      delete comando;
+      break;
+    case Cadastro::kvoltar:
+      break;
+    default:
+      break;
+  }
+  cout << "Conta criada com sucesso!\n";
+  delete ctrl_servico_cadastro_;
+}
+
 Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
   ctrl_servico_usuario_ = new StubUsuario();
   Resultado resultado;
   ComandoAUsuario *cmd_show, *comando;
+  cmd_show = new ComandoAUsuarioMostrar();
 
   int opt;
   do {
@@ -119,7 +158,6 @@ Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
     cout << "\tGestao de Usuario\n\n";
     cout << "Seus Dados: \n\n";
 
-    cmd_show = new ComandoAUsuarioMostrar();
     cmd_show->Executar(ctrl_servico_usuario_, email);
 
     cout << "\nEscolha uma das opcoes abaixo.\n\n";

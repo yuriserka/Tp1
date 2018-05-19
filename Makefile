@@ -18,9 +18,9 @@ clean:
 	$(RM) *.o *~ $(MAIN)
 
 # Compilar no windows :
-	# <build objects>
+	# build objects
 # g++ -g -Wall -pedantic -std=c++11 -c controladores.cc entidades.cc dominios.cc main.cc stubs.cc comandos.cc teste-dominios.cc teste-entidades.cc
-	# <link objects>
+	# link objects
 # g++ -g -Wall -pedantic -std=c++11 -o main controladores.o entidades.o dominios.o main.o stubs.o comandos.o teste-dominios.o teste-entidades.o
-	# <run>
+	# run
 # main.exe	

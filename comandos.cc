@@ -387,3 +387,16 @@ Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, co
   }
   return res;
 }
+
+
+void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarLeitor();
+}
+
+void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarAdm();
+}
+
+void ComandoACadastroDev::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarDev();
+}

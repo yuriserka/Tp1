@@ -41,6 +41,15 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
   }
 
   /**
+   * @brief Set the Ctrl Apresentacao Cadastro object
+   * 
+   * @param iac 
+   */
+  inline void SetCtrlApresentacaoCadastro(InterfaceApresentacaoCadastro *iac) override {
+    this->ctrl_ac = iac;
+  }
+
+  /**
    * @brief Set the Ctrl Apresentacao Usuario object
    * 
    * @param iau 
@@ -62,6 +71,7 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
   InterfaceApresentacaoUsuario *ctrl_au;
   InterfaceApresentacaoVocabulario *ctrl_av;
+  InterfaceApresentacaoCadastro *ctrl_ac;
 
   enum Controle {
     knullc,
@@ -76,6 +86,39 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
     kgestao_vocabulo,
     kvoltar
   };
+};
+
+/**
+ * @brief 
+ * 
+ */
+class CtrlApresentacaoCadastro : public InterfaceApresentacaoCadastro {
+  public:
+    /**
+    * @brief 
+    * 
+    * @return Resultado 
+    */
+    void Cadastrar() override;
+
+    /**
+     * @brief Set the Ctrl Servico Cadastro object
+     * 
+     * @param isc 
+     */
+    inline void SetCtrlServicoCadastro(InterfaceServicoCadastro *isc) override {
+      this->ctrl_servico_cadastro_ = isc;
+    }
+
+  private:
+    InterfaceServicoCadastro *ctrl_servico_cadastro_;
+    enum Cadastro {
+      knull,
+      kadm,
+      kdev,
+      kleitor,
+      kvoltar
+    };
 };
 
 /**

@@ -14,6 +14,8 @@
 
 class InterfaceServicoAutenticacao;
 class InterfaceApresentacaoAutenticacao;
+class InterfaceServicoCadastro;
+class InterfaceApresentacaoCadastro;
 class InterfaceServicoUsuario;
 class InterfaceApresentacaoUsuario;
 class InterfaceServicoVocabulario;
@@ -55,6 +57,12 @@ class InterfaceApresentacaoControle {
   virtual void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
 
   /**
+   * @brief Set the Ctrl Apresentacao Cadastro object
+   * 
+   */
+  virtual void SetCtrlApresentacaoCadastro(InterfaceApresentacaoCadastro *) = 0;
+
+  /**
    * @brief Set the Ctrl Apresentacao Usuario object
    * 
    */
@@ -73,9 +81,23 @@ class InterfaceApresentacaoControle {
   virtual ~InterfaceApresentacaoControle() = default;
 };
 
+/**
+ * @brief 
+ * 
+ */
 class InterfaceServicoControle {
  public:
+  /**
+   * @brief 
+   * 
+   */
   virtual void Construir() = 0;
+  
+  /**
+   * @brief Destroy the Interface Servico Controle object
+   * 
+   */
+  virtual ~InterfaceServicoControle() = default;
 };
 
 /**
@@ -122,6 +144,62 @@ class InterfaceApresentacaoAutenticacao {
    * 
    */
   virtual ~InterfaceApresentacaoAutenticacao() = default;
+};
+
+/**
+ * @brief 
+ * 
+ */
+class InterfaceServicoCadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    virtual void CadastrarLeitor() = 0;  
+
+    /**
+     * @brief 
+     * 
+     */
+    virtual void CadastrarAdm() = 0;
+
+    /**
+     * @brief 
+     * 
+     */
+    virtual void CadastrarDev() = 0;
+
+    /**
+     * @brief Destroy the Interface Servico Cadastro object
+     * 
+     */
+    virtual ~InterfaceServicoCadastro() = default;
+};
+
+/**
+ * @brief 
+ * 
+ */
+class InterfaceApresentacaoCadastro {
+  public:
+   /**
+    * @brief 
+    * 
+    */
+   virtual void Cadastrar() = 0;
+   
+   /**
+    * @brief Set the Ctrl Servico Cadastro object
+    * 
+    */
+   virtual void SetCtrlServicoCadastro(InterfaceServicoCadastro *) = 0;
+
+   /**
+    * @brief Destroy the Interface Apresentacao Cadastro object
+    * 
+    */
+   virtual ~InterfaceApresentacaoCadastro() = default;
 };
 
 /**

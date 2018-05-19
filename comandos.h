@@ -179,4 +179,62 @@ class ComandoAUsuarioExcluir : public ComandoAUsuario {
   Resultado Executar(InterfaceServicoUsuario *, const Email &email) override;
 };
 
+/**
+ * @brief 
+ * 
+ */
+class ComandoACadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    virtual void Executar(InterfaceServicoCadastro *) = 0;
+
+    /**
+     * @brief Destroy the Comando A Cadastro object
+     * 
+     */
+    virtual ~ComandoACadastro() = default;
+};
+
+/**
+ * @brief 
+ * 
+ */
+class ComandoACadastroLeitor : public ComandoACadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    void Executar(InterfaceServicoCadastro *) override;
+};
+
+/**
+ * @brief 
+ * 
+ */
+class ComandoACadastroAdm : public ComandoACadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    void Executar(InterfaceServicoCadastro *) override;
+};
+
+/**
+ * @brief 
+ * 
+ */
+class ComandoACadastroDev : public ComandoACadastro {
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    void Executar(InterfaceServicoCadastro *) override;
+};
+
 #endif  // TRABALHO__COMANDOS__H__

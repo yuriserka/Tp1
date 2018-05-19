@@ -12,22 +12,27 @@ void StubControle::Construir() {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
   InterfaceApresentacaoUsuario *ctrl_au;
   InterfaceApresentacaoVocabulario *ctrl_av;
+  InterfaceApresentacaoCadastro *ctrl_ak;
 
   ctrl_aa = new CtrlApresentacaoAutenticacao();
   ctrl_au = new CtrlApresentacaoUsuario();
   ctrl_av = new CtrlApresentacaoVocabulario();
+  ctrl_ak = new CtrlApresentacaoCadastro();
 
   InterfaceServicoAutenticacao *stub_a;
   InterfaceServicoUsuario *stub_u;
   InterfaceServicoVocabulario *stub_v;
+  InterfaceServicoCadastro *stub_k;
 
   stub_a = new StubAutenticacao();
   stub_u = new StubUsuario();
   stub_v = new StubVocabulario();
+  stub_k = new StubCadastro();
 
   ctrl_aa->SetCtrlServicoAutenticacao(stub_a);
   ctrl_au->SetCtrlServicoUsuario(stub_u);
   ctrl_av->SetCtrlServicoVocabulario(stub_v);
+  ctrl_ak->SetCtrlServicoCadastro(stub_k);
 
   InterfaceApresentacaoControle *ctrl_ac;
 
@@ -36,16 +41,172 @@ void StubControle::Construir() {
   ctrl_ac->SetCtrlApresentacaoAutenticacao(ctrl_aa);
   ctrl_ac->SetCtrlApresentacaoUsuario(ctrl_au);
   ctrl_ac->SetCtrlApresentacaoVocabulario(ctrl_av);
+  ctrl_ac->SetCtrlApresentacaoCadastro(ctrl_ak);
 
   ctrl_ac->Inicializar();
 
   delete ctrl_aa;
   delete ctrl_au;  
   delete ctrl_av;
+  delete ctrl_ak;
   delete stub_a;
   delete stub_u;
   delete stub_v;
+  delete stub_k;
   delete ctrl_ac;
+}
+
+void StubCadastro::CadastrarLeitor() {
+  system(CLEAR);
+  Leitor novoleitor;
+
+  string inome, isobrenome, isenha, iemail;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    CadastrarLeitor();
+  }
+
+  try {
+    novoleitor = Leitor(nome, sobrenome, senha, email);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+  }
+}
+
+void StubCadastro::CadastrarAdm() {
+  system(CLEAR);
+  Administrador novoadm;
+  ResultadoUsuario resultado;
+
+  string inome, isobrenome, isenha, iemail, idata, iaddres, itelefone;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+  Address endereco;
+  Telefone telefone;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua data de nascimento: ";
+    cin >> idata;
+    data = Data(idata);
+
+    cin.clear();
+    cin.ignore();
+
+    cout << "Digite seu telefone: ";
+    getline(cin, itelefone);
+    telefone = Telefone(itelefone);
+
+    cout << "Digite seu endereco: ";
+    getline(cin, iaddres);
+    endereco = Address(iaddres);
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    CadastrarAdm();
+  }
+
+  try {
+    novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+  }
+}
+
+void StubCadastro::CadastrarDev() {
+  system(CLEAR);
+  Desenvolvedor novodev;
+
+  string inome, isobrenome, isenha, iemail, idata;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua data de nascimento: ";
+    cin >> idata;
+    data = Data(idata);
+
+    cin.clear();
+    cin.ignore();
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    CadastrarDev();
+  }
+
+  try {
+    novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+  }
 }
 
 Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
