@@ -38,6 +38,14 @@ void StubControle::Construir() {
   ctrl_ac->SetCtrlApresentacaoVocabulario(ctrl_av);
 
   ctrl_ac->Inicializar();
+
+  delete ctrl_aa;
+  delete ctrl_au;  
+  delete ctrl_av;
+  delete stub_a;
+  delete stub_u;
+  delete stub_v;
+  delete ctrl_ac;
 }
 
 Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
