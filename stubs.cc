@@ -45,11 +45,11 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
 
   if (email.GetEmail() == ktrigger_falha_ ||
       senha.GetSenha() == ktrigger_senha_invalida_) {
-    resultado.SetResultado(ResultadoAutenticar::FALHA);
+    resultado.SetResultado(ResultadoAutenticar::kfalha_);
   } else if (email.GetEmail() == ktrigger_erro_sistema_) {
     throw ("Erro de Sistema!\n");
   } else {
-    resultado.SetResultado(ResultadoAutenticar::SUCESSO);
+    resultado.SetResultado(ResultadoAutenticar::ksucesso_);
   }
   return resultado;
 }
@@ -79,15 +79,203 @@ void StubUsuario::Exibir(const Administrador &administrador) {
   cout << "Endereco: " << administrador.GetEndereco().GetAddress() << "\n";
 }
 
-Resultado StubUsuario::Editar(const Email &email) {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+ResultadoUsuario StubUsuario::Editar(const Leitor &leitor) {
+  ResultadoUsuario resultado;
+  resultado = AtualizaLeitor();
+  return resultado;
+}
+
+ResultadoUsuario StubUsuario::Editar(const Desenvolvedor &dev) {
+  ResultadoUsuario resultado;
+  resultado = AtualizaDesenvolvedor();
+  return resultado;
+}
+
+ResultadoUsuario StubUsuario::Editar(const Administrador &adm) {
+  ResultadoUsuario resultado;
+  resultado = AtualizaAdministrador();
+  return resultado;
+}
+
+ResultadoUsuario StubUsuario::AtualizaLeitor() {
+  system(CLEAR);
+  Leitor novoleitor;
+  ResultadoUsuario resultado;
+
+  string inome, isobrenome, isenha, iemail;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    AtualizaLeitor();
+  }
+
+  try {
+    novoleitor = Leitor(nome, sobrenome, senha, email);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  resultado.SetLeitorResultado(novoleitor);
+
+  return resultado;
+}
+
+ResultadoUsuario StubUsuario::AtualizaDesenvolvedor() {
+  system(CLEAR);
+  Desenvolvedor novodev;
+  ResultadoUsuario resultado;
+
+  string inome, isobrenome, isenha, iemail, idata;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua data de nascimento: ";
+    cin >> idata;
+    data = Data(idata);
+
+    cin.clear();
+    cin.ignore();
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    AtualizaDesenvolvedor();
+  }
+
+  try {
+    novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  resultado.SetDevResultado(novodev);
+
+  return resultado;
+}
+
+ResultadoUsuario StubUsuario::AtualizaAdministrador() {
+  system(CLEAR);
+  Administrador novoadm;
+  ResultadoUsuario resultado;
+
+  string inome, isobrenome, isenha, iemail, idata, iaddres, itelefone;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+  Address endereco;
+  Telefone telefone;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua data de nascimento: ";
+    cin >> idata;
+    data = Data(idata);
+
+    cin.clear();
+    cin.ignore();
+
+    cout << "Digite seu telefone: ";
+    getline(cin, itelefone);
+    telefone = Telefone(itelefone);
+
+    cout << "Digite seu endereco: ";
+    getline(cin, iaddres);
+    endereco = Address(iaddres);
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    AtualizaAdministrador();
+  }
+
+  try {
+    novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  resultado.SetAdmResultado(novoadm);
+
   return resultado;
 }
 
 Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
@@ -120,84 +308,84 @@ Administrador StubUsuario::CriaAdministrador(const Email &email) {
 
 Resultado StubVocabulario::ListarVocabularios() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ApresentarVocabulario() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ConsultarTermo() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ConsultarDefinicao() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::CadastrarDesenvolvedor() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::CriarTermo() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::EditarTermo() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ExcluirTermo() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::CriarDefinicao() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::EditarDefinicao() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ExcluirDefinicao() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::CriarVocabulario() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::EditarVocabulario() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }
 
 Resultado StubVocabulario::ExcluirVocabulario() {
   Resultado resultado;
-  resultado.SetResultado(Resultado::SUCESSO);
+  resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }

@@ -116,7 +116,7 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
    * @param _email 
    * @return ResultadoUsuario 
    */
-  ResultadoUsuario Executar(const Email &_email) override;
+  Resultado Executar(const Email &_email) override;
 
   /**
    * @brief Set the Ctrl Servico Usuario object
@@ -135,7 +135,6 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
     kexcluir,
     kvoltar
   };
-  Resultado ShowDados(const Email &, InterfaceServicoUsuario *);
 };
 
 /**
@@ -159,7 +158,7 @@ class CtrlApresentacaoVocabulario : public InterfaceApresentacaoVocabulario {
   void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *isv) override {
     this->ctrl_servico_vocabulario_ = isv;
   }
-  
+
  private:
   InterfaceServicoVocabulario *ctrl_servico_vocabulario_;
 };

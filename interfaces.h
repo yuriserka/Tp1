@@ -74,8 +74,8 @@ class InterfaceApresentacaoControle {
 };
 
 class InterfaceServicoControle {
-  public:
-    virtual void Construir() = 0;
+ public:
+  virtual void Construir() = 0;
 };
 
 /**
@@ -153,7 +153,21 @@ class InterfaceServicoUsuario {
    * 
    * @return Resultado 
    */
-  virtual Resultado Editar(const Email &) = 0;
+  virtual ResultadoUsuario Editar(const Leitor &) = 0;
+
+  /**
+   * @brief 
+   * 
+   * @return Resultado 
+   */
+  virtual ResultadoUsuario Editar(const Desenvolvedor &) = 0;
+
+  /**
+   * @brief 
+   * 
+   * @return Resultado 
+   */
+  virtual ResultadoUsuario Editar(const Administrador &) = 0;
 
   /**
    * @brief 
@@ -201,7 +215,7 @@ class InterfaceApresentacaoUsuario {
    * 
    * @return ResultadoUsuario 
    */
-  virtual ResultadoUsuario Executar(const Email &) = 0;
+  virtual Resultado Executar(const Email &) = 0;
 
   /**
    * @brief Set the Ctrl Servico Usuario object

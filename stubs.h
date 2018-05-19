@@ -4,7 +4,7 @@
 #include "interfaces.h"
 
 /**
- * @file 
+ * @file stubs.h
  * @author Yuri Serka e Thiago Matos
  * @date 13 de Abril de 2018
  * 
@@ -12,9 +12,13 @@
  * 
  */
 
+/**
+ * @brief 
+ * 
+ */
 class StubControle : public InterfaceServicoControle {
-  public:
-    void Construir() override;
+ public:
+  void Construir() override;
 };
 
 /**
@@ -96,7 +100,21 @@ class StubUsuario : public InterfaceServicoUsuario {
    * 
    * @return Resultado 
    */
-  Resultado Editar(const Email &) override;
+  ResultadoUsuario Editar(const Leitor &) override;
+
+  /**
+   * @brief 
+   * 
+   * @return Resultado 
+   */
+  ResultadoUsuario Editar(const Desenvolvedor &) override;
+
+  /**
+   * @brief 
+   * 
+   * @return Resultado 
+   */
+  ResultadoUsuario Editar(const Administrador &) override;
 
   /**
    * @brief 
@@ -125,6 +143,11 @@ class StubUsuario : public InterfaceServicoUsuario {
    * @return Administrador 
    */
   Administrador CriaAdministrador(const Email &) override;
+
+ private:
+  ResultadoUsuario AtualizaLeitor();
+  ResultadoUsuario AtualizaDesenvolvedor();
+  ResultadoUsuario AtualizaAdministrador();
 };
 
 /**
