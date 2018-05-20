@@ -1,5 +1,70 @@
 #include "includes.h"
 
+void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarLeitor();
+}
+
+void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarAdm();
+}
+
+void ComandoACadastroDev::Executar(InterfaceServicoCadastro *stub_isc) {
+  stub_isc->CadastrarDev();
+}
+
+Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
+  Resultado res;
+  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
+    stub_isu->Exibir(stub_isu->CriaLeitor(email));
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+    stub_isu->Exibir(stub_isu->CriaDesenvolvedor(email));
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+    stub_isu->Exibir(stub_isu->CriaAdministrador(email));
+  } else {
+    res.SetResultado(Resultado::kfalha_);
+    cout << "Email nao suportado pelos triggers\n";
+    return res;
+  }
+  res.SetResultado(Resultado::ksucesso_);
+  return res;
+}
+
+Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
+  ResultadoUsuario res;
+  Resultado result;
+  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
+    res = stub_isu->Editar(stub_isu->CriaLeitor(email));
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+    res = stub_isu->Editar(stub_isu->CriaDesenvolvedor(email));
+  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+    res = stub_isu->Editar(stub_isu->CriaAdministrador(email));
+  }
+
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Conta modificada com sucesso.\n";
+  } else {
+    cout << "Erro ao modificar conta.\n";
+  }
+
+  result.SetResultado(res.GetResultado());
+
+  return result;
+}
+
+Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
+  Resultado res;
+  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_ ||
+      email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+    res = stub_isu->Excluir(email);
+  }
+    
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Conta excluida com sucesso.\n";
+  } else {
+    cout << "Erro ao excluir conta.\n";
+  }
+  return res;
+}
 void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) {
   int opt;
   do {
@@ -335,70 +400,4 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *stu
       default:break;
     }
   } while (opt != kvoltar);
-}
-
-Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
-  Resultado res;
-  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
-    stub_isu->Exibir(stub_isu->CriaLeitor(email));
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
-    stub_isu->Exibir(stub_isu->CriaDesenvolvedor(email));
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-    stub_isu->Exibir(stub_isu->CriaAdministrador(email));
-  } else {
-    res.SetResultado(Resultado::kfalha_);
-    cout << "Email nao suportado pelos triggers\n";
-    return res;
-  }
-  res.SetResultado(Resultado::ksucesso_);
-  return res;
-}
-
-Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
-  ResultadoUsuario res;
-  Resultado result;
-  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
-    res = stub_isu->Editar(stub_isu->CriaLeitor(email));
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
-    res = stub_isu->Editar(stub_isu->CriaDesenvolvedor(email));
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-    res = stub_isu->Editar(stub_isu->CriaAdministrador(email));
-  }
-
-  if (res.GetResultado() == Resultado::ksucesso_) {
-    cout << "Conta modificada com sucesso.\n";
-  } else {
-    cout << "Erro ao modificar conta.\n";
-  }
-
-  result.SetResultado(res.GetResultado());
-
-  return result;
-}
-
-Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
-  Resultado res;
-  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_ ||
-      email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
-    res = stub_isu->Excluir(email);
-  }
-    
-  if (res.GetResultado() == Resultado::ksucesso_) {
-    cout << "Conta excluida com sucesso.\n";
-  } else {
-    cout << "Erro ao excluir conta.\n";
-  }
-  return res;
-}
-
-void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarLeitor();
-}
-
-void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarAdm();
-}
-
-void ComandoACadastroDev::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarDev();
 }

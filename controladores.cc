@@ -21,7 +21,6 @@ void CtrlApresentacaoControle::Inicializar() {
         break;
       case Controle::kcadastrar:
         ctrl_ak->Cadastrar();
-        system(PAUSE);
         break;
       case Controle::ksair:break;
       default:break;
@@ -113,34 +112,43 @@ void CtrlApresentacaoCadastro::Cadastrar() {
   ComandoACadastro *comando;
   int opt;
 
-  system(CLEAR);
-  cout << "Deseja se cadastrar como: \n\n";
-  cout << kadm << ". Administrador\n" << kdev << ". Desenvolvedor\n" << kleitor << ". Leitor\n";
-  cout << kvoltar << ". Voltar\n\tOpcao: ";
-  cin >> opt;
+  do {
+    system(CLEAR);
+    cout << "Deseja se cadastrar como: \n\n";
+    cout << kadm << ". Administrador\n" << kdev << ". Desenvolvedor\n" << kleitor << ". Leitor\n";
+    cout << kvoltar << ". Voltar\n\tOpcao: ";
+    cin >> opt;
 
-  switch (opt) {
-    case Cadastro::kadm:
-      comando = new ComandoACadastroAdm();
-      comando->Executar(ctrl_servico_cadastro_);
-      delete comando;
-      break;
-    case Cadastro::kdev:
-      comando = new ComandoACadastroDev();
-      comando->Executar(ctrl_servico_cadastro_);
-      delete comando;
-      break;
-    case Cadastro::kleitor:
-      comando = new ComandoACadastroLeitor();
-      comando->Executar(ctrl_servico_cadastro_);
-      delete comando;
-      break;
-    case Cadastro::kvoltar:
-      break;
-    default:
-      break;
-  }
-  cout << "Conta criada com sucesso!\n";
+    switch (opt) {
+      case Cadastro::kadm:
+        comando = new ComandoACadastroAdm();
+        comando->Executar(ctrl_servico_cadastro_);
+        cout << "Conta criada com sucesso!\n";
+        opt = kvoltar;
+        system(PAUSE);
+        delete comando;
+        break;
+      case Cadastro::kdev:
+        comando = new ComandoACadastroDev();
+        comando->Executar(ctrl_servico_cadastro_);
+        cout << "Conta criada com sucesso!\n";
+        opt = kvoltar;
+        system(PAUSE);
+        delete comando;
+        break;
+      case Cadastro::kleitor:
+        comando = new ComandoACadastroLeitor();
+        comando->Executar(ctrl_servico_cadastro_);
+        cout << "Conta criada com sucesso!\n";
+        opt = kvoltar;
+        system(PAUSE);
+        delete comando;
+        break;
+      case Cadastro::kvoltar:
+        break;
+      default:break;
+    }
+  } while(opt != kvoltar);
   delete ctrl_servico_cadastro_;
 }
 

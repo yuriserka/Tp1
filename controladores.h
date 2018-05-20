@@ -71,9 +71,9 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
 
  private:
   InterfaceApresentacaoAutenticacao *ctrl_aa;
+  InterfaceApresentacaoCadastro *ctrl_ak;
   InterfaceApresentacaoUsuario *ctrl_au;
   InterfaceApresentacaoVocabulario *ctrl_av;
-  InterfaceApresentacaoCadastro *ctrl_ak;
 
   enum Controle {
     knullc,
@@ -88,6 +88,34 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
     kgestao_vocabulo,
     kvoltar
   };
+};
+
+/**
+ * @brief Classe que será responsável pela parte de autenticação de usuarios.
+ * 
+ */
+class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
+ public:
+  /**
+   * @brief implementa a classe base e autentica os dados do usuario.
+   * 
+   * @return ResultadoAutenticar retorna um objeto que conterá email e 
+   * um resultado que representará sucesso ou falha.
+   */
+  ResultadoAutenticar Autenticar() override;
+
+  /**
+   * @brief Seta o controle para a parte de serviço de autenticação.
+   * 
+   * @param isa objeto de alguma classe derivada da interface de serviço
+   * de autenticação.
+   */
+  inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
+    this->ctrl_servico_autenticacao_ = isa;
+  }
+
+ private:
+  InterfaceServicoAutenticacao *ctrl_servico_autenticacao_;
 };
 
 /**
@@ -120,34 +148,6 @@ class CtrlApresentacaoCadastro : public InterfaceApresentacaoCadastro {
       kleitor,
       kvoltar
     };
-};
-
-/**
- * @brief Classe que será responsável pela parte de autenticação de usuarios.
- * 
- */
-class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
- public:
-  /**
-   * @brief implementa a classe base e autentica os dados do usuario.
-   * 
-   * @return ResultadoAutenticar retorna um objeto que conterá email e 
-   * um resultado que representará sucesso ou falha.
-   */
-  ResultadoAutenticar Autenticar() override;
-
-  /**
-   * @brief Seta o controle para a parte de serviço de autenticação.
-   * 
-   * @param isa objeto de alguma classe derivada da interface de serviço
-   * de autenticação.
-   */
-  inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
-    this->ctrl_servico_autenticacao_ = isa;
-  }
-
- private:
-  InterfaceServicoAutenticacao *ctrl_servico_autenticacao_;
 };
 
 /**

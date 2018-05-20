@@ -26,6 +26,29 @@ class InterfaceServicoControle;
  * previsto e isso é bom em vários aspectos.
  * 
  */
+ 
+
+/**
+ * @brief Interface de serviços do controle 
+ * 
+ */
+class InterfaceServicoControle {
+ public:
+  /**
+   * @brief função abstrata que ligará as controladoras com os serviços
+   * 
+   * Também são chamados de builders, pois fazem todo o processo para que
+   * o programa funcione corretamente.
+   * 
+   */
+  virtual void Construir() = 0;
+  
+  /**
+   * @brief Destrutor virtual padrão da classe.
+   * 
+   */
+  virtual ~InterfaceServicoControle() = default;
+};
 
 /**
  * @brief Interface de apresentação do controle
@@ -74,28 +97,6 @@ class InterfaceApresentacaoControle {
    * 
    */
   virtual ~InterfaceApresentacaoControle() = default;
-};
-
-/**
- * @brief Interface de serviços do controle 
- * 
- */
-class InterfaceServicoControle {
- public:
-  /**
-   * @brief função abstrata que ligará as controladoras com os serviços
-   * 
-   * Também são chamados de builders, pois fazem todo o processo para que
-   * o programa funcione corretamente.
-   * 
-   */
-  virtual void Construir() = 0;
-  
-  /**
-   * @brief Destrutor virtual padrão da classe.
-   * 
-   */
-  virtual ~InterfaceServicoControle() = default;
 };
 
 /**

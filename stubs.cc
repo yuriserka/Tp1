@@ -38,14 +38,14 @@ void StubControle::Construir() {
   ctrl_ac = new CtrlApresentacaoControle();
 
   ctrl_ac->SetCtrlApresentacaoAutenticacao(ctrl_aa);
+  ctrl_ac->SetCtrlApresentacaoCadastro(ctrl_ak);
   ctrl_ac->SetCtrlApresentacaoUsuario(ctrl_au);
   ctrl_ac->SetCtrlApresentacaoVocabulario(ctrl_av);
-  ctrl_ac->SetCtrlApresentacaoCadastro(ctrl_ak);
 
   ctrl_ac->Inicializar();
 
   delete ctrl_aa;
-  delete ctrl_au;  
+  delete ctrl_au;
   delete ctrl_av;
   delete ctrl_ak;
   delete stub_a;
@@ -120,18 +120,18 @@ void StubCadastro::CadastrarAdm() {
     cin >> isobrenome;
     sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua data de nascimento: ";
+    cout << "Digite sua Data de Nascimento: ";
     cin >> idata;
     data = Data(idata);
 
     cin.clear();
     cin.ignore();
 
-    cout << "Digite seu telefone: ";
+    cout << "Digite seu Telefone: ";
     getline(cin, itelefone);
     telefone = Telefone(itelefone);
 
-    cout << "Digite seu endereco: ";
+    cout << "Digite seu Endereco: ";
     getline(cin, iaddres);
     endereco = Address(iaddres);
 
@@ -178,7 +178,7 @@ void StubCadastro::CadastrarDev() {
     cin >> isobrenome;
     sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua data de nascimento: ";
+    cout << "Digite sua Data de Nascimento: ";
     cin >> idata;
     data = Data(idata);
 
@@ -336,7 +336,7 @@ ResultadoUsuario StubUsuario::AtualizaDesenvolvedor() {
     cin >> isobrenome;
     sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua data de nascimento: ";
+    cout << "Digite sua Data de Nascimento: ";
     cin >> idata;
     data = Data(idata);
 
@@ -396,18 +396,18 @@ ResultadoUsuario StubUsuario::AtualizaAdministrador() {
     cin >> isobrenome;
     sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua data de nascimento: ";
+    cout << "Digite sua Data de Nascimento: ";
     cin >> idata;
     data = Data(idata);
 
     cin.clear();
     cin.ignore();
 
-    cout << "Digite seu telefone: ";
+    cout << "Digite seu Telefone: ";
     getline(cin, itelefone);
     telefone = Telefone(itelefone);
 
-    cout << "Digite seu endereco: ";
+    cout << "Digite seu Endereco: ";
     getline(cin, iaddres);
     endereco = Address(iaddres);
 

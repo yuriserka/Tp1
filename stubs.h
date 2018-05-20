@@ -114,6 +114,27 @@ class StubCadastro : public InterfaceServicoCadastro {
 class StubUsuario : public InterfaceServicoUsuario {
  public:
   /**
+   * @brief cria um novo Leitor.
+   * 
+   * @return Leitor leitor que foi criado.
+   */
+  Leitor CriaLeitor(const Email &) override;
+
+  /**
+   * @brief cria um novo Desenvolvedor
+   * 
+   * @return Desenvolvedor desenvolvedor que foi criado.
+   */
+  Desenvolvedor CriaDesenvolvedor(const Email &) override;
+
+  /**
+   * @brief cria um novo Administrador.
+   * 
+   * @return Administrador administrador que foi criado.
+   */
+  Administrador CriaAdministrador(const Email &) override;
+  
+  /**
    * @brief implementa a classe base e exibe um leitor.
    * 
    */
@@ -162,27 +183,6 @@ class StubUsuario : public InterfaceServicoUsuario {
    * se foi sucesso ou falha
    */
   Resultado Excluir(const Email &) override;
-
-  /**
-   * @brief cria um novo Leitor.
-   * 
-   * @return Leitor leitor que foi criado.
-   */
-  Leitor CriaLeitor(const Email &) override;
-
-  /**
-   * @brief cria um novo Desenvolvedor
-   * 
-   * @return Desenvolvedor desenvolvedor que foi criado.
-   */
-  Desenvolvedor CriaDesenvolvedor(const Email &) override;
-
-  /**
-   * @brief cria um novo Administrador.
-   * 
-   * @return Administrador administrador que foi criado.
-   */
-  Administrador CriaAdministrador(const Email &) override;
 
  private:
   ResultadoUsuario AtualizaLeitor();

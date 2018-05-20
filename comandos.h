@@ -102,13 +102,13 @@ class ComandoAUsuario {
 };
 
 /**
- * @brief Classe de comando que edita as informações do usuario.
+ * @brief Classe de comando que mostra as informações do usuario.
  * 
  */
-class ComandoAUsuarioEditar : public ComandoAUsuario {
+class ComandoAUsuarioMostrar : public ComandoAUsuario {
  public:
   /**
-   * @brief implementa a função base e edita as informações do usuario
+   * @brief implementa a função base e mostra as informações do usuario
    * de acordo com o trigger de email passado.
    *
    * @param Email email do usuario.
@@ -120,13 +120,13 @@ class ComandoAUsuarioEditar : public ComandoAUsuario {
 };
 
 /**
- * @brief Classe de comando que mostra as informações do usuario.
+ * @brief Classe de comando que edita as informações do usuario.
  * 
  */
-class ComandoAUsuarioMostrar : public ComandoAUsuario {
+class ComandoAUsuarioEditar : public ComandoAUsuario {
  public:
   /**
-   * @brief implementa a função base e mostra as informações do usuario
+   * @brief implementa a função base e edita as informações do usuario
    * de acordo com o trigger de email passado.
    *
    * @param Email email do usuario.
