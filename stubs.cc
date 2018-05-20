@@ -222,6 +222,33 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
+Leitor StubUsuario::CriaLeitor(const Email &email) {
+  Leitor leitor = Leitor(
+      Nome("John"), Sobrenome("Leitor"),
+      Senha("Leit1234"), email
+  );
+  return leitor;
+}
+
+Desenvolvedor StubUsuario::CriaDesenvolvedor(const Email &email) {
+  Desenvolvedor desenvolvedor = Desenvolvedor(
+      Nome("John"),
+      Sobrenome("Desenvolvedor"), Senha("Dese1234"),
+      email, Data("01/11/2027")
+  );
+  return desenvolvedor;
+}
+
+Administrador StubUsuario::CriaAdministrador(const Email &email) {
+  Administrador administrador = Administrador(
+      Nome("John"),
+      Sobrenome("Administrador"), Senha("Admi1234"),
+      email, Data("01/11/2027"), Telefone("61 99803-7458"),
+      Address("Avenida Future")
+  );
+  return administrador;
+}
+
 void StubUsuario::Exibir(const Leitor &leitor) {
   cout << "Nome: " << leitor.GetNome().GetNome() << " ";
   cout << leitor.GetSobrenome().GetSobrenome() << "\n";
@@ -456,33 +483,6 @@ Resultado StubUsuario::Excluir(const Email &email) {
   }
   resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
-}
-
-Leitor StubUsuario::CriaLeitor(const Email &email) {
-  Leitor leitor = Leitor(
-      Nome("John"), Sobrenome("Leitor"),
-      Senha("Leit1234"), email
-  );
-  return leitor;
-}
-
-Desenvolvedor StubUsuario::CriaDesenvolvedor(const Email &email) {
-  Desenvolvedor desenvolvedor = Desenvolvedor(
-      Nome("John"),
-      Sobrenome("Desenvolvedor"), Senha("Dese1234"),
-      email, Data("01/11/2027")
-  );
-  return desenvolvedor;
-}
-
-Administrador StubUsuario::CriaAdministrador(const Email &email) {
-  Administrador administrador = Administrador(
-      Nome("John"),
-      Sobrenome("Administrador"), Senha("Admi1234"),
-      email, Data("01/11/2027"), Telefone("61 99803-7458"),
-      Address("Avenida Future")
-  );
-  return administrador;
 }
 
 Resultado StubVocabulario::ListarVocabularios() {

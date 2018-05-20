@@ -65,6 +65,7 @@ Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, co
   }
   return res;
 }
+
 void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) {
   int opt;
   do {
