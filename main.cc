@@ -1,7 +1,4 @@
-#include "interfaces.h"
-#include "controladores.h"
-#include "stubs.h"
-#include "bits/stdc++.h"
+#include "includes.h"
 
 int main() {
   

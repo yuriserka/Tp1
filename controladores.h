@@ -1,67 +1,69 @@
 #ifndef TRABALHO__CONTROLADORAS__H__
 #define TRABALHO__CONTROLADORAS__H__
 
-#include "interfaces.h"
-#include "stubs.h"
+#include "includes.h"
 
 /**
- * @file 
+ * @file controladores.h
  * @author Yuri Serka e Thiago Matos
  * @date 13 de Abril de 2018
  * 
- * @brief
+ * @brief Classes de controle de fluxo do programa.
+ * 
+ * Neste arquivo estão as classes que irão controlar o fluxo do programa.
  * 
  */
 
 /**
- * @brief 
+ * @brief Classe que será responsavel pelo controle principal do programa.
  * 
  */
 class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
  public:
   /**
-   * @brief 
+   * @brief implementa a classe base e inicializa o programa.
    * 
    */
   void Inicializar() override;
 
   /**
-   * @brief 
+   * @brief implementa a classe base e vai para um menu apos ser logado
+   * com sucesso.
    * 
    */
   void ControleLogado(const Email &) override;
 
   /**
-   * @brief Set the Ctrl Autenticacao object
+   * @brief Seta o controle para a parte de apresentação autenticação.
    * 
-   * @param iaa 
+   * @param iaa objeto de alguma classe derivada da interface de apresentação autentcação.
    */
   inline void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
     this->ctrl_aa = iaa;
   }
 
   /**
-   * @brief Set the Ctrl Apresentacao Cadastro object
+   * @brief Seta o controle para a parte de apresentação cadastro.
    * 
-   * @param iac 
+   * @param iac objeto de alguma classe derivada da interface de apresentação cadastro.
    */
   inline void SetCtrlApresentacaoCadastro(InterfaceApresentacaoCadastro *iac) override {
-    this->ctrl_ac = iac;
+    this->ctrl_ak = iac;
   }
 
   /**
-   * @brief Set the Ctrl Apresentacao Usuario object
+   * @brief Seta o controle para a parte de apresentação usuario.
    * 
-   * @param iau 
+   * @param iau objeto de alguma classe derivada da interface de apresentação usuario.
    */
   inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override {
     this->ctrl_au = iau;
   }
 
   /**
-   * @brief Set the Ctrl Apresentacao Vocabulario object
+   * @brief Seta o controle para a parte de apresentação vocabulário.
    * 
-   * @param iav 
+   * @param iav objeto de alguma classe derivada da interface de apresentação vocabulario.
    */
   inline void SetCtrlApresentacaoVocabulario(InterfaceApresentacaoVocabulario *iav) override {
     this->ctrl_av = iav;
@@ -71,7 +73,7 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
   InterfaceApresentacaoUsuario *ctrl_au;
   InterfaceApresentacaoVocabulario *ctrl_av;
-  InterfaceApresentacaoCadastro *ctrl_ac;
+  InterfaceApresentacaoCadastro *ctrl_ak;
 
   enum Controle {
     knullc,
@@ -89,22 +91,21 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle {
 };
 
 /**
- * @brief 
+ * @brief Classe que será responsável pela parte de cadastramento de usuarios.
  * 
  */
 class CtrlApresentacaoCadastro : public InterfaceApresentacaoCadastro {
   public:
     /**
-    * @brief 
-    * 
-    * @return Resultado 
+    * @brief implementa a classe base e cadastra um usuario.
+    *   
     */
     void Cadastrar() override;
 
     /**
-     * @brief Set the Ctrl Servico Cadastro object
+     * @brief Seta o controle para a parte de serviço de cadastro.
      * 
-     * @param isc 
+     * @param isc objeto de alguma classe derivada da interface de serviço de cadastro.
      */
     inline void SetCtrlServicoCadastro(InterfaceServicoCadastro *isc) override {
       this->ctrl_servico_cadastro_ = isc;
@@ -122,22 +123,24 @@ class CtrlApresentacaoCadastro : public InterfaceApresentacaoCadastro {
 };
 
 /**
- * @brief 
+ * @brief Classe que será responsável pela parte de autenticação de usuarios.
  * 
  */
 class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
  public:
   /**
-   * @brief 
+   * @brief implementa a classe base e autentica os dados do usuario.
    * 
-   * @return ResultadoAutenticar 
+   * @return ResultadoAutenticar retorna um objeto que conterá email e 
+   * um resultado que representará sucesso ou falha.
    */
   ResultadoAutenticar Autenticar() override;
 
   /**
-   * @brief Set the Ctrl Servico Autenticacao object
+   * @brief Seta o controle para a parte de serviço de autenticação.
    * 
-   * @param isa 
+   * @param isa objeto de alguma classe derivada da interface de serviço
+   * de autenticação.
    */
   inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
     this->ctrl_servico_autenticacao_ = isa;
@@ -148,23 +151,23 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
 };
 
 /**
- * @brief 
+ * @brief Classe que será responsável pela parte de gestão de usuarios.
  * 
  */
 class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
  public:
   /**
-   * @brief 
+   * @brief implementa a classe base e vai para a tela de gestão de usuarios.
    * 
-   * @param _email 
-   * @return ResultadoUsuario 
+   * @return Resultado retorna um objeto que poderá dizer se foi sucesso 
+   * ou falha. 
    */
-  Resultado Executar(const Email &_email) override;
+  Resultado Executar(const Email &) override;
 
   /**
-   * @brief Set the Ctrl Servico Usuario object
+   * @brief Seta o controle para a parte de serviço de usuario.
    * 
-   * @param isu 
+   * @param isu objeto de alguma classe derivada da interface de serviço de usuario.
    */
   void inline SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
     this->ctrl_servico_usuario_ = isu;
@@ -181,22 +184,21 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
 };
 
 /**
- * @brief 
+ * @brief Classe que será responsável pela parte de gestão de vocabulários.
  * 
  */
 class CtrlApresentacaoVocabulario : public InterfaceApresentacaoVocabulario {
  public:
   /**
-   * @brief 
+   * @brief implementa a classe base e vai para a tela de gestão de vocabularios.
    * 
-   * @param email 
    */
-  void Executar(const Email &email) override;
+  void Executar(const Email &) override;
 
   /**
-   * @brief Set the Ctrl Servico Vocabulario object
+   * @brief Seta o controle para a parte de serviço de vocabulário.
    * 
-   * @param isv 
+   * @param isv objeto de alguma classe derivada da interface de serviço de vocabulário.
    */
   void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *isv) override {
     this->ctrl_servico_vocabulario_ = isv;

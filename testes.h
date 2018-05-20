@@ -1,8 +1,7 @@
-#ifndef VOC_CTRL_TESTES_H_
-#define VOC_CTRL_TESTES_H_
+#ifndef TRABALHO__TESTES__H__
+#define TRABALHO__TESTES__H__
 
-#include "teste-entidades.h"
-#include "teste-dominios.h"
+#include "includes.h"
 
 /**
  * @file testes.h
@@ -52,5 +51,5 @@ class Teste {
   }
 };
 
-#endif // VOC_CTRL_TESTES_H_
+#endif // TRABALHO__TESTES__H__
 

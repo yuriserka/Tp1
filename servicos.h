@@ -1,10 +1,7 @@
-#ifndef TRABALHO_SERVICOS_H
+/*#ifndef TRABALHO_SERVICOS_H
 #define TRABALHO_SERVICOS_H
 
-#include "entidades.h"
-#include "interfaces.h"
-
-using namespace std;
+#include "includes.h"
 
 class ServicoAutenticacao {
  public:
@@ -28,3 +25,4 @@ class ServicoUsuario : public Leitor {
 };
 
 #endif //TRABALHO_SERVICOS_H
+*/

@@ -1,5 +1,4 @@
-#include "comandos.h"
-#include "stubs.h"
+#include "includes.h"
 
 void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) {
   int opt;
@@ -379,15 +378,18 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *stub_isu, con
 
 Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
   Resultado res;
-  res.SetResultado(Resultado::ksucesso_);
+  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_ || email.GetEmail() == StubAutenticacao::ktrigger_administrador_ ||
+      email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+    res = stub_isu->Excluir(email);
+  }
+    
   if (res.GetResultado() == Resultado::ksucesso_) {
     cout << "Conta excluida com sucesso.\n";
   } else {
-    cout << "Erro ao modificar conta.\n";
+    cout << "Erro ao excluir conta.\n";
   }
   return res;
 }
-
 
 void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
   stub_isc->CadastrarLeitor();

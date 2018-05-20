@@ -1,9 +1,7 @@
-#ifndef VOC_CTRL_DOMINIOS_H_
-#define VOC_CTRL_DOMINIOS_H_
+#ifndef TRABALHO__DOMINIOS__H__
+#define TRABALHO__DOMINIOS__H__
 
-#include "bits/stdc++.h"
-
-using namespace std;
+#include "includes.h"
 
 /**
  * @file dominios.h
@@ -521,5 +519,5 @@ class ClasseDoTermo {
   void ValidaPreferencia(string _preferencia);
 };
 
-#endif // VOC_CTRL_DOMINIOS_H_
+#endif // TRABALHO__DOMINIOS__H__
 

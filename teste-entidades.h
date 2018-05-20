@@ -1,10 +1,7 @@
-#ifndef VOC_CTRL_TUENTIDADES_H_
-#define VOC_CTRL_TUENTIDADES_H_
+#ifndef TRABALHO__TUENTIDADES__H__
+#define TRABALHO__TUENTIDADES__H__
 
-#include "bits/stdc++.h"
-#include "entidades.h"
-
-using namespace std;
+#include "includes.h"
 
 /**
  * @file teste-entidades.h
@@ -285,4 +282,4 @@ class TUEntidades {
   }
 };
 
-#endif // VOC_CTRL_TUENTIDADES_H_
+#endif // TRABALHO__TUENTIDADES__H__

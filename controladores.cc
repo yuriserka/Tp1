@@ -1,6 +1,4 @@
-#include "controladores.h"
-#include "comandos.h"
-#include "stubs.h"
+#include "includes.h"
 
 void CtrlApresentacaoControle::Inicializar() {
   ResultadoAutenticar resultado;
@@ -22,7 +20,7 @@ void CtrlApresentacaoControle::Inicializar() {
         }
         break;
       case Controle::kcadastrar:
-        ctrl_ac->Cadastrar();
+        ctrl_ak->Cadastrar();
         system(PAUSE);
         break;
       case Controle::ksair:break;

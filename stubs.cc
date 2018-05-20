@@ -1,5 +1,4 @@
-#include "controladores.h"
-#include "stubs.h"
+#include "includes.h"
 
 const string StubAutenticacao::ktrigger_falha_ = "falha@gmail.com";
 const string StubAutenticacao::ktrigger_erro_sistema_ = "errodesistema@gmail.com";
@@ -444,6 +443,17 @@ ResultadoUsuario StubUsuario::AtualizaAdministrador() {
 
 Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
+  string isenha;
+  Senha senha;
+  cout << "Digite sua senha para confirmar: ";
+  try {
+    cin >> isenha;
+    senha = Senha(isenha);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_); 
+    return resultado;
+  }
   resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }

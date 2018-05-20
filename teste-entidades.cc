@@ -1,4 +1,4 @@
-#include "teste-entidades.h"
+#include "includes.h"
 
 void TULeitor::CasoFalha() {
   try {

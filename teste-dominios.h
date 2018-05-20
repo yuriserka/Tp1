@@ -1,10 +1,7 @@
-#ifndef VOC_CTRL_TUDOMINIOS_H_
-#define VOC_CTRL_TUDOMINIOS_H_
+#ifndef TRABALHO__TUDOMINIOS__H__
+#define TRABALHO__TUDOMINIOS__H__
 
-#include "bits/stdc++.h"
-#include "dominios.h"
-
-using namespace std;
+#include "includes.h"
 
 /**
  * @file teste-dominios.h
@@ -380,5 +377,5 @@ class TUDominios {
   }
 };
 
-#endif // VOC_CTRL_TUDOMINIOS_H_
+#endif // TRABALHO__TUDOMINIOS__H__
 

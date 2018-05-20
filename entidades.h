@@ -1,10 +1,7 @@
-#ifndef VOC_CTRL_ENTIDADES_H_
-#define VOC_CTRL_ENTIDADES_H_
+#ifndef TRABALHO__ENTIDADES__H__
+#define TRABALHO__ENTIDADES__H__
 
-#include "bits/stdc++.h"
-#include "dominios.h"
-
-using namespace std;
+#include "includes.h"
 
 /**
  * @file entidades.h
@@ -445,5 +442,5 @@ class Definicao {
   Data data_;
 };
 
-#endif // VOC_CTRL_ENTIDADES_H_
+#endif // TRABALHO__ENTIDADES__H__
 

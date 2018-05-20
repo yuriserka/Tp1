@@ -1,7 +1,7 @@
 #ifndef TRABALHO__AUX__H__
 #define TRABALHO__AUX__H__
 
-#include "dominios.h"
+#include "includes.h"
 
 /**
  * @file auxiliares.h
