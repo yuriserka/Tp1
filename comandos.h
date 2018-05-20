@@ -191,7 +191,6 @@ class ComandoAVocabularioLeitor : public ComandoAVocabulario {
   enum {
     knull,
     klistarvocabularios,
-    kapresentarvocabulario,
     kconsultartermo,
     kconsultardefinicao,
     kvoltar

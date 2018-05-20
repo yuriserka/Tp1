@@ -66,7 +66,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
     system(CLEAR);
     if (tentativas >= 2) {
       cout << "Deseja Retornar?\n1. Sim\n2. Nao\n";
-      cout << "\tOpcao: ";
+      cout << "\topcao: ";
       cin >> opt;
 
       switch (opt) {
@@ -76,6 +76,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
         case 2:
         default:break;
       }
+      system(CLEAR);
     }
     try {
       cout << "Email: ";
@@ -195,7 +196,6 @@ Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
 }
 
 void CtrlApresentacaoVocabulario::Executar(const Email &email) {
-  ctrl_servico_vocabulario_ = new StubVocabulario();
   ComandoAVocabulario *comando;
 
   if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {

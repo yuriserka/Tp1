@@ -67,13 +67,14 @@ Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, co
 }
 
 void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) {
+  list<VocabularioControlado> vocabularios;
+
   int opt;
   do {
     system(CLEAR);
     cout << "\tGestao de Vocabulos\n";
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
-    cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
     cout << kconsultartermo << ". Consultar Termo\n";
     cout << kconsultardefinicao << ". Consultar Definicao\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
@@ -81,21 +82,9 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) 
 
     switch (opt) {
       case klistarvocabularios:system(CLEAR);
-        if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kapresentarvocabulario:system(CLEAR);
-        if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
+        vocabularios = stub_isv->ListarVocabularios();
+        for(auto i:vocabularios) {
+          cout << i << "\n";
         }
         break;
       case kconsultartermo:system(CLEAR);
