@@ -435,7 +435,8 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *s
 
   try {
     cout << "Digite o Texto da Definicao: ";
-    cin >> itexto;
+    cin.ignore();
+    getline(cin, itexto);
     texto.SetDefinicao(itexto);
 
     cout << "Digite a Data da Definicao: ";
