@@ -86,6 +86,7 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) 
       default:break;
     }
   } while (opt != kvoltar);
+  delete comando;
 }
 
 void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *stub_isv) {
@@ -392,6 +393,7 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
       comando->Executar(stub_isv);
     }
   } while (opt != voltar);
+  delete comando;
 }
 
 void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *stub_isv) {
