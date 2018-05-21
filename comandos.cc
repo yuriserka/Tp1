@@ -67,7 +67,7 @@ Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *stub_isu, co
 }
 
 void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) {
-  list<VocabularioControlado> vocabularios;
+  ComandoAVocabulario *comando;
 
   int opt;
   do {
@@ -75,35 +75,12 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) 
     cout << "\tGestao de Vocabulos\n";
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
-    cout << kconsultartermo << ". Consultar Termo\n";
-    cout << kconsultardefinicao << ". Consultar Definicao\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:system(CLEAR);
-        vocabularios = stub_isv->ListarVocabularios();
-        for(auto i:vocabularios) {
-          cout << i << "\n";
-        }
-        break;
-      case kconsultartermo:system(CLEAR);
-        if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kconsultardefinicao:system(CLEAR);
-        if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        }
+      case klistarvocabularios:comando = new ComandoAVocabularioListarVocabularios();
+        comando->Executar(stub_isv);
         break;
       case kvoltar:break;
       default:break;
@@ -131,42 +108,42 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *stu
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:system(CLEAR);
-        if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kapresentarvocabulario:system(CLEAR);
-        if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kconsultartermo:system(CLEAR);
-        if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kconsultardefinicao:system(CLEAR);
-        if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
+      // case klistarvocabularios:system(CLEAR);
+      //   if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Listar Vocabularios\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Listar Vocabularios\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kapresentarvocabulario:system(CLEAR);
+      //   if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Apresentar Vocabulario\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kconsultartermo:system(CLEAR);
+      //   if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Consultar Termo\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Consultar Termo\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kconsultardefinicao:system(CLEAR);
+      //   if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Consultar Definicao\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Consultar Definicao\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
       case kcadastrardesenvolvedor:system(CLEAR);
         if (stub_isv->CadastrarDesenvolvedor().GetResultado() == Resultado::ksucesso_) {
           cout << "Sucesso ao Cadastrar Desenvolvedor\n" << endl;
@@ -260,42 +237,42 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *stu
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:system(CLEAR);
-        if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Listar Vocabularios\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kapresentarvocabulario:system(CLEAR);
-        if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Apresentar Vocabulario\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kconsultartermo:system(CLEAR);
-        if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kconsultardefinicao:system(CLEAR);
-        if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Consultar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
+      // case klistarvocabularios:system(CLEAR);
+      //   if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Listar Vocabularios\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Listar Vocabularios\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kapresentarvocabulario:system(CLEAR);
+      //   if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Apresentar Vocabulario\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kconsultartermo:system(CLEAR);
+      //   if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Consultar Termo\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Consultar Termo\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
+      // case kconsultardefinicao:system(CLEAR);
+      //   if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
+      //     cout << "Sucesso ao Consultar Definicao\n" << endl;
+      //     system(PAUSE);
+      //   } else {
+      //     cout << "Falha ao Consultar Definicao\n" << endl;
+      //     system(PAUSE);
+      //   }
+      //   break;
       case kcadastrardesenvolvedor:system(CLEAR);
         if (stub_isv->CadastrarDesenvolvedor().GetResultado() == Resultado::ksucesso_) {
           cout << "Sucesso ao Cadastrar Desenvolvedor\n" << endl;
@@ -390,4 +367,60 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *stu
       default:break;
     }
   } while (opt != kvoltar);
+}
+
+void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario *stub_isv) {
+  ComandoAVocabulario *comando;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+  int voltar = vocabularios.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Vocabularios Disponiveis" << "\n\n";
+    cout << "Escolha um dos vocabularios abaixo para apresentar os termos deste vocabulario.\n\n";
+    for(int i = 1; i < vocabularios.size(); i++) {
+      cout << i << ". " << vocabularios[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+    
+    if (opt < voltar && opt > 0) {
+      comando = new ComandoAVocabularioListarTermos();
+      comando->Executar(stub_isv);
+    }
+  } while (opt != voltar);
+}
+
+void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *stub_isv) {
+  Definicao definicao;
+  vector<Termo> termos;
+  termos = stub_isv->ConsultarTermos();
+  int voltar = termos.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Termos do Vocabulario" << "\n\n";
+    cout << "Escolha um dos termos abaixo para apresentar informacoes sobre este termo.\n\n";
+    for(int i = 1; i < termos.size(); i++) {
+      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+    
+    if (opt < voltar && opt > 0) {
+      system(CLEAR);
+      definicao = stub_isv->ConsultarDefinicao(termos[opt]);
+      cout << "Nome do Termo: " << termos[opt].GetNome().GetNome() << "\n";
+      cout << "Classe do Termo: " << termos[opt].GetPreferencia().GetPreferencia() << "\n";
+      cout << "Data do Termo: " << termos[opt].GetData().GetData() << "\n";
+      cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+      cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+      system(PAUSE);
+    }
+  } while (opt != voltar);
 }

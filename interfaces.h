@@ -11,8 +11,8 @@ class InterfaceServicoUsuario;
 class InterfaceApresentacaoUsuario;
 class InterfaceServicoVocabulario;
 class InterfaceApresentacaoVocabulario;
-class InterfaceApresentacaoControle;
 class InterfaceServicoControle;
+class InterfaceApresentacaoControle;
 
 /**
  * @file interfaces.h
@@ -328,25 +328,21 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado ListarVocabularios() = 0;
+  virtual vector<VocabularioControlado> ConsultarVocabularios() = 0;
 
   /**
    * @brief 
    * 
+   * @return vector<Termo> 
    */
-  virtual Resultado ApresentarVocabulario() = 0;
+  virtual vector<Termo> ConsultarTermos() = 0;
 
   /**
    * @brief 
    * 
+   * @return Definicao 
    */
-  virtual Resultado ConsultarTermo() = 0;
-
-  /**
-   * @brief 
-   * 
-   */
-  virtual Resultado ConsultarDefinicao() = 0;
+  virtual Definicao ConsultarDefinicao(Termo &) = 0;
 
   /**
    * @brief 

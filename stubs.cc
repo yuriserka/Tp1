@@ -1,11 +1,11 @@
 #include "includes.h"
 
-const string StubAutenticacao::ktrigger_falha_ = "falha@gmail.com";
 const string StubAutenticacao::ktrigger_erro_sistema_ = "errodesistema@gmail.com";
+const string StubAutenticacao::ktrigger_falha_ = "falha@gmail.com";
+const string StubAutenticacao::ktrigger_senha_invalida_ = "100Nha99";
 const string StubAutenticacao::ktrigger_leitor_ = "leitor@gmail.com";
 const string StubAutenticacao::ktrigger_desenvolvedor_ = "desenvolvedor@gmail.com";
 const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.com";
-const string StubAutenticacao::ktrigger_senha_invalida_ = "100Nha99";
 
 void StubControle::Construir() {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
@@ -53,6 +53,20 @@ void StubControle::Construir() {
   delete stub_v;
   delete stub_k;
   delete ctrl_ac;
+}
+
+Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
+  ResultadoAutenticar resultado;
+
+  if (email.GetEmail() == ktrigger_falha_ ||
+      senha.GetSenha() == ktrigger_senha_invalida_) {
+    resultado.SetResultado(ResultadoAutenticar::kfalha_);
+  } else if (email.GetEmail() == ktrigger_erro_sistema_) {
+    throw ("Erro de Sistema!\n");
+  } else {
+    resultado.SetResultado(ResultadoAutenticar::ksucesso_);
+  }
+  return resultado;
 }
 
 void StubCadastro::CadastrarLeitor() {
@@ -206,20 +220,6 @@ void StubCadastro::CadastrarDev() {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
   }
-}
-
-Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
-  ResultadoAutenticar resultado;
-
-  if (email.GetEmail() == ktrigger_falha_ ||
-      senha.GetSenha() == ktrigger_senha_invalida_) {
-    resultado.SetResultado(ResultadoAutenticar::kfalha_);
-  } else if (email.GetEmail() == ktrigger_erro_sistema_) {
-    throw ("Erro de Sistema!\n");
-  } else {
-    resultado.SetResultado(ResultadoAutenticar::ksucesso_);
-  }
-  return resultado;
 }
 
 Leitor StubUsuario::CriaLeitor(const Email &email) {
@@ -485,28 +485,66 @@ Resultado StubUsuario::Excluir(const Email &email) {
   return resultado;
 }
 
-Resultado StubVocabulario::ListarVocabularios() {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
-  return resultado;
+vector<VocabularioControlado> StubVocabulario::ConsultarVocabularios() {
+  VocabularioControlado null;
+
+  Nome nome_exemplo("Exemplo");
+  Idioma idioma_exemplo("POR");
+  Data data_exemplo("20/05/2018");
+  
+  VocabularioControlado exemplo(nome_exemplo, idioma_exemplo, data_exemplo);
+
+  Nome nome_teste("Teste");
+  Idioma idioma_teste("POR");
+  Data data_teste("20/05/2018");
+
+  VocabularioControlado teste(nome_teste, idioma_teste, data_teste);
+
+  vector<VocabularioControlado> vocabularios;
+  vocabularios.push_back(null);
+  vocabularios.push_back(exemplo);
+  vocabularios.push_back(teste);
+
+  return vocabularios;
 }
 
-Resultado StubVocabulario::ApresentarVocabulario() {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
-  return resultado;
+vector<Termo> StubVocabulario::ConsultarTermos() {
+  Termo null;
+
+  Nome nome_controle("Controle");
+  ClasseDoTermo cdt_controle("NP");
+  Data data_controle("20/05/2018");
+
+  Termo controle(nome_controle, cdt_controle, data_controle);
+
+  Nome nome_vocabulario("Vocabulario");
+  ClasseDoTermo cdt_vocabulario("PT");
+  Data data_vocabulario("20/05/2018");
+
+  Termo vocabulario(nome_vocabulario, cdt_vocabulario, data_vocabulario);
+
+  vector<Termo> termos;
+  termos.push_back(null);
+  termos.push_back(controle);
+  termos.push_back(vocabulario);
+
+  return termos;
 }
 
-Resultado StubVocabulario::ConsultarTermo() {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
-  return resultado;
-}
+Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
+  TextoDefinicao texto;
+  Data data;
 
-Resultado StubVocabulario::ConsultarDefinicao() {
-  Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
-  return resultado;
+  if (termo.GetNome().GetNome() == "Controle") {
+    texto.SetDefinicao("Efeito de controlar.");
+    data.SetData("13/11/2019");
+  } else if (termo.GetNome().GetNome() == "Vocabulario") {
+    texto.SetDefinicao("Decodificador de palavras.");
+    data.SetData("20/05/2018");
+  }
+
+  Definicao definicao(texto, data);
+  return definicao;
 }
 
 Resultado StubVocabulario::CadastrarDesenvolvedor() {

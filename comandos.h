@@ -191,8 +191,6 @@ class ComandoAVocabularioLeitor : public ComandoAVocabulario {
   enum {
     knull,
     klistarvocabularios,
-    kconsultartermo,
-    kconsultardefinicao,
     kvoltar
   };
 };
@@ -260,6 +258,34 @@ class ComandoAVocabularioAdministrador : public ComandoAVocabulario {
     kexcluirvocabulario,
     kvoltar
   };
+};
+
+/**
+ * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * de vocabulario.
+ * 
+ */
+class ComandoAVocabularioListarVocabularios : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
+};
+
+/**
+ * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * de vocabulario.
+ * 
+ */
+class ComandoAVocabularioListarTermos : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
 };
 
 #endif  // TRABALHO__COMANDOS__H__

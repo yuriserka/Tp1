@@ -196,29 +196,26 @@ class StubUsuario : public InterfaceServicoUsuario {
  */
 class StubVocabulario : public InterfaceServicoVocabulario {
  public:
-  /**
-   * @brief 
-   * 
-   */
-  Resultado ListarVocabularios() override;
 
   /**
    * @brief 
    * 
    */
-  Resultado ApresentarVocabulario() override;
+  vector<VocabularioControlado> ConsultarVocabularios() override;
 
   /**
    * @brief 
    * 
+   * @return vector<Termo> 
    */
-  Resultado ConsultarTermo() override;
+  vector<Termo> ConsultarTermos() override;
 
   /**
    * @brief 
    * 
+   * @return Definicao 
    */
-  Resultado ConsultarDefinicao() override;
+  Definicao ConsultarDefinicao(Termo &) override;
 
   /**
    * @brief 
