@@ -212,19 +212,55 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief trigger de email para testar erro de sistema.
    * 
    */
-  const static string ktrigger_termo_invalido_;
+  const static string ktrigger_criar_termo_invalido_;
 
   /**
    * @brief trigger de email para testar erro de sistema.
    * 
    */
-  const static string ktrigger_definicao_invalida_;
+  const static string ktrigger_criar_definicao_invalida_;
 
   /**
    * @brief trigger de email para testar erro de sistema.
    * 
    */
-  const static string ktrigger_vocabulario_invalido_;
+  const static string ktrigger_criar_vocabulario_invalido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_termo_valido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_termo_invalido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_definicao_valida_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_definicao_invalida_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_vocabulario_valido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_excluir_vocabulario_invalido_;
 
   /**
    * @brief 
@@ -268,7 +304,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado ExcluirTermo() override;
+  Resultado ExcluirTermo(Termo &) override;
 
   /**
    * @brief 
@@ -286,7 +322,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado ExcluirDefinicao() override;
+  Resultado ExcluirDefinicao(Definicao &) override;
 
   /**
    * @brief 
@@ -304,7 +340,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado ExcluirVocabulario() override;
+  Resultado ExcluirVocabulario(VocabularioControlado &) override;
 };
 
 #endif  // TRABALHO__STUBS__H__

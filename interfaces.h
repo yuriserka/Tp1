@@ -366,7 +366,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado ExcluirTermo() = 0;
+  virtual Resultado ExcluirTermo(Termo &) = 0;
 
   /**
    * @brief 
@@ -384,7 +384,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado ExcluirDefinicao() = 0;
+  virtual Resultado ExcluirDefinicao(Definicao &) = 0;
 
   /**
    * @brief 
@@ -402,7 +402,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado ExcluirVocabulario() = 0;
+  virtual Resultado ExcluirVocabulario(VocabularioControlado &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.

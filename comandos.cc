@@ -193,9 +193,9 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
     if (opt < voltar && opt > 0) {
       comando = new ComandoAVocabularioListarTermos();
       comando->Executar(stub_isv);
+      delete comando;
     }
   } while (opt != voltar);
-  delete comando;
 }
 
 void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *stub_isv) {
@@ -237,9 +237,9 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
 
   system(CLEAR);
   cout << "\tTRIGGERS\n";
-  cout << "Trigger Cadastro Valido:   " << StubVocabulario::ktrigger_cadastro_valido_;
+  cout << "Trigger Vocabulario Cadastravel:     " << StubVocabulario::ktrigger_cadastro_valido_;
   cout << "\n";
-  cout << "Trigger Cadastro Invalido: " << StubVocabulario::ktrigger_cadastro_invalido_;
+  cout << "Trigger Vocabulario nao Cadastravel: " << StubVocabulario::ktrigger_cadastro_invalido_;
   cout << "\n\n";
   system(PAUSE);
 
@@ -274,12 +274,6 @@ void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *st
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
 
-  system(CLEAR);
-  cout << "\tTRIGGERS\n";
-  cout << "Trigger Termo Invalido: " << StubVocabulario::ktrigger_termo_invalido_;
-  cout << "\n\n";
-  system(PAUSE);
-
   int opt;
   do {
     system(CLEAR);
@@ -305,6 +299,12 @@ void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *st
 }
 
 void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger nome para criar Termo Invalido: " << StubVocabulario::ktrigger_criar_termo_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
+
   system(CLEAR);
   Termo termo;
   Resultado resultado;
@@ -351,19 +351,48 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *stub
 }
 
 void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Termo Excluivel:     " << StubVocabulario::ktrigger_excluir_termo_valido_;
+  cout << "\nTrigger Termo nao Excluivel: " << StubVocabulario::ktrigger_excluir_termo_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  vector<Termo> termos;
+  termos = stub_isv->ConsultarTermos();
+  int voltar = termos.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Termos Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos termos acima para excluir.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      resultado = stub_isv->ExcluirTermo(termos[opt]);
+      system(CLEAR);
+      if(resultado.GetResultado() == Resultado::ksucesso_) {
+        cout << "Termo Excluido com Sucesso!\n\n";
+        opt = voltar;
+      } else {
+        cout << "Falha ao Excluir Termo!\n";
+      }
+      system(PAUSE);
+    }
+  } while (opt != voltar);
 }
 
 void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario *stub_isv) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
-
-  system(CLEAR);
-  cout << "\tTRIGGERS\n";
-  cout << "Trigger Definicao Invalida: " << StubVocabulario::ktrigger_definicao_invalida_;
-  cout << "\n\n";
-  system(PAUSE);
 
   int opt;
   do {
@@ -390,6 +419,12 @@ void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario
 }
 
 void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger texto para criar Definicao Invalida: " << StubVocabulario::ktrigger_criar_definicao_invalida_;
+  cout << "\n\n";
+  system(PAUSE);
+
   system(CLEAR);
   Definicao definicao;
   Resultado resultado;
@@ -430,19 +465,65 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
 }
 
 void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Definicao Excluivel:     " << StubVocabulario::ktrigger_excluir_definicao_valida_;
+  cout << "\nTrigger Definicao nao Excluivel: " << StubVocabulario::ktrigger_excluir_definicao_invalida_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  Definicao definicao;
+  vector<Termo> termos;
+  termos = stub_isv->ConsultarTermos();
+  int voltar = termos.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Termos Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos termos acima para excluir a definicao associada ao termo.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      int opcao;
+      do {
+        system(CLEAR);
+        definicao = stub_isv->ConsultarDefinicao(termos[opt]);
+        cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+        cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n\n";
+        cout << "Deseja excluir esta Definicao?\n\n1. Sim\n2. Nao\n";
+        cout << "\topcao: ";
+        cin >> opcao;
+
+        switch (opcao) {
+          case 1: resultado = stub_isv->ExcluirDefinicao(definicao);
+            system(CLEAR);
+            if(resultado.GetResultado() == Resultado::ksucesso_) {
+              cout << "Definicao Excluida com Sucesso!\n\n";
+              opt = voltar;
+            } else {
+              cout << "Falha ao Excluir Definicao!\n";
+            }
+            system(PAUSE);
+            break;
+          case 2:break;
+          default:break;
+        }
+      } while(opcao != 1 && opcao != 2);
+    }
+  } while (opt != voltar);
 }
 
 void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *stub_isv) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
-
-  system(CLEAR);
-  cout << "\tTRIGGERS\n";
-  cout << "Trigger Vocabulario Invalido: " << StubVocabulario::ktrigger_vocabulario_invalido_;
-  cout << "\n\n";
-  system(PAUSE);
 
   int opt;
   do {
@@ -469,6 +550,12 @@ void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabular
 }
 
 void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger nome para criar Vocabulario Invalido: " << StubVocabulario::ktrigger_criar_vocabulario_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
+
   system(CLEAR);
   VocabularioControlado vocabulario;
   Resultado resultado;
@@ -515,5 +602,40 @@ void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario
 }
 
 void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Vocabulario Excluivel:     " << StubVocabulario::ktrigger_excluir_vocabulario_valido_;
+  cout << "\nTrigger Vocabulario nao Excluivel: " << StubVocabulario::ktrigger_excluir_vocabulario_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+  int voltar = vocabularios.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Vocabularios Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << vocabularios[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos vocabularios acima para excluir.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      resultado = stub_isv->ExcluirVocabulario(vocabularios[opt]);
+      system(CLEAR);
+      if(resultado.GetResultado() == Resultado::ksucesso_) {
+        cout << "Vocabulario Excluido com Sucesso!\n\n";
+        opt = voltar;
+      } else {
+        cout << "Falha ao Excluir Vocabulario!\n";
+      }
+      system(PAUSE);
+    }
+  } while (opt != voltar);
 }

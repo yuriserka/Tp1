@@ -65,7 +65,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   do {
     system(CLEAR);
     if (tentativas >= 2) {
-      cout << "Deseja Retornar?\n1. Sim\n2. Nao\n";
+      cout << "Deseja Retornar?\n\n1. Sim\n2. Nao\n";
       cout << "\topcao: ";
       cin >> opt;
 
