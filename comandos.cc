@@ -111,8 +111,12 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *stu
       case kcadastrardesenvolvedor:comando = new ComandoAVocabularioCadastrarDesenvolvedor();
         comando->Executar(stub_isv);
         break;
-      case kinteragirtermo:break;
-      case kinteragirdefinicao:break;
+      case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
+        comando->Executar(stub_isv);
+        break;
+      case kinteragirdefinicao:comando = new ComandoAVocabularioInteragirDefinicao();
+        comando->Executar(stub_isv);
+        break;
       case kvoltar:break;
       default:break;
     }
@@ -142,9 +146,15 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *stu
       case kcadastrardesenvolvedor:comando = new ComandoAVocabularioCadastrarDesenvolvedor();
         comando->Executar(stub_isv);
         break;
-      case kinteragirtermo:break;
-      case kinteragirdefinicao:break;
-      case kinteragirvocabulario:break;
+      case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
+        comando->Executar(stub_isv);
+        break;
+      case kinteragirdefinicao:comando = new ComandoAVocabularioInteragirDefinicao();
+        comando->Executar(stub_isv);
+        break;
+      case kinteragirvocabulario:comando = new ComandoAVocabularioInteragirVocabulario();
+        comando->Executar(stub_isv);
+        break;
       case kvoltar:break;
       default:break;
     }
@@ -246,4 +256,100 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
       system(PAUSE);
     }
   } while (opt != voltar);
+}
+
+void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *stub_isv) {
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Termo Invalido: " << StubVocabulario::ktrigger_termo_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Gestão de Termos\n\n";
+    cout << "Escolha uma das opcoes abaixo.\n\n";
+    cout << kcriar << ". Criar Termo\n";
+    cout << keditar << ". Editar Termo\n";
+    cout << kexcluir << ". Excluir Termo\n";
+    cout << kvoltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    switch (opt) {
+      case kcriar:break;
+      case keditar:break;
+      case kexcluir:break;
+      case kvoltar:break;
+      default: break;
+    }
+  } while (opt != kvoltar);
+}
+
+void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario *stub_isv) {
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Definicao Invalida: " << StubVocabulario::ktrigger_definicao_invalida_;
+  cout << "\n\n";
+  system(PAUSE);
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Gestão de Definicoes\n\n";
+    cout << "Escolha uma das opcoes abaixo.\n\n";
+    cout << kcriar << ". Criar Definicao\n";
+    cout << keditar << ". Editar Definicao\n";
+    cout << kexcluir << ". Excluir Definicao\n";
+    cout << kvoltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    switch (opt) {
+      case kcriar:break;
+      case keditar:break;
+      case kexcluir:break;
+      case kvoltar:break;
+      default: break;
+    }
+  } while (opt != kvoltar);
+}
+
+void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *stub_isv) {
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Vocabulario Invalido: " << StubVocabulario::ktrigger_vocabulario_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Gestão de Vocabularios\n\n";
+    cout << "Escolha uma das opcoes abaixo.\n\n";
+    cout << kcriar << ". Criar Vocabulario\n";
+    cout << keditar << ". Editar Vocabulario\n";
+    cout << kexcluir << ". Excluir Vocabulario\n";
+    cout << kvoltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    switch (opt) {
+      case kcriar:break;
+      case keditar:break;
+      case kexcluir:break;
+      case kvoltar:break;
+      default: break;
+    }
+  } while (opt != kvoltar);
 }

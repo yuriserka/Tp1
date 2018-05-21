@@ -209,6 +209,24 @@ class StubVocabulario : public InterfaceServicoVocabulario {
   const static string ktrigger_cadastro_invalido_;
 
   /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_termo_invalido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_definicao_invalida_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_vocabulario_invalido_;
+
+  /**
    * @brief 
    * 
    */

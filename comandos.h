@@ -286,4 +286,73 @@ class ComandoAVocabularioCadastrarDesenvolvedor : public ComandoAVocabulario {
   void Executar(InterfaceServicoVocabulario *) override;
 };
 
+/**
+ * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * de vocabulario.
+ * 
+ */
+class ComandoAVocabularioInteragirTermo : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
+
+ private:
+  enum {
+    knull,
+    kcriar,
+    keditar,
+    kexcluir,
+    kvoltar
+  };
+};
+
+/**
+ * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * de vocabulario.
+ * 
+ */
+class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
+
+ private:
+  enum {
+    knull,
+    kcriar,
+    keditar,
+    kexcluir,
+    kvoltar
+  };
+};
+
+/**
+ * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * de vocabulario.
+ * 
+ */
+class ComandoAVocabularioInteragirVocabulario : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
+
+ private:
+  enum {
+    knull,
+    kcriar,
+    keditar,
+    kexcluir,
+    kvoltar
+  };
+};
+
 #endif  // TRABALHO__COMANDOS__H__

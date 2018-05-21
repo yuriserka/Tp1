@@ -8,6 +8,9 @@ const string StubAutenticacao::ktrigger_desenvolvedor_ = "desenvolvedor@gmail.co
 const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.com";
 const string StubVocabulario::ktrigger_cadastro_valido_ = "Exemplo";
 const string StubVocabulario::ktrigger_cadastro_invalido_ = "Teste";
+const string StubVocabulario::ktrigger_termo_invalido_ = "Invalido";
+const string StubVocabulario::ktrigger_definicao_invalida_ = "Definicao Invalida";
+const string StubVocabulario::ktrigger_vocabulario_invalido_ = "Invalido";
 
 
 
@@ -540,10 +543,10 @@ Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
   Data data;
 
   if (termo.GetNome().GetNome() == "Controle") {
-    texto.SetDefinicao("Efeito de controlar.");
+    texto.SetDefinicao("Efeito de controlar");
     data.SetData("13/11/2019");
   } else if (termo.GetNome().GetNome() == "Vocabulario") {
-    texto.SetDefinicao("Decodificador de palavras.");
+    texto.SetDefinicao("Decodificador de palavras");
     data.SetData("20/05/2018");
   }
 
