@@ -9,7 +9,7 @@ const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.co
 const string StubVocabulario::ktrigger_cadastro_valido_ = "Exemplo";
 const string StubVocabulario::ktrigger_cadastro_invalido_ = "Teste";
 const string StubVocabulario::ktrigger_termo_invalido_ = "Invalido";
-const string StubVocabulario::ktrigger_definicao_invalida_ = "Definicao Invalida";
+const string StubVocabulario::ktrigger_definicao_invalida_ = "Invalida";
 const string StubVocabulario::ktrigger_vocabulario_invalido_ = "Invalido";
 
 void StubControle::Construir() {
@@ -584,9 +584,16 @@ Resultado StubVocabulario::CadastrarDesenvolvedor(VocabularioControlado &vocabul
   return resultado;
 }
 
-Resultado StubVocabulario::CriarTermo() {
+Resultado StubVocabulario::CriarTermo(Termo &termo, Nome &nome, ClasseDoTermo &preferencia, Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (nome.GetNome() == ktrigger_termo_invalido_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    termo = Termo(nome, preferencia, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
+
   return resultado;
 }
 
@@ -602,9 +609,16 @@ Resultado StubVocabulario::ExcluirTermo() {
   return resultado;
 }
 
-Resultado StubVocabulario::CriarDefinicao() {
+Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, TextoDefinicao &texto, Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (texto.GetDefinicao() == ktrigger_definicao_invalida_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    definicao = Definicao(texto, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
+
   return resultado;
 }
 
@@ -620,9 +634,15 @@ Resultado StubVocabulario::ExcluirDefinicao() {
   return resultado;
 }
 
-Resultado StubVocabulario::CriarVocabulario() {
+Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario, Nome &nome, Idioma &idioma, Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (nome.GetNome() == ktrigger_vocabulario_invalido_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    vocabulario = VocabularioControlado(nome, idioma, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
   return resultado;
 }
 

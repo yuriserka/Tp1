@@ -354,7 +354,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado CriarTermo() = 0;
+  virtual Resultado CriarTermo(Termo &, Nome &, ClasseDoTermo &, Data &) = 0;
 
   /**
    * @brief 
@@ -372,7 +372,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado CriarDefinicao() = 0;
+  virtual Resultado CriarDefinicao(Definicao &, TextoDefinicao &, Data &) = 0;
 
   /**
    * @brief 
@@ -390,7 +390,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado CriarVocabulario() = 0;
+  virtual Resultado CriarVocabulario(VocabularioControlado &, Nome &, Idioma &, Data &) = 0;
 
   /**
    * @brief 

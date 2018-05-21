@@ -307,6 +307,10 @@ class ComandoAVocabularioInteragirTermo : public ComandoAVocabulario {
     kexcluir,
     kvoltar
   };
+
+  void Criar(InterfaceServicoVocabulario *);
+  void Editar(InterfaceServicoVocabulario *);
+  void Excluir(InterfaceServicoVocabulario *);
 };
 
 /**
@@ -330,6 +334,10 @@ class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
     kexcluir,
     kvoltar
   };
+
+  void Criar(InterfaceServicoVocabulario *);
+  void Editar(InterfaceServicoVocabulario *);
+  void Excluir(InterfaceServicoVocabulario *);
 };
 
 /**
@@ -353,6 +361,10 @@ class ComandoAVocabularioInteragirVocabulario : public ComandoAVocabulario {
     kexcluir,
     kvoltar
   };
+
+  void Criar(InterfaceServicoVocabulario *);
+  void Editar(InterfaceServicoVocabulario *);
+  void Excluir(InterfaceServicoVocabulario *);
 };
 
 #endif  // TRABALHO__COMANDOS__H__

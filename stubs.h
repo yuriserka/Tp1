@@ -256,7 +256,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado CriarTermo() override;
+  Resultado CriarTermo(Termo &, Nome &, ClasseDoTermo &, Data &) override;
 
   /**
    * @brief 
@@ -274,7 +274,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado CriarDefinicao() override;
+  Resultado CriarDefinicao(Definicao &, TextoDefinicao &, Data &) override;
 
   /**
    * @brief 
@@ -292,7 +292,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado CriarVocabulario() override;
+  Resultado CriarVocabulario(VocabularioControlado &, Nome &, Idioma &, Data &) override;
 
   /**
    * @brief 
