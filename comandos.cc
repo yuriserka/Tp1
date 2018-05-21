@@ -1,15 +1,157 @@
 #include "includes.h"
 
 void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarLeitor();
+  Leitor novoleitor;
+  string inome, isobrenome, isenha, iemail;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
+
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
+
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
+
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  }while(true);
+
+  Resultado res = stub_isc->CadastrarLeitor(novoleitor, nome, sobrenome, senha, email);
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso\n";
+  } else {
+    cout << "Falha ao Cadastrar\n";
+  }
 }
 
 void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarAdm();
+  Administrador novoadm;
+
+  string inome, isobrenome, isenha, iemail, idata, iaddres, itelefone;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+  Address endereco;
+  Telefone telefone;
+
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
+
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
+
+      cout << "Digite sua Data de Nascimento: ";
+      cin >> idata;
+      data = Data(idata);
+
+      cin.clear();
+      cin.ignore();
+
+      cout << "Digite seu Telefone: ";
+      getline(cin, itelefone);
+      telefone = Telefone(itelefone);
+
+      cout << "Digite seu Endereco: ";
+      getline(cin, iaddres);
+      endereco = Address(iaddres);
+
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
+
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  }while(true);
+
+  Resultado res = stub_isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email, 
+    data, telefone, endereco);
+
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso\n";
+  } else {
+    cout << "Falha ao Cadastrar\n";
+  }
 }
 
 void ComandoACadastroDev::Executar(InterfaceServicoCadastro *stub_isc) {
-  stub_isc->CadastrarDev();
+  system(CLEAR);
+  Desenvolvedor novodev;
+
+  string inome, isobrenome, isenha, iemail, idata;
+  Nome nome;
+  Sobrenome sobrenome;
+  Senha senha;
+  Email email;
+  Data data;
+
+  try {
+    cout << "Digite seu Nome: ";
+    cin >> inome;
+    nome = Nome(inome);
+
+    cout << "Digite seu Sobrenome: ";
+    cin >> isobrenome;
+    sobrenome = Sobrenome(isobrenome);
+
+    cout << "Digite sua Data de Nascimento: ";
+    cin >> idata;
+    data = Data(idata);
+
+    cin.clear();
+    cin.ignore();
+
+    cout << "Digite sua Senha: ";
+    cin >> isenha;
+    senha = Senha(isenha);
+
+    cout << "Digite seu Email: ";
+    cin >> iemail;
+    email = Email(iemail);
+  }
+  catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+  }
+
+  Resultado res = stub_isc->CadastrarDev(novodev, nome, sobrenome, senha, email, data);
+
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso\n";
+  } else {
+    cout << "Falha ao Cadastrar\n";
+  }
 }
 
 Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *stub_isu, const Email &email) {
@@ -270,7 +412,6 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
 }
 
 void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *stub_isv) {
-  Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
 
@@ -390,7 +531,6 @@ void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *stu
 }
 
 void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario *stub_isv) {
-  Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
 
@@ -522,7 +662,6 @@ void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario 
 }
 
 void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *stub_isv) {
-  Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   vocabularios = stub_isv->ConsultarVocabularios();
 

@@ -80,157 +80,56 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
-void StubCadastro::CadastrarLeitor() {
-  system(CLEAR);
-  Leitor novoleitor;
-
-  string inome, isobrenome, isenha, iemail;
-  Nome nome;
-  Sobrenome sobrenome;
-  Senha senha;
-  Email email;
-
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
-
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
-
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
-
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    CadastrarLeitor();
-  }
-
+Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome, 
+    const Sobrenome &sobrenome, const Senha &senha, const Email &email) {
+  Resultado resultado;
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
   }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
 }
 
-void StubCadastro::CadastrarAdm() {
-  system(CLEAR);
-  Administrador novoadm;
-  ResultadoUsuario resultado;
-
-  string inome, isobrenome, isenha, iemail, idata, iaddres, itelefone;
-  Nome nome;
-  Sobrenome sobrenome;
-  Senha senha;
-  Email email;
-  Data data;
-  Address endereco;
-  Telefone telefone;
-
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
-
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
-
-    cout << "Digite sua Data de Nascimento: ";
-    cin >> idata;
-    data = Data(idata);
-
-    cin.clear();
-    cin.ignore();
-
-    cout << "Digite seu Telefone: ";
-    getline(cin, itelefone);
-    telefone = Telefone(itelefone);
-
-    cout << "Digite seu Endereco: ";
-    getline(cin, iaddres);
-    endereco = Address(iaddres);
-
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
-
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    CadastrarAdm();
-  }
-
+Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome, 
+    const Sobrenome &sobrenome, const Senha &senha, const Email &email, 
+    const Data &data, const Telefone &telefone, const Address &endereco) {
+  Resultado resultado;
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
   }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
 }
 
-void StubCadastro::CadastrarDev() {
-  system(CLEAR);
-  Desenvolvedor novodev;
-
-  string inome, isobrenome, isenha, iemail, idata;
-  Nome nome;
-  Sobrenome sobrenome;
-  Senha senha;
-  Email email;
-  Data data;
-
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
-
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
-
-    cout << "Digite sua Data de Nascimento: ";
-    cin >> idata;
-    data = Data(idata);
-
-    cin.clear();
-    cin.ignore();
-
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
-
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    CadastrarDev();
-  }
-
+Resultado StubCadastro::CadastrarDev(Desenvolvedor &novodev, const Nome &nome, 
+      const Sobrenome &sobrenome, const Senha &senha, const Email &email, const Data &data) {
+  Resultado resultado;
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
   }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
 }
 
 Leitor StubUsuario::CriaLeitor(const Email &email) {

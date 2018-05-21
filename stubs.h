@@ -92,19 +92,23 @@ class StubCadastro : public InterfaceServicoCadastro {
    * @brief implementa a classe base e cadastra um leitor.
    *
    */
-  void CadastrarLeitor() override;
+  Resultado CadastrarLeitor(Leitor &, const Nome &, 
+    const Sobrenome &, const Senha &, const Email &) override;
 
   /**
    * @brief implementa a classe base e cadastra um desenvolvedor.
    *
    */
-  void CadastrarDev() override;
+  Resultado CadastrarDev(Desenvolvedor &, const Nome &, 
+      const Sobrenome &, const Senha &, const Email &, const Data &) override;
 
   /**
    * @brief implementa a classe base e cadastra um administrador.
    *
    */
-  void CadastrarAdm() override;
+  Resultado CadastrarAdm(Administrador &, const Nome &, 
+    const Sobrenome &, const Senha &, const Email &, const Data &, 
+    const Telefone &, const Address &) override;
 };
 
 /**

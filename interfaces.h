@@ -158,19 +158,23 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um leitor.
    *
    */
-  virtual void CadastrarLeitor() = 0;
+  virtual Resultado CadastrarLeitor(Leitor &, const Nome &, 
+    const Sobrenome &, const Senha &, const Email &) = 0;
 
   /**
    * @brief função abstrata que cadastra um administrador.
    *
    */
-  virtual void CadastrarAdm() = 0;
+  virtual Resultado CadastrarAdm(Administrador &, const Nome &, 
+    const Sobrenome &, const Senha &, const Email &, const Data &, 
+    const Telefone &, const Address &) = 0;
 
   /**
    * @brief função abstrata que cadastra um desenvolvedor.
    *
    */
-  virtual void CadastrarDev() = 0;
+  virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &, 
+      const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.

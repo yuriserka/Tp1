@@ -122,21 +122,18 @@ void CtrlApresentacaoCadastro::Cadastrar() {
     switch (opt) {
       case Cadastro::kadm:comando = new ComandoACadastroAdm();
         comando->Executar(ctrl_servico_cadastro_);
-        cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
         break;
       case Cadastro::kdev:comando = new ComandoACadastroDev();
         comando->Executar(ctrl_servico_cadastro_);
-        cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
         break;
       case Cadastro::kleitor:comando = new ComandoACadastroLeitor();
         comando->Executar(ctrl_servico_cadastro_);
-        cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
