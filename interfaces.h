@@ -348,7 +348,7 @@ class InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  virtual Resultado CadastrarDesenvolvedor() = 0;
+  virtual Resultado CadastrarDesenvolvedor(VocabularioControlado &) = 0;
 
   /**
    * @brief 

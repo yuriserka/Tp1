@@ -196,6 +196,17 @@ class StubUsuario : public InterfaceServicoUsuario {
  */
 class StubVocabulario : public InterfaceServicoVocabulario {
  public:
+  /**
+   * @brief trigger de email para testar falha.
+   * 
+   */
+  const static string ktrigger_cadastro_valido_;
+
+  /**
+   * @brief trigger de email para testar erro de sistema.
+   * 
+   */
+  const static string ktrigger_cadastro_invalido_;
 
   /**
    * @brief 
@@ -221,7 +232,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * @brief 
    * 
    */
-  Resultado CadastrarDesenvolvedor() override;
+  Resultado CadastrarDesenvolvedor(VocabularioControlado &) override;
 
   /**
    * @brief 

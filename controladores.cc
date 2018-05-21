@@ -207,9 +207,9 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
     comando->Executar(ctrl_servico_vocabulario_);
     delete comando;
   } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
-    // comando = new ComandoAVocabularioAdministrador();
-    // comando->Executar(ctrl_servico_vocabulario_);
-    // delete comando;
+    comando = new ComandoAVocabularioAdministrador();
+    comando->Executar(ctrl_servico_vocabulario_);
+    delete comando;
   } else {
     system(CLEAR);
     cout << "\tGestao de Vocabulos\n";

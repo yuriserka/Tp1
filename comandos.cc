@@ -90,124 +90,29 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *stub_isv) 
 }
 
 void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *stub_isv) {
+  ComandoAVocabulario *comando;
+
   int opt;
   do {
     system(CLEAR);
     cout << "\tGestao de Vocabulos\n";
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
-    cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
-    cout << kconsultartermo << ". Consultar Termo\n";
-    cout << kconsultardefinicao << ". Consultar Definicao\n";
-    cout << kcriartermo << ". Criar Termo\n";
-    cout << keditartermo << ". Editar Termo\n";
-    cout << kexcluirtermo << ". Excluir Termo\n";
-    cout << kcriardefinicao << ". Criar Definicao\n";
-    cout << keditardefinicao << ". Editar Definicao\n";
-    cout << kexcluirdefinicao << ". Excluir Definicao\n";
+    cout << kcadastrardesenvolvedor << ". Cadastrar Vocabulario\n";
+    cout << kinteragirtermo << ". Interagir com Termos\n";
+    cout << kinteragirdefinicao << ". Interagir com Definicoes\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
     switch (opt) {
-      // case klistarvocabularios:system(CLEAR);
-      //   if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Listar Vocabularios\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Listar Vocabularios\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kapresentarvocabulario:system(CLEAR);
-      //   if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Apresentar Vocabulario\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kconsultartermo:system(CLEAR);
-      //   if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Consultar Termo\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Consultar Termo\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kconsultardefinicao:system(CLEAR);
-      //   if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Consultar Definicao\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Consultar Definicao\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      case kcadastrardesenvolvedor:system(CLEAR);
-        if (stub_isv->CadastrarDesenvolvedor().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Cadastrar Desenvolvedor\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Cadastrar Desenvolvedor\n" << endl;
-          system(PAUSE);
-        }
+      case klistarvocabularios:comando = new ComandoAVocabularioListarVocabularios();
+        comando->Executar(stub_isv);
         break;
-      case kcriartermo:system(CLEAR);
-        if (stub_isv->CriarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Criar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Criar Termo\n" << endl;
-          system(PAUSE);
-        }
+      case kcadastrardesenvolvedor:comando = new ComandoAVocabularioCadastrarDesenvolvedor();
+        comando->Executar(stub_isv);
         break;
-      case keditartermo:system(CLEAR);
-        if (stub_isv->EditarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Editar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Editar Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kexcluirtermo:system(CLEAR);
-        if (stub_isv->ExcluirTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Excluir Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Excluir Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kcriardefinicao:system(CLEAR);
-        if (stub_isv->CriarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Criar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Criar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case keditardefinicao:system(CLEAR);
-        if (stub_isv->EditarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Editar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Editar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kexcluirdefinicao:system(CLEAR);
-        if (stub_isv->ExcluirDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Excluir Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Excluir Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
+      case kinteragirtermo:break;
+      case kinteragirdefinicao:break;
       case kvoltar:break;
       default:break;
     }
@@ -215,155 +120,31 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *stu
 }
 
 void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *stub_isv) {
+  ComandoAVocabulario *comando;
+
   int opt;
   do {
     system(CLEAR);
     cout << "\tGestao de Vocabulos\n";
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
-    cout << kapresentarvocabulario << ". Apresentar Vocabulario\n";
-    cout << kconsultartermo << ". Consultar Termo\n";
-    cout << kconsultardefinicao << ". Consultar Definicao\n";
-    cout << kcadastrardesenvolvedor << ". Cadastrar Desenvolvedor\n";
-    cout << kcriartermo << ". Criar Termo\n";
-    cout << keditartermo << ". Editar Termo\n";
-    cout << kexcluirtermo << ". Excluir Termo\n";
-    cout << kcriardefinicao << ". Criar Definicao\n";
-    cout << keditardefinicao << ". Editar Definicao\n";
-    cout << kexcluirdefinicao << ". Excluir Definicao\n";
-    cout << kcriarvocabulario << ". Criar Vocabulario\n";
-    cout << keditarvocabulario << ". Editar Vocabulario\n";
-    cout << kexcluirvocabulario << ". Excluir Vocabulario\n";
+    cout << kcadastrardesenvolvedor << ". Cadastrar Vocabulario\n";
+    cout << kinteragirtermo << ". Interagir com Termos\n";
+    cout << kinteragirdefinicao << ". Interagir com Definicoes\n";
+    cout << kinteragirvocabulario << ". Interagir com Vocabularios\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
     switch (opt) {
-      // case klistarvocabularios:system(CLEAR);
-      //   if (stub_isv->ListarVocabularios().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Listar Vocabularios\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Listar Vocabularios\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kapresentarvocabulario:system(CLEAR);
-      //   if (stub_isv->ApresentarVocabulario().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Apresentar Vocabulario\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Apresentar Vocabulario\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kconsultartermo:system(CLEAR);
-      //   if (stub_isv->ConsultarTermo().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Consultar Termo\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Consultar Termo\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      // case kconsultardefinicao:system(CLEAR);
-      //   if (stub_isv->ConsultarDefinicao().GetResultado() == Resultado::ksucesso_) {
-      //     cout << "Sucesso ao Consultar Definicao\n" << endl;
-      //     system(PAUSE);
-      //   } else {
-      //     cout << "Falha ao Consultar Definicao\n" << endl;
-      //     system(PAUSE);
-      //   }
-      //   break;
-      case kcadastrardesenvolvedor:system(CLEAR);
-        if (stub_isv->CadastrarDesenvolvedor().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Cadastrar Desenvolvedor\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Cadastrar Desenvolvedor\n" << endl;
-          system(PAUSE);
-        }
+      case klistarvocabularios:comando = new ComandoAVocabularioListarVocabularios();
+        comando->Executar(stub_isv);
         break;
-      case kcriartermo:system(CLEAR);
-        if (stub_isv->CriarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Criar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Criar Termo\n" << endl;
-          system(PAUSE);
-        }
+      case kcadastrardesenvolvedor:comando = new ComandoAVocabularioCadastrarDesenvolvedor();
+        comando->Executar(stub_isv);
         break;
-      case keditartermo:system(CLEAR);
-        if (stub_isv->EditarTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Editar Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Editar Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kexcluirtermo:system(CLEAR);
-        if (stub_isv->ExcluirTermo().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Excluir Termo\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Excluir Termo\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kcriardefinicao:system(CLEAR);
-        if (stub_isv->CriarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Criar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Criar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case keditardefinicao:system(CLEAR);
-        if (stub_isv->EditarDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Editar Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Editar Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kexcluirdefinicao:system(CLEAR);
-        if (stub_isv->ExcluirDefinicao().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Excluir Definicao\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Excluir Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kcriarvocabulario:system(CLEAR);
-        if (stub_isv->CriarVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Criar Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Criar Vocabulario\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case keditarvocabulario:system(CLEAR);
-        if (stub_isv->EditarVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Editar Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Editar Vocabulario\n" << endl;
-          system(PAUSE);
-        }
-        break;
-      case kexcluirvocabulario:system(CLEAR);
-        if (stub_isv->ExcluirVocabulario().GetResultado() == Resultado::ksucesso_) {
-          cout << "Sucesso ao Excluir Vocabulario\n" << endl;
-          system(PAUSE);
-        } else {
-          cout << "Falha ao Excluir Definicao\n" << endl;
-          system(PAUSE);
-        }
-        break;
+      case kinteragirtermo:break;
+      case kinteragirdefinicao:break;
+      case kinteragirvocabulario:break;
       case kvoltar:break;
       default:break;
     }
@@ -422,6 +203,46 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *stub
       cout << "Data do Termo: " << termos[opt].GetData().GetData() << "\n";
       cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
       cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+      system(PAUSE);
+    }
+  } while (opt != voltar);
+}
+
+void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabulario *stub_isv) {
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+  int voltar = vocabularios.size();
+
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger Cadastro Valido:   " << StubVocabulario::ktrigger_cadastro_valido_;
+  cout << "\n";
+  cout << "Trigger Cadastro Invalido: " << StubVocabulario::ktrigger_cadastro_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Vocabularios Disponiveis" << "\n\n";
+    cout << "Escolha um dos vocabularios abaixo para se cadastrar como Desenvolvedor.\n\n";
+    for(int i = 1; i < vocabularios.size(); i++) {
+      cout << i << ". " << vocabularios[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+    
+    if (opt < voltar && opt > 0) {
+      resultado = stub_isv->CadastrarDesenvolvedor(vocabularios[opt]);
+      system(CLEAR);
+      if(resultado.GetResultado() == Resultado::ksucesso_) {
+        cout << "Cadastrado com Sucesso!\n";
+        opt = voltar;
+      } else {
+        cout << "Falha ao Cadastrar!\n";
+      }
       system(PAUSE);
     }
   } while (opt != voltar);

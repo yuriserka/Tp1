@@ -6,6 +6,10 @@ const string StubAutenticacao::ktrigger_senha_invalida_ = "100Nha99";
 const string StubAutenticacao::ktrigger_leitor_ = "leitor@gmail.com";
 const string StubAutenticacao::ktrigger_desenvolvedor_ = "desenvolvedor@gmail.com";
 const string StubAutenticacao::ktrigger_administrador_ = "administrador@gmail.com";
+const string StubVocabulario::ktrigger_cadastro_valido_ = "Exemplo";
+const string StubVocabulario::ktrigger_cadastro_invalido_ = "Teste";
+
+
 
 void StubControle::Construir() {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
@@ -547,9 +551,15 @@ Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
   return definicao;
 }
 
-Resultado StubVocabulario::CadastrarDesenvolvedor() {
+Resultado StubVocabulario::CadastrarDesenvolvedor(VocabularioControlado &vocabulario) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+
+  if(vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_valido_) {
+    resultado.SetResultado(Resultado::ksucesso_);
+  } else if (vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_invalido_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  }
+
   return resultado;
 }
 
