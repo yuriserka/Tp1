@@ -34,5 +34,4 @@ using namespace std;
 #include "stubs.h"
 #include "controladores.h"
 
-
 #endif //TRABALHO__INC__H__

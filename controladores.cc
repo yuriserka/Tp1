@@ -19,8 +19,7 @@ void CtrlApresentacaoControle::Inicializar() {
           ControleLogado(resultado.GetEmailResultado());
         }
         break;
-      case Controle::kcadastrar:
-        ctrl_ak->Cadastrar();
+      case Controle::kcadastrar:ctrl_ak->Cadastrar();
         break;
       case Controle::ksair:break;
       default:break;
@@ -31,6 +30,7 @@ void CtrlApresentacaoControle::Inicializar() {
 void CtrlApresentacaoControle::ControleLogado(const Email &email) {
   int opt;
   Resultado res;
+  int conta_excluida = Resultado::ksucesso_;
 
   do {
     system(CLEAR);
@@ -43,7 +43,7 @@ void CtrlApresentacaoControle::ControleLogado(const Email &email) {
 
     switch (opt) {
       case ControleLogado::kgestao_usuario:res = ctrl_au->Executar(email);
-        if (res.GetResultado() == Resultado::ksucesso_) {
+        if (res.GetResultado() == conta_excluida) {
           opt = kvoltar;
         }
         break;
@@ -109,7 +109,6 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
 }
 
 void CtrlApresentacaoCadastro::Cadastrar() {
-  ctrl_servico_cadastro_ = new StubCadastro();
   ComandoACadastro *comando;
   int opt;
 
@@ -121,41 +120,36 @@ void CtrlApresentacaoCadastro::Cadastrar() {
     cin >> opt;
 
     switch (opt) {
-      case Cadastro::kadm:
-        comando = new ComandoACadastroAdm();
+      case Cadastro::kadm:comando = new ComandoACadastroAdm();
         comando->Executar(ctrl_servico_cadastro_);
         cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
         break;
-      case Cadastro::kdev:
-        comando = new ComandoACadastroDev();
+      case Cadastro::kdev:comando = new ComandoACadastroDev();
         comando->Executar(ctrl_servico_cadastro_);
         cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
         break;
-      case Cadastro::kleitor:
-        comando = new ComandoACadastroLeitor();
+      case Cadastro::kleitor:comando = new ComandoACadastroLeitor();
         comando->Executar(ctrl_servico_cadastro_);
         cout << "Conta criada com sucesso!\n";
         opt = kvoltar;
         system(PAUSE);
         delete comando;
         break;
-      case Cadastro::kvoltar:
-        break;
+      case Cadastro::kvoltar:break;
       default:break;
     }
-  } while(opt != kvoltar);
-  delete ctrl_servico_cadastro_;
+  } while (opt != kvoltar);
 }
 
 Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
-  ctrl_servico_usuario_ = new StubUsuario();
   Resultado resultado;
+  resultado.SetResultado(Resultado::kfalha_);
   ComandoAUsuario *cmd_show, *comando;
   cmd_show = new ComandoAUsuarioMostrar();
 
@@ -178,19 +172,16 @@ Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
         comando = new ComandoAUsuarioEditar();
         comando->Executar(ctrl_servico_usuario_, email);
         delete comando;
-        system(PAUSE);
         break;
       case kexcluir:system(CLEAR);
         comando = new ComandoAUsuarioExcluir();
         resultado = comando->Executar(ctrl_servico_usuario_, email);
         delete comando;
-        system(PAUSE);
         break;
       case kvoltar:break;
       default:break;
     }
   } while (opt != kvoltar && (resultado.GetResultado() != Resultado::ksucesso_));
-  delete ctrl_servico_usuario_;
   delete cmd_show;
   return resultado;
 }
@@ -216,5 +207,4 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
     cout << "\nEmail nao suportado pelos triggers\n\n";
     system(PAUSE);
   }
-  delete ctrl_servico_vocabulario_;
 }

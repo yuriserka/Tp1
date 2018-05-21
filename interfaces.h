@@ -26,7 +26,7 @@ class InterfaceApresentacaoControle;
  * previsto e isso é bom em vários aspectos.
  * 
  */
- 
+
 
 /**
  * @brief Interface de serviços do controle 
@@ -42,7 +42,7 @@ class InterfaceServicoControle {
    * 
    */
   virtual void Construir() = 0;
-  
+
   /**
    * @brief Destrutor virtual padrão da classe.
    * 
@@ -153,30 +153,30 @@ class InterfaceApresentacaoAutenticacao {
  * 
  */
 class InterfaceServicoCadastro {
-  public:
-    /**
-     * @brief função abstrata que cadastra um leitor.
-     * 
-     */
-    virtual void CadastrarLeitor() = 0;  
+ public:
+  /**
+   * @brief função abstrata que cadastra um leitor.
+   *
+   */
+  virtual void CadastrarLeitor() = 0;
 
-    /**
-     * @brief função abstrata que cadastra um administrador.
-     * 
-     */
-    virtual void CadastrarAdm() = 0;
+  /**
+   * @brief função abstrata que cadastra um administrador.
+   *
+   */
+  virtual void CadastrarAdm() = 0;
 
-    /**
-     * @brief função abstrata que cadastra um desenvolvedor.
-     * 
-     */
-    virtual void CadastrarDev() = 0;
+  /**
+   * @brief função abstrata que cadastra um desenvolvedor.
+   *
+   */
+  virtual void CadastrarDev() = 0;
 
-    /**
-     * @brief Destrutor virtual padrão da classe.
-     * 
-     */
-    virtual ~InterfaceServicoCadastro() = default;
+  /**
+   * @brief Destrutor virtual padrão da classe.
+   *
+   */
+  virtual ~InterfaceServicoCadastro() = default;
 };
 
 /**
@@ -184,25 +184,25 @@ class InterfaceServicoCadastro {
  * 
  */
 class InterfaceApresentacaoCadastro {
-  public:
-   /**
-    * @brief função abstrata que irá cadastrar um usuario.
-    * 
-    */
-   virtual void Cadastrar() = 0;
-   
-   /**
-    * @brief função abstrata que irá Seta o controle para a parte de 
-    * serviço de cadastro.
-    * 
-    */
-   virtual void SetCtrlServicoCadastro(InterfaceServicoCadastro *) = 0;
+ public:
+  /**
+   * @brief função abstrata que irá cadastrar um usuario.
+   *
+   */
+  virtual void Cadastrar() = 0;
 
-   /**
-    * @brief Destrutor virtual padrão da classe.
-    * 
-    */
-   virtual ~InterfaceApresentacaoCadastro() = default;
+  /**
+   * @brief função abstrata que irá Seta o controle para a parte de
+   * serviço de cadastro.
+   *
+   */
+  virtual void SetCtrlServicoCadastro(InterfaceServicoCadastro *) = 0;
+
+  /**
+   * @brief Destrutor virtual padrão da classe.
+   *
+   */
+  virtual ~InterfaceApresentacaoCadastro() = default;
 };
 
 /**

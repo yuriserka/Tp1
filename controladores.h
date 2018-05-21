@@ -123,31 +123,31 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao {
  * 
  */
 class CtrlApresentacaoCadastro : public InterfaceApresentacaoCadastro {
-  public:
-    /**
-    * @brief implementa a classe base e cadastra um usuario.
-    *   
-    */
-    void Cadastrar() override;
+ public:
+  /**
+  * @brief implementa a classe base e cadastra um usuario.
+  *
+  */
+  void Cadastrar() override;
 
-    /**
-     * @brief Seta o controle para a parte de serviço de cadastro.
-     * 
-     * @param isc objeto de alguma classe derivada da interface de serviço de cadastro.
-     */
-    inline void SetCtrlServicoCadastro(InterfaceServicoCadastro *isc) override {
-      this->ctrl_servico_cadastro_ = isc;
-    }
+  /**
+   * @brief Seta o controle para a parte de serviço de cadastro.
+   *
+   * @param isc objeto de alguma classe derivada da interface de serviço de cadastro.
+   */
+  inline void SetCtrlServicoCadastro(InterfaceServicoCadastro *isc) override {
+    this->ctrl_servico_cadastro_ = isc;
+  }
 
-  private:
-    InterfaceServicoCadastro *ctrl_servico_cadastro_;
-    enum Cadastro {
-      knull,
-      kadm,
-      kdev,
-      kleitor,
-      kvoltar
-    };
+ private:
+  InterfaceServicoCadastro *ctrl_servico_cadastro_;
+  enum Cadastro {
+    knull,
+    kadm,
+    kdev,
+    kleitor,
+    kvoltar
+  };
 };
 
 /**

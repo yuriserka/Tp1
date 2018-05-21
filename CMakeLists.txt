@@ -15,6 +15,7 @@ add_executable(Trabalho
     dominios.h
     entidades.cc
     entidades.h
+    includes.h
     interfaces.h
     main.cc
     stubs.cc

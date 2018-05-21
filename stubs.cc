@@ -12,8 +12,6 @@ const string StubVocabulario::ktrigger_termo_invalido_ = "Invalido";
 const string StubVocabulario::ktrigger_definicao_invalida_ = "Definicao Invalida";
 const string StubVocabulario::ktrigger_vocabulario_invalido_ = "Invalido";
 
-
-
 void StubControle::Construir() {
   InterfaceApresentacaoAutenticacao *ctrl_aa;
   InterfaceApresentacaoUsuario *ctrl_au;
@@ -300,7 +298,6 @@ ResultadoUsuario StubUsuario::Editar(const Administrador &adm) {
 }
 
 ResultadoUsuario StubUsuario::AtualizaLeitor() {
-  system(CLEAR);
   Leitor novoleitor;
   ResultadoUsuario resultado;
 
@@ -310,35 +307,38 @@ ResultadoUsuario StubUsuario::AtualizaLeitor() {
   Senha senha;
   Email email;
 
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
 
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
 
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    AtualizaLeitor();
-  }
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  } while (true);
 
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -350,7 +350,6 @@ ResultadoUsuario StubUsuario::AtualizaLeitor() {
 }
 
 ResultadoUsuario StubUsuario::AtualizaDesenvolvedor() {
-  system(CLEAR);
   Desenvolvedor novodev;
   ResultadoUsuario resultado;
 
@@ -361,42 +360,45 @@ ResultadoUsuario StubUsuario::AtualizaDesenvolvedor() {
   Email email;
   Data data;
 
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
 
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua Data de Nascimento: ";
-    cin >> idata;
-    data = Data(idata);
+      cout << "Digite sua Data de Nascimento: ";
+      cin >> idata;
+      data = Data(idata);
 
-    cin.clear();
-    cin.ignore();
+      cin.clear();
+      cin.ignore();
 
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
 
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    AtualizaDesenvolvedor();
-  }
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  } while (true);
 
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -408,7 +410,6 @@ ResultadoUsuario StubUsuario::AtualizaDesenvolvedor() {
 }
 
 ResultadoUsuario StubUsuario::AtualizaAdministrador() {
-  system(CLEAR);
   Administrador novoadm;
   ResultadoUsuario resultado;
 
@@ -421,50 +422,53 @@ ResultadoUsuario StubUsuario::AtualizaAdministrador() {
   Address endereco;
   Telefone telefone;
 
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
 
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua Data de Nascimento: ";
-    cin >> idata;
-    data = Data(idata);
+      cout << "Digite sua Data de Nascimento: ";
+      cin >> idata;
+      data = Data(idata);
 
-    cin.clear();
-    cin.ignore();
+      cin.clear();
+      cin.ignore();
 
-    cout << "Digite seu Telefone: ";
-    getline(cin, itelefone);
-    telefone = Telefone(itelefone);
+      cout << "Digite seu Telefone: ";
+      getline(cin, itelefone);
+      telefone = Telefone(itelefone);
 
-    cout << "Digite seu Endereco: ";
-    getline(cin, iaddres);
-    endereco = Address(iaddres);
+      cout << "Digite seu Endereco: ";
+      getline(cin, iaddres);
+      endereco = Address(iaddres);
 
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
 
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-    AtualizaAdministrador();
-  }
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  } while (true);
 
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -479,16 +483,30 @@ Resultado StubUsuario::Excluir(const Email &email) {
   Resultado resultado;
   string isenha;
   Senha senha;
+
+  system(CLEAR);
+  cout << "\tTRIGGER\n";
+  cout << "Trigger Senha Invalido:   " << StubAutenticacao::ktrigger_senha_invalida_;
+  cout << "\n";
+  system(PAUSE);
+
+  system(CLEAR);
   cout << "Digite sua senha para confirmar: ";
   try {
     cin >> isenha;
     senha = Senha(isenha);
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    resultado.SetResultado(Resultado::kfalha_); 
+    resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
-  resultado.SetResultado(Resultado::ksucesso_);
+
+  if (senha.GetSenha() == StubAutenticacao::ktrigger_senha_invalida_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
+
   return resultado;
 }
 
@@ -498,7 +516,7 @@ vector<VocabularioControlado> StubVocabulario::ConsultarVocabularios() {
   Nome nome_exemplo("Exemplo");
   Idioma idioma_exemplo("POR");
   Data data_exemplo("20/05/2018");
-  
+
   VocabularioControlado exemplo(nome_exemplo, idioma_exemplo, data_exemplo);
 
   Nome nome_teste("Teste");
@@ -557,7 +575,7 @@ Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
 Resultado StubVocabulario::CadastrarDesenvolvedor(VocabularioControlado &vocabulario) {
   Resultado resultado;
 
-  if(vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_valido_) {
+  if (vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_valido_) {
     resultado.SetResultado(Resultado::ksucesso_);
   } else if (vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_invalido_) {
     resultado.SetResultado(Resultado::kfalha_);

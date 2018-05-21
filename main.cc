@@ -1,7 +1,7 @@
 #include "includes.h"
 
 int main() {
-  
+
   system(CLEAR);
   cout << "\tTRIGGERS\n";
   cout << "Trigger Erro de Sistema:    " << StubAutenticacao::ktrigger_erro_sistema_;

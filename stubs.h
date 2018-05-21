@@ -87,24 +87,24 @@ class StubAutenticacao : public InterfaceServicoAutenticacao {
  * 
  */
 class StubCadastro : public InterfaceServicoCadastro {
-  public:
-    /**
-     * @brief implementa a classe base e cadastra um leitor.
-     * 
-     */
-    void CadastrarLeitor() override;
+ public:
+  /**
+   * @brief implementa a classe base e cadastra um leitor.
+   *
+   */
+  void CadastrarLeitor() override;
 
-    /**
-     * @brief implementa a classe base e cadastra um desenvolvedor.
-     * 
-     */
-    void CadastrarDev() override;
+  /**
+   * @brief implementa a classe base e cadastra um desenvolvedor.
+   *
+   */
+  void CadastrarDev() override;
 
-    /**
-     * @brief implementa a classe base e cadastra um administrador.
-     * 
-     */
-    void CadastrarAdm() override;
+  /**
+   * @brief implementa a classe base e cadastra um administrador.
+   *
+   */
+  void CadastrarAdm() override;
 };
 
 /**
@@ -133,7 +133,7 @@ class StubUsuario : public InterfaceServicoUsuario {
    * @return Administrador administrador que foi criado.
    */
   Administrador CriaAdministrador(const Email &) override;
-  
+
   /**
    * @brief implementa a classe base e exibe um leitor.
    * 

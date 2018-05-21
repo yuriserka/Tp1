@@ -23,19 +23,19 @@
  * 
  */
 class ComandoACadastro {
-  public:
-    /**
-     * @brief função virtual pura que servirá de base para as diversas outras classes de comando que
-     * farão parte da parte de apresentação cadastro.
-     * 
-     */
-    virtual void Executar(InterfaceServicoCadastro *) = 0;
+ public:
+  /**
+   * @brief função virtual pura que servirá de base para as diversas outras classes de comando que
+   * farão parte da parte de apresentação cadastro.
+   *
+   */
+  virtual void Executar(InterfaceServicoCadastro *) = 0;
 
-    /**
-     * @brief Destrutor padrão da classe virtual.
-     * 
-     */
-    virtual ~ComandoACadastro() = default;
+  /**
+   * @brief Destrutor padrão da classe virtual.
+   *
+   */
+  virtual ~ComandoACadastro() = default;
 };
 
 /**
@@ -43,12 +43,12 @@ class ComandoACadastro {
  * 
  */
 class ComandoACadastroLeitor : public ComandoACadastro {
-  public:
-    /**
-     * @brief implementa a função base e cadastra um Leitor.
-     * 
-     */
-    void Executar(InterfaceServicoCadastro *) override;
+ public:
+  /**
+   * @brief implementa a função base e cadastra um Leitor.
+   *
+   */
+  void Executar(InterfaceServicoCadastro *) override;
 };
 
 /**
@@ -56,12 +56,12 @@ class ComandoACadastroLeitor : public ComandoACadastro {
  * 
  */
 class ComandoACadastroAdm : public ComandoACadastro {
-  public:
-    /**
-     * @brief implementa a função base e cadastra um Administrador.
-     * 
-     */
-    void Executar(InterfaceServicoCadastro *) override;
+ public:
+  /**
+   * @brief implementa a função base e cadastra um Administrador.
+   *
+   */
+  void Executar(InterfaceServicoCadastro *) override;
 };
 
 /**
@@ -69,12 +69,12 @@ class ComandoACadastroAdm : public ComandoACadastro {
  * 
  */
 class ComandoACadastroDev : public ComandoACadastro {
-  public:
-    /**
-     * @brief implementa a função base e cadastra um Desenvolvedor.
-     * 
-     */
-    void Executar(InterfaceServicoCadastro *) override;
+ public:
+  /**
+   * @brief implementa a função base e cadastra um Desenvolvedor.
+   *
+   */
+  void Executar(InterfaceServicoCadastro *) override;
 };
 
 /**
