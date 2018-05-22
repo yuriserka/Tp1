@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho técnicas de Programação: Código-Fonte de entidades.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho técnicas de Programação
+   &#160;<span id="projectnumber">Lista 2</span>
+   </div>
+   <div id="projectbrief">Sistema de Vocabulários Controlados</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">entidades.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="includes_8h.html">includes.h</a>&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_leitor.html#a5f9e431575fbedee0b343875d44f3300">    3</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_leitor.html#a5f9e431575fbedee0b343875d44f3300">Leitor::ValidaSenhaEntidades</a>(<span class="keyword">const</span> <a class="code" href="class_senha.html">Senha</a> &amp;senha) {</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">string</span> _nome = <a class="code" href="class_leitor.html#a95f125265a504a2b7bad02496cfab0ef">nome_</a>.<a class="code" href="class_nome.html#aff162042138a08e5efb42a71c0bbca1b">GetNome</a>();</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">string</span> _senha = senha.<a class="code" href="class_senha.html#a113b3d2ef37b146294480dafec1cd8e7">GetSenha</a>();</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  _nome[0] += <span class="charliteral">&#39; &#39;</span>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">char</span> &amp;i : _senha) {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">if</span> (i &gt;= <span class="charliteral">&#39;A&#39;</span> &amp;&amp; i &lt;= <span class="charliteral">&#39;Z&#39;</span>) {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;      i += <span class="charliteral">&#39; &#39;</span>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  }</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">if</span> (_senha.find(_nome) &lt; _senha.size()) {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">throw</span> invalid_argument(<span class="stringliteral">&quot;A senha nao pode conter o nome do usuario.\n&quot;</span>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  }</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_leitor.html#a58eab9b0c4ee6480647b2c3abd1fa1bc">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_leitor.html#a58eab9b0c4ee6480647b2c3abd1fa1bc">Leitor::SetSenha</a>(<span class="keyword">const</span> <a class="code" href="class_senha.html">Senha</a> &amp;_senha) {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_leitor.html#a5f9e431575fbedee0b343875d44f3300">ValidaSenhaEntidades</a>(_senha);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  this-&gt;<a class="code" href="class_leitor.html#a8c59dfb1a13cd59de46a856061b8fb92">senha_</a> = _senha;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div><div class="ttc" id="class_leitor_html_a58eab9b0c4ee6480647b2c3abd1fa1bc"><div class="ttname"><a href="class_leitor.html#a58eab9b0c4ee6480647b2c3abd1fa1bc">Leitor::SetSenha</a></div><div class="ttdeci">void SetSenha(const Senha &amp;_senha)</div><div class="ttdoc">Seta o objeto Senha do Leitor. </div><div class="ttdef"><b>Definition:</b> <a href="entidades_8cc_source.html#l00020">entidades.cc:20</a></div></div>
+<div class="ttc" id="class_leitor_html_a95f125265a504a2b7bad02496cfab0ef"><div class="ttname"><a href="class_leitor.html#a95f125265a504a2b7bad02496cfab0ef">Leitor::nome_</a></div><div class="ttdeci">Nome nome_</div><div class="ttdoc">Nome do usuario. </div><div class="ttdef"><b>Definition:</b> <a href="entidades_8h_source.html#l00136">entidades.h:136</a></div></div>
+<div class="ttc" id="class_senha_html"><div class="ttname"><a href="class_senha.html">Senha</a></div><div class="ttdoc">classe responsável por verificar a Senha do usuário do sistema. </div><div class="ttdef"><b>Definition:</b> <a href="dominios_8h_source.html#l00119">dominios.h:119</a></div></div>
+<div class="ttc" id="includes_8h_html"><div class="ttname"><a href="includes_8h.html">includes.h</a></div><div class="ttdoc">todos os outros arquivos de cabeçalho se encontram aqui para facilitar a inclusão. </div></div>
+<div class="ttc" id="class_nome_html_aff162042138a08e5efb42a71c0bbca1b"><div class="ttname"><a href="class_nome.html#aff162042138a08e5efb42a71c0bbca1b">Nome::GetNome</a></div><div class="ttdeci">string GetNome() const</div><div class="ttdoc">retorna o nome do objeto da classe Nome </div><div class="ttdef"><b>Definition:</b> <a href="dominios_8h_source.html#l00054">dominios.h:54</a></div></div>
+<div class="ttc" id="class_senha_html_a113b3d2ef37b146294480dafec1cd8e7"><div class="ttname"><a href="class_senha.html#a113b3d2ef37b146294480dafec1cd8e7">Senha::GetSenha</a></div><div class="ttdeci">string GetSenha() const</div><div class="ttdoc">retorna a senha do objeto da classe Senha </div><div class="ttdef"><b>Definition:</b> <a href="dominios_8h_source.html#l00151">dominios.h:151</a></div></div>
+<div class="ttc" id="class_leitor_html_a8c59dfb1a13cd59de46a856061b8fb92"><div class="ttname"><a href="class_leitor.html#a8c59dfb1a13cd59de46a856061b8fb92">Leitor::senha_</a></div><div class="ttdeci">Senha senha_</div><div class="ttdoc">Senha do usuario. </div><div class="ttdef"><b>Definition:</b> <a href="entidades_8h_source.html#l00148">entidades.h:148</a></div></div>
+<div class="ttc" id="class_leitor_html_a5f9e431575fbedee0b343875d44f3300"><div class="ttname"><a href="class_leitor.html#a5f9e431575fbedee0b343875d44f3300">Leitor::ValidaSenhaEntidades</a></div><div class="ttdeci">void ValidaSenhaEntidades(const Senha &amp;)</div><div class="ttdoc">função que valida a senha do usuario. </div><div class="ttdef"><b>Definition:</b> <a href="entidades_8cc_source.html#l00003">entidades.cc:3</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

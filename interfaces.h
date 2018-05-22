@@ -303,8 +303,8 @@ class InterfaceApresentacaoUsuario {
   /**
    * @brief função abstrata que direciona para a tela de gestão de usuarios.
    * 
-   * @return Resultado retorna um objeto que poderá dizer se foi sucesso 
-   * ou falha. 
+   * @return Resultado retorna um objeto que poderá dizer se a conta foi excluida
+   * com sucesso ou falha. 
    */
   virtual Resultado Executar(const Email &) = 0;
 
@@ -323,90 +323,103 @@ class InterfaceApresentacaoUsuario {
 };
 
 /**
- * @brief 
+ * @brief Interface de Serviços de Vocabularios
  * 
  */
 class InterfaceServicoVocabulario {
  public:
   /**
-   * @brief 
+   * @brief função abstrata que irá apresentar os vocabularios disponiveis.
    * 
+   * @return vector<VocabularioControlado> o vetor que possui os vocabularios.
    */
   virtual vector<VocabularioControlado> ConsultarVocabularios() = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá apresentar os termos disponiveis.
    * 
-   * @return vector<Termo> 
+   * @return vector<Termo> o vetor que possui os termos.
    */
   virtual vector<Termo> ConsultarTermos() = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá retornar a definição do vocabulario.
    * 
-   * @return Definicao 
+   * @return Definicao a definição procurada.
    */
-  virtual Definicao ConsultarDefinicao(Termo &) = 0;
+  virtual Definicao ConsultarDefinicao(const Termo &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá cadastrar um leitor a um vocabulario controlado.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CadastrarDesenvolvedor(VocabularioControlado &) = 0;
+  virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Criar um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarTermo(Termo &, Nome &, ClasseDoTermo &, Data &) = 0;
+  virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Editar um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarTermo() = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Excluir um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado ExcluirTermo(Termo &) = 0;
+  virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Criar uma Definição.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarDefinicao(Definicao &, TextoDefinicao &, Data &) = 0;
+  virtual Resultado CriarDefinicao(Definicao &, 
+                                  const TextoDefinicao &, const Data &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Editar uma Definição.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarDefinicao() = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Excluir uma Definição.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado ExcluirDefinicao(Definicao &) = 0;
+  virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Criar um Vocabulario.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarVocabulario(VocabularioControlado &, Nome &, Idioma &, Data &) = 0;
+  virtual Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
+                                     const Idioma &, const Data &) = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Editar um Vocabulario.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarVocabulario() = 0;
 
   /**
-   * @brief 
+   * @brief função abstrata que irá Excluir um Vocabulario.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado ExcluirVocabulario(VocabularioControlado &) = 0;
+  virtual Resultado ExcluirVocabulario(const VocabularioControlado &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.
@@ -415,16 +428,21 @@ class InterfaceServicoVocabulario {
   virtual ~InterfaceServicoVocabulario() = default;
 };
 
+/**
+ * @brief Interface de Apresentação de Vocabularios
+ * 
+ */
 class InterfaceApresentacaoVocabulario {
  public:
   /**
-   * @brief 
+   * @brief função abstrata que direciona para a tela de gestão de vocabularios.
    * 
    */
   virtual void Executar(const Email &) = 0;
 
   /**
-   * @brief Set the Ctrl Servico Vocabulario object
+   * @brief função abstrata que Seta o controle para a parte de 
+   * serviços de vocabulário.
    * 
    */
   virtual void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *) = 0;

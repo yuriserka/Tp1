@@ -12,10 +12,26 @@
  */
 
 #ifdef _WIN32
+/**
+ * @brief comando de limpar a tela para windows
+ * 
+ */
 #define CLEAR "cls"
+/**
+ * @brief comando para pausar o programa e esperar uma tecla ser pressioanda.
+ * 
+ */
 #define PAUSE "pause"
 #else
+/**
+ * @brief comando de limpar a tela para linux.
+ * 
+ */
 #define CLEAR "clear"
+/**
+ * @brief comando para pausar o programa e esperar uma tecla ser pressionada.
+ * 
+ */
 #define PAUSE "read -p \"Digite Enter para continuar...\" saindo"
 #endif
 

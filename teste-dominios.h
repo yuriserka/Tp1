@@ -44,6 +44,10 @@ class TUBaseDominios {
   virtual ~TUBaseDominios() = default;
 
  protected:
+  /**
+   * @brief representa se foi sucesso ou falha.
+   * 
+   * */
   int estado_;
 
  private:
@@ -334,8 +338,16 @@ class TUPreferencia : public TUBaseDominios {
   void CasoSucesso() override;
 };
 
+/**
+ * @brief Executa todos os testes referentes as classes de Dominio.
+ * 
+ */
 class TUDominios {
  public:
+  /**
+   * @brief Roda os casos de teste das classes de dominio.
+   * 
+   */
   void RunDominios();
  private:
 

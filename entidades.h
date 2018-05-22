@@ -121,10 +121,36 @@ class Leitor {
   }
 
  protected:
-  void ValidaSenhaEntidades(const Senha &_senha);
+  /**
+   * @brief função que valida a senha do usuario.
+   * 
+   * A senha nao pode conter o nome de usuario.
+   * 
+   */
+  void ValidaSenhaEntidades(const Senha &);
+
+  /**
+   * @brief Nome do usuario
+   * 
+   */
   Nome nome_;
+
+  /**
+   * @brief Sobrenome do usuario
+   * 
+   */
   Sobrenome sobrenome_;
+
+  /**
+   * @brief Senha do usuario.
+   * 
+   */
   Senha senha_;
+
+  /**
+   * @brief Email do usuario.
+   * 
+   */
   Email email_;
 };
 
@@ -178,6 +204,10 @@ class Desenvolvedor : public Leitor {
   inline Data GetDataDeNascimento() const { return data_de_nascimento_; }
 
  protected:
+  /**
+   * @brief Data de Nascimento do usuario.
+   * 
+   */
   Data data_de_nascimento_;
 };
 
@@ -253,7 +283,16 @@ class Administrador : public Desenvolvedor {
   inline Address GetEndereco() const { return endereco_; }
 
  protected:
+  /**
+   * @brief Telefone do usuario.
+   * 
+   */
   Telefone telefone_;
+
+  /**
+   * @brief Endereço do usuario
+   * 
+   */
   Address endereco_;
 };
 
@@ -332,7 +371,16 @@ class VocabularioControlado {
   inline Idioma GetIdioma() const { return idioma_; }
 
  protected:
+  /**
+   * @brief Data em que o Vocabulario foi criado.
+   * 
+   */
   Data data_;
+
+  /**
+   * @brief Nome do Vocabulario Controlado.
+   * 
+   */
   Nome nome_;
 
  private:
@@ -428,14 +476,14 @@ class Definicao {
    *
    * @return Data retorna um objeto da classe.
    */
-  inline Data GetData() { return data_; }
+  inline Data GetData() const { return data_; }
 
   /**
    * @brief retorna a definição do objeto da classe Definicao.
    *
    * @return TextoDeDefinicao retorna um objeto da classe.
    */
-  inline TextoDefinicao GetDefinicao() { return definicao_; }
+  inline TextoDefinicao GetDefinicao() const { return definicao_; }
 
  private:
   TextoDefinicao definicao_;

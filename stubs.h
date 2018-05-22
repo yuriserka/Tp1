@@ -37,7 +37,7 @@ class StubControle : public InterfaceServicoControle {
 class StubAutenticacao : public InterfaceServicoAutenticacao {
  public:
   /**
-   * @brief trigger de email para testar falha.
+   * @brief trigger de email para testar falha de autenticação.
    * 
    */
   const static string ktrigger_falha_;
@@ -89,22 +89,25 @@ class StubAutenticacao : public InterfaceServicoAutenticacao {
 class StubCadastro : public InterfaceServicoCadastro {
  public:
   /**
-   * @brief implementa a classe base e cadastra um leitor.
-   *
-   */
+  * @brief implementa a classe base e tenta cadastrar um Leitor.
+  * 
+  * @return Resultado se foi sucesso ou falha no cadastro.
+  */
   Resultado CadastrarLeitor(Leitor &, const Nome &, 
     const Sobrenome &, const Senha &, const Email &) override;
 
   /**
-   * @brief implementa a classe base e cadastra um desenvolvedor.
-   *
+   * @brief implementa a classe base e tenta cadastrar um Desenvolvedor.
+   * 
+   * @return Resultado se foi sucesso ou falha no cadastro.
    */
   Resultado CadastrarDev(Desenvolvedor &, const Nome &, 
       const Sobrenome &, const Senha &, const Email &, const Data &) override;
 
   /**
-   * @brief implementa a classe base e cadastra um administrador.
-   *
+   * @brief implementa a classe base e tenta cadastrar um Administrador.
+   * 
+   * @return Resultado se foi sucesso ou falha no cadastro.
    */
   Resultado CadastrarAdm(Administrador &, const Nome &, 
     const Sobrenome &, const Senha &, const Email &, const Data &, 
@@ -201,150 +204,165 @@ class StubUsuario : public InterfaceServicoUsuario {
 class StubVocabulario : public InterfaceServicoVocabulario {
  public:
   /**
-   * @brief trigger de email para testar falha.
+   * @brief trigger de Vocabulario para testar cadastramento valido de Desenvolvedor.
    * 
    */
   const static string ktrigger_cadastro_valido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Vocabulario para testar cadastramento invalido de Desenvolvedor.
    * 
    */
   const static string ktrigger_cadastro_invalido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Termo para testar criação invalida.
    * 
    */
   const static string ktrigger_criar_termo_invalido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Definição para testar criação invalida
    * 
    */
   const static string ktrigger_criar_definicao_invalida_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Vocabulário para testar criação invalida
    * 
    */
   const static string ktrigger_criar_vocabulario_invalido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Termo para testar exclusão valida.
    * 
    */
   const static string ktrigger_excluir_termo_valido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Termo para testar exclusão invalida.
    * 
    */
   const static string ktrigger_excluir_termo_invalido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Definição para testar exclusão valida.
    * 
    */
   const static string ktrigger_excluir_definicao_valida_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de definição para testar exclusão invalida.
    * 
    */
   const static string ktrigger_excluir_definicao_invalida_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Vocabulario para testar exclusão valida.
    * 
    */
   const static string ktrigger_excluir_vocabulario_valido_;
 
   /**
-   * @brief trigger de email para testar erro de sistema.
+   * @brief trigger de Vocabulario para testar exclusão invalida.
    * 
    */
   const static string ktrigger_excluir_vocabulario_invalido_;
 
   /**
-   * @brief 
+   * @brief consulta os vocabularios disponiveis.
    * 
+   * @return vector<VocabularioControlado> vetor com os vocabularios disponiveis
+   * para consulta.
    */
   vector<VocabularioControlado> ConsultarVocabularios() override;
 
   /**
-   * @brief 
+   * @brief consulta os Termos disponiveis.
    * 
-   * @return vector<Termo> 
+   * @return vector<Termo> vetor com os termos disponiveis
+   * para consulta.
    */
   vector<Termo> ConsultarTermos() override;
 
   /**
-   * @brief 
+   * @brief consulta a Definição de um dos Vocabularios disponiveis.
    * 
-   * @return Definicao 
+   * @return Definicao vetor com os vocabularios disponiveis
+   * para consulta.
    */
-  Definicao ConsultarDefinicao(Termo &) override;
+  Definicao ConsultarDefinicao(const Termo &) override;
 
   /**
-   * @brief 
+   * @brief Cadastra um desenvolvedor à algum vocabulario controlado.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado CadastrarDesenvolvedor(VocabularioControlado &) override;
+  Resultado CadastrarDesenvolvedor(const VocabularioControlado &) override;
 
   /**
-   * @brief 
+   * @brief Tenta criar um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado CriarTermo(Termo &, Nome &, ClasseDoTermo &, Data &) override;
+  Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) override;
 
   /**
-   * @brief 
+   * @brief Tenta Editar um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   Resultado EditarTermo() override;
 
   /**
-   * @brief 
+   * @brief Tenta excluir um Termo.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado ExcluirTermo(Termo &) override;
+  Resultado ExcluirTermo(const Termo &) override;
 
   /**
-   * @brief 
+   * @brief Tenta Criar uma Definição.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado CriarDefinicao(Definicao &, TextoDefinicao &, Data &) override;
+  Resultado CriarDefinicao(Definicao &, const TextoDefinicao &, const Data &) override;
 
   /**
-   * @brief 
+   * @brief Tenta editar uma Definição
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   Resultado EditarDefinicao() override;
 
   /**
-   * @brief 
+   * @brief tenta excluir unma definição
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado ExcluirDefinicao(Definicao &) override;
+  Resultado ExcluirDefinicao(const Definicao &) override;
 
   /**
-   * @brief 
+   * @brief tenta criar um vocabulario
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado CriarVocabulario(VocabularioControlado &, Nome &, Idioma &, Data &) override;
+  Resultado CriarVocabulario(VocabularioControlado &, const Nome &, 
+                            const Idioma &, const Data &) override;
 
   /**
-   * @brief 
+   * @brief tenta editar um vocabulario
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
   Resultado EditarVocabulario() override;
 
   /**
-   * @brief 
+   * @brief tenta excluir um vocabulario.
    * 
+   * @return Resultado sucesso ou falha na ação.
    */
-  Resultado ExcluirVocabulario(VocabularioControlado &) override;
+  Resultado ExcluirVocabulario(const VocabularioControlado &) override;
 };
 
 #endif  // TRABALHO__STUBS__H__

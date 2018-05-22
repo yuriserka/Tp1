@@ -126,7 +126,7 @@ class ResultadoUsuario {
   /**
    * @brief Retorna o atributo valor do objeto ResultadoAutenticar
    * 
-   * @return int 
+   * @return int 0 ou 1, sucesso ou falha.
    */
   inline int GetResultado() const {
     return valor_;

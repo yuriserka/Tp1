@@ -461,7 +461,7 @@ vector<Termo> StubVocabulario::ConsultarTermos() {
   return termos;
 }
 
-Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
+Definicao StubVocabulario::ConsultarDefinicao(const Termo &termo) {
   TextoDefinicao texto;
   Data data;
 
@@ -477,7 +477,7 @@ Definicao StubVocabulario::ConsultarDefinicao(Termo &termo) {
   return definicao;
 }
 
-Resultado StubVocabulario::CadastrarDesenvolvedor(VocabularioControlado &vocabulario) {
+Resultado StubVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &vocabulario) {
   Resultado resultado;
 
   if (vocabulario.GetNome().GetNome() == StubVocabulario::ktrigger_cadastro_valido_) {
@@ -489,7 +489,8 @@ Resultado StubVocabulario::CadastrarDesenvolvedor(VocabularioControlado &vocabul
   return resultado;
 }
 
-Resultado StubVocabulario::CriarTermo(Termo &termo, Nome &nome, ClasseDoTermo &preferencia, Data &data) {
+Resultado StubVocabulario::CriarTermo(Termo &termo, const Nome &nome, 
+                          const ClasseDoTermo &preferencia, const Data &data) {
   Resultado resultado;
   
   if (nome.GetNome() == ktrigger_criar_termo_invalido_) {
@@ -508,7 +509,7 @@ Resultado StubVocabulario::EditarTermo() {
   return resultado;
 }
 
-Resultado StubVocabulario::ExcluirTermo(Termo &termo) {
+Resultado StubVocabulario::ExcluirTermo(const Termo &termo) {
   Resultado resultado;
   
   if (termo.GetNome().GetNome() == ktrigger_excluir_termo_valido_) {
@@ -520,7 +521,7 @@ Resultado StubVocabulario::ExcluirTermo(Termo &termo) {
   return resultado;
 }
 
-Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, TextoDefinicao &texto, Data &data) {
+Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, const TextoDefinicao &texto, const Data &data) {
   Resultado resultado;
   
   if (texto.GetDefinicao() == ktrigger_criar_definicao_invalida_) {
@@ -539,7 +540,7 @@ Resultado StubVocabulario::EditarDefinicao() {
   return resultado;
 }
 
-Resultado StubVocabulario::ExcluirDefinicao(Definicao &definicao) {
+Resultado StubVocabulario::ExcluirDefinicao(const Definicao &definicao) {
   Resultado resultado;
   
   if (definicao.GetDefinicao().GetDefinicao() == ktrigger_excluir_definicao_valida_) {
@@ -551,7 +552,8 @@ Resultado StubVocabulario::ExcluirDefinicao(Definicao &definicao) {
   return resultado;
 }
 
-Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario, Nome &nome, Idioma &idioma, Data &data) {
+Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario, 
+                      const Nome &nome, const Idioma &idioma, const Data &data) {
   Resultado resultado;
   
   if (nome.GetNome() == ktrigger_criar_vocabulario_invalido_) {
@@ -569,7 +571,7 @@ Resultado StubVocabulario::EditarVocabulario() {
   return resultado;
 }
 
-Resultado StubVocabulario::ExcluirVocabulario(VocabularioControlado &vocabulario) {
+Resultado StubVocabulario::ExcluirVocabulario(const VocabularioControlado &vocabulario) {
   Resultado resultado;
   
   if (vocabulario.GetNome().GetNome() == ktrigger_excluir_vocabulario_valido_) {

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho técnicas de Programação: Código-Fonte de testes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho técnicas de Programação
+   &#160;<span id="projectnumber">Lista 2</span>
+   </div>
+   <div id="projectbrief">Sistema de Vocabulários Controlados</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">testes.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="testes_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TRABALHO__TESTES__H__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TRABALHO__TESTES__H__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="includes_8h.html">includes.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_teste.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_teste.html">Teste</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_teste.html#a2f4830dd4b6aa30aa04ab180e2571348">   28</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_teste.html#a2f4830dd4b6aa30aa04ab180e2571348">Execute</a>() {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    SetUpTestes();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    RunTestes();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Destroy();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; <span class="keyword">private</span>:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="class_t_u_dominios.html">TUDominios</a> *teste_unidade_dominios_;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_t_u_entidades.html">TUEntidades</a> *teste_unidade_entidades_;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> SetUpTestes() {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    teste_unidade_dominios_ = <span class="keyword">new</span> <a class="code" href="class_t_u_dominios.html">TUDominios</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    teste_unidade_entidades_ = <span class="keyword">new</span> <a class="code" href="class_t_u_entidades.html">TUEntidades</a>();</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">void</span> RunTestes() {</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    teste_unidade_dominios_-&gt;<a class="code" href="class_t_u_dominios.html#a9c22e2b5695aef7daa2657d3960d51cd">RunDominios</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    teste_unidade_entidades_-&gt;<a class="code" href="class_t_u_entidades.html#a809218aa3bd45b1569f58a775481dd6f">RunEntidades</a>();</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> Destroy() {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">delete</span> teste_unidade_dominios_;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">delete</span> teste_unidade_entidades_;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // TRABALHO__TESTES__H__</span></div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="ttc" id="class_t_u_dominios_html_a9c22e2b5695aef7daa2657d3960d51cd"><div class="ttname"><a href="class_t_u_dominios.html#a9c22e2b5695aef7daa2657d3960d51cd">TUDominios::RunDominios</a></div><div class="ttdeci">void RunDominios()</div><div class="ttdoc">Roda os casos de teste das classes de dominio. </div><div class="ttdef"><b>Definition:</b> <a href="teste-dominios_8cc_source.html#l00315">teste-dominios.cc:315</a></div></div>
+<div class="ttc" id="class_teste_html"><div class="ttname"><a href="class_teste.html">Teste</a></div><div class="ttdoc">Executará todos os testes de unidade de cada classe do sistema até o momento. </div><div class="ttdef"><b>Definition:</b> <a href="testes_8h_source.html#l00020">testes.h:20</a></div></div>
+<div class="ttc" id="class_teste_html_a2f4830dd4b6aa30aa04ab180e2571348"><div class="ttname"><a href="class_teste.html#a2f4830dd4b6aa30aa04ab180e2571348">Teste::Execute</a></div><div class="ttdeci">void Execute()</div><div class="ttdoc">roda todos os testes de unidade dos Dominios e das Entidades que estão definidos nos arquivos TUEndid...</div><div class="ttdef"><b>Definition:</b> <a href="testes_8h_source.html#l00028">testes.h:28</a></div></div>
+<div class="ttc" id="includes_8h_html"><div class="ttname"><a href="includes_8h.html">includes.h</a></div><div class="ttdoc">todos os outros arquivos de cabeçalho se encontram aqui para facilitar a inclusão. </div></div>
+<div class="ttc" id="class_t_u_dominios_html"><div class="ttname"><a href="class_t_u_dominios.html">TUDominios</a></div><div class="ttdoc">Executa todos os testes referentes as classes de Dominio. </div><div class="ttdef"><b>Definition:</b> <a href="teste-dominios_8h_source.html#l00345">teste-dominios.h:345</a></div></div>
+<div class="ttc" id="class_t_u_entidades_html"><div class="ttname"><a href="class_t_u_entidades.html">TUEntidades</a></div><div class="ttdoc">Executa todos os testes referentes as Entidades. </div><div class="ttdef"><b>Definition:</b> <a href="teste-entidades_8h_source.html#l00262">teste-entidades.h:262</a></div></div>
+<div class="ttc" id="class_t_u_entidades_html_a809218aa3bd45b1569f58a775481dd6f"><div class="ttname"><a href="class_t_u_entidades.html#a809218aa3bd45b1569f58a775481dd6f">TUEntidades::RunEntidades</a></div><div class="ttdeci">void RunEntidades()</div><div class="ttdoc">Roda os cassos de teste das classes de entidades. </div><div class="ttdef"><b>Definition:</b> <a href="teste-entidades_8cc_source.html#l00161">teste-entidades.cc:161</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

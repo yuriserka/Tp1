@@ -87,9 +87,6 @@ class ComandoAUsuario {
    * @brief  função virtual pura que servirá de base para as diversas outras classes de comando que
    * farão parte da parte de apresentação usuario.
    *
-   * @param Email trigger de email do usuario.
-   * @param InterfaceServicoUsuario interface que será necessaria para poder usar
-   * as stubs.
    * @return Resultado retornará sucesso ou falha.
    */
   virtual Resultado Executar(InterfaceServicoUsuario *, const Email &) = 0;
@@ -111,9 +108,6 @@ class ComandoAUsuarioMostrar : public ComandoAUsuario {
    * @brief implementa a função base e mostra as informações do usuario
    * de acordo com o trigger de email passado.
    *
-   * @param Email email do usuario.
-   * @param InterfaceServicoUsuario interface que será necessaria para poder usar
-   * as stubs.
    * @return Resultado retornará sucesso ou falha.
    */
   Resultado Executar(InterfaceServicoUsuario *, const Email &) override;
@@ -128,10 +122,7 @@ class ComandoAUsuarioEditar : public ComandoAUsuario {
   /**
    * @brief implementa a função base e edita as informações do usuario
    * de acordo com o trigger de email passado.
-   *
-   * @param Email email do usuario.
-   * @param InterfaceServicoUsuario interface que será necessaria para poder usar
-   * as stubs.
+   * 
    * @return Resultado retornará sucesso ou falha.
    */
   Resultado Executar(InterfaceServicoUsuario *, const Email &) override;
@@ -146,9 +137,6 @@ class ComandoAUsuarioExcluir : public ComandoAUsuario {
   /**
    * @brief implementa a função base e exclui as informações do usuario.
    *
-   * @param Email email do usuario.
-   * @param InterfaceServicoUsuario interface que será necessaria para poder usar
-   * as stubs.
    * @return Resultado retornará sucesso ou falha.
    */
   Resultado Executar(InterfaceServicoUsuario *, const Email &) override;
@@ -175,7 +163,7 @@ class ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
+ * @brief Classe que é responsavel pelas funcionalidades do leitor na apresentacao
  * de vocabulario.
  * 
  */
@@ -196,7 +184,7 @@ class ComandoAVocabularioLeitor : public ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do Desenvolvedor na apresentacao
+ * @brief Classe que é responsavel pelas funcionalidades do Desenvolvedor na apresentacao
  * de vocabulario.
  * 
  */
@@ -220,7 +208,7 @@ class ComandoAVocabularioDesenvolvedor : public ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do Administrador na apresentacao
+ * @brief Classe que é responsavel pelas funcionalidades do Administrador na apresentacao
  * de vocabulario.
  * 
  */
@@ -245,56 +233,53 @@ class ComandoAVocabularioAdministrador : public ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel por listar os vocabularios cadastrados.
  * 
  */
 class ComandoAVocabularioListarVocabularios : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief mostrara as todos os vocabularios disponiveis para seleção.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel por listar os termos cadastrados.
  * 
  */
 class ComandoAVocabularioListarTermos : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief  mostrara as todos os termos disponiveis para seleção.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel por Cadastrar um Desenvolvedor à algum vocabulario controlado.
  * 
  */
 class ComandoAVocabularioCadastrarDesenvolvedor : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief Cadastra um Desenvolvedor à algum vocabulario controlado.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel pelas ações com os Termos, tais como editar,
+ * exluir e criar.
  * 
  */
 class ComandoAVocabularioInteragirTermo : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief mostrara as opções disponiveis para manipulação de Termos.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
@@ -314,14 +299,14 @@ class ComandoAVocabularioInteragirTermo : public ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel pelas ações com as Definições, tais como editar,
+ * exluir e criar.
  * 
  */
 class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief mostrara as opções disponiveis para manipulação de Definições.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
@@ -341,14 +326,14 @@ class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
 };
 
 /**
- * @brief Classe que responsavel pelas funcionalidades do leitor na apresentacao
- * de vocabulario.
+ * @brief Classe que é responsavel pelas ações com os Vocabularios, tais como editar,
+ * exluir e criar.
  * 
  */
 class ComandoAVocabularioInteragirVocabulario : public ComandoAVocabulario {
  public:
   /**
-   * @brief mostrara as funcionalidades que um leitor pode acessar no sistema.
+   * @brief mostrara as opções disponiveis para manipulação de Vocabularios.
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;

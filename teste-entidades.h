@@ -39,6 +39,10 @@ class TUBaseEntidades {
   virtual ~TUBaseEntidades() = default;
 
  protected:
+   /**
+   * @brief representa se foi sucesso ou falha.
+   * 
+   * */
   int estado_;
 
  private:
@@ -251,8 +255,16 @@ class TUDefinicao {
   void CasoSucesso();
 };
 
+/**
+ * @brief Executa todos os testes referentes as Entidades.
+ * 
+ */
 class TUEntidades {
  public:
+  /**
+   * @brief Roda os cassos de teste das classes de entidades.
+   * 
+   */
   void RunEntidades();
 
  private:
