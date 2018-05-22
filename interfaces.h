@@ -368,7 +368,7 @@ class InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarTermo() = 0;
+  virtual Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Termo.
@@ -390,7 +390,8 @@ class InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarDefinicao() = 0;
+  virtual Resultado EditarDefinicao(Definicao &, 
+                                  const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir uma Definição.
@@ -412,7 +413,8 @@ class InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarVocabulario() = 0;
+  virtual Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
+                                     const Idioma &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Vocabulario.

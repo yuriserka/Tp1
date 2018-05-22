@@ -488,7 +488,72 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *stub_
 }
 
 void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger nome para Termo Invalido: " << StubVocabulario::ktrigger_criar_termo_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  vector<Termo> termos;
+  termos = stub_isv->ConsultarTermos();
+  int voltar = termos.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Termos Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos termos acima para editar.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      Termo termo;
+      Nome nome;
+      ClasseDoTermo preferencia;
+      Data data;
+
+      string inome, ipreferencia, idata;
+
+      system(CLEAR);
+      
+      try {
+        cout << "Digite o Nome do Termo: ";
+        cin >> inome;
+        nome.SetNome(inome);
+
+        cout << "Digite a Classe do Termo: ";
+        cin >> ipreferencia;
+        preferencia.SetPreferencia(ipreferencia);
+
+        cout << "Digite a Data do Termo: ";
+        cin >> idata;
+        data.SetData(idata);
+
+        resultado = stub_isv->EditarTermo(termo, nome, preferencia, data);
+
+        system(CLEAR);
+        if(resultado.GetResultado() == Resultado::ksucesso_) {
+          cout << "Termo Editado com Sucesso!\n\n";
+          cout << "Nome do Termo: " << termo.GetNome().GetNome() << "\n";
+          cout << "Classe do Termo: " << termo.GetPreferencia().GetPreferencia() << "\n";
+          cout << "Data do Termo: " << termo.GetData().GetData() << "\n";
+          opt = voltar;
+        } else {
+          cout << "Falha ao Editar Termo!\n";
+        }
+        system(PAUSE);
+      }
+      catch (exception &e) {
+        cout << "\n\t" << e.what() << "\n";
+        system(PAUSE);
+      }
+    }
+  } while (opt != voltar);
 }
 
 void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *stub_isv) {
@@ -602,7 +667,80 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *s
 }
 
 void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger texto para Definicao Invalida: " << StubVocabulario::ktrigger_criar_definicao_invalida_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  Definicao definicao;
+  vector<Termo> termos;
+  termos = stub_isv->ConsultarTermos();
+  int voltar = termos.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Termos Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos termos acima para editar a definicao associada ao termo.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      int opcao;
+      do {
+        system(CLEAR);
+        definicao = stub_isv->ConsultarDefinicao(termos[opt]);
+        cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+        cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n\n";
+        cout << "Deseja editar esta Definicao?\n\n1. Sim\n2. Nao\n";
+        cout << "\topcao: ";
+        cin >> opcao;
+
+        TextoDefinicao texto;
+        Data data;
+        string itexto, idata;
+
+        switch (opcao) {
+          case 1:system(CLEAR);
+          try {
+            cout << "Digite o Texto da Definicao: ";
+            cin.ignore();
+            getline(cin, itexto);
+            texto.SetDefinicao(itexto);
+
+            cout << "Digite a Data da Definicao: ";
+            cin >> idata;
+            data.SetData(idata);
+
+            resultado = stub_isv->EditarDefinicao(definicao, texto, data);
+
+            system(CLEAR);
+            if(resultado.GetResultado() == Resultado::ksucesso_) {
+              cout << "Definicao Editada com Sucesso!\n\n";
+              cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+              cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+              opt = voltar;
+            } else {
+              cout << "Falha ao Editar Definicao!\n";
+            }
+            system(PAUSE);
+          }
+          catch (exception &e) {
+            cout << "\n\t" << e.what() << "\n";
+            system(PAUSE);
+          }
+          case 2:break;
+          default:break;
+        }
+      } while(opcao != 1 && opcao != 2);
+    }
+  } while (opt != voltar);
 }
 
 void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *stub_isv) {
@@ -738,7 +876,71 @@ void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario 
 }
 
 void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario *stub_isv) {
+  system(CLEAR);
+  cout << "\tTRIGGERS\n";
+  cout << "Trigger nome para Vocabulario Invalido: " << StubVocabulario::ktrigger_criar_vocabulario_invalido_;
+  cout << "\n\n";
+  system(PAUSE);
 
+  Resultado resultado;
+  vector<VocabularioControlado> vocabularios;
+  vocabularios = stub_isv->ConsultarVocabularios();
+  int voltar = vocabularios.size();
+
+  int opt;
+  do {
+    system(CLEAR);
+    cout << "Vocabularios Disponiveis" << "\n\n";
+    for (int i = 1; i < voltar; i++) {
+      cout << i << ". " << vocabularios[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos vocabularios acima para editar.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      system(CLEAR);
+      VocabularioControlado vocabulario;
+      Nome nome;
+      Idioma idioma;
+      Data data;
+
+      string inome, iidioma, idata;
+
+      try {
+        cout << "Digite o Nome do Vocabulario: ";
+        cin >> inome;
+        nome.SetNome(inome);
+
+        cout << "Digite o Idioma do Vocabulario: ";
+        cin >> iidioma;
+        idioma.SetIdioma(iidioma);
+
+        cout << "Digite a Data do Vocabulario: ";
+        cin >> idata;
+        data.SetData(idata);
+
+        resultado = stub_isv->EditarVocabulario(vocabulario, nome, idioma, data);
+
+        system(CLEAR);
+        if(resultado.GetResultado() == Resultado::ksucesso_) {
+          cout << "Vocabulario Editado com Sucesso!\n\n";
+          cout << "Nome do Vocabulario: " << vocabulario.GetNome().GetNome() << "\n";
+          cout << "Idioma do Vocabulario: " << vocabulario.GetIdioma().GetIdioma() << "\n";
+          cout << "Data do Vocabulario: " << vocabulario.GetData().GetData() << "\n";
+          opt = voltar;
+        } else {
+          cout << "Falha ao Editar Vocabulario!\n";
+        }
+        system(PAUSE);
+      }
+      catch (exception &e) {
+        cout << "\n\t" << e.what() << "\n";
+        system(PAUSE);
+      }
+    }
+  } while (opt != voltar);
 }
 
 void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulario *stub_isv) {

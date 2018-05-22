@@ -503,9 +503,17 @@ Resultado StubVocabulario::CriarTermo(Termo &termo, const Nome &nome,
   return resultado;
 }
 
-Resultado StubVocabulario::EditarTermo() {
+Resultado StubVocabulario::EditarTermo(Termo &termo, const Nome &nome, 
+                          const ClasseDoTermo &preferencia, const Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (nome.GetNome() == ktrigger_criar_termo_invalido_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    termo = Termo(nome, preferencia, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
+
   return resultado;
 }
 
@@ -534,9 +542,16 @@ Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, const TextoDefin
   return resultado;
 }
 
-Resultado StubVocabulario::EditarDefinicao() {
+Resultado StubVocabulario::EditarDefinicao(Definicao &definicao, const TextoDefinicao &texto, const Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (texto.GetDefinicao() == ktrigger_criar_definicao_invalida_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    definicao = Definicao(texto, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
+
   return resultado;
 }
 
@@ -565,9 +580,16 @@ Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario,
   return resultado;
 }
 
-Resultado StubVocabulario::EditarVocabulario() {
+Resultado StubVocabulario::EditarVocabulario(VocabularioControlado &vocabulario, 
+                      const Nome &nome, const Idioma &idioma, const Data &data) {
   Resultado resultado;
-  resultado.SetResultado(Resultado::ksucesso_);
+  
+  if (nome.GetNome() == ktrigger_criar_vocabulario_invalido_) {
+    resultado.SetResultado(Resultado::kfalha_);
+  } else {
+    vocabulario = VocabularioControlado(nome, idioma, data);
+    resultado.SetResultado(Resultado::ksucesso_);
+  }
   return resultado;
 }
 

@@ -312,7 +312,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  Resultado EditarTermo() override;
+  Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) override;
 
   /**
    * @brief Tenta excluir um Termo.
@@ -333,7 +333,7 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  Resultado EditarDefinicao() override;
+  Resultado EditarDefinicao(Definicao &, const TextoDefinicao &, const Data &) override;
 
   /**
    * @brief tenta excluir unma definição
@@ -355,7 +355,8 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  Resultado EditarVocabulario() override;
+  Resultado EditarVocabulario(VocabularioControlado &, const Nome &, 
+                            const Idioma &, const Data &) override;
 
   /**
    * @brief tenta excluir um vocabulario.
