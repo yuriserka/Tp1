@@ -93,25 +93,25 @@ class StubCadastro : public InterfaceServicoCadastro {
   * 
   * @return Resultado se foi sucesso ou falha no cadastro.
   */
-  Resultado CadastrarLeitor(Leitor &, const Nome &, 
-    const Sobrenome &, const Senha &, const Email &) override;
+  Resultado CadastrarLeitor(Leitor &, const Nome &,
+                            const Sobrenome &, const Senha &, const Email &) override;
 
   /**
    * @brief implementa a classe base e tenta cadastrar um Desenvolvedor.
    * 
    * @return Resultado se foi sucesso ou falha no cadastro.
    */
-  Resultado CadastrarDev(Desenvolvedor &, const Nome &, 
-      const Sobrenome &, const Senha &, const Email &, const Data &) override;
+  Resultado CadastrarDev(Desenvolvedor &, const Nome &,
+                         const Sobrenome &, const Senha &, const Email &, const Data &) override;
 
   /**
    * @brief implementa a classe base e tenta cadastrar um Administrador.
    * 
    * @return Resultado se foi sucesso ou falha no cadastro.
    */
-  Resultado CadastrarAdm(Administrador &, const Nome &, 
-    const Sobrenome &, const Senha &, const Email &, const Data &, 
-    const Telefone &, const Address &) override;
+  Resultado CadastrarAdm(Administrador &, const Nome &,
+                         const Sobrenome &, const Senha &, const Email &, const Data &,
+                         const Telefone &, const Address &) override;
 };
 
 /**
@@ -347,16 +347,16 @@ class StubVocabulario : public InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  Resultado CriarVocabulario(VocabularioControlado &, const Nome &, 
-                            const Idioma &, const Data &) override;
+  Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
+                             const Idioma &, const Data &) override;
 
   /**
    * @brief tenta editar um vocabulario
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  Resultado EditarVocabulario(VocabularioControlado &, const Nome &, 
-                            const Idioma &, const Data &) override;
+  Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
+                              const Idioma &, const Data &) override;
 
   /**
    * @brief tenta excluir um vocabulario.

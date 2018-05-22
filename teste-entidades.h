@@ -39,10 +39,10 @@ class TUBaseEntidades {
   virtual ~TUBaseEntidades() = default;
 
  protected:
-   /**
-   * @brief representa se foi sucesso ou falha.
-   * 
-   * */
+  /**
+  * @brief representa se foi sucesso ou falha.
+  *
+  * */
   int estado_;
 
  private:

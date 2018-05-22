@@ -80,8 +80,8 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome, 
-    const Sobrenome &sobrenome, const Senha &senha, const Email &email) {
+Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome,
+                                        const Sobrenome &sobrenome, const Senha &senha, const Email &email) {
   Resultado resultado;
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
@@ -97,9 +97,9 @@ Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome,
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome, 
-    const Sobrenome &sobrenome, const Senha &senha, const Email &email, 
-    const Data &data, const Telefone &telefone, const Address &endereco) {
+Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome,
+                                     const Sobrenome &sobrenome, const Senha &senha, const Email &email,
+                                     const Data &data, const Telefone &telefone, const Address &endereco) {
   Resultado resultado;
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
@@ -115,8 +115,12 @@ Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome,
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarDev(Desenvolvedor &novodev, const Nome &nome, 
-      const Sobrenome &sobrenome, const Senha &senha, const Email &email, const Data &data) {
+Resultado StubCadastro::CadastrarDev(Desenvolvedor &novodev,
+                                     const Nome &nome,
+                                     const Sobrenome &sobrenome,
+                                     const Senha &senha,
+                                     const Email &email,
+                                     const Data &data) {
   Resultado resultado;
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
@@ -489,10 +493,10 @@ Resultado StubVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &v
   return resultado;
 }
 
-Resultado StubVocabulario::CriarTermo(Termo &termo, const Nome &nome, 
-                          const ClasseDoTermo &preferencia, const Data &data) {
+Resultado StubVocabulario::CriarTermo(Termo &termo, const Nome &nome,
+                                      const ClasseDoTermo &preferencia, const Data &data) {
   Resultado resultado;
-  
+
   if (nome.GetNome() == ktrigger_criar_termo_invalido_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -503,10 +507,10 @@ Resultado StubVocabulario::CriarTermo(Termo &termo, const Nome &nome,
   return resultado;
 }
 
-Resultado StubVocabulario::EditarTermo(Termo &termo, const Nome &nome, 
-                          const ClasseDoTermo &preferencia, const Data &data) {
+Resultado StubVocabulario::EditarTermo(Termo &termo, const Nome &nome,
+                                       const ClasseDoTermo &preferencia, const Data &data) {
   Resultado resultado;
-  
+
   if (nome.GetNome() == ktrigger_criar_termo_invalido_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -519,7 +523,7 @@ Resultado StubVocabulario::EditarTermo(Termo &termo, const Nome &nome,
 
 Resultado StubVocabulario::ExcluirTermo(const Termo &termo) {
   Resultado resultado;
-  
+
   if (termo.GetNome().GetNome() == ktrigger_excluir_termo_valido_) {
     resultado.SetResultado(Resultado::ksucesso_);
   } else if (termo.GetNome().GetNome() == ktrigger_excluir_termo_invalido_) {
@@ -531,7 +535,7 @@ Resultado StubVocabulario::ExcluirTermo(const Termo &termo) {
 
 Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, const TextoDefinicao &texto, const Data &data) {
   Resultado resultado;
-  
+
   if (texto.GetDefinicao() == ktrigger_criar_definicao_invalida_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -544,7 +548,7 @@ Resultado StubVocabulario::CriarDefinicao(Definicao &definicao, const TextoDefin
 
 Resultado StubVocabulario::EditarDefinicao(Definicao &definicao, const TextoDefinicao &texto, const Data &data) {
   Resultado resultado;
-  
+
   if (texto.GetDefinicao() == ktrigger_criar_definicao_invalida_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -557,7 +561,7 @@ Resultado StubVocabulario::EditarDefinicao(Definicao &definicao, const TextoDefi
 
 Resultado StubVocabulario::ExcluirDefinicao(const Definicao &definicao) {
   Resultado resultado;
-  
+
   if (definicao.GetDefinicao().GetDefinicao() == ktrigger_excluir_definicao_valida_) {
     resultado.SetResultado(Resultado::ksucesso_);
   } else if (definicao.GetDefinicao().GetDefinicao() == ktrigger_excluir_definicao_invalida_) {
@@ -567,10 +571,10 @@ Resultado StubVocabulario::ExcluirDefinicao(const Definicao &definicao) {
   return resultado;
 }
 
-Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario, 
-                      const Nome &nome, const Idioma &idioma, const Data &data) {
+Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario,
+                                            const Nome &nome, const Idioma &idioma, const Data &data) {
   Resultado resultado;
-  
+
   if (nome.GetNome() == ktrigger_criar_vocabulario_invalido_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -580,10 +584,10 @@ Resultado StubVocabulario::CriarVocabulario(VocabularioControlado &vocabulario,
   return resultado;
 }
 
-Resultado StubVocabulario::EditarVocabulario(VocabularioControlado &vocabulario, 
-                      const Nome &nome, const Idioma &idioma, const Data &data) {
+Resultado StubVocabulario::EditarVocabulario(VocabularioControlado &vocabulario,
+                                             const Nome &nome, const Idioma &idioma, const Data &data) {
   Resultado resultado;
-  
+
   if (nome.GetNome() == ktrigger_criar_vocabulario_invalido_) {
     resultado.SetResultado(Resultado::kfalha_);
   } else {
@@ -595,7 +599,7 @@ Resultado StubVocabulario::EditarVocabulario(VocabularioControlado &vocabulario,
 
 Resultado StubVocabulario::ExcluirVocabulario(const VocabularioControlado &vocabulario) {
   Resultado resultado;
-  
+
   if (vocabulario.GetNome().GetNome() == ktrigger_excluir_vocabulario_valido_) {
     resultado.SetResultado(Resultado::ksucesso_);
   } else if (vocabulario.GetNome().GetNome() == ktrigger_excluir_vocabulario_invalido_) {

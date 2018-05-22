@@ -32,7 +32,7 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *stub_isc) {
       cout << "\n\t" << e.what() << "\n";
       system(PAUSE);
     }
-  }while(true);
+  } while (true);
 
   Resultado res = stub_isc->CadastrarLeitor(novoleitor, nome, sobrenome, senha, email);
   if (res.GetResultado() == Resultado::ksucesso_) {
@@ -93,10 +93,10 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *stub_isc) {
       cout << "\n\t" << e.what() << "\n";
       system(PAUSE);
     }
-  }while(true);
+  } while (true);
 
-  Resultado res = stub_isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email, 
-    data, telefone, endereco);
+  Resultado res = stub_isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email,
+                                         data, telefone, endereco);
 
   if (res.GetResultado() == Resultado::ksucesso_) {
     cout << "Cadastrado com sucesso\n";
@@ -471,7 +471,7 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *stub_
     resultado = stub_isv->CriarTermo(termo, nome, preferencia, data);
 
     system(CLEAR);
-    if(resultado.GetResultado() == Resultado::ksucesso_) {
+    if (resultado.GetResultado() == Resultado::ksucesso_) {
       cout << "Termo Criado com Sucesso!\n\n";
       cout << "Nome do Termo: " << termo.GetNome().GetNome() << "\n";
       cout << "Classe do Termo: " << termo.GetPreferencia().GetPreferencia() << "\n";
@@ -520,7 +520,7 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *stub
       string inome, ipreferencia, idata;
 
       system(CLEAR);
-      
+
       try {
         cout << "Digite o Nome do Termo: ";
         cin >> inome;
@@ -537,7 +537,7 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *stub
         resultado = stub_isv->EditarTermo(termo, nome, preferencia, data);
 
         system(CLEAR);
-        if(resultado.GetResultado() == Resultado::ksucesso_) {
+        if (resultado.GetResultado() == Resultado::ksucesso_) {
           cout << "Termo Editado com Sucesso!\n\n";
           cout << "Nome do Termo: " << termo.GetNome().GetNome() << "\n";
           cout << "Classe do Termo: " << termo.GetPreferencia().GetPreferencia() << "\n";
@@ -584,7 +584,7 @@ void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *stu
     if (opt < voltar && opt > 0) {
       resultado = stub_isv->ExcluirTermo(termos[opt]);
       system(CLEAR);
-      if(resultado.GetResultado() == Resultado::ksucesso_) {
+      if (resultado.GetResultado() == Resultado::ksucesso_) {
         cout << "Termo Excluido com Sucesso!\n\n";
         opt = voltar;
       } else {
@@ -651,7 +651,7 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *s
     resultado = stub_isv->CriarDefinicao(definicao, texto, data);
 
     system(CLEAR);
-    if(resultado.GetResultado() == Resultado::ksucesso_) {
+    if (resultado.GetResultado() == Resultado::ksucesso_) {
       cout << "Definicao Criada com Sucesso!\n\n";
       cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
       cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
@@ -708,37 +708,37 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
 
         switch (opcao) {
           case 1:system(CLEAR);
-          try {
-            cout << "Digite o Texto da Definicao: ";
-            cin.ignore();
-            getline(cin, itexto);
-            texto.SetDefinicao(itexto);
+            try {
+              cout << "Digite o Texto da Definicao: ";
+              cin.ignore();
+              getline(cin, itexto);
+              texto.SetDefinicao(itexto);
 
-            cout << "Digite a Data da Definicao: ";
-            cin >> idata;
-            data.SetData(idata);
+              cout << "Digite a Data da Definicao: ";
+              cin >> idata;
+              data.SetData(idata);
 
-            resultado = stub_isv->EditarDefinicao(definicao, texto, data);
+              resultado = stub_isv->EditarDefinicao(definicao, texto, data);
 
-            system(CLEAR);
-            if(resultado.GetResultado() == Resultado::ksucesso_) {
-              cout << "Definicao Editada com Sucesso!\n\n";
-              cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
-              cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
-              opt = voltar;
-            } else {
-              cout << "Falha ao Editar Definicao!\n";
+              system(CLEAR);
+              if (resultado.GetResultado() == Resultado::ksucesso_) {
+                cout << "Definicao Editada com Sucesso!\n\n";
+                cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+                cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+                opt = voltar;
+              } else {
+                cout << "Falha ao Editar Definicao!\n";
+              }
+              system(PAUSE);
             }
-            system(PAUSE);
-          }
-          catch (exception &e) {
-            cout << "\n\t" << e.what() << "\n";
-            system(PAUSE);
-          }
+            catch (exception &e) {
+              cout << "\n\t" << e.what() << "\n";
+              system(PAUSE);
+            }
           case 2:break;
           default:break;
         }
-      } while(opcao != 1 && opcao != 2);
+      } while (opcao != 1 && opcao != 2);
     }
   } while (opt != voltar);
 }
@@ -783,7 +783,7 @@ void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario 
         switch (opcao) {
           case 1: resultado = stub_isv->ExcluirDefinicao(definicao);
             system(CLEAR);
-            if(resultado.GetResultado() == Resultado::ksucesso_) {
+            if (resultado.GetResultado() == Resultado::ksucesso_) {
               cout << "Definicao Excluida com Sucesso!\n\n";
               opt = voltar;
             } else {
@@ -794,7 +794,7 @@ void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario 
           case 2:break;
           default:break;
         }
-      } while(opcao != 1 && opcao != 2);
+      } while (opcao != 1 && opcao != 2);
     }
   } while (opt != voltar);
 }
@@ -859,7 +859,7 @@ void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario 
     resultado = stub_isv->CriarVocabulario(vocabulario, nome, idioma, data);
 
     system(CLEAR);
-    if(resultado.GetResultado() == Resultado::ksucesso_) {
+    if (resultado.GetResultado() == Resultado::ksucesso_) {
       cout << "Vocabulario Criado com Sucesso!\n\n";
       cout << "Nome do Vocabulario: " << vocabulario.GetNome().GetNome() << "\n";
       cout << "Idioma do Vocabulario: " << vocabulario.GetIdioma().GetIdioma() << "\n";
@@ -924,7 +924,7 @@ void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario
         resultado = stub_isv->EditarVocabulario(vocabulario, nome, idioma, data);
 
         system(CLEAR);
-        if(resultado.GetResultado() == Resultado::ksucesso_) {
+        if (resultado.GetResultado() == Resultado::ksucesso_) {
           cout << "Vocabulario Editado com Sucesso!\n\n";
           cout << "Nome do Vocabulario: " << vocabulario.GetNome().GetNome() << "\n";
           cout << "Idioma do Vocabulario: " << vocabulario.GetIdioma().GetIdioma() << "\n";
@@ -971,7 +971,7 @@ void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulari
     if (opt < voltar && opt > 0) {
       resultado = stub_isv->ExcluirVocabulario(vocabularios[opt]);
       system(CLEAR);
-      if(resultado.GetResultado() == Resultado::ksucesso_) {
+      if (resultado.GetResultado() == Resultado::ksucesso_) {
         cout << "Vocabulario Excluido com Sucesso!\n\n";
         opt = voltar;
       } else {

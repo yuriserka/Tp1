@@ -158,23 +158,23 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um leitor.
    *
    */
-  virtual Resultado CadastrarLeitor(Leitor &, const Nome &, 
-    const Sobrenome &, const Senha &, const Email &) = 0;
+  virtual Resultado CadastrarLeitor(Leitor &, const Nome &,
+                                    const Sobrenome &, const Senha &, const Email &) = 0;
 
   /**
    * @brief função abstrata que cadastra um administrador.
    *
    */
-  virtual Resultado CadastrarAdm(Administrador &, const Nome &, 
-    const Sobrenome &, const Senha &, const Email &, const Data &, 
-    const Telefone &, const Address &) = 0;
+  virtual Resultado CadastrarAdm(Administrador &, const Nome &,
+                                 const Sobrenome &, const Senha &, const Email &, const Data &,
+                                 const Telefone &, const Address &) = 0;
 
   /**
    * @brief função abstrata que cadastra um desenvolvedor.
    *
    */
-  virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &, 
-      const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
+  virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &,
+                                 const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.
@@ -382,16 +382,16 @@ class InterfaceServicoVocabulario {
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarDefinicao(Definicao &, 
-                                  const TextoDefinicao &, const Data &) = 0;
+  virtual Resultado CriarDefinicao(Definicao &,
+                                   const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Editar uma Definição.
    * 
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarDefinicao(Definicao &, 
-                                  const TextoDefinicao &, const Data &) = 0;
+  virtual Resultado EditarDefinicao(Definicao &,
+                                    const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir uma Definição.
@@ -414,7 +414,7 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
-                                     const Idioma &, const Data &) = 0;
+                                      const Idioma &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Vocabulario.
