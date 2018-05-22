@@ -255,19 +255,19 @@
 	<stdexcept>
 	<exception>
 
-1526955705 source:c:\users\yserk\clionprojects\tp1\dominios.cc
+1526785162 source:c:\users\yserk\clionprojects\tp1\dominios.cc
 	"includes.h"
 
-1526955705 c:\users\yserk\clionprojects\tp1\dominios.h
+1526785162 c:\users\yserk\clionprojects\tp1\dominios.h
 	"includes.h"
 
-1526955705 source:c:\users\yserk\clionprojects\tp1\entidades.cc
+1526785162 source:c:\users\yserk\clionprojects\tp1\entidades.cc
 	"includes.h"
 
-1526955705 c:\users\yserk\clionprojects\tp1\entidades.h
+1526974174 c:\users\yserk\clionprojects\tp1\entidades.h
 	"includes.h"
 
-1526955707 source:c:\users\yserk\clionprojects\tp1\main.cc
+1526907057 source:c:\users\yserk\clionprojects\tp1\main.cc
 	"includes.h"
 
 1524768174 c:\users\yserk\clionprojects\tp1\unit-test-dominios.h
@@ -277,7 +277,7 @@
 	"entidades.h"
 	"dominios.h"
 
-1526955707 c:\users\yserk\clionprojects\tp1\testes.h
+1526785162 c:\users\yserk\clionprojects\tp1\testes.h
 	"includes.h"
 
 1524783818 c:\users\yserk\clionprojects\tp1\ui.h
@@ -318,28 +318,28 @@
 	"entidades.h"
 	"interfaces.h"
 
-1526960759 c:\users\yserk\clionprojects\tp1\interfaces.h
+1526974175 c:\users\yserk\clionprojects\tp1\interfaces.h
 	"includes.h"
 
 1525570930 source:c:\users\yserk\clionprojects\tp1\servicos.cc
 	"apresentacao.h"
 
-1526955707 source:c:\users\yserk\clionprojects\tp1\teste-dominios.cc
+1526785162 source:c:\users\yserk\clionprojects\tp1\teste-dominios.cc
 	"includes.h"
 
-1526955707 c:\users\yserk\clionprojects\tp1\teste-dominios.h
+1526974175 c:\users\yserk\clionprojects\tp1\teste-dominios.h
 	"includes.h"
 
-1526955707 source:c:\users\yserk\clionprojects\tp1\teste-entidades.cc
+1526785162 source:c:\users\yserk\clionprojects\tp1\teste-entidades.cc
 	"includes.h"
 
-1526960907 c:\users\yserk\clionprojects\tp1\teste-entidades.h
+1526974175 c:\users\yserk\clionprojects\tp1\teste-entidades.h
 	"includes.h"
 
 1526960759 source:c:\users\yserk\clionprojects\tp1\comandos.cc
 	"includes.h"
 
-1526955707 c:\users\yserk\clionprojects\tp1\includes.h
+1526974175 c:\users\yserk\clionprojects\tp1\includes.h
 	"bits/stdc++.h"
 	"dominios.h"
 	"entidades.h"
@@ -352,19 +352,19 @@
 	"stubs.h"
 	"controladores.h"
 
-1526955705 c:\users\yserk\clionprojects\tp1\auxiliares.h
+1526974174 c:\users\yserk\clionprojects\tp1\auxiliares.h
 	"includes.h"
 
-1526955705 c:\users\yserk\clionprojects\tp1\comandos.h
+1526974174 c:\users\yserk\clionprojects\tp1\comandos.h
 	"includes.h"
 
-1526960841 c:\users\yserk\clionprojects\tp1\stubs.h
+1526974175 c:\users\yserk\clionprojects\tp1\stubs.h
 	"includes.h"
 
-1526955705 c:\users\yserk\clionprojects\tp1\controladores.h
+1526907057 c:\users\yserk\clionprojects\tp1\controladores.h
 	"includes.h"
 
-1526955705 source:c:\users\yserk\clionprojects\tp1\controladores.cc
+1526938583 source:c:\users\yserk\clionprojects\tp1\controladores.cc
 	"includes.h"
 
 1526960841 source:c:\users\yserk\clionprojects\tp1\stubs.cc
