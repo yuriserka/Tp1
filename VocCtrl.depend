@@ -370,3 +370,70 @@
 1526960841 source:c:\users\yserk\clionprojects\tp1\stubs.cc
 	"includes.h"
 
+1526974174 source:c:\users\yserk\downloads\170024385_170063666\comandos.cc
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\includes.h
+	"bits/stdc++.h"
+	"dominios.h"
+	"entidades.h"
+	"auxiliares.h"
+	"teste-dominios.h"
+	"teste-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"comandos.h"
+	"stubs.h"
+	"controladores.h"
+
+1526785162 c:\users\yserk\downloads\170024385_170063666\dominios.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\entidades.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\auxiliares.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\teste-dominios.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\teste-entidades.h
+	"includes.h"
+
+1526785162 c:\users\yserk\downloads\170024385_170063666\testes.h
+	"includes.h"
+
+1527013492 c:\users\yserk\downloads\170024385_170063666\interfaces.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\comandos.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\stubs.h
+	"includes.h"
+
+1526907057 c:\users\yserk\downloads\170024385_170063666\controladores.h
+	"includes.h"
+
+1526938583 source:c:\users\yserk\downloads\170024385_170063666\controladores.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\dominios.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\entidades.cc
+	"includes.h"
+
+1526907057 source:c:\users\yserk\downloads\170024385_170063666\main.cc
+	"includes.h"
+
+1526974175 source:c:\users\yserk\downloads\170024385_170063666\stubs.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\teste-dominios.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\teste-entidades.cc
+	"includes.h"
+

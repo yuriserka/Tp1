@@ -1,0 +1,23 @@
+CPP      = g++.exe
+WINDRES  = windres.exe
+OBJ      = comandos.o controladores.o dominios.o entidades.o main.o stubs.o teste-dominios.o teste-entidades.o
+LINKOBJ  = comandos.o controladores.o dominios.o entidades.o main.o stubs.o teste-dominios.o teste-entidades.o
+SRCS		 = comandos.cc controladores.cc dominios.cc entidades.cc main.cc stubs.cc teste-dominios.cc teste-entidades.cc
+LIBS     = -L"C:\MinGW\lib" -L"C:\MinGW\mingw32\lib" -static-libgcc sqlite3.dll
+CXXINCS  = -I"C:\MinGW\include" -I"C:\MinGW\lib\gcc\mingw32\6.3.0\include" -I"C:\MinGW\lib\gcc\mingw32\6.3.0\include\c++"
+BIN      = "main.exe"
+CXXFLAGS = $(CXXINCS) -std=gnu++11 -g -Wall -pedantic
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+$(OBJ): $(SRCS)
+	$(CPP) -c $(SRCS) -o $(OBJ) $(CXXFLAGS)
