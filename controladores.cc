@@ -14,9 +14,15 @@ void CtrlApresentacaoControle::Inicializar() {
     cin >> opt;
 
     switch (opt) {
-      case Controle::kentrar:resultado = ctrl_aa->Autenticar();
-        if (resultado.GetResultado() == ResultadoAutenticar::ksucesso_) {
-          ControleLogado(resultado.GetEmailResultado());
+      case Controle::kentrar:
+        try {
+          resultado = ctrl_aa->Autenticar();
+          if (resultado.GetResultado() == ResultadoAutenticar::ksucesso_) {
+            ControleLogado(resultado.GetEmailResultado());
+          }
+        } catch (exception &e) {
+          cout << "\n\t" << e.what() << "\n";
+          opt = ksair;
         }
         break;
       case Controle::kcadastrar:ctrl_ak->Cadastrar();

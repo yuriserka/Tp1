@@ -73,7 +73,8 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
       senha.GetSenha() == ktrigger_senha_invalida_) {
     resultado.SetResultado(ResultadoAutenticar::kfalha_);
   } else if (email.GetEmail() == ktrigger_erro_sistema_) {
-    throw ("Erro de Sistema!\n");
+    throw invalid_argument("Erro de Sistema!\n");
+    exit(0);
   } else {
     resultado.SetResultado(ResultadoAutenticar::ksucesso_);
   }
