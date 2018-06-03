@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "array": "cpp",
-    "bitset": "cpp",
-    "initializer_list": "cpp",
-    "valarray": "cpp",
-    "exception": "cpp"
-  }
-}
