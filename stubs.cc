@@ -80,9 +80,9 @@ Resultado StubAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome,
+ResultadoUsuario StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome,
                                         const Sobrenome &sobrenome, const Senha &senha, const Email &email) {
-  Resultado resultado;
+  ResultadoUsuario resultado;
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
   }
@@ -97,10 +97,10 @@ Resultado StubCadastro::CadastrarLeitor(Leitor &novoleitor, const Nome &nome,
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome,
+ResultadoUsuario StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome,
                                      const Sobrenome &sobrenome, const Senha &senha, const Email &email,
                                      const Data &data, const Telefone &telefone, const Address &endereco) {
-  Resultado resultado;
+  ResultadoUsuario resultado;
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
   }
@@ -115,13 +115,13 @@ Resultado StubCadastro::CadastrarAdm(Administrador &novoadm, const Nome &nome,
   return resultado;
 }
 
-Resultado StubCadastro::CadastrarDev(Desenvolvedor &novodev,
+ResultadoUsuario StubCadastro::CadastrarDev(Desenvolvedor &novodev,
                                      const Nome &nome,
                                      const Sobrenome &sobrenome,
                                      const Senha &senha,
                                      const Email &email,
                                      const Data &data) {
-  Resultado resultado;
+  ResultadoUsuario resultado;
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
   }

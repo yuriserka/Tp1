@@ -158,14 +158,14 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um leitor.
    *
    */
-  virtual Resultado CadastrarLeitor(Leitor &, const Nome &,
+  virtual ResultadoUsuario CadastrarLeitor(Leitor &, const Nome &,
                                     const Sobrenome &, const Senha &, const Email &) = 0;
 
   /**
    * @brief função abstrata que cadastra um administrador.
    *
    */
-  virtual Resultado CadastrarAdm(Administrador &, const Nome &,
+  virtual ResultadoUsuario CadastrarAdm(Administrador &, const Nome &,
                                  const Sobrenome &, const Senha &, const Email &, const Data &,
                                  const Telefone &, const Address &) = 0;
 
@@ -173,7 +173,7 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um desenvolvedor.
    *
    */
-  virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &,
+  virtual ResultadoUsuario CadastrarDev(Desenvolvedor &, const Nome &,
                                  const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
 
   /**
@@ -265,27 +265,6 @@ class InterfaceServicoUsuario {
    * se foi sucesso ou falha
    */
   virtual Resultado Excluir(const Email &) = 0;
-
-  /**
-   * @brief função abstrata que irá criar um Leitor.
-   *
-   * @return Leitor novo leitor criado.
-   */
-  virtual Leitor CriaLeitor(const Email &) = 0;
-
-  /**
-   * função abstrata que irá criar um Desenvolvedor.
-   *
-   * @return Leitor novo Desenvolvedor criado.
-   */
-  virtual Desenvolvedor CriaDesenvolvedor(const Email &) = 0;
-
-  /**
-   * função abstrata que irá criar um Administrador.
-   *
-   * @return Leitor novo Administrador criado.
-   */
-  virtual Administrador CriaAdministrador(const Email &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.

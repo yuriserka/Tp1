@@ -1,0 +1,3 @@
+C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/Trabalho.dir
+C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/YSerk/CLionProjects/Tp1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

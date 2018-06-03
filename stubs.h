@@ -93,7 +93,7 @@ class StubCadastro : public InterfaceServicoCadastro {
   * 
   * @return Resultado se foi sucesso ou falha no cadastro.
   */
-  Resultado CadastrarLeitor(Leitor &, const Nome &,
+  ResultadoUsuario CadastrarLeitor(Leitor &, const Nome &,
                             const Sobrenome &, const Senha &, const Email &) override;
 
   /**
@@ -101,7 +101,7 @@ class StubCadastro : public InterfaceServicoCadastro {
    * 
    * @return Resultado se foi sucesso ou falha no cadastro.
    */
-  Resultado CadastrarDev(Desenvolvedor &, const Nome &,
+  ResultadoUsuario CadastrarDev(Desenvolvedor &, const Nome &,
                          const Sobrenome &, const Senha &, const Email &, const Data &) override;
 
   /**
@@ -109,7 +109,7 @@ class StubCadastro : public InterfaceServicoCadastro {
    * 
    * @return Resultado se foi sucesso ou falha no cadastro.
    */
-  Resultado CadastrarAdm(Administrador &, const Nome &,
+  ResultadoUsuario CadastrarAdm(Administrador &, const Nome &,
                          const Sobrenome &, const Senha &, const Email &, const Data &,
                          const Telefone &, const Address &) override;
 };
@@ -120,26 +120,6 @@ class StubCadastro : public InterfaceServicoCadastro {
  */
 class StubUsuario : public InterfaceServicoUsuario {
  public:
-  /**
-   * @brief cria um novo Leitor.
-   * 
-   * @return Leitor leitor que foi criado.
-   */
-  Leitor CriaLeitor(const Email &) override;
-
-  /**
-   * @brief cria um novo Desenvolvedor
-   * 
-   * @return Desenvolvedor desenvolvedor que foi criado.
-   */
-  Desenvolvedor CriaDesenvolvedor(const Email &) override;
-
-  /**
-   * @brief cria um novo Administrador.
-   * 
-   * @return Administrador administrador que foi criado.
-   */
-  Administrador CriaAdministrador(const Email &) override;
 
   /**
    * @brief implementa a classe base e exibe um leitor.
@@ -192,6 +172,9 @@ class StubUsuario : public InterfaceServicoUsuario {
   Resultado Excluir(const Email &) override;
 
  private:
+  Leitor CriaLeitor(const Email &);
+  Desenvolvedor CriaDesenvolvedor(const Email &);
+  Administrador CriaAdministrador(const Email &);
   ResultadoUsuario AtualizaLeitor();
   ResultadoUsuario AtualizaDesenvolvedor();
   ResultadoUsuario AtualizaAdministrador();

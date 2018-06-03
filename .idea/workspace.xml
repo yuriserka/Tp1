@@ -11,456 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43db81f-7ae1-4feb-8bb8-0948679b01fc" name="Default" comment="Documentei o arquivo auxiliares.h, implementei os comandos pra parte de usuario e talz, mas o migué de excluir a conta continua pq é o unico jeito de funcionar do jeito que a gente fez.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/_r_e_a_d_m_e_8md_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/annotated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/auxiliares_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/auxiliares_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/bc_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/bdwn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_address-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_address.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_administrador-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_administrador.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_administrador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_classe_do_termo-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_classe_do_termo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_adm-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_adm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_adm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_dev-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_dev.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_dev.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_leitor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_leitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_cadastro_leitor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_editar-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_editar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_editar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_excluir-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_excluir.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_excluir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_mostrar-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_mostrar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_usuario_mostrar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_administrador-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_administrador.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_administrador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_cadastrar_desenvolvedor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_cadastrar_desenvolvedor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_cadastrar_desenvolvedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_desenvolvedor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_desenvolvedor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_desenvolvedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_definicao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_definicao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_definicao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_termo-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_termo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_termo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_interagir_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_leitor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_leitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_leitor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_termos-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_termos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_termos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_vocabularios-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_vocabularios.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_comando_a_vocabulario_listar_vocabularios.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_autenticacao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_autenticacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_autenticacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_cadastro-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_cadastro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_cadastro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_controle-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_controle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_controle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_ctrl_apresentacao_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_data-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_data.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_definicao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_definicao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_desenvolvedor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_desenvolvedor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_desenvolvedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_email-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_idioma-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_idioma.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_autenticacao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_autenticacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_autenticacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_cadastro-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_cadastro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_cadastro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_controle-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_controle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_controle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_apresentacao_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_autenticacao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_autenticacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_autenticacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_cadastro-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_cadastro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_cadastro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_controle-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_controle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_controle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_interface_servico_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_leitor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_leitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_leitor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_nome-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_nome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado_autenticar-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado_autenticar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado_autenticar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_resultado_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_senha-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_senha.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_sobrenome-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_sobrenome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_autenticacao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_autenticacao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_autenticacao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_cadastro-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_cadastro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_cadastro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_controle-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_controle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_controle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_usuario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_stub_vocabulario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_address-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_address.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_address.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_administrador-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_administrador.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_administrador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_dominios-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_dominios.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_dominios.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_entidades-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_entidades.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_base_entidades.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_data-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_data.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_data.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_definicao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_definicao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_desenvolvedor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_desenvolvedor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_desenvolvedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_dominios-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_dominios.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_email-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_email.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_entidades-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_entidades.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_idioma-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_idioma.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_idioma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_leitor-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_leitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_leitor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_nome-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_nome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_nome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_preferencia-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_preferencia.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_preferencia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_senha-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_senha.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_senha.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_sobrenome-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_sobrenome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_sobrenome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_telefone-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_telefone.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_telefone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_termo-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_termo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_texto_definicao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_texto_definicao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_texto_definicao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_vocabulario-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_t_u_vocabulario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_telefone-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_telefone.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_termo-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_termo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_termo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_teste-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_teste.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_texto_definicao-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_texto_definicao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_vocabulario_controlado-members.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_vocabulario_controlado.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/class_vocabulario_controlado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/classes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/closed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/coderunner_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/comandos_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/comandos_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/comandos_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/controladores_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/controladores_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/controladores_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/doc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/dominios_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/dominios_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/dominios_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/doxygen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/doxygen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/dynsections.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/entidades_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/entidades_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/entidades_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/files.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/folderclosed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/folderopen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_0x7e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_c.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_0x7e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_c.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_g.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_i.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_l.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_n.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_o.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_r.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_s.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_t.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_func_v.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_g.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_i.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_k.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_l.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_n.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_o.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_r.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_s.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_t.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_v.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/functions_vars.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/globals.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/globals_defs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/hierarchy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/includes_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/includes_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/interfaces_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/interfaces_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/main_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/md__r_e_a_d_m_e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/menudata.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/nav_f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/nav_g.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/nav_h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/pages.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_b.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_c.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_e.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_f.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/all_f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/classes_a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/defines_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/defines_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/defines_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/defines_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/files_6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_b.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_c.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_d.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/functions_d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/mag_sel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/nomatches.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/pages_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/pages_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/search_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/search_m.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/search_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/searchdata.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_0.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/search/variables_5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/servicos_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/servicos_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/splitbar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/stubs_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/stubs_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/stubs_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/sync_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/sync_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/tab_a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/tab_b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/tab_h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/tab_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/tabs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/temp_code_runner_file_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-dominios_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-dominios_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-dominios_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-entidades_8cc_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-entidades_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/teste-entidades_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/testes_8h.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doxygen/html/testes_8h_source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LEIAME.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile.win" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores.cc" beforeDir="false" afterPath="$PROJECT_DIR$/controladores.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlite3.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs.cc" beforeDir="false" afterPath="$PROJECT_DIR$/stubs.cc" afterDir="false" />
-    </list>
+    <list default="true" id="a43db81f-7ae1-4feb-8bb8-0948679b01fc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -484,20 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controladores.cc" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controladores.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controladores.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="391">
               <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cc" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="391">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -676,7 +227,7 @@
       <workItem from="1526703882571" duration="636000" />
       <workItem from="1526960542359" duration="807000" />
       <workItem from="1527871076194" duration="307000" />
-      <workItem from="1527871554369" duration="801000" />
+      <workItem from="1527871554369" duration="1072000" />
     </task>
     <task id="LOCAL-00001" summary="código com o formatado de acordo com o Google">
       <created>1524624726636</created>
@@ -720,11 +271,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526100825591</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="arrumei a parte do erro de sistema, mas acho q ainda da pra melhorar um pouco. tbm tirei a pasta do doxygen que é inutil.">
+      <created>1527872536861</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1527872536861</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45591000" />
+    <option name="totallyTimeSpent" value="45862000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,7 +295,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6252927" visible="true" weight="0.13828996" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
@@ -745,7 +302,7 @@
       <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.86022305" weight="0.32847896" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.13977695" side_tool="true" weight="0.32847896" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49627978" weight="0.28733766" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49702382" visible="true" weight="0.35436893" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49702382" weight="0.35436893" />
       <window_info id="Structure" order="1" sideWeight="0.37470725" side_tool="true" weight="0.13988096" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49962825" weight="0.32686085" />
       <window_info id="Favorites" order="2" sideWeight="0.37470725" side_tool="true" weight="0.13988096" />
@@ -818,7 +375,8 @@
     <MESSAGE value="comecei a fazer a parte o módulo de autenticação do usuário, tanto a parte de apresentação como a parte de serviços, mas ainda não sei se este é o modo correto de fazer as coisas." />
     <MESSAGE value="Do jeito que eu implementei ta funcionando, mas (SERÁ QUE DO JEITO CERTO?), mesmo assim, so falta agora a parte dos vocabularios, acho q da pra reaproveitar a função Tipoconta() e fazer algo semelhante ao que eu fiz pra atualizar a conta." />
     <MESSAGE value="coloquei no padrão google" />
-    <option name="LAST_COMMIT_MESSAGE" value="coloquei no padrão google" />
+    <MESSAGE value="arrumei a parte do erro de sistema, mas acho q ainda da pra melhorar um pouco. tbm tirei a pasta do doxygen que é inutil." />
+    <option name="LAST_COMMIT_MESSAGE" value="arrumei a parte do erro de sistema, mas acho q ainda da pra melhorar um pouco. tbm tirei a pasta do doxygen que é inutil." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1050,13 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stubs.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1073,8 +624,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controladores.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="391">
           <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

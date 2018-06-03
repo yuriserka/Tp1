@@ -68,6 +68,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   Email email;
   Senha senha;
   int tentativas = 0, opt;
+
   do {
     system(CLEAR);
     if (tentativas >= 2) {
@@ -101,16 +102,20 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
     }
   } while (true);
 
-  verificado = ctrl_servico_autenticacao_->Autenticar(email, senha);
-
+  try {
+    verificado = ctrl_servico_autenticacao_->Autenticar(email, senha);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+  
   if (verificado.GetResultado() == ResultadoAutenticar::kfalha_) {
     cout << "Falha de autenticacao!\n";
     system(PAUSE);
+  } else {
+    resultado.SetEmailResultado(email);
   }
-
   resultado.SetResultado(verificado.GetResultado());
-  resultado.SetEmailResultado(email);
-
+  
   return resultado;
 }
 
