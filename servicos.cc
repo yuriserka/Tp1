@@ -59,7 +59,7 @@ Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &s
   ComandoSqlLerEmail *cmd = new ComandoSqlLerEmail(email);
   try {
     cmd->Executar();
-    cmd->RecuperaEmail(); //é necessário fazer isso para dar pop na pilha
+    cmd->RecuperaEmail();
     delete cmd;
   } catch (ErroDePersistencia &e) {
     cout << "Email nao cadastrado\n";
@@ -368,10 +368,10 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
   string isenha;
   Senha senha;
   Resultado resultado;
-  ComandoSqlLerSenha *comando;
   system(CLEAR);
   cout << "Digite sua senha para confirmar: ";
   try {
+    ComandoSqlLerSenha *comando;
     cin >> isenha;
     senha = Senha(isenha);
     comando = new ComandoSqlLerSenha(email);
@@ -385,7 +385,6 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
     delete comando;
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
-    delete comando;
     resultado.SetResultado(Resultado::kfalha_);
   }
 
@@ -397,6 +396,7 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
   try {
     ComandoSqlRemover *comando = new ComandoSqlRemover(email);
     comando->Executar();
+    delete comando;
   } catch (ErroDePersistencia &e) {
     cout << "\n\t" << e.GetMsg() << "\n";
     resultado.SetResultado(Resultado::kfalha_);

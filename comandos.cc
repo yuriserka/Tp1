@@ -157,36 +157,41 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
   Data data;
   ComandoSql *comando;
 
-  try {
-    cout << "Digite seu Nome: ";
-    cin >> inome;
-    nome = Nome(inome);
+  do {
+    try {
+      system(CLEAR);
+      cout << "Digite seu Nome: ";
+      cin >> inome;
+      nome = Nome(inome);
 
-    cout << "Digite seu Sobrenome: ";
-    cin >> isobrenome;
-    sobrenome = Sobrenome(isobrenome);
+      cout << "Digite seu Sobrenome: ";
+      cin >> isobrenome;
+      sobrenome = Sobrenome(isobrenome);
 
-    cout << "Digite sua Data de Nascimento: ";
-    cin >> idata;
-    data = Data(idata);
+      cout << "Digite sua Data de Nascimento: ";
+      cin >> idata;
+      data = Data(idata);
 
-    cin.clear();
-    cin.ignore();
+      cin.clear();
+      cin.ignore();
 
-    cout << "Digite sua Senha: ";
-    cin >> isenha;
-    senha = Senha(isenha);
+      cout << "Digite sua Senha: ";
+      cin >> isenha;
+      senha = Senha(isenha);
 
-    cout << "Digite seu Email: ";
-    cin >> iemail;
-    email = Email(iemail);
-  }
-  catch (exception &e) {
-    cout << "\n\t" << e.what() << "\n";
-    system(PAUSE);
-  }
-
-  ResultadoUsuario res = isc->CadastrarDev(novodev, nome, sobrenome, senha, email, data);
+      cout << "Digite seu Email: ";
+      cin >> iemail;
+      email = Email(iemail);
+      break;
+    }
+    catch (exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+    }
+  } while(true);
+  
+  ResultadoUsuario res = isc->CadastrarDev(novodev, nome, sobrenome, senha, 
+                                          email, data);
   try {
     ComandoSqlLerEmail *comando = new ComandoSqlLerEmail(res.GetDev().GetEmail());
     comando->Executar();
@@ -243,6 +248,7 @@ Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, const E
   } catch (ErroDePersistencia &e) {
     cout << "\n\t" << e.GetMsg() << "\n";
     res.SetResultado(Resultado::kfalha_);
+    delete cmd_tc;
     return res;
   }
   res.SetResultado(Resultado::ksucesso_);
@@ -264,8 +270,7 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Em
       Leitor leitor = comando->GetLeitor();
       delete comando;
       res = isu->Editar(leitor);
-      ComandoSqlAtualizar *comando_att;
-      comando_att = new ComandoSqlAtualizar(res.GetLeitor());
+      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetLeitor());
       comando_att->Executar();
       delete comando_att;
     } else if ("desenvolvedor" == tipo_conta) {
@@ -274,8 +279,7 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Em
       Desenvolvedor dev = comando->GetDev();
       delete comando;
       res = isu->Editar(dev);
-      ComandoSqlAtualizar *comando_att;
-      comando_att = new ComandoSqlAtualizar(res.GetDev());
+      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetDev());
       comando_att->Executar();
       delete comando_att;
     } else if ("administrador" == tipo_conta) {
@@ -284,8 +288,7 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Em
       Administrador adm = comando->GetAdm();
       delete comando;
       res = isu->Editar(adm);
-      ComandoSqlAtualizar *comando_att;
-      comando_att = new ComandoSqlAtualizar(res.GetAdm());
+      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetAdm());
       comando_att->Executar();
       delete comando_att;
     } 

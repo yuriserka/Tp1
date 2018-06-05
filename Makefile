@@ -3,16 +3,18 @@ CFLAGS = -g -Wall -pedantic -std=c++11
 TARGET = main
 LIBS = 
 SRCS = controladores.cc entidades.cc dominios.cc main.cc servicos.cc sql.cc stubs.cc comandos.cc teste-dominios.cc teste-entidades.cc
+SQL_S = sqlite3.c
+SQL_O = sqlite3.o
 OBJS = $(SRCS:.c = .o)
 MAIN = exec
 
-#sqlite:
-#	gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -c $(SQL_C)
-
 all:	$(MAIN)
 
+sqlite:
+	gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -c $(SQL_S)
+
 $(MAIN):$(OBJS)
-		$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LIBS)
+		$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(SQL_O) $(LIBS)
 
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
