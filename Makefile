@@ -1,26 +1,32 @@
+EXE = exec
+OBJ_DIR = objetos
+SRC_DIR = fontes
+SRC = $(wildcard $(SRC_DIR)/*.cc)
+CSRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(SRC:$(SRC_DIR)/%.cc=$(OBJ_DIR)/%.o)
+COBJ = $(CSRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CXX = g++
 CC = gcc
-CXXFLAGS = -g -Wall -pedantic -std=c++11
+SQLFLAGS = -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSIONTARGET
+CPPFLAGS = -std=c++11
 CFLAGS = -g -Wall -pedantic
-SQLFLAGS = -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION
-TARGET = main
-LIBS = 
-SRCS = comandos.cc controladores.cc dominios.cc entidades.cc main.cc servicos.cc sql.cc comandos.cc teste-dominios.cc teste-entidades.cc
-SQLSRC = sqlite3.c
-SQLOBJ = sqlite3.o
-OBJS = $(SRCS:.cxx = .o)
-MAIN = exec
+LDFLAGS = 
+LDLIBS = 
 
-all:	$(MAIN)
+.PHONY: all clean sqlite
 
-sqlite:
-	$(CC) $(SQLFLAGS) -c $(SQLSRC)
+all: $(EXE)
 
-$(MAIN):$(OBJS)
-		$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(SQLOBJ) $(LIBS)
+$(EXE): $(OBJ)
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o
 
-.cxx.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<  -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
+	$(CXX) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) *.o *~ $(MAIN)
+	$(RM) $(OBJ) $(COBJ)
+
+sqlite: $(COBJ)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(SQLFLAGS) $(CFLAGS) -c $< -o $@

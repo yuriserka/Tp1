@@ -37,31 +37,31 @@
 			<Add option="-fexceptions" />
 			<Add option="-pedantic" />
 		</Compiler>
-		<Unit filename="auxiliares.h" />
-		<Unit filename="comandos.cc" />
-		<Unit filename="comandos.h" />
-		<Unit filename="controladores.cc" />
-		<Unit filename="controladores.h" />
-		<Unit filename="dominios.cc" />
-		<Unit filename="dominios.h" />
-		<Unit filename="entidades.cc" />
-		<Unit filename="entidades.h" />
-		<Unit filename="includes.h" />
-        <Unit filename="interfaces.h" />
-		<Unit filename="main.cc" />
-		<Unit filename="servicos.cc" />
-		<Unit filename="servicos.h" />
-		<Unit filename="sql.cc" />
-		<Unit filename="sql.h" />
-		<Unit filename="sqlite3.c" />
-		<Unit filename="sqlite3.h" />
-		<Unit filename="stubs.cc" />
-		<Unit filename="stubs.h" />
-		<Unit filename="teste-dominios.cc" />
-		<Unit filename="teste-dominios.h" />
-		<Unit filename="teste-entidades.cc" />
-		<Unit filename="teste-entidades.h" />
-		<Unit filename="testes.h" />
+		<Unit filename="cabecalhos/auxiliares.h" />
+		<Unit filename="cabecalhos/comandos.h" />
+		<Unit filename="cabecalhos/controladores.h" />
+		<Unit filename="cabecalhos/dominios.h" />
+		<Unit filename="cabecalhos/entidades.h" />
+		<Unit filename="cabecalhos/includes.h" />
+        <Unit filename="cabecalhos/interfaces.h" />
+        <Unit filename="cabecalhos/servicos.h" />
+        <Unit filename="cabecalhos/teste-entidades.h" />
+		<Unit filename="cabecalhos/testes.h" />
+		<Unit filename="cabecalhos/sql.h" />
+		<Unit filename="cabecalhos/sqlite3.h" />
+		<Unit filename="cabecalhos/teste-dominios.h" />
+		<Unit filename="cabecalhos/stubs.h" />
+		<Unit filename="fontes/comandos.cc" />
+		<Unit filename="fontes/controladores.cc" />
+		<Unit filename="fontes/dominios.cc" />
+		<Unit filename="fontes/entidades.cc" />
+		<Unit filename="fontes/main.cc" />
+		<Unit filename="fontes/servicos.cc" />
+		<Unit filename="fontes/sql.cc" />
+		<Unit filename="fontes/sqlite3.c" />
+		<Unit filename="fontes/stubs.cc" />
+		<Unit filename="fontes/teste-dominios.cc" />
+		<Unit filename="fontes/teste-entidades.cc" />
 		<Extensions>
 			<code_completion />
 			<envvars />
