@@ -1,3 +1,4 @@
+/*
 #include "includes.h"
 
 const string StubAutenticacao::ktrigger_erro_sistema_ = "errodesistema@gmail.com";
@@ -607,4 +608,4 @@ Resultado StubVocabulario::ExcluirVocabulario(const VocabularioControlado &vocab
   }
 
   return resultado;
-}
+}*/

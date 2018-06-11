@@ -17,17 +17,17 @@ void CtrlServicoControle::Construir() {
 
   InterfaceServicoAutenticacao *ctrl_sa;
   InterfaceServicoUsuario *ctrl_su;
-  InterfaceServicoVocabulario *stub_v;
+  InterfaceServicoVocabulario *ctrl_sv;
   InterfaceServicoCadastro *ctrl_sk;
 
   ctrl_sa = new CtrlServicoAutenticacao();
   ctrl_su = new CtrlServicoUsuario();
-  stub_v = new StubVocabulario();
+  ctrl_sv = new CtrlServicoVocabulario();
   ctrl_sk = new CtrlServicoCadastro();
 
   ctrl_aa->SetCtrlServicoAutenticacao(ctrl_sa);
   ctrl_au->SetCtrlServicoUsuario(ctrl_su);
-  ctrl_av->SetCtrlServicoVocabulario(stub_v);
+  ctrl_av->SetCtrlServicoVocabulario(ctrl_sv);
   ctrl_ak->SetCtrlServicoCadastro(ctrl_sk);
 
   InterfaceApresentacaoControle *ctrl_ac;
@@ -48,7 +48,7 @@ void CtrlServicoControle::Construir() {
   delete ctrl_ak;
   delete ctrl_sa;
   delete ctrl_su;
-  delete stub_v;
+  delete ctrl_sv;
   delete ctrl_sk;
   delete ctrl_ac;
 }
@@ -402,6 +402,176 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
+}
+
+vector<VocabularioControlado> CtrlServicoVocabulario::ConsultarVocabularios() {
+  ComandoSqlConsultarVocabs *comando;
+  comando = new ComandoSqlConsultarVocabs();
+  vector<VocabularioControlado> vocabularios;
+  try {
+    comando->Executar();
+    vocabularios = comando->GetVocabs();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+  }
+  
+  delete comando;
+  return vocabularios;
+}
+
+vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlado &voc) {
+  ComandoSqlConsultarTermos *comando;
+  comando = new ComandoSqlConsultarTermos(voc);
+  vector<Termo> termos;
+  try {
+    comando->Executar();
+    termos = comando->GetTermos();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+  }
+
+  delete comando;  
+  return termos;
+}
+
+vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicao(const Termo &termo) {
+  ComandoSqlConsultarDefinicao *comando;
+  comando = new ComandoSqlConsultarDefinicao(termo);
+  vector<Definicao> defs;
+  try {
+    comando->Executar();
+    defs = comando->GetDefinicoes();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+  }
+  delete comando;
+  return defs;
+}
+
+Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc, const Email &email) {
+  Resultado resultado;
+  ComandoSqlPesquisarUsuario *comando_pesquisar;
+  ComandoSql *comando_att;
+  try {
+    comando_pesquisar = new ComandoSqlPesquisarUsuario(email);
+    comando_pesquisar->Executar();
+    Desenvolvedor dev = comando_pesquisar->GetDev();
+    comando_att = new ComandoSqlAtualizar(dev, voc);
+    comando_att->Executar(); 
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando_att;
+  delete comando_pesquisar;
+  return resultado;
+}
+
+
+Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioControlado &voc, const Email &email) {
+  Resultado resultado;
+  ComandoSqlPesquisarUsuario *comando_pesquisar;
+  ComandoSql *comando_att;
+  try {
+    comando_pesquisar = new ComandoSqlPesquisarUsuario(email);
+    comando_pesquisar->Executar();
+    Administrador adm = comando_pesquisar->GetAdm();
+    comando_att = new ComandoSqlAtualizar(adm, voc);
+    comando_att->Executar(); 
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando_att;
+  delete comando_pesquisar;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc, const Nome &nome, 
+                  const Idioma &idioma, const Data &data, const Email &email) {
+  Resultado resultado;
+  try {
+    voc = VocabularioControlado(nome, idioma, data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  } 
+  string tipo_conta;
+  ComandoSqlTipoConta *comando_tc = new ComandoSqlTipoConta(email);
+  try {
+    comando_tc->Executar();
+    tipo_conta = comando_tc->RecuperaConta();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  delete comando_tc;
+  ComandoSqlPesquisarUsuario *comando;
+  ComandoSqlCadastrar *comando_k;
+  try {
+    comando = new ComandoSqlPesquisarUsuario(email);
+    comando->Executar();
+    Administrador adm = comando->GetAdm();
+    comando_k = new ComandoSqlCadastrar(voc, adm);
+    comando_k->Executar();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
+  delete comando_k;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc, 
+                    const Nome &nome, const Idioma &idioma, const Data &data) {
+  Resultado resultado;
+  try {
+    voc = VocabularioControlado(nome, idioma, data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  ComandoSqlAtualizar *comando;
+  try {
+    comando = new ComandoSqlAtualizar(voc);
+    comando->Executar(); 
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado &voc) {
+  Resultado resultado;
+  ComandoSqlRemover *comando;
+  try {
+    comando = new ComandoSqlRemover(voc);
+    comando->Executar();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    delete comando;
+    return resultado;
+  }
+  delete comando;
   resultado.SetResultado(Resultado::ksucesso_);
   return resultado;
 }

@@ -50,7 +50,7 @@ using namespace std;
 #include "interfaces.h"
 #include "comandos.h"
 #include "servicos.h"
-#include "stubs.h"
+//#include "stubs.h"
 #include "controladores.h"
 
 #endif //TRABALHO__INC__H__

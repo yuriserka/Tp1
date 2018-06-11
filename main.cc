@@ -1,7 +1,6 @@
 #include "includes.h"
 
 int main() {
-
   InterfaceServicoControle *isc;
   isc = new CtrlServicoControle();
   isc->Construir();

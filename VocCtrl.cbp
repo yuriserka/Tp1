@@ -49,6 +49,12 @@
 		<Unit filename="includes.h" />
         <Unit filename="interfaces.h" />
 		<Unit filename="main.cc" />
+		<Unit filename="servicos.cc" />
+		<Unit filename="servicos.h" />
+		<Unit filename="sql.cc" />
+		<Unit filename="sql.h" />
+		<Unit filename="sqlite3.c" />
+		<Unit filename="sqlite3.h" />
 		<Unit filename="stubs.cc" />
 		<Unit filename="stubs.h" />
 		<Unit filename="teste-dominios.cc" />

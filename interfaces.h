@@ -319,65 +319,66 @@ class InterfaceServicoVocabulario {
    *
    * @return vector<Termo> o vetor que possui os termos.
    */
-  virtual vector<Termo> ConsultarTermos() = 0;
+  virtual vector<Termo> ConsultarTermos(const VocabularioControlado &voc) = 0;
 
   /**
    * @brief função abstrata que irá retornar a definição do vocabulario.
    *
    * @return Definicao a definição procurada.
    */
-  virtual Definicao ConsultarDefinicao(const Termo &) = 0;
+  virtual vector<Definicao> ConsultarDefinicao(const Termo &) = 0;
 
   /**
    * @brief função abstrata que irá cadastrar um leitor a um vocabulario controlado.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &) = 0;
+  virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &, const Email &) = 0;
 
+  virtual Resultado CadastrarAdministrador(const VocabularioControlado &, const Email &) = 0;
   /**
    * @brief função abstrata que irá Criar um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
+  //virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Editar um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
+  //virtual Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado ExcluirTermo(const Termo &) = 0;
+  //virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
    * @brief função abstrata que irá Criar uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarDefinicao(Definicao &,
-                                   const TextoDefinicao &, const Data &) = 0;
+ // virtual Resultado CriarDefinicao(Definicao &,
+              //                     const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Editar uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarDefinicao(Definicao &,
-                                    const TextoDefinicao &, const Data &) = 0;
+  //virtual Resultado EditarDefinicao(Definicao &,
+           //                         const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
+  //virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
    * @brief função abstrata que irá Criar um Vocabulario.
@@ -385,15 +386,15 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
-                                     const Idioma &, const Data &) = 0;
-
+                              const Idioma &, const Data &, const Email &) = 0;
+  
   /**
    * @brief função abstrata que irá Editar um Vocabulario.
    *
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
-                                      const Idioma &, const Data &) = 0;
+                                     const Idioma &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Vocabulario.

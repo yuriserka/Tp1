@@ -21,6 +21,7 @@ void ComandoSql::Executar() {
   rc_ = sqlite3_exec(bd_, cmdSql_.c_str(), Callback, nullptr, &mensagem_);
   if (rc_ != SQLITE_OK) {
     if (mensagem_) {
+      system(PAUSE);
       sqlite3_free(mensagem_);
     }
     throw ErroDePersistencia("Erro na execucao do comando para o banco de dados\n");
@@ -42,6 +43,37 @@ int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna,
   }
   return 0;
 }
+
+ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
+      cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (nome TEXT NOT NULL, ";
+      cmdSql_ += "sobrenome TEXT NOT NULL, ";
+      cmdSql_ += "senha TEXT NOT NULL, ";
+      cmdSql_ += "email TEXT NOT NULL, ";
+      cmdSql_ += "nascimento TEXT, ";
+      cmdSql_ += "telefone TEXT, ";
+      cmdSql_ += "endereco TEXT, ";
+      cmdSql_ += "conta TEXT, ";
+      cmdSql_ += "PRIMARY KEY(email) );";
+
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS vocabularios (nome TEXT NOT NULL, ";
+      cmdSql_ += "idioma TEXT NOT NULL, ";
+      cmdSql_ += "data TEXT NOT NULL, ";
+      cmdSql_ += "administrador TEXT, ";
+      cmdSql_ += "desenvolvedor TEXT, ";
+      cmdSql_ += "PRIMARY KEY(nome) );";
+
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS termos (nome TEXT NOT NULL, ";
+      cmdSql_ += "classe TEXT NOT NULL, ";
+      cmdSql_ += "data TEXT NOT NULL, ";
+      cmdSql_ += "vocabulario TEXT, ";
+      cmdSql_ += "PRIMARY KEY(nome) );";
+
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS definicao (texto TEXT NOT NULL, ";
+      cmdSql_ += "data TEXT NOT NULL, ";
+      cmdSql_ += "termo TEXT, ";
+      cmdSql_ += "vocabulario TEXT, ";
+      cmdSql_ += "PRIMARY KEY(texto) );";
+    }
 
 string ComandoSqlLerSenha::RecuperaSenha() const {
   ElementoResultado resultado;
@@ -241,3 +273,95 @@ Administrador ComandoSqlPesquisarUsuario::GetAdm() const {
 
   return a;
 }
+
+vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
+  vector<VocabularioControlado> vocabularios;
+  ElementoResultado resultado;
+  VocabularioControlado aux;
+
+  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+    if (lista_resultado_.empty()) {
+      throw ErroDePersistencia("Lista Vazia\n");
+    }
+
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetNome(Nome(resultado.GetValorColuna()));
+  
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetIdioma(Idioma(resultado.GetValorColuna()));
+
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetData(Data(resultado.GetValorColuna()));
+
+    vocabularios.push_back(aux);
+  }
+
+  while (!lista_resultado_.empty()) {
+    lista_resultado_.pop_back();
+  }
+
+  return vocabularios;
+}
+
+vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
+  vector<Termo> termos;
+  ElementoResultado resultado;
+  Termo aux;
+
+  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+    if (lista_resultado_.empty()) {
+      throw ErroDePersistencia("Lista Vazia\n");
+    }
+
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetNome(Nome(resultado.GetValorColuna()));
+  
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetPreferencia(ClasseDoTermo(resultado.GetValorColuna()));
+
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetData(Data(resultado.GetValorColuna()));
+
+    termos.push_back(aux);
+  }
+
+  while (!lista_resultado_.empty()) {
+    lista_resultado_.pop_back();
+  }
+
+  return termos;
+}
+
+vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
+  vector<Definicao> defs;
+  ElementoResultado resultado;
+  Definicao aux;
+
+  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+    if (lista_resultado_.empty()) {
+    throw ErroDePersistencia("Lista Vazia\n");
+    }
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
+
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetData(Data(resultado.GetValorColuna()));
+
+    defs.push_back(aux);
+  }
+
+  while (!lista_resultado_.empty()) {
+    lista_resultado_.pop_back();
+  }
+
+  return defs;
+}
+

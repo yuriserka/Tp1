@@ -195,24 +195,31 @@ Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
 }
 
 void CtrlApresentacaoVocabulario::Executar(const Email &email) {
-  ComandoAVocabulario *comando;
-
-  if (email.GetEmail() == StubAutenticacao::ktrigger_leitor_) {
+  ComandoSqlTipoConta *comando_sql = new ComandoSqlTipoConta(email);
+  string tipo_conta;
+  try {
+    comando_sql->Executar();
+    tipo_conta = comando_sql->RecuperaConta();
+  } catch (ErroDePersistencia &e) {
+    cout << "\n\t" << e.GetMsg() << "\n";
+    system(PAUSE);
+    return;
+  }
+  
+  if (tipo_conta == "leitor") {
+    ComandoAVocabularioLeitor *comando;
     comando = new ComandoAVocabularioLeitor();
     comando->Executar(ctrl_servico_vocabulario_);
     delete comando;
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_desenvolvedor_) {
+  } else if (tipo_conta == "desenvolvedor") {
+    ComandoAVocabularioDesenvolvedor *comando;
     comando = new ComandoAVocabularioDesenvolvedor();
-    comando->Executar(ctrl_servico_vocabulario_);
+    comando->Executar(ctrl_servico_vocabulario_, email);
     delete comando;
-  } else if (email.GetEmail() == StubAutenticacao::ktrigger_administrador_) {
+  } else if (tipo_conta == "administrador") {
+    ComandoAVocabularioAdministrador *comando;
     comando = new ComandoAVocabularioAdministrador();
-    comando->Executar(ctrl_servico_vocabulario_);
+    comando->Executar(ctrl_servico_vocabulario_, email);
     delete comando;
-  } else {
-    system(CLEAR);
-    cout << "\tGestao de Vocabulos\n";
-    cout << "\nEmail nao suportado pelos triggers\n\n";
-    system(PAUSE);
   }
 }

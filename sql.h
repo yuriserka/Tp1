@@ -61,37 +61,6 @@ class ComandoSql {
     static int Callback(void *, int, char **, char **);
 };
 
-class ComandoSqlLerSenha : public ComandoSql {
-  public:
-    ComandoSqlLerSenha() = default;
-    explicit ComandoSqlLerSenha(const Email &email) {
-      cmdSql_  = "SELECT senha FROM usuarios WHERE email = ";
-      cmdSql_ += "'" + email.GetEmail() + "';";
-    }
-
-    string RecuperaSenha() const;
-};
-
-class ComandoSqlLerEmail : public ComandoSql {
-  public:
-    ComandoSqlLerEmail() = default;
-    explicit ComandoSqlLerEmail(const Email &email) {
-      cmdSql_  = "SELECT email FROM usuarios WHERE email = ";
-      cmdSql_ += "'" + email.GetEmail() + "';";
-    }
-    string RecuperaEmail() const;
-};
-
-class ComandoSqlTipoConta : public ComandoSql {
-  public:
-    ComandoSqlTipoConta() = default;
-    explicit ComandoSqlTipoConta(const Email &email) {
-      cmdSql_ = "SELECT conta FROM usuarios WHERE email = ";
-      cmdSql_ += "'" + email.GetEmail() + "';";
-    }
-    string RecuperaConta() const;
-};
-
 class ComandoSqlCadastrar : public ComandoSql { 
   public:
     ComandoSqlCadastrar() = default;
@@ -128,6 +97,54 @@ class ComandoSqlCadastrar : public ComandoSql {
       cmdSql_ += "'" + adm.GetEndereco().GetAddress() +       "', ";
       cmdSql_ += "'" + conta + "');";
     }
+
+    // cadastra um administrador ao vocabulario
+    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Administrador &adm) {
+      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, administrador)"\
+      "VALUES (";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +      "', ";
+      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +  "', ";
+      cmdSql_ += "'" + voc.GetData().GetData() +      "', ";
+      cmdSql_ += "'" + adm.GetEmail().GetEmail() +    "');";
+    }
+
+    // cadastra um desenvolvedor ao vocabulario
+    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Desenvolvedor &dev) {
+      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, desenvolvedor)"\
+      "VALUES (";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +      "', ";
+      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +  "', ";
+      cmdSql_ += "'" + voc.GetData().GetData() +      "', ";
+      cmdSql_ += "'" + dev.GetEmail().GetEmail() +    "');";
+    }
+
+    //cadastra um vocabulario para o termo 
+    explicit ComandoSqlCadastrar(const Termo &termo, const VocabularioControlado &vocab) {
+      cmdSql_ = "INSERT or IGNORE INTO termos (nome, classe, data, vocabulario)"\
+      "VALUES (";
+      cmdSql_ += "'" + termo.GetNome().GetNome() +                "', ";
+      cmdSql_ += "'" + termo.GetPreferencia().GetPreferencia() +  "', ";
+      cmdSql_ += "'" + termo.GetData().GetData() +                "', ";
+      cmdSql_ += "'" + vocab.GetNome().GetNome() +                "');";
+    }
+
+    //cadastra um termo para a definicao
+    explicit ComandoSqlCadastrar(const Definicao &def, const Termo &termo) {
+      cmdSql_ = "INSERT or IGNORE INTO definicao (texto, termo, data)"\
+      "VALUES (";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +  "', ";
+      cmdSql_ += "'" + termo.GetNome().GetNome()  +         "', ";
+      cmdSql_ += "'" + def.GetData().GetData() +            "');";
+    }
+
+    //cadastra um vocabulario para a definicao
+    explicit ComandoSqlCadastrar(const Definicao &def, const VocabularioControlado &vocab) {
+      cmdSql_ = "INSERT or IGNORE INTO definicao (texto, vocabulario, data)"\
+      "VALUES (";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +  "', ";
+      cmdSql_ += "'" + vocab.GetNome().GetNome()  +         "', ";
+      cmdSql_ += "'" + def.GetData().GetData() +            "');";
+    }
 };
 
 class ComandoSqlAtualizar : public ComandoSql {
@@ -160,21 +177,94 @@ class ComandoSqlAtualizar : public ComandoSql {
       cmdSql_ += "', endereco =   '"  + adm.GetEndereco().GetAddress();
       cmdSql_ += "' WHERE email = '"  + adm.GetEmail().GetEmail() + "';";
     }
+
+    explicit ComandoSqlAtualizar(const Termo &termo) {
+      cmdSql_ = "UPDATE termos ";
+      cmdSql_ += "SET classe =    '" + termo.GetPreferencia().GetPreferencia();
+      cmdSql_ += "', data =       '" + termo.GetData().GetData();
+      cmdSql_ += "' WHERE nome =  '" + termo.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlAtualizar(const VocabularioControlado &voc) {
+      cmdSql_ = "UPDATE vocabularios ";
+      cmdSql_ += "SET idioma =    '" + voc.GetIdioma().GetIdioma();
+      cmdSql_ += "', data =       '" + voc.GetData().GetData();
+      cmdSql_ += "' WHERE nome =  '" + voc.GetNome().GetNome() + "';";
+    }
+
+    // vai atualizar o desenvolvedor do vocabulario
+    explicit ComandoSqlAtualizar(const Desenvolvedor &dev, const VocabularioControlado &voc) {
+      cmdSql_ = "UPDATE vocabularios ";
+      cmdSql_ += "SET desenvolvedor = '" + dev.GetEmail().GetEmail();
+      cmdSql_ += "' WHERE nome =      '" + voc.GetNome().GetNome() + "';";
+    }
+
+    // vai atualizar o administrador do vocabulario
+    explicit ComandoSqlAtualizar(const Administrador &dev, const VocabularioControlado &voc) {
+      cmdSql_ = "UPDATE vocabularios ";
+      cmdSql_ += "SET administrador = '" + dev.GetEmail().GetEmail();
+      cmdSql_ += "' WHERE nome =      '" + voc.GetNome().GetNome() + "';";
+    }
+
+    // vai atualizar a definicao do termo passado
+    explicit ComandoSqlAtualizar(const Definicao &def, const Termo &termo) {
+      cmdSql_ = "UPDATE definicao ";
+      cmdSql_ += "SET texto  = '" + def.GetDefinicao().GetDefinicao();
+      cmdSql_ += "', data    = '" + def.GetData().GetData();
+      cmdSql_ += "' WHERE termo = '" + termo.GetNome().GetNome() + "';";
+    }
+
+    // vai atualizar a definicao do vocabulario passado
+    explicit ComandoSqlAtualizar(const Definicao &def, const VocabularioControlado &voc) {
+      cmdSql_ = "UPDATE definicao ";
+      cmdSql_ += "SET texto           = '" + def.GetDefinicao().GetDefinicao();
+      cmdSql_ += "', data             = '" + def.GetData().GetData();
+      cmdSql_ += "' WHERE vocabulario = '" + voc.GetNome().GetNome() + "';";
+    }
+
+    // vai atualizar o termo do vocabulario passado
+    explicit ComandoSqlAtualizar(const Termo &termo, const VocabularioControlado &voc) {
+      cmdSql_ = "UPDATE termos ";
+      cmdSql_ += "SET classe =    '" + termo.GetPreferencia().GetPreferencia();
+      cmdSql_ += "', data =       '" + termo.GetData().GetData();
+      cmdSql_ += "' WHERE vocabulario = '" + voc.GetNome().GetNome() + "';";
+    }
 };
 
 class ComandoSqlCriarTabelas : public ComandoSql {
   public:
-    explicit ComandoSqlCriarTabelas() {
-      cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (nome TEXT NOT NULL, ";
-      cmdSql_ += "sobrenome TEXT NOT NULL, ";
-      cmdSql_ += "senha TEXT NOT NULL, ";
-      cmdSql_ += "email TEXT NOT NULL, ";
-      cmdSql_ += "nascimento TEXT, ";
-      cmdSql_ += "telefone TEXT, ";
-      cmdSql_ += "endereco TEXT, ";
-      cmdSql_ += "conta TEXT, ";
-      cmdSql_ += "PRIMARY KEY(email) );";
+    explicit ComandoSqlCriarTabelas(); 
+};
+
+class ComandoSqlLerSenha : public ComandoSql {
+  public:
+    ComandoSqlLerSenha() = default;
+    explicit ComandoSqlLerSenha(const Email &email) {
+      cmdSql_  = "SELECT senha FROM usuarios WHERE email = ";
+      cmdSql_ += "'" + email.GetEmail() + "';";
     }
+
+    string RecuperaSenha() const;
+};
+
+class ComandoSqlLerEmail : public ComandoSql {
+  public:
+    ComandoSqlLerEmail() = default;
+    explicit ComandoSqlLerEmail(const Email &email) {
+      cmdSql_  = "SELECT email FROM usuarios WHERE email = ";
+      cmdSql_ += "'" + email.GetEmail() + "';";
+    }
+    string RecuperaEmail() const;
+};
+
+class ComandoSqlTipoConta : public ComandoSql {
+  public:
+    ComandoSqlTipoConta() = default;
+    explicit ComandoSqlTipoConta(const Email &email) {
+      cmdSql_ = "SELECT conta FROM usuarios WHERE email = ";
+      cmdSql_ += "'" + email.GetEmail() + "';";
+    }
+    string RecuperaConta() const;
 };
 
 class ComandoSqlPesquisarUsuario : public ComandoSql {
@@ -190,12 +280,87 @@ class ComandoSqlPesquisarUsuario : public ComandoSql {
     Administrador GetAdm() const;
 };
 
+class ComandoSqlConsultarVocabs : public ComandoSql {
+  public:
+    // seleciona todos os vocabularios que existem, basicamente essa é a função para o leitor
+    explicit ComandoSqlConsultarVocabs() {
+      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE"\
+      "(desenvolvedor or administrador not null);";
+    }
+
+    // seleciona todos os vocabularios que estão associados com o email do administrador
+    explicit ComandoSqlConsultarVocabs(const Administrador &adm) {
+      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE administrador = ";
+      cmdSql_ += "'" + adm.GetEmail().GetEmail() + "';";
+    }
+
+    // seleciona todos os vocabularios que estão associados com o email do desenvolvedor
+    explicit ComandoSqlConsultarVocabs(const Desenvolvedor &dev) {
+      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE desenvolvedor = ";
+      cmdSql_ += "'" + dev.GetEmail().GetEmail() + "';";
+    }
+
+    vector<VocabularioControlado> GetVocabs();
+};
+
+class ComandoSqlConsultarTermos : public ComandoSql {
+  public:
+    ComandoSqlConsultarTermos() = default;
+    explicit ComandoSqlConsultarTermos(const VocabularioControlado &voc) {
+      cmdSql_  = "SELECT nome, classe, data FROM termos WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+    }
+
+    vector<Termo> GetTermos();
+};
+
+class ComandoSqlConsultarDefinicao : public ComandoSql {
+  public:
+    ComandoSqlConsultarDefinicao() = default;
+    explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
+      cmdSql_  = "SELECT texto, data FROM definicao WHERE termo = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {
+      cmdSql_  = "SELECT texto, data FROM definicao WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+    }
+
+    vector<Definicao> GetDefinicoes();
+};
+
 class ComandoSqlRemover : public ComandoSql {
   public:
     ComandoSqlRemover() = default;
     explicit ComandoSqlRemover(const Email &email) {
       cmdSql_  = "DELETE FROM usuarios WHERE email = ";
       cmdSql_ += "'" + email.GetEmail() + "';";
+    }
+
+    explicit ComandoSqlRemover(const VocabularioControlado &voc) {
+      cmdSql_  = "DELETE FROM vocabularios WHERE nome = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlRemover(const Termo &termo) {
+      cmdSql_  = "DELETE FROM termos WHERE nome = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlRemover(const Termo &termo, const VocabularioControlado &voc) {
+      cmdSql_  = "DELETE FROM termos WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlRemover(const Definicao &def, const Termo &termo) {
+      cmdSql_  = "DELETE FROM vocabularios WHERE termo = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlRemover(const Definicao &def, const VocabularioControlado &voc) {
+      cmdSql_  = "DELETE FROM definicao WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
     }
 };
 
