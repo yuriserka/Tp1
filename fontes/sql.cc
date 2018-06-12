@@ -45,34 +45,43 @@ int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna,
 }
 
 ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
-      cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (nome TEXT NOT NULL, ";
-      cmdSql_ += "sobrenome TEXT NOT NULL, ";
-      cmdSql_ += "senha TEXT NOT NULL, ";
-      cmdSql_ += "email TEXT NOT NULL, ";
-      cmdSql_ += "nascimento TEXT, ";
-      cmdSql_ += "telefone TEXT, ";
-      cmdSql_ += "endereco TEXT, ";
-      cmdSql_ += "conta TEXT, ";
+      cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (nome VARCHAR(21) NOT NULL, ";
+      cmdSql_ += "sobrenome VARCHAR(21) NOT NULL, ";
+      cmdSql_ += "senha VARCHAR(9) NOT NULL, ";
+      cmdSql_ += "email VARCHAR(100) NOT NULL, ";
+      cmdSql_ += "nascimento VARCHAR(11), ";
+      cmdSql_ += "telefone VARCHAR(14), ";
+      cmdSql_ += "endereco VARCHAR(21), ";
+      cmdSql_ += "conta VARCHAR(14), ";
+      cmdSql_ += "vocabularios TEXT, ";
+      cmdSql_ += "qtd_vocabularios INTEGER UNSIGNED DEFAULT 0, ";
       cmdSql_ += "PRIMARY KEY(email) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS vocabularios (nome TEXT NOT NULL, ";
-      cmdSql_ += "idioma TEXT NOT NULL, ";
-      cmdSql_ += "data TEXT NOT NULL, ";
-      cmdSql_ += "administrador TEXT, ";
-      cmdSql_ += "desenvolvedor TEXT, ";
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS vocabularios (nome VARCHAR(21) NOT NULL, ";
+      cmdSql_ += "idioma VARCHAR(4) NOT NULL, ";
+      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+      cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
+      cmdSql_ += "administrador VARCHAR(100), ";
+      cmdSql_ += "desenvolvedores TEXT, ";
+      cmdSql_ += "qtd_desenvolvedores INTEGER UNSIGNED DEFAULT 0, ";
+      cmdSql_ += "termos TEXT, ";
+      cmdSql_ += "qtd_termos INTEGER UNSIGNED DEFAULT 0, ";
       cmdSql_ += "PRIMARY KEY(nome) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS termos (nome TEXT NOT NULL, ";
-      cmdSql_ += "classe TEXT NOT NULL, ";
-      cmdSql_ += "data TEXT NOT NULL, ";
-      cmdSql_ += "vocabulario TEXT, ";
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS termos (nome VARCHAR(21) NOT NULL, ";
+      cmdSql_ += "classe VARCHAR(3) NOT NULL, ";
+      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+      cmdSql_ += "vocabulario VARCHAR(21) NOT NULL, ";
+      cmdSql_ += "definicoes TEXT, ";
+      cmdSql_ += "qtd_definicoes INTEGER UNSIGNED DEFAULT 0, ";
       cmdSql_ += "PRIMARY KEY(nome) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS definicao (texto TEXT NOT NULL, ";
-      cmdSql_ += "data TEXT NOT NULL, ";
-      cmdSql_ += "termo TEXT, ";
-      cmdSql_ += "vocabulario TEXT, ";
-      cmdSql_ += "PRIMARY KEY(texto) );";
+      cmdSql_ += "CREATE TABLE IF NOT EXISTS definicao (id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL, ";
+      cmdSql_ += "texto VARCHAR(31) NOT NULL, ";
+      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+      cmdSql_ += "termos TEXT NOT NULL, ";
+      cmdSql_ += "qtd_termos INTEGER UNSIGNED DEFAULT 1, ";
+      cmdSql_ += "PRIMARY KEY(id) );";
     }
 
 string ComandoSqlLerSenha::RecuperaSenha() const {
