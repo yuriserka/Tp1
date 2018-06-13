@@ -44,45 +44,54 @@ int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna,
   return 0;
 }
 
-ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
-      cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (nome VARCHAR(21) NOT NULL, ";
-      cmdSql_ += "sobrenome VARCHAR(21) NOT NULL, ";
-      cmdSql_ += "senha VARCHAR(9) NOT NULL, ";
-      cmdSql_ += "email VARCHAR(100) NOT NULL, ";
-      cmdSql_ += "nascimento VARCHAR(11), ";
-      cmdSql_ += "telefone VARCHAR(14), ";
-      cmdSql_ += "endereco VARCHAR(21), ";
-      cmdSql_ += "conta VARCHAR(14), ";
-      cmdSql_ += "vocabularios TEXT, ";
-      cmdSql_ += "qtd_vocabularios INTEGER UNSIGNED DEFAULT 0, ";
-      cmdSql_ += "PRIMARY KEY(email) );";
+ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {  
+  cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (";
+  cmdSql_ += "nome VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "sobrenome VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "senha VARCHAR(9) NOT NULL, ";
+  cmdSql_ += "email VARCHAR(100) NOT NULL, ";
+  cmdSql_ += "nascimento VARCHAR(11), ";
+  cmdSql_ += "telefone VARCHAR(14), ";
+  cmdSql_ += "endereco VARCHAR(21), ";
+  cmdSql_ += "conta VARCHAR(14) NOT NULL, ";
+  cmdSql_ += "PRIMARY KEY(email) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS vocabularios (nome VARCHAR(21) NOT NULL, ";
-      cmdSql_ += "idioma VARCHAR(4) NOT NULL, ";
-      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
-      cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
-      cmdSql_ += "administrador VARCHAR(100), ";
-      cmdSql_ += "desenvolvedores TEXT, ";
-      cmdSql_ += "qtd_desenvolvedores INTEGER UNSIGNED DEFAULT 0, ";
-      cmdSql_ += "termos TEXT, ";
-      cmdSql_ += "qtd_termos INTEGER UNSIGNED DEFAULT 0, ";
-      cmdSql_ += "PRIMARY KEY(nome) );";
+  cmdSql_ += "CREATE TABLE IF NOT EXISTS vocabularios (";
+  cmdSql_ += "nome VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "idioma VARCHAR(4) NOT NULL, ";
+  cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+  cmdSql_ += "definicao INT NOT NULL, ";
+  cmdSql_ += "administrador VARCHAR(100) NOT NULL, ";
+  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id), ";
+  cmdSql_ += "FOREIGN KEY(administrador) REFERENCES usuarios(email), ";
+  cmdSql_ += "PRIMARY KEY(nome) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS termos (nome VARCHAR(21) NOT NULL, ";
-      cmdSql_ += "classe VARCHAR(3) NOT NULL, ";
-      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
-      cmdSql_ += "vocabulario VARCHAR(21) NOT NULL, ";
-      cmdSql_ += "definicoes TEXT, ";
-      cmdSql_ += "qtd_definicoes INTEGER UNSIGNED DEFAULT 0, ";
-      cmdSql_ += "PRIMARY KEY(nome) );";
+  cmdSql_ += "CREATE TABLE IF NOT EXISTS termos (";
+  cmdSql_ += "nome VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "classe VARCHAR(3) NOT NULL, ";
+  cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+  cmdSql_ += "vocabulario VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "FOREIGN KEY(vocabulario) REFERENCES vocabularios(nome), ";
+  cmdSql_ += "PRIMARY KEY(nome) );";
 
-      cmdSql_ += "CREATE TABLE IF NOT EXISTS definicao (id INTEGER UNSIGNED AUTO_INCREMENT NOT NULL, ";
-      cmdSql_ += "texto VARCHAR(31) NOT NULL, ";
-      cmdSql_ += "data VARCHAR(11) NOT NULL, ";
-      cmdSql_ += "termos TEXT NOT NULL, ";
-      cmdSql_ += "qtd_termos INTEGER UNSIGNED DEFAULT 1, ";
-      cmdSql_ += "PRIMARY KEY(id) );";
-    }
+  cmdSql_ += "CREATE TABLE IF NOT EXISTS definicoes (";
+  cmdSql_ += "id INT AUTO_INCREMENT, ";
+  cmdSql_ += "texto VARCHAR(31) NOT NULL, ";
+  cmdSql_ += "data VARCHAR(11) NOT NULL, ";
+  cmdSql_ += "PRIMARY KEY(id) );";
+
+  cmdSql_ += "CREATE TABLE IF NOT EXISTS desenvolvedor_vocabulario (";
+  cmdSql_ += "desenvolvedor VARCHAR(100) NOT NULL, ";
+  cmdSql_ += "vocabulario VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "FOREIGN KEY(desenvolvedor) REFERENCES usuarios(email), ";
+  cmdSql_ += "FOREIGN KEY(vocabulario) REFERENCES vocabularios(nome) );";
+
+  cmdSql_ += "CREATE TABLE IF NOT EXISTS termo_definicao (";
+  cmdSql_ += "termo VARCHAR(21) NOT NULL, ";
+  cmdSql_ += "definicao INT NOT NULL, ";
+  cmdSql_ += "FOREIGN KEY(termo) REFERENCES termos(nome), ";
+  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id) );";
+}
 
 string ComandoSqlLerSenha::RecuperaSenha() const {
   ElementoResultado resultado;
