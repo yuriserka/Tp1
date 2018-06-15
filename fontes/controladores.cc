@@ -200,8 +200,8 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
   try {
     comando_sql->Executar();
     tipo_conta = comando_sql->RecuperaConta();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }

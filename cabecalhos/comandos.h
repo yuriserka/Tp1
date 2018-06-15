@@ -155,6 +155,8 @@ class ComandoAVocabulario {
   */
   virtual void Executar(InterfaceServicoVocabulario *) = 0;
 
+  virtual void Executar(InterfaceServicoVocabulario *, Email) = 0;
+
   /**
    * @brief Destrutor padrão da classe virtual.
    *
@@ -188,7 +190,7 @@ class ComandoAVocabularioLeitor : public ComandoAVocabulario {
  * de vocabulario.
  * 
  */
-class ComandoAVocabularioDesenvolvedor {
+class ComandoAVocabularioDesenvolvedor : public ComandoAVocabulario {
  public:
   /**
    * @brief mostrara as funcionalidades que um desenvolvedor pode acessar no sistema.
@@ -212,7 +214,7 @@ class ComandoAVocabularioDesenvolvedor {
  * de vocabulario.
  * 
  */
-class ComandoAVocabularioAdministrador {
+class ComandoAVocabularioAdministrador : public ComandoAVocabulario {
  public:
   /**
    * @brief mostrara as funcionalidades que um administrador pode acessar no sistema.
@@ -248,13 +250,13 @@ class ComandoAVocabularioListarVocabularios : public ComandoAVocabulario {
  * @brief Classe que é responsavel por listar os termos cadastrados.
  * 
  */
-class ComandoAVocabularioListarTermos {
+class ComandoAVocabularioListarTermos : public ComandoAVocabulario {
  public:
   /**
    * @brief  mostrara as todos os termos disponiveis para seleção.
    * 
    */
-  void Executar(InterfaceServicoVocabulario *, VocabularioControlado &);
+  void Executar(InterfaceServicoVocabulario);
 };
 
 /**
@@ -262,7 +264,7 @@ class ComandoAVocabularioListarTermos {
  * 
  */
 
-class ComandoAVocabularioCadastrarDesenvolvedor {
+class ComandoAVocabularioCadastrarDesenvolvedor : public ComandoAVocabulario {
  public:
   /**
    * @brief Cadastra um Desenvolvedor à algum vocabulario controlado.
@@ -277,7 +279,7 @@ class ComandoAVocabularioCadastrarDesenvolvedor {
   };
 };
 
-class ComandoAVocabularioCadastrarAdministrador {
+class ComandoAVocabularioCadastrarAdministrador : public ComandoAVocabulario {
  public:
   /**
    * @brief Cadastra um Desenvolvedor à algum vocabulario controlado.
@@ -324,34 +326,34 @@ class ComandoAVocabularioCadastrarAdministrador {
 // * exluir e criar.
 // * 
 // */
-//class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
-// public:
-//  /**
-//   * @brief mostrara as opções disponiveis para manipulação de Definições.
-//   * 
-//   */
-//  void Executar(InterfaceServicoVocabulario *) override;
-//
-// private:
-//  enum {
-//    knull,
-//    kcriar,
-//    keditar,
-//    kexcluir,
-//    kvoltar
-//  };
-//
-//  void Criar(InterfaceServicoVocabulario *);
+class ComandoAVocabularioInteragirDefinicao : public ComandoAVocabulario {
+public:
+ /**
+  * @brief mostrara as opções disponiveis para manipulação de Definições.
+  * 
+  */
+ void Executar(InterfaceServicoVocabulario *) override;
+
+private:
+ enum {
+   knull,
+   kcriar,
+   keditar,
+   kexcluir,
+   kvoltar
+ };
+
+ void Criar(InterfaceServicoVocabulario *);
 //  void Editar(InterfaceServicoVocabulario *);
 //  void Excluir(InterfaceServicoVocabulario *);
-//};
-//
-///**
-// * @brief Classe que é responsavel pelas ações com os Vocabularios, tais como editar,
-// * exluir e criar.
-// * 
-// */
-class ComandoAVocabularioInteragirVocabulario {
+};
+
+/**
+* @brief Classe que é responsavel pelas ações com os Vocabularios, tais como editar,
+* exluir e criar.
+* 
+*/
+class ComandoAVocabularioInteragirVocabulario : public ComandoAVocabulario {
  public:
   /**
    * @brief mostrara as opções disponiveis para manipulação de Vocabularios.

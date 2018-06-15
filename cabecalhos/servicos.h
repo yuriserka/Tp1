@@ -15,13 +15,13 @@ class CtrlServicoAutenticacao : public InterfaceServicoAutenticacao {
 
 class CtrlServicoCadastro : public InterfaceServicoCadastro {
   public: 
-  ResultadoUsuario CadastrarLeitor(Leitor &, const Nome &,
+  Resultado CadastrarLeitor(Leitor &, const Nome &,
                             const Sobrenome &, const Senha &, const Email &) override;
                             
-  ResultadoUsuario CadastrarDev(Desenvolvedor &, const Nome &,
+  Resultado CadastrarDev(Desenvolvedor &, const Nome &,
                          const Sobrenome &, const Senha &, const Email &, const Data &) override;
 
-  ResultadoUsuario CadastrarAdm(Administrador &, const Nome &,
+  Resultado CadastrarAdm(Administrador &, const Nome &,
                          const Sobrenome &, const Senha &, const Email &, const Data &,
                          const Telefone &, const Address &) override;
 };
@@ -67,11 +67,11 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
                         const Data &) override;
 
   Resultado ExcluirTermo(const Termo &) override;
-
+*/
   Resultado CriarDefinicao(Definicao &, 
                           const TextoDefinicao &, 
                           const Data &) override;
-
+/*
   Resultado EditarDefinicao(Definicao &, 
                           const TextoDefinicao &, 
                           const Data &) override;
@@ -79,7 +79,7 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
   Resultado ExcluirDefinicao(const Definicao &) override;
 */
   Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
-                        const Idioma &, const Data &, const Email &) override;
+                        const Idioma &, const Data &, const Definicao &, const Email &) override;
 
   Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
                               const Idioma &, const Data &) override;

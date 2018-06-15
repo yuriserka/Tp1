@@ -7,7 +7,6 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
   Sobrenome sobrenome;
   Senha senha;
   Email email;
-  ComandoSql *comando;
 
   do {
     try {
@@ -35,31 +34,12 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
     }
   } while (true);
   
-  ResultadoUsuario res = isc->CadastrarLeitor(novoleitor, nome, sobrenome, senha, email);
-  try {
-    ComandoSqlLerEmail *comando = new ComandoSqlLerEmail(res.GetLeitor().GetEmail());
-    comando->Executar();
-    if (email.GetEmail() == comando->RecuperaEmail()) {
-      cout << "Email ja cadastrado\n";
-      delete comando;
-      return;
-    }
-    delete comando; 
-  } catch (ErroDePersistencia &e) {
-    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
-    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
-    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  Resultado res = isc->CadastrarLeitor(novoleitor, nome, sobrenome, senha, email);
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso!\n";
+  } else {
+    cout << "Falha ao cadastrar!\n";
   }
-
-  try {
-    comando = new ComandoSqlCadastrar(res.GetLeitor(), "leitor");
-    comando->Executar();
-    cout << "Cadastrado com sucesso\n";
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
-    cout << "Falha ao Cadastrar\n";
-  }
-  delete comando;
 }
 
 void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
@@ -73,7 +53,6 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
   Data data;
   Address endereco;
   Telefone telefone;
-  ComandoSql *comando;
 
   do {
     try {
@@ -116,33 +95,14 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
     }
   } while (true);
 
-  ResultadoUsuario res = isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email,
+  Resultado res = isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email,
                                          data, telefone, endereco);
   
-  try {
-    ComandoSqlLerEmail *comando = new ComandoSqlLerEmail(res.GetAdm().GetEmail());
-    comando->Executar();
-    if (email.GetEmail() == comando->RecuperaEmail()) {
-      cout << "Email ja cadastrado\n";
-      delete comando;
-      return;
-    }
-    delete comando; 
-  } catch (ErroDePersistencia &e) {
-    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
-    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
-    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso!\n";
+  } else {
+    cout << "Falha ao cadastrar!\n";
   }
-
-  try {
-    comando = new ComandoSqlCadastrar(res.GetAdm(), "administrador");
-    comando->Executar();
-    cout << "Cadastrado com sucesso\n";
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
-    cout << "Falha ao Cadastrar\n";
-  }
-  delete comando;
 }
 
 void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
@@ -155,7 +115,6 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
   Senha senha;
   Email email;
   Data data;
-  ComandoSql *comando;
 
   do {
     try {
@@ -190,32 +149,13 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
     }
   } while(true);
   
-  ResultadoUsuario res = isc->CadastrarDev(novodev, nome, sobrenome, senha, 
+  Resultado res = isc->CadastrarDev(novodev, nome, sobrenome, senha, 
                                           email, data);
-  try {
-    ComandoSqlLerEmail *comando = new ComandoSqlLerEmail(res.GetDev().GetEmail());
-    comando->Executar();
-    if (email.GetEmail() == comando->RecuperaEmail()) {
-      cout << "Email ja cadastrado\n";
-      delete comando;
-      return;
-    }
-    delete comando; 
-  } catch (ErroDePersistencia &e) {
-    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
-    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
-    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  if (res.GetResultado() == Resultado::ksucesso_) {
+    cout << "Cadastrado com sucesso!\n";
+  } else {
+    cout << "Falha ao cadastrar!\n";
   }
-
-  try {
-    comando = new ComandoSqlCadastrar(res.GetDev(), "desenvolvedor");
-    comando->Executar();
-    cout << "Cadastrado com sucesso\n";
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
-    cout << "Falha ao Cadastrar\n";
-  }
-  delete comando;
 }
 
 Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, const Email &email) {
@@ -245,8 +185,8 @@ Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, const E
       isu->Exibir(a);
       delete comando;
     } 
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     res.SetResultado(Resultado::kfalha_);
     delete cmd_tc;
     return res;
@@ -292,8 +232,8 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Em
       comando_att->Executar();
       delete comando_att;
     } 
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     result.SetResultado(Resultado::kfalha_);
   }
@@ -375,11 +315,13 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
       /*case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
         comando->Executar(isv);
         delete comando;
-        break;
-      case kinteragirdefinicao:comando = new ComandoAVocabularioInteragirDefinicao();
+        break;*/
+      case kinteragirdefinicao:
+        ComandoAVocabulario *comando;
+        comando = new ComandoAVocabularioInteragirDefinicao();
         comando->Executar(isv);
         delete comando;
-        break;*/
+        break;
       case kvoltar:break;
       default:break;
     }
@@ -415,11 +357,13 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
       /*case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
         comando->Executar(isv);
         delete comando;
-        break;
-      case kinteragirdefinicao:comando = new ComandoAVocabularioInteragirDefinicao();
+        break;*/
+      case kinteragirdefinicao:
+        ComandoAVocabulario *comando;
+        comando = new ComandoAVocabularioInteragirDefinicao();
         comando->Executar(isv);
         delete comando;
-        break;*/
+        break;
       case kinteragirvocabulario:
         ComandoAVocabularioInteragirVocabulario *comando_interagir;
         comando_interagir = new ComandoAVocabularioInteragirVocabulario();
@@ -438,12 +382,12 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
 
   try {
     vocabularios = isv->ConsultarVocabularios();
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
-   
+
   int voltar = vocabularios.size() + 1;
   int opt;
   do {
@@ -471,8 +415,8 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
   vector<Termo> termos;
   try {
     termos = isv->ConsultarTermos(voc);
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
@@ -511,8 +455,8 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
   vector<VocabularioControlado> vocabularios;
   try {
     vocabularios = isv->ConsultarVocabularios(); 
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
@@ -552,8 +496,8 @@ void ComandoAVocabularioCadastrarAdministrador::Executar(InterfaceServicoVocabul
   vector<VocabularioControlado> vocabularios;
   try {
     vocabularios = isv->ConsultarVocabularios(); 
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
@@ -585,6 +529,7 @@ void ComandoAVocabularioCadastrarAdministrador::Executar(InterfaceServicoVocabul
     }
   } while (opt != voltar);
 }
+
 /*
 void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *isv) {
   vector<VocabularioControlado> vocabularios;
@@ -769,11 +714,8 @@ void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *isv
     }
   } while (opt != voltar);
 }
-
+*/
 void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario *isv) {
-  vector<VocabularioControlado> vocabularios;
-  vocabularios = isv->ConsultarVocabularios();
-
   int opt;
   do {
     system(CLEAR);
@@ -788,9 +730,9 @@ void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario
     switch (opt) {
       case kcriar:Criar(isv);
         break;
-      case keditar:Editar(isv);
+      case keditar://Editar(isv);
         break;
-      case kexcluir:Excluir(isv);
+      case kexcluir://Excluir(isv);
         break;
       case kvoltar:break;
       default: break;
@@ -799,13 +741,6 @@ void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario
 }
 
 void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *isv) {
-  system(CLEAR);
-  cout << "\tTRIGGERS\n";
-  cout << "Trigger texto para criar Definicao Invalida: " << StubVocabulario::ktrigger_criar_definicao_invalida_;
-  cout << "\n\n";
-  system(PAUSE);
-
-  system(CLEAR);
   Definicao definicao;
   Resultado resultado;
 
@@ -813,8 +748,10 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *i
   TextoDefinicao texto;
   Data data;
 
+  system(CLEAR);
   try {
     cout << "Digite o Texto da Definicao: ";
+    cin.clear();
     cin.ignore();
     getline(cin, itexto);
     texto.SetDefinicao(itexto);
@@ -823,101 +760,103 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *i
     cin >> idata;
     data.SetData(idata);
 
+    definicao = Definicao(texto, data);
+    
     resultado = isv->CriarDefinicao(definicao, texto, data);
-
-    system(CLEAR);
-    if (resultado.GetResultado() == Resultado::ksucesso_) {
-      cout << "Definicao Criada com Sucesso!\n\n";
-      cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
-      cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
-    } else {
-      cout << "Falha ao Criar Definicao!\n";
-    }
-    system(PAUSE);
-  }
-  catch (exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    return;
   }
-}
 
-void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *isv) {
   system(CLEAR);
-  cout << "\tTRIGGERS\n";
-  cout << "Trigger texto para Definicao Invalida: " << StubVocabulario::ktrigger_criar_definicao_invalida_;
-  cout << "\n\n";
+  if (resultado.GetResultado() == Resultado::ksucesso_) {
+    cout << "Definicao Criada com Sucesso!\n\n";
+    cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+    cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+  } else {
+    cout << "Falha ao Criar Definicao!\n";
+  }
   system(PAUSE);
-
-  Resultado resultado;
-  Definicao definicao;
-  vector<Termo> termos;
-  termos = isv->ConsultarTermos();
-  int voltar = termos.size();
-
-  int opt;
-  do {
-    system(CLEAR);
-    cout << "Termos Disponiveis" << "\n\n";
-    for (int i = 1; i < voltar; i++) {
-      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
-    }
-    cout << "\n";
-    cout << "Escolha um dos termos acima para editar a definicao associada ao termo.\n\n";
-    cout << voltar << ". Voltar\n\topcao: ";
-    cin >> opt;
-
-    if (opt < voltar && opt > 0) {
-      int opcao;
-      do {
-        system(CLEAR);
-        definicao = isv->ConsultarDefinicao(termos[opt]);
-        cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
-        cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n\n";
-        cout << "Deseja editar esta Definicao?\n\n1. Sim\n2. Nao\n";
-        cout << "\topcao: ";
-        cin >> opcao;
-
-        TextoDefinicao texto;
-        Data data;
-        string itexto, idata;
-
-        switch (opcao) {
-          case 1:system(CLEAR);
-            try {
-              cout << "Digite o Texto da Definicao: ";
-              cin.ignore();
-              getline(cin, itexto);
-              texto.SetDefinicao(itexto);
-
-              cout << "Digite a Data da Definicao: ";
-              cin >> idata;
-              data.SetData(idata);
-
-              resultado = isv->EditarDefinicao(definicao, texto, data);
-
-              system(CLEAR);
-              if (resultado.GetResultado() == Resultado::ksucesso_) {
-                cout << "Definicao Editada com Sucesso!\n\n";
-                cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
-                cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
-                opt = voltar;
-              } else {
-                cout << "Falha ao Editar Definicao!\n";
-              }
-              system(PAUSE);
-            }
-            catch (exception &e) {
-              cout << "\n\t" << e.what() << "\n";
-              system(PAUSE);
-            }
-          case 2:break;
-          default:break;
-        }
-      } while (opcao != 1 && opcao != 2);
-    }
-  } while (opt != voltar);
 }
 
+// void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *isv) {
+//   system(CLEAR);
+//   cout << "\tTRIGGERS\n";
+//   cout << "Trigger texto para Definicao Invalida: " << StubVocabulario::ktrigger_criar_definicao_invalida_;
+//   cout << "\n\n";
+//   system(PAUSE);
+
+//   Resultado resultado;
+//   Definicao definicao;
+//   vector<Termo> termos;
+//   termos = isv->ConsultarTermos();
+//   int voltar = termos.size();
+
+//   int opt;
+//   do {
+//     system(CLEAR);
+//     cout << "Termos Disponiveis" << "\n\n";
+//     for (int i = 1; i < voltar; i++) {
+//       cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+//     }
+//     cout << "\n";
+//     cout << "Escolha um dos termos acima para editar a definicao associada ao termo.\n\n";
+//     cout << voltar << ". Voltar\n\topcao: ";
+//     cin >> opt;
+
+//     if (opt < voltar && opt > 0) {
+//       int opcao;
+//       do {
+//         system(CLEAR);
+//         definicao = isv->ConsultarDefinicao(termos[opt]);
+//         cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+//         cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n\n";
+//         cout << "Deseja editar esta Definicao?\n\n1. Sim\n2. Nao\n";
+//         cout << "\topcao: ";
+//         cin >> opcao;
+
+//         TextoDefinicao texto;
+//         Data data;
+//         string itexto, idata;
+
+//         switch (opcao) {
+//           case 1:system(CLEAR);
+//             try {
+//               cout << "Digite o Texto da Definicao: ";
+//               cin.ignore();
+//               getline(cin, itexto);
+//               texto.SetDefinicao(itexto);
+
+//               cout << "Digite a Data da Definicao: ";
+//               cin >> idata;
+//               data.SetData(idata);
+
+//               resultado = isv->EditarDefinicao(definicao, texto, data);
+
+//               system(CLEAR);
+//               if (resultado.GetResultado() == Resultado::ksucesso_) {
+//                 cout << "Definicao Editada com Sucesso!\n\n";
+//                 cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+//                 cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+//                 opt = voltar;
+//               } else {
+//                 cout << "Falha ao Editar Definicao!\n";
+//               }
+//               system(PAUSE);
+//             }
+//             catch (exception &e) {
+//               cout << "\n\t" << e.what() << "\n";
+//               system(PAUSE);
+//             }
+//           case 2:break;
+//           default:break;
+//         }
+//       } while (opcao != 1 && opcao != 2);
+//     }
+//   } while (opt != voltar);
+// }
+/*
 void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *isv) {
   system(CLEAR);
   cout << "\tTRIGGERS\n";
@@ -988,8 +927,7 @@ void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabular
     cin >> opt;
 
     switch (opt) {
-      case kcriar:
-        Criar(isv, email);
+      case kcriar:Criar(isv, email);
         break;
       case keditar:Editar(isv);
         break;
@@ -1002,16 +940,50 @@ void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabular
 }
 
 void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario *isv, const Email &email) {
-  system(CLEAR);
   VocabularioControlado vocabulario;
+  Definicao definicao;
   Resultado resultado;
 
-  string inome, iidioma, idata;
+  string inome, iidioma, idata, itexto;
   Nome nome;
   Idioma idioma;
   Data data;
+  TextoDefinicao texto;
+
+  system(CLEAR);
+  try {
+    cout << "Digite o Texto da Definicao do Vocabulario: ";
+    cin.clear();
+    cin.ignore();
+    getline(cin, itexto);
+    texto.SetDefinicao(itexto);
+
+    cout << "Digite a Data da Definicao do Vocabulario: ";
+    cin >> idata;
+    data.SetData(idata);
+
+    definicao = Definicao(texto, data);
+    
+    resultado = isv->CriarDefinicao(definicao, texto, data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
+
+  system(CLEAR);
+  if (resultado.GetResultado() == Resultado::ksucesso_) {
+    cout << "Definicao Criada com Sucesso!\n\n";
+    cout << "Texto da Definicao: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+    cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n";
+  } else {
+    cout << "Falha ao Criar Definicao!\n";
+  }
+  system(PAUSE);
 
   try {
+    system(CLEAR);
+
     cout << "Digite o Nome do Vocabulario: ";
     cin >> inome;
     nome.SetNome(inome);
@@ -1024,32 +996,33 @@ void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario 
     cin >> idata;
     data.SetData(idata);
 
-    resultado = isv->CriarVocabulario(vocabulario, nome, idioma, data, email);
-
-    system(CLEAR);
-    if (resultado.GetResultado() == Resultado::ksucesso_) {
-      cout << "Vocabulario Criado com Sucesso!\n\n";
-      cout << "Nome do Vocabulario: " << vocabulario.GetNome().GetNome() << "\n";
-      cout << "Idioma do Vocabulario: " << vocabulario.GetIdioma().GetIdioma() << "\n";
-      cout << "Data do Vocabulario: " << vocabulario.GetData().GetData() << "\n";
-    } else {
-      cout << "Falha ao Criar Vocabulario!\n";
-    }
-    system(PAUSE);
-  }
-  catch (exception &e) {
+    resultado = isv->CriarVocabulario(vocabulario, nome, idioma, data, definicao, email);
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    return;
   }
+
+  system(CLEAR);
+  if (resultado.GetResultado() == Resultado::ksucesso_) {
+    cout << "Vocabulario Criado com Sucesso!\n\n";
+    cout << "Nome do Vocabulario: " << vocabulario.GetNome().GetNome() << "\n";
+    cout << "Idioma do Vocabulario: " << vocabulario.GetIdioma().GetIdioma() << "\n";
+    cout << "Data do Vocabulario: " << vocabulario.GetData().GetData() << "\n";
+  } else {
+    cout << "Falha ao Criar Vocabulario!\n";
+  }
+  system(PAUSE);
 }
 
 void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario *isv) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
+
   try {
     vocabularios = isv->ConsultarVocabularios(); 
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
@@ -1111,8 +1084,8 @@ void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulari
   vector<VocabularioControlado> vocabularios;
   try {
     vocabularios = isv->ConsultarVocabularios(); 
-  } catch(ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }

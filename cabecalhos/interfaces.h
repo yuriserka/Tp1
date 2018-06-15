@@ -158,14 +158,14 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um leitor.
    *
    */
-  virtual ResultadoUsuario CadastrarLeitor(Leitor &, const Nome &,
+  virtual Resultado CadastrarLeitor(Leitor &, const Nome &,
                                     const Sobrenome &, const Senha &, const Email &) = 0;
 
   /**
    * @brief função abstrata que cadastra um administrador.
    *
    */
-  virtual ResultadoUsuario CadastrarAdm(Administrador &, const Nome &,
+  virtual Resultado CadastrarAdm(Administrador &, const Nome &,
                                  const Sobrenome &, const Senha &, const Email &, const Data &,
                                  const Telefone &, const Address &) = 0;
 
@@ -173,7 +173,7 @@ class InterfaceServicoCadastro {
    * @brief função abstrata que cadastra um desenvolvedor.
    *
    */
-  virtual ResultadoUsuario CadastrarDev(Desenvolvedor &, const Nome &,
+  virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &,
                                  const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
 
   /**
@@ -362,8 +362,8 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
- // virtual Resultado CriarDefinicao(Definicao &,
-              //                     const TextoDefinicao &, const Data &) = 0;
+  virtual Resultado CriarDefinicao(Definicao &,
+                                   const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Editar uma Definição.
@@ -386,7 +386,7 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
-                              const Idioma &, const Data &, const Email &) = 0;
+                              const Idioma &, const Data &, const Definicao &, const Email &) = 0;
   
   /**
    * @brief função abstrata que irá Editar um Vocabulario.

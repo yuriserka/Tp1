@@ -5,14 +5,14 @@ list<ElementoResultado> ComandoSql::lista_resultado_;
 void ComandoSql::Conectar() {
   rc_ = sqlite3_open(nome_banco_de_dados_, &bd_);
   if (rc_ != SQLITE_OK) {
-    throw ErroDePersistencia("Erro na conexao do banco de dados\n");
+    throw invalid_argument("Erro na conexao do banco de dados\n");
   }
 }
 
 void ComandoSql::Desconectar() {
   rc_ = sqlite3_close(bd_);
   if (rc_ != SQLITE_OK) {
-    throw ErroDePersistencia("Erro na desconexao do banco de dados\n");
+    throw invalid_argument("Erro na desconexao do banco de dados\n");
   }
 }
 
@@ -24,7 +24,7 @@ void ComandoSql::Executar() {
       system(PAUSE);
       sqlite3_free(mensagem_);
     }
-    throw ErroDePersistencia("Erro na execucao do comando para o banco de dados\n");
+    throw invalid_argument("Erro na execucao do comando para o banco de dados\n");
   }
   Desconectar();
 }
@@ -75,10 +75,9 @@ ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
   cmdSql_ += "PRIMARY KEY(nome) );";
 
   cmdSql_ += "CREATE TABLE IF NOT EXISTS definicoes (";
-  cmdSql_ += "id INT AUTO_INCREMENT, ";
   cmdSql_ += "texto VARCHAR(31) NOT NULL, ";
   cmdSql_ += "data VARCHAR(11) NOT NULL, ";
-  cmdSql_ += "PRIMARY KEY(id) );";
+  cmdSql_ += "PRIMARY KEY(texto) );";
 
   cmdSql_ += "CREATE TABLE IF NOT EXISTS desenvolvedor_vocabulario (";
   cmdSql_ += "desenvolvedor VARCHAR(100) NOT NULL, ";
@@ -98,7 +97,7 @@ string ComandoSqlLerSenha::RecuperaSenha() const {
   string senha;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -116,7 +115,7 @@ string ComandoSqlLerEmail::RecuperaEmail() const {
   string email;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -134,7 +133,7 @@ string ComandoSqlTipoConta::RecuperaConta() const {
   string conta;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -152,28 +151,28 @@ Leitor ComandoSqlPesquisarUsuario::GetLeitor() const {
   Leitor l;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   l.SetNome(Nome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   l.SetSobrenome(Sobrenome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   l.SetSenha(Senha(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -191,35 +190,35 @@ Desenvolvedor ComandoSqlPesquisarUsuario::GetDev() const {
   Desenvolvedor d;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   d.SetNome(Nome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   d.SetSobrenome(Sobrenome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   d.SetSenha(Senha(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   d.SetEmail(Email(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -237,49 +236,49 @@ Administrador ComandoSqlPesquisarUsuario::GetAdm() const {
   Administrador a;
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetNome(Nome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetSobrenome(Sobrenome(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetSenha(Senha(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetEmail(Email(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetDataDeNascimento(Data(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   a.SetTelefone(Telefone(resultado.GetValorColuna()));
 
   if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
   }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
@@ -299,7 +298,7 @@ vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
 
   for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
     if (lista_resultado_.empty()) {
-      throw ErroDePersistencia("Lista Vazia\n");
+      throw invalid_argument("Lista Vazia\n");
     }
 
     resultado = lista_resultado_.back();
@@ -331,7 +330,7 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
 
   for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
     if (lista_resultado_.empty()) {
-      throw ErroDePersistencia("Lista Vazia\n");
+      throw invalid_argument("Lista Vazia\n");
     }
 
     resultado = lista_resultado_.back();
@@ -363,7 +362,7 @@ vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
 
   for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
     if (lista_resultado_.empty()) {
-    throw ErroDePersistencia("Lista Vazia\n");
+    throw invalid_argument("Lista Vazia\n");
     }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();

@@ -61,7 +61,7 @@ Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &s
     cmd->Executar();
     cmd->RecuperaEmail();
     delete cmd;
-  } catch (ErroDePersistencia &e) {
+  } catch (exception &e) {
     cout << "Email nao cadastrado\n";
     delete cmd;
     resultado.SetResultado(ResultadoAutenticar::kfalha_);
@@ -78,7 +78,7 @@ Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &s
       resultado.SetResultado(ResultadoAutenticar::kfalha_);
     }
     delete comando;
-  } catch (ErroDePersistencia &e) {
+  } catch (exception &e) {
     resultado.SetResultado(ResultadoAutenticar::kfalha_);
     delete comando;
     throw invalid_argument("Erro de Sistema!\n");
@@ -87,12 +87,12 @@ Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &s
   return resultado;
 }
 
-ResultadoUsuario CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor, 
+Resultado CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor, 
                                         const Nome &nome,
                                         const Sobrenome &sobrenome, 
                                         const Senha &senha, 
                                         const Email &email) {
-  ResultadoUsuario resultado;
+  Resultado resultado;
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
   }
@@ -103,18 +103,56 @@ ResultadoUsuario CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor,
     return resultado;
   }
 
+  ComandoSqlLerEmail *comando;
+  try {
+    comando = new ComandoSqlLerEmail(novoleitor.GetEmail());
+    comando->Executar();
+    if (email.GetEmail() == comando->RecuperaEmail()) {
+      cout << "Email ja cadastrado\n";
+      delete comando;
+      resultado.SetResultado(Resultado::kfalha_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
+    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
+    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  }
+  delete comando;
+
+  ComandoSqlCadastrar *comando_cadastro;
+  ComandoSqlLerEmail *comando_pesquisa;
+  try {
+    comando_cadastro = new ComandoSqlCadastrar(novoleitor, "leitor");
+    comando_cadastro->Executar();
+
+    comando_pesquisa = new ComandoSqlLerEmail(novoleitor.GetEmail());
+    comando_pesquisa->Executar();
+    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
+    if(email_cadastrado == novoleitor.GetEmail().GetEmail()){
+      resultado.SetResultado(Resultado::ksucesso_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    delete comando_cadastro;
+    delete comando_pesquisa;
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  delete comando_cadastro;
+  delete comando_pesquisa;
   resultado.SetResultado(Resultado::ksucesso_);
-  resultado.SetLeitorResultado(novoleitor);
   return resultado;
 }
 
-ResultadoUsuario CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
+Resultado CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
                                      const Nome &nome,
                                      const Sobrenome &sobrenome,
                                      const Senha &senha,
                                      const Email &email,
                                      const Data &data) {
-  ResultadoUsuario resultado;
+  Resultado resultado;
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
   }
@@ -125,12 +163,50 @@ ResultadoUsuario CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
     return resultado;
   }
 
+  ComandoSqlLerEmail *comando;
+  try {
+    comando = new ComandoSqlLerEmail(novodev.GetEmail());
+    comando->Executar();
+    if (email.GetEmail() == comando->RecuperaEmail()) {
+      cout << "Email ja cadastrado\n";
+      delete comando;
+      resultado.SetResultado(Resultado::kfalha_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
+    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
+    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  }
+  delete comando;
+
+  ComandoSqlCadastrar *comando_cadastro;
+  ComandoSqlLerEmail *comando_pesquisa;
+  try {
+    comando_cadastro = new ComandoSqlCadastrar(novodev, "desenvolvedor");
+    comando_cadastro->Executar();
+
+    comando_pesquisa = new ComandoSqlLerEmail(novodev.GetEmail());
+    comando_pesquisa->Executar();
+    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
+    if(email_cadastrado == novodev.GetEmail().GetEmail()){
+      resultado.SetResultado(Resultado::ksucesso_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    delete comando_cadastro;
+    delete comando_pesquisa;
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  delete comando_cadastro;
+  delete comando_pesquisa;
   resultado.SetResultado(Resultado::ksucesso_);
-  resultado.SetDevResultado(novodev);
   return resultado;
 }
 
-ResultadoUsuario CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm, 
+Resultado CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm, 
                                      const Nome &nome,
                                      const Sobrenome &sobrenome, 
                                      const Senha &senha,
@@ -138,7 +214,7 @@ ResultadoUsuario CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm,
                                      const Data &data, 
                                      const Telefone &telefone, 
                                      const Address &endereco) {
-  ResultadoUsuario resultado;
+  Resultado resultado;
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
   }
@@ -149,8 +225,46 @@ ResultadoUsuario CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm,
     return resultado;
   }
 
+  ComandoSqlLerEmail *comando;
+  try {
+    comando = new ComandoSqlLerEmail(novoadm.GetEmail());
+    comando->Executar();
+    if (email.GetEmail() == comando->RecuperaEmail()) {
+      cout << "Email ja cadastrado\n";
+      delete comando;
+      resultado.SetResultado(Resultado::kfalha_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    // aqui não precisa colocar nada, pois se o usuario nao estiver cadastrado
+    // é obvio que a lista vai estar vazia, então vai ser lançada uma exceção de
+    // lista vazia, mas é exatamente isso que precisa para q possa cadastrar.
+  }
+  delete comando;
+
+  ComandoSqlCadastrar *comando_cadastro;
+  ComandoSqlLerEmail *comando_pesquisa;
+  try {
+    comando_cadastro = new ComandoSqlCadastrar(novoadm, "administrador");
+    comando_cadastro->Executar();
+
+    comando_pesquisa = new ComandoSqlLerEmail(novoadm.GetEmail());
+    comando_pesquisa->Executar();
+    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
+    if(email_cadastrado == novoadm.GetEmail().GetEmail()){
+      resultado.SetResultado(Resultado::ksucesso_);
+      return resultado;
+    }
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    delete comando_cadastro;
+    delete comando_pesquisa;
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  delete comando_cadastro;
+  delete comando_pesquisa;
   resultado.SetResultado(Resultado::ksucesso_);
-  resultado.SetAdmResultado(novoadm);
   return resultado;
 }
 
@@ -397,8 +511,8 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
     ComandoSqlRemover *comando = new ComandoSqlRemover(email);
     comando->Executar();
     delete comando;
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -413,8 +527,8 @@ vector<VocabularioControlado> CtrlServicoVocabulario::ConsultarVocabularios() {
   try {
     comando->Executar();
     vocabularios = comando->GetVocabs();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
   }
   
   delete comando;
@@ -428,8 +542,8 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlad
   try {
     comando->Executar();
     termos = comando->GetTermos();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
   }
 
   delete comando;  
@@ -443,8 +557,8 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicao(const Termo &termo)
   try {
     comando->Executar();
     defs = comando->GetDefinicoes();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
   }
   delete comando;
   return defs;
@@ -460,8 +574,8 @@ Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioContro
     Desenvolvedor dev = comando_pesquisar->GetDev();
     comando_att = new ComandoSqlAtualizar(dev, voc);
     comando_att->Executar(); 
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -482,8 +596,8 @@ Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioContro
     Administrador adm = comando_pesquisar->GetAdm();
     comando_att = new ComandoSqlAtualizar(adm, voc);
     comando_att->Executar(); 
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -493,44 +607,59 @@ Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioContro
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc, const Nome &nome, 
-                  const Idioma &idioma, const Data &data, const Email &email) {
+Resultado CtrlServicoVocabulario::CriarDefinicao(Definicao &def, const TextoDefinicao &texto, const Data &data) {
   Resultado resultado;
+
   try {
-    voc = VocabularioControlado(nome, idioma, data);
+    def = Definicao(texto, data);
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
-  } 
-  string tipo_conta;
-  ComandoSqlTipoConta *comando_tc = new ComandoSqlTipoConta(email);
-  try {
-    comando_tc->Executar();
-    tipo_conta = comando_tc->RecuperaConta();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
-    resultado.SetResultado(Resultado::kfalha_);
-    return resultado;
   }
-  delete comando_tc;
-  ComandoSqlPesquisarUsuario *comando;
-  ComandoSqlCadastrar *comando_k;
+
+  ComandoSqlCadastrar *comando;
+  
   try {
-    comando = new ComandoSqlPesquisarUsuario(email);
+    comando = new ComandoSqlCadastrar(def);
     comando->Executar();
-    Administrador adm = comando->GetAdm();
-    comando_k = new ComandoSqlCadastrar(voc, adm);
-    comando_k->Executar();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    delete comando;
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
 
   resultado.SetResultado(Resultado::ksucesso_);
   delete comando;
-  delete comando_k;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc, const Nome &nome, 
+                  const Idioma &idioma, const Data &data, const Definicao &def, const Email &email) {
+  Resultado resultado;
+
+  try {
+    voc = VocabularioControlado(nome, idioma, data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  ComandoSqlCadastrar *comando;
+  
+  try {
+    comando = new ComandoSqlCadastrar(voc, def, email);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
   return resultado;
 }
 
@@ -548,8 +677,8 @@ Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc,
   try {
     comando = new ComandoSqlAtualizar(voc);
     comando->Executar(); 
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
@@ -565,8 +694,8 @@ Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado
   try {
     comando = new ComandoSqlRemover(voc);
     comando->Executar();
-  } catch (ErroDePersistencia &e) {
-    cout << "\n\t" << e.GetMsg() << "\n";
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     delete comando;
     return resultado;

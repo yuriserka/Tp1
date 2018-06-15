@@ -3,20 +3,6 @@
 
 #include "../cabecalhos/../cabecalhos/includes.h"
 
-class ErroDePersistencia {
-  public:
-    ErroDePersistencia(string mensagem) {
-      this->msg_ = mensagem;
-    }
-    
-    string GetMsg() const {
-      return msg_;
-    }
-
-  private:
-    string msg_;
-};
-
 class ElementoResultado {
   public:
     inline void SetNomeColuna(const string &colname) {
@@ -97,28 +83,17 @@ class ComandoSqlCadastrar : public ComandoSql {
       cmdSql_ += "'" + adm.GetEndereco().GetAddress() +       "', ";
       cmdSql_ += "'" + conta + "');";
     }
-
-    // cadastra um administrador ao vocabulario
-    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Administrador &adm) {
-      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, administrador)"\
+    
+    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Definicao &def, const Email &email) {
+      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, definicao, administrador)"\
       "VALUES (";
-      cmdSql_ += "'" + voc.GetNome().GetNome() +      "', ";
-      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +  "', ";
-      cmdSql_ += "'" + voc.GetData().GetData() +      "', ";
-      cmdSql_ += "'" + adm.GetEmail().GetEmail() +    "');";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +           "', ";
+      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +       "', ";
+      cmdSql_ += "'" + voc.GetData().GetData() +           "', ";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() + "', ";
+      cmdSql_ += "'" + email.GetEmail() +                  "');";
     }
-
-    // cadastra um desenvolvedor ao vocabulario
-    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Desenvolvedor &dev) {
-      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, desenvolvedor)"\
-      "VALUES (";
-      cmdSql_ += "'" + voc.GetNome().GetNome() +      "', ";
-      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +  "', ";
-      cmdSql_ += "'" + voc.GetData().GetData() +      "', ";
-      cmdSql_ += "'" + dev.GetEmail().GetEmail() +    "');";
-    }
-
-    //cadastra um vocabulario para o termo 
+    
     explicit ComandoSqlCadastrar(const Termo &termo, const VocabularioControlado &vocab) {
       cmdSql_ = "INSERT or IGNORE INTO termos (nome, classe, data, vocabulario)"\
       "VALUES (";
@@ -127,23 +102,22 @@ class ComandoSqlCadastrar : public ComandoSql {
       cmdSql_ += "'" + termo.GetData().GetData() +                "', ";
       cmdSql_ += "'" + vocab.GetNome().GetNome() +                "');";
     }
-
-    //cadastra um termo para a definicao
-    explicit ComandoSqlCadastrar(const Definicao &def, const Termo &termo) {
-      cmdSql_ = "INSERT or IGNORE INTO definicao (texto, termo, data)"\
+    
+    explicit ComandoSqlCadastrar(const Definicao &def) {
+      cmdSql_ = "INSERT or IGNORE INTO definicoes (texto, data)"\
       "VALUES (";
-      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +  "', ";
-      cmdSql_ += "'" + termo.GetNome().GetNome()  +         "', ";
-      cmdSql_ += "'" + def.GetData().GetData() +            "');";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() + "', ";
+      cmdSql_ += "'" + def.GetData().GetData() +           "');";
     }
 
-    //cadastra um vocabulario para a definicao
-    explicit ComandoSqlCadastrar(const Definicao &def, const VocabularioControlado &vocab) {
-      cmdSql_ = "INSERT or IGNORE INTO definicao (texto, vocabulario, data)"\
+    // cadastra desenvolvedor
+    explicit ComandoSqlCadastrar(const VocabularioControlado &voc, const Desenvolvedor &dev) {
+      cmdSql_ = "INSERT or IGNORE INTO vocabularios (nome, idioma, data, desenvolvedor)"\
       "VALUES (";
-      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +  "', ";
-      cmdSql_ += "'" + vocab.GetNome().GetNome()  +         "', ";
-      cmdSql_ += "'" + def.GetData().GetData() +            "');";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +      "', ";
+      cmdSql_ += "'" + voc.GetIdioma().GetIdioma() +  "', ";
+      cmdSql_ += "'" + voc.GetData().GetData() +      "', ";
+      cmdSql_ += "'" + dev.GetEmail().GetEmail() +    "');";
     }
 };
 
@@ -284,8 +258,7 @@ class ComandoSqlConsultarVocabs : public ComandoSql {
   public:
     // seleciona todos os vocabularios que existem, basicamente essa é a função para o leitor
     explicit ComandoSqlConsultarVocabs() {
-      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE"\
-      "(desenvolvedor or administrador not null);";
+      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios;";
     }
 
     // seleciona todos os vocabularios que estão associados com o email do administrador
