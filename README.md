@@ -1,29 +1,27 @@
                                     TÉCNICAS DE PROGRAMAÇÃO 1
 
-                                            TRABALHO 2
+                                            TRABALHO 3
 ATIVIDADES
 
-1. Construir modelo composto por diagrama de arquitetura do software no nível de módulos.
+1. Codificar classes da camada de serviço (implementação de armazenamento persistente é opcional).
 
-2. Codificar camada de apresentação.
+2. Codificar interfaces entre as camadas de apresentação e de serviço.
 
-3. Codificar interfaces entre camada de apresentação e camada de serviço.
+3. Integrar as camadas do sistema.
 
-4. Codificar classes stub para a camada de serviço.
+4. Elaborar smoke test.
 
 5. Produzir documentação para as classes implementadas usando Doxygen.
 
 
 QUESTÕES
 
-1. Descriçao da arquitetura no nível de módulos (diagrama, descrições de módulos e interfaces). [] 0 [] 5 [] 10
+1. Codificação das classes da camada de serviço. [] 0 [] 5 [] 10
 
-2. Codificação das classes da camada de apresentação. [] 0 [] 5 [] 10
+2. Codificação das interfaces entre as camadas de apresentação e de serviço. [] 0 [] 5 [] 10
 
-3. Codificação das interfaces entre as camadas de apresentação e de serviço. [] 0 [] 5 [] 10
+3. Fornecido smoke test. [] 0 [] 5 [] 10
 
-4. Codificação das classes stub da camada de serviço. [] 0 [] 5 [] 10
+4. Código integrado funciona corretamente segundo o smoke test. [] 0 [] 5 [] 10
 
-5. Camada de apresentação funciona corretamente com stubs de serviço. [] 0 [] 5 [] 10
-
-6. Fornecida documentação das classes implementadas usando Doxygen. [] 0 [] 5 [] 10
+5. Fornecida documentação das classes implementadas usando Doxygen. [] 0 [] 5 [] 10
