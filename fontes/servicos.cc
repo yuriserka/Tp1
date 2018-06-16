@@ -581,22 +581,17 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicoes() {
 
 Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc, const Email &email) {
   Resultado resultado;
-  ComandoSqlPesquisarUsuario *comando_pesquisar;
-  ComandoSql *comando_att;
+  ComandoSqlAssociar *comando;
   try {
-    comando_pesquisar = new ComandoSqlPesquisarUsuario(email);
-    comando_pesquisar->Executar();
-    Desenvolvedor dev = comando_pesquisar->GetDev();
-    comando_att = new ComandoSqlAtualizar(dev, voc);
-    comando_att->Executar(); 
+    comando = new ComandoSqlAssociar(email, voc);
+    comando->Executar();
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
   resultado.SetResultado(Resultado::ksucesso_);
-  delete comando_att;
-  delete comando_pesquisar;
+  delete comando;
   return resultado;
 }
 

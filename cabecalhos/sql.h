@@ -211,7 +211,7 @@ class ComandoSqlAssociar : public ComandoSql {
     explicit ComandoSqlAssociar(const Email &email, const VocabularioControlado &voc) {
       cmdSql_ = "INSERT or IGNORE INTO desenvolvedor_vocabulario (desenvolvedor, vocabulario)"\
       " VALUES (";
-      cmdSql_ += "'" + email.GetEmail() +                          "', ";
+      cmdSql_ += "'" + email.GetEmail() +        "', ";
       cmdSql_ += "'" + voc.GetNome().GetNome() + "');";
     }
 
