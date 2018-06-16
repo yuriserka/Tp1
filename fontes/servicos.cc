@@ -53,7 +53,6 @@ void CtrlServicoControle::Construir() {
   delete ctrl_ac;
 }
 
-
 Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &senha) {
   ResultadoAutenticar resultado;
   ComandoSqlLerEmail *cmd = new ComandoSqlLerEmail(email);
@@ -505,7 +504,23 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
   if (resultado.GetResultado() == ResultadoAutenticar::kfalha_) {
     cout << "Falha de autenticacao!\n";
     return resultado;
-  } 
+  }
+
+  InterfaceServicoVocabulario *isv;
+  ComandoSqlConsultarVocabs *comando_c;
+  vector<VocabularioControlado> vocabularios;
+
+  isv = new CtrlServicoVocabulario();
+  comando_c = new ComandoSqlConsultarVocabs(email);
+  comando_c->Executar();
+  vocabularios = comando_c->GetVocabs();
+  
+  for(auto i : vocabularios) {
+    isv->ExcluirVocabulario(i);
+  }
+
+  delete isv;
+  delete comando_c;
 
   try {
     ComandoSqlRemover *comando = new ComandoSqlRemover(email);
@@ -844,6 +859,14 @@ Resultado CtrlServicoVocabulario::ExcluirDefinicao(const Definicao &def) {
 Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado &voc) {
   Resultado resultado;
   ComandoSqlRemover *comando;
+
+  vector<Termo> termos;
+  termos = ConsultarTermos(voc);
+
+  for(auto i : termos) {
+    ExcluirTermo(i);
+  }
+
   try {
     comando = new ComandoSqlRemover(voc);
     comando->Executar();

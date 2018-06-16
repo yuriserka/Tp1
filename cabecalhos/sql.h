@@ -259,10 +259,10 @@ class ComandoSqlConsultarVocabs : public ComandoSql {
       cmdSql_ += "'" + adm.GetEmail().GetEmail() + "';";
     }
 
-    // seleciona todos os vocabularios que estão associados com o email do desenvolvedor
-    explicit ComandoSqlConsultarVocabs(const Desenvolvedor &dev) {
-      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE desenvolvedor = ";
-      cmdSql_ += "'" + dev.GetEmail().GetEmail() + "';";
+    // seleciona todos os vocabularios que estão associados com o email do administrador
+    explicit ComandoSqlConsultarVocabs(const Email &email) {
+      cmdSql_  = "SELECT nome, idioma, data FROM vocabularios WHERE administrador = ";
+      cmdSql_ += "'" + email.GetEmail() + "';";
     }
 
     vector<VocabularioControlado> GetVocabs();
@@ -309,12 +309,12 @@ class ComandoSqlRemover : public ComandoSql {
     ComandoSqlRemover() = default;
     explicit ComandoSqlRemover(const Email &email) {
       cmdSql_  = "DELETE FROM usuarios WHERE email = ";
-      cmdSql_ += "'" + email.GetEmail() + "';";
+      cmdSql_ += "'" + email.GetEmail() +         "';";
     }
 
     explicit ComandoSqlRemover(const VocabularioControlado &voc) {
       cmdSql_  = "DELETE FROM vocabularios WHERE nome = ";
-      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +     "';";
     }
 
     explicit ComandoSqlRemover(const Termo &termo) {
