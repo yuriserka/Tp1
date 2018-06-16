@@ -68,10 +68,7 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
                       const Data &, 
                       const VocabularioControlado &) override;
 
-  // Resultado EditarTermo(Termo &, 
-  //                       const Nome &, 
-  //                       const ClasseDoTermo &, 
-  //                       const Data &) override;
+  Resultado EditarTermo(Termo &, const Data &) override;
 
   // Resultado ExcluirTermo(const Termo &) override;
 
@@ -79,17 +76,15 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
                           const TextoDefinicao &, 
                           const Data &) override;
 
-  // Resultado EditarDefinicao(Definicao &, 
-  //                         const TextoDefinicao &, 
-  //                         const Data &) override;
+  Resultado EditarDefinicao(Definicao &, const Data &) override;
 
   // Resultado ExcluirDefinicao(const Definicao &) override;
 
   Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
                         const Idioma &, const Data &, const Definicao &, const Email &) override;
 
-  Resultado EditarVocabulario(VocabularioControlado &, const Nome &,
-                              const Idioma &, const Data &) override;
+  Resultado EditarVocabulario(VocabularioControlado &, const Idioma &, 
+                              const Data &) override;
 
   Resultado ExcluirVocabulario(const VocabularioControlado &) override;
 

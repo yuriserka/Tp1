@@ -152,25 +152,23 @@ class ComandoSqlAtualizar : public ComandoSql {
       cmdSql_ += "' WHERE email = '"  + adm.GetEmail().GetEmail() + "';";
     }
 
-    explicit ComandoSqlAtualizar(const Termo &termo) {
-      cmdSql_ = "UPDATE termos ";
-      cmdSql_ += "SET classe =    '" + termo.GetPreferencia().GetPreferencia();
-      cmdSql_ += "', data =       '" + termo.GetData().GetData();
-      cmdSql_ += "' WHERE nome =  '" + termo.GetNome().GetNome() + "';";
-    }
-
     explicit ComandoSqlAtualizar(const VocabularioControlado &voc) {
       cmdSql_ = "UPDATE vocabularios ";
-      cmdSql_ += "SET idioma =    '" + voc.GetIdioma().GetIdioma();
-      cmdSql_ += "', data =       '" + voc.GetData().GetData();
-      cmdSql_ += "' WHERE nome =  '" + voc.GetNome().GetNome() + "';";
+      cmdSql_ += "SET idioma = '" + voc.GetIdioma().GetIdioma() + "', ";
+      cmdSql_ += "data =       '" + voc.GetData().GetData() +     "' ";
+      cmdSql_ += "WHERE nome = '" + voc.GetNome().GetNome() +     "';";
     }
 
-    // vai atualizar o desenvolvedor do vocabulario
-    explicit ComandoSqlAtualizar(const Desenvolvedor &dev, const VocabularioControlado &voc) {
-      cmdSql_ = "UPDATE vocabularios ";
-      cmdSql_ += "SET desenvolvedor = '" + dev.GetEmail().GetEmail();
-      cmdSql_ += "' WHERE nome =      '" + voc.GetNome().GetNome() + "';";
+    explicit ComandoSqlAtualizar(const Termo &termo) {
+      cmdSql_ = "UPDATE termos ";
+      cmdSql_ += "SET data =   '" + termo.GetData().GetData() + "' ";
+      cmdSql_ += "WHERE nome = '" + termo.GetNome().GetNome() + "';";
+    }
+
+    explicit ComandoSqlAtualizar(const Definicao &def) {
+      cmdSql_ = "UPDATE definicoes ";
+      cmdSql_ += "SET data =    '" + def.GetData().GetData() +           "'";
+      cmdSql_ += "WHERE texto = '" + def.GetDefinicao().GetDefinicao() + "';";
     }
 
     // vai atualizar o administrador do vocabulario
@@ -178,30 +176,6 @@ class ComandoSqlAtualizar : public ComandoSql {
       cmdSql_ = "UPDATE vocabularios ";
       cmdSql_ += "SET administrador = '" + dev.GetEmail().GetEmail();
       cmdSql_ += "' WHERE nome =      '" + voc.GetNome().GetNome() + "';";
-    }
-
-    // vai atualizar a definicao do termo passado
-    explicit ComandoSqlAtualizar(const Definicao &def, const Termo &termo) {
-      cmdSql_ = "UPDATE definicao ";
-      cmdSql_ += "SET texto  = '" + def.GetDefinicao().GetDefinicao();
-      cmdSql_ += "', data    = '" + def.GetData().GetData();
-      cmdSql_ += "' WHERE termo = '" + termo.GetNome().GetNome() + "';";
-    }
-
-    // vai atualizar a definicao do vocabulario passado
-    explicit ComandoSqlAtualizar(const Definicao &def, const VocabularioControlado &voc) {
-      cmdSql_ = "UPDATE definicao ";
-      cmdSql_ += "SET texto           = '" + def.GetDefinicao().GetDefinicao();
-      cmdSql_ += "', data             = '" + def.GetData().GetData();
-      cmdSql_ += "' WHERE vocabulario = '" + voc.GetNome().GetNome() + "';";
-    }
-
-    // vai atualizar o termo do vocabulario passado
-    explicit ComandoSqlAtualizar(const Termo &termo, const VocabularioControlado &voc) {
-      cmdSql_ = "UPDATE termos ";
-      cmdSql_ += "SET classe =    '" + termo.GetPreferencia().GetPreferencia();
-      cmdSql_ += "', data =       '" + termo.GetData().GetData();
-      cmdSql_ += "' WHERE vocabulario = '" + voc.GetNome().GetNome() + "';";
     }
 };
 
@@ -317,8 +291,7 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
       cmdSql_  = "SELECT texto, data FROM definicoes WHERE texto = ";
       cmdSql_ += "(SELECT definicao FROM termo_definicao WHERE termo = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "')";
-      cmdSql_ += "ORDER BY texto;";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "');";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {

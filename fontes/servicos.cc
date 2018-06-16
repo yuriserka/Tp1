@@ -539,7 +539,7 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlad
   ComandoSqlConsultarTermos *comando;
   comando = new ComandoSqlConsultarTermos(voc);
   vector<Termo> termos;
-  
+
   try {
     comando->Executar();
     termos = comando->GetTermos();
@@ -730,20 +730,74 @@ Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc, c
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc, 
-                    const Nome &nome, const Idioma &idioma, const Data &data) {
+Resultado CtrlServicoVocabulario::EditarTermo(Termo &termo, 
+                                              const Data &data) {
   Resultado resultado;
   try {
-    voc = VocabularioControlado(nome, idioma, data);
+    termo.SetData(data);
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
     return resultado;
   }
+
+  ComandoSqlAtualizar *comando;
+  try {
+    comando = new ComandoSqlAtualizar(termo);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::EditarDefinicao(Definicao &def, 
+                                                  const Data &data) {
+  Resultado resultado;
+  try {
+    def.SetData(data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  ComandoSqlAtualizar *comando;
+  try {
+    comando = new ComandoSqlAtualizar(def);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc, 
+                                                    const Idioma &idioma, const Data &data) {
+  Resultado resultado;
+  try {
+    voc.SetIdioma(idioma);
+    voc.SetData(data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
   ComandoSqlAtualizar *comando;
   try {
     comando = new ComandoSqlAtualizar(voc);
-    comando->Executar(); 
+    comando->Executar();
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
