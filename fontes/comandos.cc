@@ -287,6 +287,9 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *isv) {
 }
 
 void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
+  ComandoAVocabulario * comando_v;
+  ComandoAVocabularioEmail *comando_e;
+
   int opt;
   do {
     system(CLEAR);
@@ -301,26 +304,23 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
 
     switch (opt) {
       case klistarvocabularios:
-        ComandoAVocabulario *comando_lv;
-        comando_lv = new ComandoAVocabularioListarVocabularios();
-        comando_lv->Executar(isv);
-        delete comando_lv;
+        comando_v = new ComandoAVocabularioListarVocabularios();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kcadastrardesenvolvedor:
-        ComandoAVocabularioCadastrarDesenvolvedor *comando_k;
-        comando_k = new ComandoAVocabularioCadastrarDesenvolvedor();
-        comando_k->Executar(isv, email);
-        delete comando_k;
+        comando_e = new ComandoAVocabularioCadastrarDesenvolvedor();
+        comando_e->Executar(isv, email);
+        delete comando_e;
         break;
       /*case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
         comando->Executar(isv);
         delete comando;
         break;*/
       case kinteragirdefinicao:
-        ComandoAVocabulario *comando;
-        comando = new ComandoAVocabularioInteragirDefinicao();
-        comando->Executar(isv);
-        delete comando;
+        comando_v = new ComandoAVocabularioInteragirDefinicao();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kvoltar:break;
       default:break;
@@ -329,6 +329,9 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
 }
 
 void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
+  ComandoAVocabulario * comando_v;
+  ComandoAVocabularioEmail *comando_e;
+
   int opt;
   do {
     system(CLEAR);
@@ -344,31 +347,28 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
 
     switch (opt) {
       case klistarvocabularios:
-        ComandoAVocabulario *comando_lv;
-        comando_lv = new ComandoAVocabularioListarVocabularios();
-        comando_lv->Executar(isv);
+        comando_v = new ComandoAVocabularioListarVocabularios();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kcadastrardesenvolvedor:
-        ComandoAVocabularioCadastrarAdministrador *comando_k;
-        comando_k = new ComandoAVocabularioCadastrarAdministrador();
-        comando_k->Executar(isv, email);
-        delete comando_k;
+        comando_e = new ComandoAVocabularioCadastrarAdministrador();
+        comando_e->Executar(isv, email);
+        delete comando_e;
         break;
       /*case kinteragirtermo:comando = new ComandoAVocabularioInteragirTermo();
         comando->Executar(isv);
         delete comando;
         break;*/
       case kinteragirdefinicao:
-        ComandoAVocabulario *comando;
-        comando = new ComandoAVocabularioInteragirDefinicao();
-        comando->Executar(isv);
-        delete comando;
+        comando_v = new ComandoAVocabularioInteragirDefinicao();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kinteragirvocabulario:
-        ComandoAVocabularioInteragirVocabulario *comando_interagir;
-        comando_interagir = new ComandoAVocabularioInteragirVocabulario();
-        comando_interagir->Executar(isv, email);
-        delete comando_interagir;
+        comando_e = new ComandoAVocabularioInteragirVocabulario();
+        comando_e->Executar(isv, email);
+        delete comando_e;
         break;
       case kvoltar:break;
       default:break;
@@ -377,7 +377,7 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
 }
 
 void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario *isv) {
-  ComandoAVocabularioListarTermos *comando;
+  ComandoAVocabularioVoc *comando;
   vector<VocabularioControlado> vocabularios;
 
   try {
@@ -410,7 +410,7 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
 }
 
 void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
-                                              VocabularioControlado &voc) {
+                                              const VocabularioControlado &voc) {
   Definicao definicao;
   vector<Termo> termos;
   try {
