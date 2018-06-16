@@ -539,6 +539,23 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlad
   ComandoSqlConsultarTermos *comando;
   comando = new ComandoSqlConsultarTermos(voc);
   vector<Termo> termos;
+  
+  try {
+    comando->Executar();
+    termos = comando->GetTermos();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+
+  delete comando;  
+  return termos;
+}
+
+vector<Termo> CtrlServicoVocabulario::ConsultarTermos() {
+  ComandoSqlConsultarTermos *comando;
+  comando = new ComandoSqlConsultarTermos();
+  vector<Termo> termos;
+
   try {
     comando->Executar();
     termos = comando->GetTermos();

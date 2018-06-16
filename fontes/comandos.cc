@@ -297,6 +297,7 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
     cout << kcadastrardesenvolvedor << ". Cadastrar Vocabulario\n";
+    cout << kassociar << ". Associar Termo a Definicao\n";
     cout << kinteragirtermo << ". Interagir com Termos\n";
     cout << kinteragirdefinicao << ". Interagir com Definicoes\n";
     cout << kvoltar << ". Voltar\n\topcao: ";
@@ -312,6 +313,11 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
         comando_e = new ComandoAVocabularioCadastrarDesenvolvedor();
         comando_e->Executar(isv, email);
         delete comando_e;
+        break;
+      case kassociar:
+        comando_v = new ComandoAVocabularioAssociar();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kinteragirtermo:
         comando_v = new ComandoAVocabularioInteragirTermo();
@@ -340,6 +346,7 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
     cout << "\nEscolha uma das opcoes abaixo.\n\n";
     cout << klistarvocabularios << ". Listar Vocabularios\n";
     cout << kcadastrardesenvolvedor << ". Cadastrar Vocabulario\n";
+    cout << kassociar << ". Associar Termo a Definicao\n";
     cout << kinteragirtermo << ". Interagir com Termos\n";
     cout << kinteragirdefinicao << ". Interagir com Definicoes\n";
     cout << kinteragirvocabulario << ". Interagir com Vocabularios\n";
@@ -356,6 +363,11 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
         comando_e = new ComandoAVocabularioCadastrarAdministrador();
         comando_e->Executar(isv, email);
         delete comando_e;
+        break;
+      case kassociar:
+        comando_v = new ComandoAVocabularioAssociar();
+        comando_v->Executar(isv);
+        delete comando_v;
         break;
       case kinteragirtermo:
         comando_v = new ComandoAVocabularioInteragirTermo();
@@ -465,6 +477,84 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
       system(PAUSE);
     }
   } while (opt != voltar);
+}
+
+void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
+  Resultado resultado;
+  vector<Termo> termos;
+  vector<Definicao> definicoes;
+  Termo termo;
+  Definicao definicao;
+
+  try {
+    termos = isv->ConsultarTermos();
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
+
+  int voltar = termos.size() + 1;
+  int opt;
+
+  system(CLEAR);
+  cout << "Termos Disponiveis" << "\n\n";
+  for (int i = 0; i < voltar - 1; i++) {
+    cout << i + 1 << ". " << termos[i].GetNome().GetNome() << "\n";
+  }
+  cout << "\n";
+  cout << "Escolha um dos termos acima para associar a uma definicao.\n\n";
+  cout << voltar << ". Voltar\n\topcao: ";
+  cin >> opt;
+
+  if(opt == voltar) {
+    return;
+  }
+
+  if(opt < voltar && opt > 0) {
+    termo = termos[opt - 1];
+  }
+
+  try {
+    definicoes = isv->ConsultarDefinicoes();
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
+
+  voltar = definicoes.size() + 1;
+
+  system(CLEAR);
+  cout << "Definicoes Disponiveis" << "\n\n";
+  for (int i = 0; i < voltar - 1; i++) {
+    cout << i + 1 << ". " << definicoes[i].GetDefinicao().GetDefinicao() << "\n";
+  }
+  cout << "\n";
+  cout << "Escolha uma das definicoes acima para associar ao termo escolhido.\n\n";
+  cout << voltar << ". Voltar\n\topcao: ";
+  cin >> opt;
+
+  if(opt == voltar) {
+    return;
+  }
+
+  if(opt < voltar && opt > 0) {
+    definicao = definicoes[opt - 1];
+  }
+
+
+  resultado = isv->AssociarTermoDefinicao(termo, definicao);
+
+  system(CLEAR);
+  if (resultado.GetResultado() == Resultado::ksucesso_) {
+    cout << "Sucesso ao associar Termo a Definicao!\n";
+  } else {
+    cout << "Falha ao associar Termo a Definicao!\n";
+  }
+  system(PAUSE);
+
+  
 }
 
 void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabulario *isv, 

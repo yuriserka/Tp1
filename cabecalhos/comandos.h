@@ -241,6 +241,7 @@ class ComandoAVocabularioDesenvolvedor : public ComandoAVocabularioEmail {
     knull,
     klistarvocabularios,
     kcadastrardesenvolvedor,
+    kassociar,
     kinteragirtermo,
     kinteragirdefinicao,
     kvoltar
@@ -264,11 +265,27 @@ class ComandoAVocabularioAdministrador : public ComandoAVocabularioEmail {
     knull,
     klistarvocabularios,
     kcadastrardesenvolvedor,
+    kassociar,
     kinteragirtermo,
     kinteragirdefinicao,
     kinteragirvocabulario,
     kvoltar
   };
+};
+
+
+/**
+ * @brief Classe que é responsavel por Cadastrar um Desenvolvedor à algum vocabulario controlado.
+ * 
+ */
+
+class ComandoAVocabularioAssociar : public ComandoAVocabulario {
+ public:
+  /**
+   * @brief Cadastra um Desenvolvedor à algum vocabulario controlado.
+   * 
+   */
+  void Executar(InterfaceServicoVocabulario *) override;
 };
 
 /**

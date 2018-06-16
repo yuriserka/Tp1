@@ -296,7 +296,10 @@ class ComandoSqlConsultarVocabs : public ComandoSql {
 
 class ComandoSqlConsultarTermos : public ComandoSql {
   public:
-    ComandoSqlConsultarTermos() = default;
+    explicit ComandoSqlConsultarTermos() {
+      cmdSql_  = "SELECT nome, classe, data FROM termos;";
+    }
+
     explicit ComandoSqlConsultarTermos(const VocabularioControlado &voc) {
       cmdSql_  = "SELECT nome, classe, data FROM termos WHERE vocabulario = ";
       cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
@@ -312,16 +315,16 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     }
 
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
-      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
-      cmdSql_ += "FROM definicoes JOIN termo_definicao ";
-      cmdSql_ += "ON definicoes.texto = termo_definicao.definicao ";
-      cmdSql_ += "ORDER BY definicoes.texto;";
+      cmdSql_  = "SELECT texto, data FROM definicoes WHERE texto = ";
+      cmdSql_ += "(SELECT definicao FROM termo_definicao WHERE termo = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "')";
+      cmdSql_ += "ORDER BY texto;";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {
-      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
-      cmdSql_ += "FROM definicoes JOIN vocabularios ";
-      cmdSql_ += "ON definicoes.texto = vocabularios.definicao;";
+      cmdSql_  = "SELECT texto, data FROM definicoes WHERE texto = ";
+      cmdSql_ += "(SELECT definicao FROM vocabularios WHERE nome = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "');";
     }
 
     vector<Definicao> GetDefinicoes();

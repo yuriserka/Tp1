@@ -300,15 +300,20 @@ vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
-
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetNome(Nome(resultado.GetValorColuna()));
-  
+
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetIdioma(Idioma(resultado.GetValorColuna()));
 
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetData(Data(resultado.GetValorColuna()));
@@ -332,15 +337,20 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
-
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetNome(Nome(resultado.GetValorColuna()));
   
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetPreferencia(ClasseDoTermo(resultado.GetValorColuna()));
 
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetData(Data(resultado.GetValorColuna()));
@@ -368,6 +378,9 @@ vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
     lista_resultado_.pop_back();
     def.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
 
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     def.SetData(Data(resultado.GetValorColuna()));
@@ -393,6 +406,9 @@ Definicao ComandoSqlConsultarDefinicao::GetDefinicao() {
   lista_resultado_.pop_back();
   def.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
 
+  if (lista_resultado_.empty()) {
+    throw invalid_argument("Lista Vazia\n");
+  }
   resultado = lista_resultado_.back();
   lista_resultado_.pop_back();
   def.SetData(Data(resultado.GetValorColuna()));
@@ -403,4 +419,3 @@ Definicao ComandoSqlConsultarDefinicao::GetDefinicao() {
 
   return def;
 }
-

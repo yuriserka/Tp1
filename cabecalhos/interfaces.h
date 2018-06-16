@@ -321,6 +321,8 @@ class InterfaceServicoVocabulario {
    */
   virtual vector<Termo> ConsultarTermos(const VocabularioControlado &voc) = 0;
 
+  virtual vector<Termo> ConsultarTermos() = 0;
+
   /**
    * @brief função abstrata que irá retornar a definição do vocabulario.
    *
