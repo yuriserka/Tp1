@@ -418,9 +418,10 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
     if (opt < voltar && opt > 0) {
       comando = new ComandoAVocabularioListarTermos();
       comando->Executar(isv, vocabularios[opt - 1]);
-      delete comando;
     }
   } while (opt != voltar);
+  
+  delete comando;
 }
 
 void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv, const VocabularioControlado &voc) {
