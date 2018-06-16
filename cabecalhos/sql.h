@@ -94,13 +94,13 @@ class ComandoSqlCadastrar : public ComandoSql {
       cmdSql_ += "'" + email.GetEmail() +                  "');";
     }
     
-    explicit ComandoSqlCadastrar(const Termo &termo, const VocabularioControlado &vocab) {
+    explicit ComandoSqlCadastrar(const Termo &termo, const VocabularioControlado &voc) {
       cmdSql_ = "INSERT or IGNORE INTO termos (nome, classe, data, vocabulario)"\
       "VALUES (";
-      cmdSql_ += "'" + termo.GetNome().GetNome() +                "', ";
-      cmdSql_ += "'" + termo.GetPreferencia().GetPreferencia() +  "', ";
-      cmdSql_ += "'" + termo.GetData().GetData() +                "', ";
-      cmdSql_ += "'" + vocab.GetNome().GetNome() +                "');";
+      cmdSql_ += "'" + termo.GetNome().GetNome() +               "', ";
+      cmdSql_ += "'" + termo.GetPreferencia().GetPreferencia() + "', ";
+      cmdSql_ += "'" + termo.GetData().GetData() +               "', ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +                 "');";
     }
     
     explicit ComandoSqlCadastrar(const Definicao &def) {
@@ -205,6 +205,24 @@ class ComandoSqlAtualizar : public ComandoSql {
     }
 };
 
+class ComandoSqlAssociar : public ComandoSql {
+  public:
+    ComandoSqlAssociar() = default;
+    explicit ComandoSqlAssociar(const Email &email, const VocabularioControlado &voc) {
+      cmdSql_ = "INSERT or IGNORE INTO desenvolvedor_vocabulario (desenvolvedor, vocabulario)"\
+      " VALUES (";
+      cmdSql_ += "'" + email.GetEmail() +                          "', ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() + "');";
+    }
+
+    explicit ComandoSqlAssociar(const Termo &termo, const Definicao & def) {
+      cmdSql_ = "INSERT or IGNORE INTO termo_definicao (termo, definicao)"\
+      " VALUES (";
+      cmdSql_ += "'" + termo.GetNome().GetNome() +         "', ";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() + "');";
+    }
+};
+
 class ComandoSqlCriarTabelas : public ComandoSql {
   public:
     explicit ComandoSqlCriarTabelas(); 
@@ -289,14 +307,17 @@ class ComandoSqlConsultarTermos : public ComandoSql {
 
 class ComandoSqlConsultarDefinicao : public ComandoSql {
   public:
-    ComandoSqlConsultarDefinicao() = default;
+    explicit ComandoSqlConsultarDefinicao() {
+      cmdSql_  = "SELECT texto, data FROM definicoes;";
+    }
+
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
-      cmdSql_  = "SELECT texto, data FROM definicao WHERE termo = ";
+      cmdSql_  = "SELECT texto, data FROM definicoes WHERE termo = ";
       cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {
-      cmdSql_  = "SELECT texto, data FROM definicao WHERE vocabulario = ";
+      cmdSql_  = "SELECT texto, data FROM definicoes WHERE vocabulario = ";
       cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
     }
 

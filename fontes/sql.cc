@@ -87,7 +87,7 @@ ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
 
   cmdSql_ += "CREATE TABLE IF NOT EXISTS termo_definicao (";
   cmdSql_ += "termo VARCHAR(21) NOT NULL, ";
-  cmdSql_ += "definicao INT NOT NULL, ";
+  cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
   cmdSql_ += "FOREIGN KEY(termo) REFERENCES termos(nome), ";
   cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id) );";
 }
@@ -356,29 +356,29 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
 }
 
 vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
-  vector<Definicao> defs;
+  vector<Definicao> definicoes;
   ElementoResultado resultado;
-  Definicao aux;
+  Definicao def;
 
   for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
     if (lista_resultado_.empty()) {
-    throw invalid_argument("Lista Vazia\n");
+      throw invalid_argument("Lista Vazia\n");
     }
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
-    aux.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
+    def.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
 
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
-    aux.SetData(Data(resultado.GetValorColuna()));
+    def.SetData(Data(resultado.GetValorColuna()));
 
-    defs.push_back(aux);
+    definicoes.push_back(def);
   }
 
   while (!lista_resultado_.empty()) {
     lista_resultado_.pop_back();
   }
 
-  return defs;
+  return definicoes;
 }
 

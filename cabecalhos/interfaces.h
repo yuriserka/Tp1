@@ -328,6 +328,8 @@ class InterfaceServicoVocabulario {
    */
   virtual vector<Definicao> ConsultarDefinicao(const Termo &) = 0;
 
+  virtual vector<Definicao> ConsultarDefinicoes() = 0;
+
   /**
    * @brief função abstrata que irá cadastrar um leitor a um vocabulario controlado.
    *
@@ -341,21 +343,21 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  //virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
+  virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &, const VocabularioControlado &) = 0;
 
   /**
    * @brief função abstrata que irá Editar um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  //virtual Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
+  // virtual Resultado EditarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  //virtual Resultado ExcluirTermo(const Termo &) = 0;
+  // virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
    * @brief função abstrata que irá Criar uma Definição.
@@ -370,15 +372,15 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  //virtual Resultado EditarDefinicao(Definicao &,
-           //                         const TextoDefinicao &, const Data &) = 0;
+  // virtual Resultado EditarDefinicao(Definicao &,
+  //                                   const TextoDefinicao &, const Data &) = 0;
 
   /**
    * @brief função abstrata que irá Excluir uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  //virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
+  // virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
    * @brief função abstrata que irá Criar um Vocabulario.
@@ -402,6 +404,8 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado ExcluirVocabulario(const VocabularioControlado &) = 0;
+
+  virtual Resultado AssociarTermoDefinicao(const Termo &, const Definicao &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.

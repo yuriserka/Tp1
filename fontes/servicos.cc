@@ -564,6 +564,21 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicao(const Termo &termo)
   return defs;
 }
 
+vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicoes() {
+  ComandoSqlConsultarDefinicao *comando;
+  comando = new ComandoSqlConsultarDefinicao();
+  vector<Definicao> definicoes;
+  try {
+    comando->Executar();
+    definicoes = comando->GetDefinicoes();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+  
+  delete comando;
+  return definicoes;
+}
+
 Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc, const Email &email) {
   Resultado resultado;
   ComandoSqlPesquisarUsuario *comando_pesquisar;
@@ -585,7 +600,6 @@ Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioContro
   return resultado;
 }
 
-
 Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioControlado &voc, const Email &email) {
   Resultado resultado;
   ComandoSqlPesquisarUsuario *comando_pesquisar;
@@ -604,6 +618,33 @@ Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioContro
   resultado.SetResultado(Resultado::ksucesso_);
   delete comando_att;
   delete comando_pesquisar;
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::CriarTermo(Termo &termo, const Nome &nome, const ClasseDoTermo &classe, const Data &data, const VocabularioControlado &voc) {
+  Resultado resultado;
+
+  try {
+    termo = Termo(nome, classe, data);
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  ComandoSqlCadastrar *comando;
+  
+  try {
+    comando = new ComandoSqlCadastrar(termo, voc);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
   return resultado;
 }
 
@@ -702,5 +743,21 @@ Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado
   }
   delete comando;
   resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::AssociarTermoDefinicao(const Termo &termo, const Definicao &definicao) {
+  Resultado resultado;
+  ComandoSqlAssociar *comando;
+  try {
+    comando = new ComandoSqlAssociar(termo, definicao);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    return resultado;
+  }
+  resultado.SetResultado(Resultado::ksucesso_);
+  delete comando;
   return resultado;
 }

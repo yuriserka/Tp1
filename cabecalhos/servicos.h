@@ -51,33 +51,36 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
 
   vector<Definicao> ConsultarDefinicao(const Termo &) override;
 
+  vector<Definicao> ConsultarDefinicoes() override;
+
   Resultado CadastrarDesenvolvedor(const VocabularioControlado &, const Email &) override;
 
   Resultado CadastrarAdministrador(const VocabularioControlado &, const Email &) override;
 
-/*
+
   Resultado CriarTermo(Termo &, 
                       const Nome &, 
                       const ClasseDoTermo &,
-                      const Data &) override;
+                      const Data &, 
+                      const VocabularioControlado &) override;
 
-  Resultado EditarTermo(Termo &, 
-                        const Nome &, 
-                        const ClasseDoTermo &, 
-                        const Data &) override;
+  // Resultado EditarTermo(Termo &, 
+  //                       const Nome &, 
+  //                       const ClasseDoTermo &, 
+  //                       const Data &) override;
 
-  Resultado ExcluirTermo(const Termo &) override;
-*/
+  // Resultado ExcluirTermo(const Termo &) override;
+
   Resultado CriarDefinicao(Definicao &, 
                           const TextoDefinicao &, 
                           const Data &) override;
-/*
-  Resultado EditarDefinicao(Definicao &, 
-                          const TextoDefinicao &, 
-                          const Data &) override;
 
-  Resultado ExcluirDefinicao(const Definicao &) override;
-*/
+  // Resultado EditarDefinicao(Definicao &, 
+  //                         const TextoDefinicao &, 
+  //                         const Data &) override;
+
+  // Resultado ExcluirDefinicao(const Definicao &) override;
+
   Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
                         const Idioma &, const Data &, const Definicao &, const Email &) override;
 
@@ -85,6 +88,8 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
                               const Idioma &, const Data &) override;
 
   Resultado ExcluirVocabulario(const VocabularioControlado &) override;
+
+  Resultado AssociarTermoDefinicao(const Termo &, const Definicao &) override;
 };
 
 #endif //TRABALHO__SERVICOS__H__
