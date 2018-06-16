@@ -654,7 +654,7 @@ void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *is
         break;
       case keditar:Editar(isv);
         break;
-      case kexcluir://Excluir(isv);
+      case kexcluir:Excluir(isv);
         break;
       case kvoltar:break;
       default: break;
@@ -791,14 +791,14 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *isv)
     return;
   }
 
-  int voltar = termos.size();
+  int voltar = termos.size() + 1;
   int opt;
 
   do {
     system(CLEAR);
     cout << "Termos Disponiveis" << "\n\n";
-    for (int i = 1; i < voltar; i++) {
-      cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
+    for (int i = 0; i < voltar - 1; i++) {
+      cout << i + 1 << ". " << termos[i].GetNome().GetNome() << "\n";
     }
     cout << "\n";
     cout << "Escolha um dos termos acima para editar.\n\n";
@@ -839,44 +839,45 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *isv)
   } while (opt != voltar);
 }
 
-// void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *isv) {
-//   system(CLEAR);
-//   cout << "\tTRIGGERS\n";
-//   cout << "Trigger Termo Excluivel:     " << StubVocabulario::ktrigger_excluir_termo_valido_;
-//   cout << "\nTrigger Termo nao Excluivel: " << StubVocabulario::ktrigger_excluir_termo_invalido_;
-//   cout << "\n\n";
-//   system(PAUSE);
+void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *isv) {
+  Resultado resultado;
+  vector<Termo> termos;
 
-//   Resultado resultado;
-//   vector<Termo> termos;
-//   termos = isv->ConsultarTermos();
-//   int voltar = termos.size();
+  try {
+    termos = isv->ConsultarTermos(); 
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
 
-//   int opt;
-//   do {
-//     system(CLEAR);
-//     cout << "Termos Disponiveis" << "\n\n";
-//     for (int i = 1; i < voltar; i++) {
-//       cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
-//     }
-//     cout << "\n";
-//     cout << "Escolha um dos termos acima para excluir.\n\n";
-//     cout << voltar << ". Voltar\n\topcao: ";
-//     cin >> opt;
+  int voltar = termos.size() + 1;
+  int opt;
 
-//     if (opt < voltar && opt > 0) {
-//       resultado = isv->ExcluirTermo(termos[opt]);
-//       system(CLEAR);
-//       if (resultado.GetResultado() == Resultado::ksucesso_) {
-//         cout << "Termo Excluido com Sucesso!\n\n";
-//         opt = voltar;
-//       } else {
-//         cout << "Falha ao Excluir Termo!\n";
-//       }
-//       system(PAUSE);
-//     }
-//   } while (opt != voltar);
-// }
+  do {
+    system(CLEAR);
+    cout << "Termos Disponiveis" << "\n\n";
+    for (int i = 0; i < voltar - 1; i++) {
+      cout << i + 1 << ". " << termos[i].GetNome().GetNome() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha um dos termos acima para excluir.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
+
+    if (opt < voltar && opt > 0) {
+      resultado = isv->ExcluirTermo(termos[opt - 1]);
+      system(CLEAR);
+      if (resultado.GetResultado() == Resultado::ksucesso_) {
+        cout << "Termo Excluido com Sucesso!\n\n";
+        opt = voltar;
+      } else {
+        cout << "Falha ao Excluir Termo!\n";
+      }
+      system(PAUSE);
+    }
+  } while (opt != voltar);
+}
 
 void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario *isv) {
   int opt;
@@ -895,7 +896,7 @@ void ComandoAVocabularioInteragirDefinicao::Executar(InterfaceServicoVocabulario
         break;
       case keditar:Editar(isv);
         break;
-      case kexcluir://Excluir(isv);
+      case kexcluir:Excluir(isv);
         break;
       case kvoltar:break;
       default: break;
@@ -955,14 +956,14 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
     return;
   }
 
-  int voltar = definicoes.size();
+  int voltar = definicoes.size() + 1;
   int opt;
 
   do {
     system(CLEAR);
     cout << "Definicoes Disponiveis" << "\n\n";
-    for (int i = 1; i < voltar; i++) {
-      cout << i << ". " << definicoes[i].GetDefinicao().GetDefinicao() << "\n";
+    for (int i = 0; i < voltar - 1; i++) {
+      cout << i + 1 << ". " << definicoes[i].GetDefinicao().GetDefinicao() << "\n";
     }
     cout << "\n";
     cout << "Escolha uma das definicoes acima para editar.\n\n";
@@ -1001,61 +1002,45 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
   } while (opt != voltar);
 }
 
-// void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *isv) {
-//   system(CLEAR);
-//   cout << "\tTRIGGERS\n";
-//   cout << "Trigger Definicao Excluivel:     " << StubVocabulario::ktrigger_excluir_definicao_valida_;
-//   cout << "\nTrigger Definicao nao Excluivel: " << StubVocabulario::ktrigger_excluir_definicao_invalida_;
-//   cout << "\n\n";
-//   system(PAUSE);
+void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *isv) {
+  Resultado resultado;
+  vector<Definicao> definicoes; 
 
-//   Resultado resultado;
-//   Definicao definicao;
-//   vector<Termo> termos;
-//   termos = isv->ConsultarTermos();
-//   int voltar = termos.size();
+  try {
+    definicoes = isv->ConsultarDefinicoes(); 
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
 
-//   int opt;
-//   do {
-//     system(CLEAR);
-//     cout << "Termos Disponiveis" << "\n\n";
-//     for (int i = 1; i < voltar; i++) {
-//       cout << i << ". " << termos[i].GetNome().GetNome() << "\n";
-//     }
-//     cout << "\n";
-//     cout << "Escolha um dos termos acima para excluir a definicao associada ao termo.\n\n";
-//     cout << voltar << ". Voltar\n\topcao: ";
-//     cin >> opt;
+  int voltar = definicoes.size() + 1;
+  int opt;
 
-//     if (opt < voltar && opt > 0) {
-//       int opcao;
-//       do {
-//         system(CLEAR);
-//         definicao = isv->ConsultarDefinicao(termos[opt]);
-//         cout << "Definicao do Termo: " << definicao.GetDefinicao().GetDefinicao() << "\n";
-//         cout << "Data da Definicao: " << definicao.GetData().GetData() << "\n\n";
-//         cout << "Deseja excluir esta Definicao?\n\n1. Sim\n2. Nao\n";
-//         cout << "\topcao: ";
-//         cin >> opcao;
+  do {
+    system(CLEAR);
+    cout << "Definicoes Disponiveis" << "\n\n";
+    for (int i = 0; i < voltar - 1; i++) {
+      cout << i + 1 << ". " << definicoes[i].GetDefinicao().GetDefinicao() << "\n";
+    }
+    cout << "\n";
+    cout << "Escolha uma das definicoes acima para Excluir.\n\n";
+    cout << voltar << ". Voltar\n\topcao: ";
+    cin >> opt;
 
-//         switch (opcao) {
-//           case 1: resultado = isv->ExcluirDefinicao(definicao);
-//             system(CLEAR);
-//             if (resultado.GetResultado() == Resultado::ksucesso_) {
-//               cout << "Definicao Excluida com Sucesso!\n\n";
-//               opt = voltar;
-//             } else {
-//               cout << "Falha ao Excluir Definicao!\n";
-//             }
-//             system(PAUSE);
-//             break;
-//           case 2:break;
-//           default:break;
-//         }
-//       } while (opcao != 1 && opcao != 2);
-//     }
-//   } while (opt != voltar);
-// }
+    if (opt < voltar && opt > 0) {
+      resultado = isv->ExcluirDefinicao(definicoes[opt - 1]);
+      system(CLEAR);
+      if (resultado.GetResultado() == Resultado::ksucesso_) {
+        cout << "Definicao Excluida com Sucesso!\n\n";
+        opt = voltar;
+      } else {
+        cout << "Falha ao Excluir Definicao!\n";
+      }
+      system(PAUSE);
+    }
+  } while (opt != voltar);
+}
 
 void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
   int opt;
@@ -1225,6 +1210,7 @@ void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario
 void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulario *isv) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
+
   try {
     vocabularios = isv->ConsultarVocabularios(); 
   } catch(exception &e) {

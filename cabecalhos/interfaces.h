@@ -361,7 +361,7 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  // virtual Resultado ExcluirTermo(const Termo &) = 0;
+  virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
    * @brief função abstrata que irá Criar uma Definição.
@@ -383,7 +383,7 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  // virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
+  virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
    * @brief função abstrata que irá Criar um Vocabulario.

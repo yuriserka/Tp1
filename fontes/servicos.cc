@@ -809,6 +809,38 @@ Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc,
   return resultado;
 }
 
+Resultado CtrlServicoVocabulario::ExcluirTermo(const Termo &termo) {
+  Resultado resultado;
+  ComandoSqlRemover *comando;
+  try {
+    comando = new ComandoSqlRemover(termo);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+  }
+  delete comando;
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
+}
+
+Resultado CtrlServicoVocabulario::ExcluirDefinicao(const Definicao &def) {
+  Resultado resultado;
+  ComandoSqlRemover *comando;
+  try {
+    comando = new ComandoSqlRemover(def);
+    comando->Executar();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    resultado.SetResultado(Resultado::kfalha_);
+    delete comando;
+    return resultado;
+  }
+  delete comando;
+  resultado.SetResultado(Resultado::ksucesso_);
+  return resultado;
+}
+
 Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado &voc) {
   Resultado resultado;
   ComandoSqlRemover *comando;

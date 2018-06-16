@@ -70,7 +70,7 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
 
   Resultado EditarTermo(Termo &, const Data &) override;
 
-  // Resultado ExcluirTermo(const Termo &) override;
+  Resultado ExcluirTermo(const Termo &) override;
 
   Resultado CriarDefinicao(Definicao &, 
                           const TextoDefinicao &, 
@@ -78,7 +78,7 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
 
   Resultado EditarDefinicao(Definicao &, const Data &) override;
 
-  // Resultado ExcluirDefinicao(const Definicao &) override;
+  Resultado ExcluirDefinicao(const Definicao &) override;
 
   Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
                         const Idioma &, const Data &, const Definicao &, const Email &) override;

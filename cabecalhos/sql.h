@@ -318,23 +318,17 @@ class ComandoSqlRemover : public ComandoSql {
     }
 
     explicit ComandoSqlRemover(const Termo &termo) {
-      cmdSql_  = "DELETE FROM termos WHERE nome = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+      cmdSql_  = "DELETE FROM termo_definicao WHERE termo = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() +      "'; ";
+      cmdSql_ += "DELETE FROM termos WHERE nome =           ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() +      "'; ";
     }
 
-    explicit ComandoSqlRemover(const Termo &termo, const VocabularioControlado &voc) {
-      cmdSql_  = "DELETE FROM termos WHERE vocabulario = ";
-      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
-    }
-
-    explicit ComandoSqlRemover(const Definicao &def, const Termo &termo) {
-      cmdSql_  = "DELETE FROM vocabularios WHERE termo = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
-    }
-
-    explicit ComandoSqlRemover(const Definicao &def, const VocabularioControlado &voc) {
-      cmdSql_  = "DELETE FROM definicao WHERE vocabulario = ";
-      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+    explicit ComandoSqlRemover(const Definicao &def) {
+      cmdSql_  = "DELETE FROM termo_definicao WHERE definicao =  ";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +   "'; ";
+      cmdSql_ += "DELETE FROM definicoes WHERE texto =           ";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +    "';";
     }
 };
 
