@@ -413,6 +413,14 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
 
 void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv, const VocabularioControlado &voc) {
   Definicao definicao;
+  try {
+    definicao = isv->ConsultarDefinicao(voc);
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
+
   vector<Termo> termos;
   try {
     termos = isv->ConsultarTermos(voc);
@@ -426,6 +434,8 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
   int opt;
   do {
     system(CLEAR);
+    cout << "\tDefinicao do Vocabulario: " << definicao.GetDefinicao().GetDefinicao() << "\n";
+    cout << "\tData da Definicao: " << definicao.GetData().GetData() << "\n\n";
     cout << "Termos do Vocabulario" << "\n\n";
     for (int i = 0; i < voltar - 1; i++) {
       cout << i + 1 << ". " << termos[i].GetNome().GetNome() << "\n";
@@ -435,15 +445,22 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
     cout << voltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
+    vector<Definicao> defs;
+    try {
+      defs = isv->ConsultarDefinicao(termos[opt - 1]);
+    } catch(exception &e) {
+      cout << "\n\t" << e.what() << "\n";
+      system(PAUSE);
+      return;
+    }
     if (opt < voltar && opt > 0) {
       system(CLEAR);
-      vector<Definicao> defs = isv->ConsultarDefinicao(termos[opt - 1]);
       cout << "Nome do Termo: " << termos[opt - 1].GetNome().GetNome() << "\n";
       cout << "Classe do Termo: " << termos[opt - 1].GetPreferencia().GetPreferencia() << "\n";
-      cout << "Data do Termo: " << termos[opt - 1].GetData().GetData() << "\n";
+      cout << "Data do Termo: " << termos[opt - 1].GetData().GetData() << "\n\n";
       for (auto e : defs) {
-        cout << "Definicao do Termo: " << e.GetDefinicao().GetDefinicao() << 
-        ", Data da Definicao: " << e.GetData().GetData() << "\n";
+        cout << "\tDefinicao do Termo: " << e.GetDefinicao().GetDefinicao() << "\n";
+        cout << "\tData da Definicao: " << e.GetData().GetData() << "\n";
       }
       system(PAUSE);
     }
@@ -529,7 +546,6 @@ void ComandoAVocabularioCadastrarAdministrador::Executar(InterfaceServicoVocabul
     }
   } while (opt != voltar);
 }
-
 
 void ComandoAVocabularioInteragirTermo::Executar(InterfaceServicoVocabulario *isv) {
   int opt;

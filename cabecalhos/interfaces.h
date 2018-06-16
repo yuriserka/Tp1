@@ -328,6 +328,8 @@ class InterfaceServicoVocabulario {
    */
   virtual vector<Definicao> ConsultarDefinicao(const Termo &) = 0;
 
+  virtual Definicao ConsultarDefinicao(const VocabularioControlado &) = 0;
+
   virtual vector<Definicao> ConsultarDefinicoes() = 0;
 
   /**

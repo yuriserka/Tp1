@@ -564,6 +564,20 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicao(const Termo &termo)
   return defs;
 }
 
+Definicao CtrlServicoVocabulario::ConsultarDefinicao(const VocabularioControlado &voc) {
+  ComandoSqlConsultarDefinicao *comando;
+  comando = new ComandoSqlConsultarDefinicao(voc);
+  Definicao def;
+  try {
+    comando->Executar();
+    def = comando->GetDefinicao();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+  delete comando;
+  return def;
+}
+
 vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicoes() {
   ComandoSqlConsultarDefinicao *comando;
   comando = new ComandoSqlConsultarDefinicao();

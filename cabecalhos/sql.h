@@ -312,16 +312,20 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     }
 
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
-      cmdSql_  = "SELECT texto, data FROM definicoes WHERE termo = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
+      cmdSql_ += "FROM definicoes JOIN termo_definicao ";
+      cmdSql_ += "ON definicoes.texto = termo_definicao.definicao ";
+      cmdSql_ += "ORDER BY definicoes.texto;";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {
-      cmdSql_  = "SELECT texto, data FROM definicoes WHERE vocabulario = ";
-      cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
+      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
+      cmdSql_ += "FROM definicoes JOIN vocabularios ";
+      cmdSql_ += "ON definicoes.texto = vocabularios.definicao;";
     }
 
     vector<Definicao> GetDefinicoes();
+    Definicao GetDefinicao();
 };
 
 class ComandoSqlRemover : public ComandoSql {

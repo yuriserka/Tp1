@@ -382,3 +382,25 @@ vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
   return definicoes;
 }
 
+Definicao ComandoSqlConsultarDefinicao::GetDefinicao() {
+  ElementoResultado resultado;
+  Definicao def;
+
+  if (lista_resultado_.empty()) {
+    throw invalid_argument("Lista Vazia\n");
+  }
+  resultado = lista_resultado_.back();
+  lista_resultado_.pop_back();
+  def.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
+
+  resultado = lista_resultado_.back();
+  lista_resultado_.pop_back();
+  def.SetData(Data(resultado.GetValorColuna()));
+
+  while (!lista_resultado_.empty()) {
+    lista_resultado_.pop_back();
+  }
+
+  return def;
+}
+
