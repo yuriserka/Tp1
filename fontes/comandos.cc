@@ -510,15 +510,15 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
     cout << voltar << ". Voltar\n\topcao: ";
     cin >> opt;
 
-    vector<Definicao> defs;
-    try {
-      defs = isv->ConsultarDefinicao(termos[opt - 1]);
-    } catch(exception &e) {
-      cout << "\n\t" << e.what() << "\n";
-      system(PAUSE);
-      return;
-    }
     if (opt < voltar && opt > 0) {
+      vector<Definicao> defs;
+      try {
+        defs = isv->ConsultarDefinicao(termos[opt - 1]);
+      } catch(exception &e) {
+        cout << "\n\t" << e.what() << "\n";
+        system(PAUSE);
+        return;
+      }
       system(CLEAR);
       cout << "Nome do Termo: " << termos[opt - 1].GetNome().GetNome() << "\n";
       cout << "Classe do Termo: " << termos[opt - 1].GetPreferencia().GetPreferencia() << "\n";
