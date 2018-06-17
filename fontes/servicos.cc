@@ -563,6 +563,22 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlad
   return termos;
 }
 
+int CtrlServicoVocabulario::ConsultarTermos(const Definicao &def) {
+  ComandoSqlConsultarTermos *comando;
+  comando = new ComandoSqlConsultarTermos(def);
+  vector<Nome> termos;
+
+  try {
+    comando->Executar();
+    termos = comando->GetNomes();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+
+  delete comando;
+  return termos.size();
+}
+
 vector<Termo> CtrlServicoVocabulario::ConsultarTermos() {
   ComandoSqlConsultarTermos *comando;
   comando = new ComandoSqlConsultarTermos();
@@ -622,6 +638,21 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicoes() {
   
   delete comando;
   return definicoes;
+}
+
+int CtrlServicoVocabulario::ConsultarDesenvolvedores(const VocabularioControlado &voc) {
+  ComandoSqlConsultarDevs *comando;
+  comando = new ComandoSqlConsultarDevs(voc);
+  vector<Email> desenvolvedores;
+  try {
+    comando->Executar();
+    desenvolvedores = comando->GetDevs();
+  } catch (exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+  }
+  
+  delete comando;
+  return desenvolvedores.size();
 }
 
 Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc, 

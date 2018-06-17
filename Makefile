@@ -18,7 +18,7 @@ LDLIBS =
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o -lpthread -ldl
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -c $< -o $@

@@ -286,6 +286,8 @@ class ComandoAVocabularioAssociar : public ComandoAVocabulario {
    * 
    */
   void Executar(InterfaceServicoVocabulario *) override;
+ private:
+  const static int kmaxdef_termo = 5;
 };
 
 /**
@@ -327,6 +329,7 @@ class ComandoAVocabularioCadastrarDesenvolvedor : public ComandoAVocabularioEmai
    */
   void Executar(InterfaceServicoVocabulario *, const Email &) override;
  private:
+  const static int kmaxdev_voc = 10;
   enum {
     knull,
     kcadastrar,

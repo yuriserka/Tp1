@@ -319,7 +319,9 @@ class InterfaceServicoVocabulario {
    *
    * @return vector<Termo> o vetor que possui os termos.
    */
-  virtual vector<Termo> ConsultarTermos(const VocabularioControlado &voc) = 0;
+  virtual vector<Termo> ConsultarTermos(const VocabularioControlado &) = 0;
+
+  virtual int ConsultarTermos(const Definicao &) = 0;
 
   virtual vector<Termo> ConsultarTermos() = 0;
 
@@ -333,6 +335,8 @@ class InterfaceServicoVocabulario {
   virtual Definicao ConsultarDefinicao(const VocabularioControlado &) = 0;
 
   virtual vector<Definicao> ConsultarDefinicoes() = 0;
+
+  virtual int ConsultarDesenvolvedores(const VocabularioControlado &) = 0;
 
   /**
    * @brief função abstrata que irá cadastrar um leitor a um vocabulario controlado.

@@ -49,6 +49,8 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
 
   vector<Termo> ConsultarTermos(const VocabularioControlado &voc) override;
 
+  int ConsultarTermos(const Definicao &) override;
+
   vector<Termo> ConsultarTermos() override;
 
   vector<Definicao> ConsultarDefinicao(const Termo &) override;
@@ -56,6 +58,8 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
   Definicao ConsultarDefinicao(const VocabularioControlado &) override;
 
   vector<Definicao> ConsultarDefinicoes() override;
+
+  int ConsultarDesenvolvedores(const VocabularioControlado &) override;
 
   Resultado CadastrarDesenvolvedor(const VocabularioControlado &, const Email &) override;
 

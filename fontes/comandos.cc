@@ -576,6 +576,21 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
   }
 
   try {
+    definicoes = isv->ConsultarDefinicao(termo);
+  } catch(exception &e) {
+    cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
+    return;
+  }
+
+  if(definicoes.size() >= kmaxdef_termo) {
+    system(CLEAR);
+    cout << "Este termo ja possui o numero maximo de Definicoes\n";
+    system(PAUSE);
+    return;
+  }
+
+  try {
     definicoes = isv->ConsultarDefinicoes();
   } catch(exception &e) {
     cout << "\n\t" << e.what() << "\n";
@@ -641,6 +656,16 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
     cin >> opt;
 
     if (opt < voltar && opt > 0) {
+      int desenvolvedores;
+      desenvolvedores = isv->ConsultarDesenvolvedores(vocabularios[opt - 1]);
+      
+      if(desenvolvedores >= kmaxdev_voc) {
+        system(CLEAR);
+        cout << "Este vocabulario ja possui o numero maximo de Desenvolvedores\n";
+        system(PAUSE);
+        return;
+      }
+
       resultado = isv->CadastrarDesenvolvedor(vocabularios[opt - 1], email);
       system(CLEAR);
       if (resultado.GetResultado() == Resultado::ksucesso_) {
@@ -789,16 +814,25 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
   if (opt == voltar) {
     return;
   }
+  ClasseDoTermo preferencia;
   if (opt < voltar && opt > 0) {
+    int termos;
+    termos = isv->ConsultarTermos(definicoes[opt - 1]);
+
+    if(termos == 0) {
+      preferencia.SetPreferencia("PT");
+    } else {
+      preferencia.SetPreferencia("NP");
+    }
+
     def = definicoes[opt - 1];
   }
 
   Resultado resultado;
   Termo termo;
 
-  string inome, ipreferencia, idata;
+  string inome, idata;
   Nome nome;
-  ClasseDoTermo preferencia;
   Data data;
 
   system(CLEAR);
@@ -806,10 +840,6 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
     cout << "Digite o Nome do Termo: ";
     cin >> inome;
     nome.SetNome(inome);
-
-    cout << "Digite a Classe do Termo: ";
-    cin >> ipreferencia;
-    preferencia.SetPreferencia(ipreferencia);
 
     cout << "Digite a Data do Termo: ";
     cin >> idata;

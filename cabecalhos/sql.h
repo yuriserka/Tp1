@@ -279,7 +279,13 @@ class ComandoSqlConsultarTermos : public ComandoSql {
       cmdSql_ += "'" + voc.GetNome().GetNome() + "';";
     }
 
+    explicit ComandoSqlConsultarTermos(const Definicao &def) {
+      cmdSql_  = "SELECT termo FROM termo_definicao WHERE definicao = ";
+      cmdSql_ += "'" + def.GetDefinicao().GetDefinicao() +         "';";
+    }
+
     vector<Termo> GetTermos();
+    vector<Nome> GetNomes();
 };
 
 class ComandoSqlConsultarDefinicao : public ComandoSql {
@@ -289,9 +295,12 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     }
 
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
-      cmdSql_  = "SELECT texto, data FROM definicoes WHERE texto = ";
-      cmdSql_ += "(SELECT definicao FROM vocabularios WHERE nome = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "');";
+      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
+      cmdSql_ += "FROM definicoes JOIN termo_definicao ";
+      cmdSql_ += "ON definicoes.texto = termo_definicao.definicao ";
+      cmdSql_ += "JOIN termos ";
+      cmdSql_ += "ON termos.nome = termo_definicao.termo and termos.nome = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {
@@ -304,12 +313,26 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     Definicao GetDefinicao();
 };
 
+class ComandoSqlConsultarDevs : public ComandoSql {
+  public:
+    ComandoSqlConsultarDevs() = default;
+
+    explicit ComandoSqlConsultarDevs(const VocabularioControlado &voc) {
+      cmdSql_  = "SELECT desenvolvedor FROM desenvolvedor_vocabulario WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +                                       "';";
+    }
+
+    vector<Email> GetDevs();
+};
+
 class ComandoSqlRemover : public ComandoSql {
   public:
     ComandoSqlRemover() = default;
     explicit ComandoSqlRemover(const Email &email) {
-      cmdSql_  = "DELETE FROM usuarios WHERE email = ";
-      cmdSql_ += "'" + email.GetEmail() +         "';";
+      cmdSql_  = "DELETE FROM desenvolvedor_vocabulario WHERE desenvolvedor = ";
+      cmdSql_ += "'" + email.GetEmail() +        "'; ";
+      cmdSql_ += "DELETE FROM usuarios WHERE email = ";
+      cmdSql_ += "'" + email.GetEmail() +        "'; ";
     }
 
     explicit ComandoSqlRemover(const VocabularioControlado &voc) {

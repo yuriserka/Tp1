@@ -59,7 +59,7 @@ ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
   cmdSql_ += "nome VARCHAR(21) NOT NULL, ";
   cmdSql_ += "idioma VARCHAR(4) NOT NULL, ";
   cmdSql_ += "data VARCHAR(11) NOT NULL, ";
-  cmdSql_ += "definicao INT NOT NULL, ";
+  cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
   cmdSql_ += "administrador VARCHAR(100) NOT NULL, ";
   cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id), ";
   cmdSql_ += "FOREIGN KEY(administrador) REFERENCES usuarios(email), ";
@@ -349,6 +349,27 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
   return termos;
 }
 
+vector<Nome> ComandoSqlConsultarTermos::GetNomes() {
+  vector<Nome> termos;
+  ElementoResultado resultado;
+  Nome aux;
+
+  while(!lista_resultado_.empty()) {
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetNome(resultado.GetValorColuna());
+
+    termos.push_back(aux);
+  }
+
+  lista_resultado_.clear();
+
+  return termos;
+}
+
 vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
   vector<Definicao> definicoes;
   ElementoResultado resultado;
@@ -398,4 +419,25 @@ Definicao ComandoSqlConsultarDefinicao::GetDefinicao() {
   lista_resultado_.clear();
 
   return def;
+}
+
+vector<Email> ComandoSqlConsultarDevs::GetDevs() {
+  vector<Email> desenvolvedores;
+  ElementoResultado resultado;
+  Email aux;
+
+  while(!lista_resultado_.empty()) {
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetEmail(resultado.GetValorColuna());
+
+    desenvolvedores.push_back(aux);
+  }
+
+  lista_resultado_.clear();
+
+  return desenvolvedores;
 }
