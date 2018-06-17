@@ -368,24 +368,24 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
 vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
   vector<Definicao> definicoes;
   ElementoResultado resultado;
-  Definicao def;
+  Definicao aux;
 
   for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
-    resultado = lista_resultado_.back();
-    lista_resultado_.pop_back();
-    def.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
+    resultado = *i;
+    aux.SetData(Data(resultado.GetValorColuna()));
+
+    i++;
 
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
-    resultado = lista_resultado_.back();
-    lista_resultado_.pop_back();
-    def.SetData(Data(resultado.GetValorColuna()));
+    resultado = *i;
+    aux.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
 
-    definicoes.push_back(def);
+    definicoes.push_back(aux);
   }
 
   while (!lista_resultado_.empty()) {

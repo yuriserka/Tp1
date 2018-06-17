@@ -591,6 +591,7 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicao(const Termo &termo)
     defs = comando->GetDefinicoes();
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
+    system(PAUSE);
   }
   delete comando;
   return defs;
