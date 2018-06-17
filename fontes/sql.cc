@@ -21,7 +21,6 @@ void ComandoSql::Executar() {
   rc_ = sqlite3_exec(bd_, cmdSql_.c_str(), Callback, nullptr, &mensagem_);
   if (rc_ != SQLITE_OK) {
     if (mensagem_) {
-      system(PAUSE);
       sqlite3_free(mensagem_);
     }
     throw invalid_argument("Erro na execucao do comando para o banco de dados\n");
