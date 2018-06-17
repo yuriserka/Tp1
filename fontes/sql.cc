@@ -21,7 +21,6 @@ void ComandoSql::Executar() {
   rc_ = sqlite3_exec(bd_, cmdSql_.c_str(), Callback, nullptr, &mensagem_);
   if (rc_ != SQLITE_OK) {
     if (mensagem_) {
-      system(PAUSE);
       sqlite3_free(mensagem_);
     }
     throw invalid_argument("Erro na execucao do comando para o banco de dados\n");
@@ -103,9 +102,7 @@ string ComandoSqlLerSenha::RecuperaSenha() const {
   lista_resultado_.pop_back();
   senha = resultado.GetValorColuna();
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return senha;
 }
@@ -121,9 +118,7 @@ string ComandoSqlLerEmail::RecuperaEmail() const {
   lista_resultado_.pop_back();
   email = resultado.GetValorColuna();
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return email;
 }
@@ -139,9 +134,7 @@ string ComandoSqlTipoConta::RecuperaConta() const {
   lista_resultado_.pop_back();
   conta = resultado.GetValorColuna();
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return conta;
 }
@@ -178,9 +171,7 @@ Leitor ComandoSqlPesquisarUsuario::GetLeitor() const {
   lista_resultado_.pop_back();
   l.SetEmail(Email(resultado.GetValorColuna()));
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return l;
 }
@@ -224,9 +215,7 @@ Desenvolvedor ComandoSqlPesquisarUsuario::GetDev() const {
   lista_resultado_.pop_back();
   d.SetDataDeNascimento(Data(resultado.GetValorColuna()));
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return d;
 }
@@ -284,9 +273,7 @@ Administrador ComandoSqlPesquisarUsuario::GetAdm() const {
   lista_resultado_.pop_back();
   a.SetEndereco(Address(resultado.GetValorColuna()));
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return a;
 }
@@ -296,7 +283,7 @@ vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
   ElementoResultado resultado;
   VocabularioControlado aux;
 
-  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+  while(!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -321,9 +308,7 @@ vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
     vocabularios.push_back(aux);
   }
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return vocabularios;
 }
@@ -333,10 +318,11 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
   ElementoResultado resultado;
   Termo aux;
 
-  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+  while(!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
+
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetNome(Nome(resultado.GetValorColuna()));
@@ -358,9 +344,7 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
     termos.push_back(aux);
   }
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return termos;
 }
@@ -370,27 +354,25 @@ vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
   ElementoResultado resultado;
   Definicao aux;
 
-  for (auto i = lista_resultado_.begin(); i != lista_resultado_.end(); i++) {
+  while(!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
-    resultado = *i;
-    aux.SetData(Data(resultado.GetValorColuna()));
-
-    i++;
-
-    if (lista_resultado_.empty()) {
-      throw invalid_argument("Lista Vazia\n");
-    }
-    resultado = *i;
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
     aux.SetDefinicao(TextoDefinicao(resultado.GetValorColuna()));
+
+    if (lista_resultado_.empty()) {
+      throw invalid_argument("Lista Vazia\n");
+    }
+    resultado = lista_resultado_.back();
+    lista_resultado_.pop_back();
+    aux.SetData(Data(resultado.GetValorColuna()));
 
     definicoes.push_back(aux);
   }
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return definicoes;
 }
@@ -413,9 +395,7 @@ Definicao ComandoSqlConsultarDefinicao::GetDefinicao() {
   lista_resultado_.pop_back();
   def.SetData(Data(resultado.GetValorColuna()));
 
-  while (!lista_resultado_.empty()) {
-    lista_resultado_.pop_back();
-  }
+  lista_resultado_.clear();
 
   return def;
 }

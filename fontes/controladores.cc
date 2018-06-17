@@ -134,19 +134,16 @@ void CtrlApresentacaoCadastro::Cadastrar() {
       case Cadastro::kadm:comando = new ComandoACadastroAdm();
         comando->Executar(ctrl_servico_cadastro_);
         opt = kvoltar;
-        system(PAUSE);
         delete comando;
         break;
       case Cadastro::kdev:comando = new ComandoACadastroDev();
         comando->Executar(ctrl_servico_cadastro_);
         opt = kvoltar;
-        system(PAUSE);
         delete comando;
         break;
       case Cadastro::kleitor:comando = new ComandoACadastroLeitor();
         comando->Executar(ctrl_servico_cadastro_);
         opt = kvoltar;
-        system(PAUSE);
         delete comando;
         break;
       case Cadastro::kvoltar:break;
@@ -195,7 +192,8 @@ Resultado CtrlApresentacaoUsuario::Executar(const Email &email) {
 }
 
 void CtrlApresentacaoVocabulario::Executar(const Email &email) {
-  ComandoSqlTipoConta *comando_sql = new ComandoSqlTipoConta(email);
+  ComandoSqlTipoConta *comando_sql;
+  comando_sql = new ComandoSqlTipoConta(email);
   string tipo_conta;
   try {
     comando_sql->Executar();
@@ -203,8 +201,10 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    delete comando_sql;
     return;
   }
+  delete comando_sql;
   
   if (tipo_conta == "leitor") {
     ComandoAVocabularioLeitor *comando;

@@ -289,12 +289,9 @@ class ComandoSqlConsultarDefinicao : public ComandoSql {
     }
 
     explicit ComandoSqlConsultarDefinicao(const Termo &termo) {
-      cmdSql_  = "SELECT definicoes.texto, definicoes.data ";
-      cmdSql_ += "FROM definicoes JOIN termo_definicao ";
-      cmdSql_ += "ON definicoes.texto = termo_definicao.definicao ";
-      cmdSql_ += "JOIN termos ";
-      cmdSql_ += "ON termos.nome = termo_definicao.termo and termos.nome = ";
-      cmdSql_ += "'" + termo.GetNome().GetNome() + "';";
+      cmdSql_  = "SELECT texto, data FROM definicoes WHERE texto = ";
+      cmdSql_ += "(SELECT definicao FROM vocabularios WHERE nome = ";
+      cmdSql_ += "'" + termo.GetNome().GetNome() + "');";
     }
 
     explicit ComandoSqlConsultarDefinicao(const VocabularioControlado &voc) {

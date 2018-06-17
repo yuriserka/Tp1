@@ -8,7 +8,23 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
   Senha senha;
   Email email;
 
+  int tentativas = 0, opt;
+
   do {
+    system(CLEAR);
+    if (tentativas >= 2) {
+      cout << "Deseja Retornar?\n\n1. Sim\n2. Nao\n";
+      cout << "\topcao: ";
+      cin >> opt;
+
+      switch (opt) {
+        case 1:
+          return;
+        case 2:
+        default:break;
+      }
+      system(CLEAR);
+    }
     try {
       system(CLEAR);
       cout << "Digite seu Nome: ";
@@ -30,6 +46,7 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
     }
     catch (exception &e) {
       cout << "\n\t" << e.what() << "\n";
+      tentativas++;
       system(PAUSE);
     }
   } while (true);
@@ -40,6 +57,7 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
   } else {
     cout << "Falha ao cadastrar!\n";
   }
+  system(PAUSE);
 }
 
 void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
@@ -54,7 +72,23 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
   Address endereco;
   Telefone telefone;
 
+  int tentativas = 0, opt;
+
   do {
+    system(CLEAR);
+    if (tentativas >= 2) {
+      cout << "Deseja Retornar?\n\n1. Sim\n2. Nao\n";
+      cout << "\topcao: ";
+      cin >> opt;
+
+      switch (opt) {
+        case 1:
+          return;
+        case 2:
+        default:break;
+      }
+      system(CLEAR);
+    }
     try {
       system(CLEAR);
       cout << "Digite seu Nome: ";
@@ -91,6 +125,7 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
     }
     catch (exception &e) {
       cout << "\n\t" << e.what() << "\n";
+      tentativas++;
       system(PAUSE);
     }
   } while (true);
@@ -103,6 +138,7 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
   } else {
     cout << "Falha ao cadastrar!\n";
   }
+  system(PAUSE);
 }
 
 void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
@@ -116,7 +152,23 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
   Email email;
   Data data;
 
+  int tentativas = 0, opt;
+
   do {
+    system(CLEAR);
+    if (tentativas >= 2) {
+      cout << "Deseja Retornar?\n\n1. Sim\n2. Nao\n";
+      cout << "\topcao: ";
+      cin >> opt;
+
+      switch (opt) {
+        case 1:
+          return;
+        case 2:
+        default:break;
+      }
+      system(CLEAR);
+    }
     try {
       system(CLEAR);
       cout << "Digite seu Nome: ";
@@ -145,6 +197,7 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
     }
     catch (exception &e) {
       cout << "\n\t" << e.what() << "\n";
+      tentativas++;
       system(PAUSE);
     }
   } while(true);
@@ -156,85 +209,86 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
   } else {
     cout << "Falha ao cadastrar!\n";
   }
+  system(PAUSE);
 }
 
-Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, const Email &email) {
+Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, 
+                                          const Email &email) {
   Resultado res;
-  ComandoSqlTipoConta *cmd_tc = new ComandoSqlTipoConta(email);
-  
+  ComandoSqlTipoConta *cmd_tc;
+  ComandoSqlPesquisarUsuario *comando;
+  cmd_tc = new ComandoSqlTipoConta(email);
+  comando = new ComandoSqlPesquisarUsuario(email);
   try {
     cmd_tc->Executar();
     string tipo_conta = cmd_tc->RecuperaConta();
-    delete cmd_tc;
-    if ("leitor" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
+    if ("leitor" == tipo_conta) {  
       comando->Executar();
       Leitor l = comando->GetLeitor();
       isu->Exibir(l);
-      delete comando;
     } else if ("desenvolvedor" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
       comando->Executar();
       Desenvolvedor d = comando->GetDev();
       isu->Exibir(d);
-      delete comando;
     } else if ("administrador" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
       comando->Executar();
       Administrador a = comando->GetAdm();
       isu->Exibir(a);
-      delete comando;
     } 
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     res.SetResultado(Resultado::kfalha_);
     delete cmd_tc;
+    delete comando;
     return res;
   }
+  delete comando;
+  delete cmd_tc;
   res.SetResultado(Resultado::ksucesso_);
   return res;
 }
 
-Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Email &email) {
+Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu,
+                                          const Email &email) {
   ResultadoUsuario res;
   Resultado result;
 
-  ComandoSqlTipoConta *cmd_tc = new ComandoSqlTipoConta(email);
+  ComandoSqlTipoConta *cmd_tc;
+  ComandoSqlPesquisarUsuario *comando;
+  ComandoSqlAtualizar *comando_att;
+  cmd_tc = new ComandoSqlTipoConta(email);
+  comando = new ComandoSqlPesquisarUsuario(email);
+
   try {
     cmd_tc->Executar();
     string tipo_conta = cmd_tc->RecuperaConta();
-    delete cmd_tc;
     if ("leitor" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
       comando->Executar();
       Leitor leitor = comando->GetLeitor();
-      delete comando;
       res = isu->Editar(leitor);
-      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetLeitor());
+      comando_att = new ComandoSqlAtualizar(res.GetLeitor());
       comando_att->Executar();
       delete comando_att;
     } else if ("desenvolvedor" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
       comando->Executar();
       Desenvolvedor dev = comando->GetDev();
-      delete comando;
       res = isu->Editar(dev);
-      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetDev());
+      comando_att = new ComandoSqlAtualizar(res.GetDev());
       comando_att->Executar();
       delete comando_att;
     } else if ("administrador" == tipo_conta) {
-      ComandoSqlPesquisarUsuario *comando = new ComandoSqlPesquisarUsuario(email);
       comando->Executar();
       Administrador adm = comando->GetAdm();
-      delete comando;
       res = isu->Editar(adm);
-      ComandoSqlAtualizar *comando_att = new ComandoSqlAtualizar(res.GetAdm());
+      comando_att = new ComandoSqlAtualizar(res.GetAdm());
       comando_att->Executar();
       delete comando_att;
     } 
   } catch(exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
+    delete comando;
+    delete cmd_tc;
     result.SetResultado(Resultado::kfalha_);
   }
 
@@ -244,12 +298,15 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu, const Em
     cout << "Erro ao modificar conta.\n";
   }
 
+  delete comando;
+  delete cmd_tc;
   result.SetResultado(res.GetResultado());
   system(PAUSE);
   return result;
 }
 
-Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *isu, const Email &email) {
+Resultado ComandoAUsuarioExcluir::Executar(InterfaceServicoUsuario *isu,
+                                           const Email &email) {
   Resultado res;
   res = isu->Excluir(email);
 
@@ -276,7 +333,8 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *isv) {
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:comando = new ComandoAVocabularioListarVocabularios();
+      case klistarvocabularios:
+        comando = new ComandoAVocabularioListarVocabularios();
         comando->Executar(isv);
         delete comando;
         break;
@@ -286,7 +344,8 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *isv) {
   } while (opt != kvoltar);
 }
 
-void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
+void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv,
+                                                const Email &email) {
   ComandoAVocabulario * comando_v;
   ComandoAVocabularioEmail *comando_e;
 
@@ -335,7 +394,8 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
   } while (opt != kvoltar);
 }
 
-void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
+void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv,
+                                                const Email &email) {
   ComandoAVocabulario * comando_v;
   ComandoAVocabularioEmail *comando_e;
 
@@ -393,7 +453,6 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
 void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario *isv) {
   ComandoAVocabularioVoc *comando;
   vector<VocabularioControlado> vocabularios;
-
   try {
     vocabularios = isv->ConsultarVocabularios();
   } catch(exception &e) {
@@ -423,7 +482,8 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
   } while (opt != voltar);
 }
 
-void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv, const VocabularioControlado &voc) {
+void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv, 
+                                              const VocabularioControlado &voc) {
   Definicao definicao;
   try {
     definicao = isv->ConsultarDefinicao(voc);
@@ -466,7 +526,6 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
         system(PAUSE);
         return;
       }
-      
       system(CLEAR);
       cout << "Nome do Termo: " << termos[opt - 1].GetNome().GetNome() << "\n";
       cout << "Classe do Termo: " << termos[opt - 1].GetPreferencia().GetPreferencia() << "\n";
@@ -544,7 +603,6 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
     definicao = definicoes[opt - 1];
   }
 
-
   resultado = isv->AssociarTermoDefinicao(termo, definicao);
 
   system(CLEAR);
@@ -554,8 +612,6 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
     cout << "Falha ao associar Termo a Definicao!\n";
   }
   system(PAUSE);
-
-  
 }
 
 void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabulario *isv, 
@@ -766,11 +822,10 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
       cout << "Termo Criado com Sucesso!\n\n";
       cout << "Nome do Termo: " << termo.GetNome().GetNome() << "\n";
       cout << "Classe do Termo: " << termo.GetPreferencia().GetPreferencia() << "\n";
-      cout << "Data do Termo: " << termo.GetData().GetData() << "\n";
+      cout << "Data do Termo: " << termo.GetData().GetData() << "\n\n";
     } else {
-      cout << "Falha ao Criar Termo!\n";
+      cout << "Falha ao Criar Termo!\n\n";
     }
-    system(PAUSE);
   }
   catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
@@ -778,6 +833,12 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
   }
 
   resultado = isv->AssociarTermoDefinicao(termo, def);
+  if (resultado.GetResultado() == Resultado::ksucesso_) {
+    cout << "Definicao associada com sucesso!\n";
+  } else {
+    cout << "Nao foi possivel associar a definicao!\n";
+  }
+  system(PAUSE);
 }
 
 void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *isv) {
@@ -1043,7 +1104,8 @@ void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario 
   } while (opt != voltar);
 }
 
-void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *isv, const Email &email) {
+void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabulario *isv,
+                                                       const Email &email) {
   int opt;
   do {
     system(CLEAR);
@@ -1068,7 +1130,8 @@ void ComandoAVocabularioInteragirVocabulario::Executar(InterfaceServicoVocabular
   } while (opt != kvoltar);
 }
 
-void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario *isv, const Email &email) {
+void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario *isv,
+                                                    const Email &email) {
   VocabularioControlado vocabulario;
   Definicao definicao;
   Resultado resultado;

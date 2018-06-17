@@ -10,7 +10,7 @@ CC = gcc
 SQLFLAGS = -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSIONTARGET
 CPPFLAGS = -std=c++11
 CFLAGS = -g -Wall -pedantic
-LDFLAGS = 
+LDFLAGS =
 LDLIBS = 
 
 .PHONY: all clean sqlite
@@ -18,7 +18,7 @@ LDLIBS =
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o -lpthread -ldl
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
 	$(CXX) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
