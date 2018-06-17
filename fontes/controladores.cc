@@ -107,7 +107,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }
-  
+
   if (verificado.GetResultado() == ResultadoAutenticar::kfalha_) {
     cout << "Falha de autenticacao!\n";
     system(PAUSE);
@@ -115,7 +115,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar() {
     resultado.SetEmailResultado(email);
   }
   resultado.SetResultado(verificado.GetResultado());
-  
+
   return resultado;
 }
 
@@ -205,7 +205,7 @@ void CtrlApresentacaoVocabulario::Executar(const Email &email) {
     return;
   }
   delete comando_sql;
-  
+
   if (tipo_conta == "leitor") {
     ComandoAVocabularioLeitor *comando;
     comando = new ComandoAVocabularioLeitor();

@@ -1,7 +1,7 @@
 #include "../cabecalhos/includes.h"
 
 void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
-  Leitor novoleitor; 
+  Leitor novoleitor;
   string inome, isobrenome, isenha, iemail;
   Nome nome;
   Sobrenome sobrenome;
@@ -18,8 +18,7 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
       cin >> opt;
 
       switch (opt) {
-        case 1:
-          return;
+        case 1:return;
         case 2:
         default:break;
       }
@@ -50,7 +49,7 @@ void ComandoACadastroLeitor::Executar(InterfaceServicoCadastro *isc) {
       system(PAUSE);
     }
   } while (true);
-  
+
   Resultado res = isc->CadastrarLeitor(novoleitor, nome, sobrenome, senha, email);
   if (res.GetResultado() == Resultado::ksucesso_) {
     cout << "Cadastrado com sucesso!\n";
@@ -82,8 +81,7 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
       cin >> opt;
 
       switch (opt) {
-        case 1:
-          return;
+        case 1:return;
         case 2:
         default:break;
       }
@@ -131,8 +129,8 @@ void ComandoACadastroAdm::Executar(InterfaceServicoCadastro *isc) {
   } while (true);
 
   Resultado res = isc->CadastrarAdm(novoadm, nome, sobrenome, senha, email,
-                                         data, telefone, endereco);
-  
+                                    data, telefone, endereco);
+
   if (res.GetResultado() == Resultado::ksucesso_) {
     cout << "Cadastrado com sucesso!\n";
   } else {
@@ -162,8 +160,7 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
       cin >> opt;
 
       switch (opt) {
-        case 1:
-          return;
+        case 1:return;
         case 2:
         default:break;
       }
@@ -200,10 +197,10 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
       tentativas++;
       system(PAUSE);
     }
-  } while(true);
-  
-  Resultado res = isc->CadastrarDev(novodev, nome, sobrenome, senha, 
-                                          email, data);
+  } while (true);
+
+  Resultado res = isc->CadastrarDev(novodev, nome, sobrenome, senha,
+                                    email, data);
   if (res.GetResultado() == Resultado::ksucesso_) {
     cout << "Cadastrado com sucesso!\n";
   } else {
@@ -212,8 +209,8 @@ void ComandoACadastroDev::Executar(InterfaceServicoCadastro *isc) {
   system(PAUSE);
 }
 
-Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu, 
-                                          const Email &email) {
+Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu,
+                                           const Email &email) {
   Resultado res;
   ComandoSqlTipoConta *cmd_tc;
   ComandoSqlPesquisarUsuario *comando;
@@ -222,7 +219,7 @@ Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu,
   try {
     cmd_tc->Executar();
     string tipo_conta = cmd_tc->RecuperaConta();
-    if ("leitor" == tipo_conta) {  
+    if ("leitor" == tipo_conta) {
       comando->Executar();
       Leitor l = comando->GetLeitor();
       isu->Exibir(l);
@@ -234,7 +231,7 @@ Resultado ComandoAUsuarioMostrar::Executar(InterfaceServicoUsuario *isu,
       comando->Executar();
       Administrador a = comando->GetAdm();
       isu->Exibir(a);
-    } 
+    }
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     res.SetResultado(Resultado::kfalha_);
@@ -283,8 +280,8 @@ Resultado ComandoAUsuarioEditar::Executar(InterfaceServicoUsuario *isu,
       comando_att = new ComandoSqlAtualizar(res.GetAdm());
       comando_att->Executar();
       delete comando_att;
-    } 
-  } catch(exception &e) {
+    }
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     delete comando;
@@ -333,8 +330,7 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *isv) {
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:
-        comando = new ComandoAVocabularioListarVocabularios();
+      case klistarvocabularios:comando = new ComandoAVocabularioListarVocabularios();
         comando->Executar(isv);
         delete comando;
         break;
@@ -346,7 +342,7 @@ void ComandoAVocabularioLeitor::Executar(InterfaceServicoVocabulario *isv) {
 
 void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv,
                                                 const Email &email) {
-  ComandoAVocabulario * comando_v;
+  ComandoAVocabulario *comando_v;
   ComandoAVocabularioEmail *comando_e;
 
   int opt;
@@ -363,28 +359,23 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:
-        comando_v = new ComandoAVocabularioListarVocabularios();
+      case klistarvocabularios:comando_v = new ComandoAVocabularioListarVocabularios();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kcadastrardesenvolvedor:
-        comando_e = new ComandoAVocabularioCadastrarDesenvolvedor();
+      case kcadastrardesenvolvedor:comando_e = new ComandoAVocabularioCadastrarDesenvolvedor();
         comando_e->Executar(isv, email);
         delete comando_e;
         break;
-      case kassociar:
-        comando_v = new ComandoAVocabularioAssociar();
+      case kassociar:comando_v = new ComandoAVocabularioAssociar();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kinteragirtermo:
-        comando_v = new ComandoAVocabularioInteragirTermo();
+      case kinteragirtermo:comando_v = new ComandoAVocabularioInteragirTermo();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kinteragirdefinicao:
-        comando_v = new ComandoAVocabularioInteragirDefinicao();
+      case kinteragirdefinicao:comando_v = new ComandoAVocabularioInteragirDefinicao();
         comando_v->Executar(isv);
         delete comando_v;
         break;
@@ -396,7 +387,7 @@ void ComandoAVocabularioDesenvolvedor::Executar(InterfaceServicoVocabulario *isv
 
 void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv,
                                                 const Email &email) {
-  ComandoAVocabulario * comando_v;
+  ComandoAVocabulario *comando_v;
   ComandoAVocabularioEmail *comando_e;
 
   int opt;
@@ -414,33 +405,27 @@ void ComandoAVocabularioAdministrador::Executar(InterfaceServicoVocabulario *isv
     cin >> opt;
 
     switch (opt) {
-      case klistarvocabularios:
-        comando_v = new ComandoAVocabularioListarVocabularios();
+      case klistarvocabularios:comando_v = new ComandoAVocabularioListarVocabularios();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kcadastrardesenvolvedor:
-        comando_e = new ComandoAVocabularioCadastrarAdministrador();
+      case kcadastrardesenvolvedor:comando_e = new ComandoAVocabularioCadastrarAdministrador();
         comando_e->Executar(isv, email);
         delete comando_e;
         break;
-      case kassociar:
-        comando_v = new ComandoAVocabularioAssociar();
+      case kassociar:comando_v = new ComandoAVocabularioAssociar();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kinteragirtermo:
-        comando_v = new ComandoAVocabularioInteragirTermo();
+      case kinteragirtermo:comando_v = new ComandoAVocabularioInteragirTermo();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kinteragirdefinicao:
-        comando_v = new ComandoAVocabularioInteragirDefinicao();
+      case kinteragirdefinicao:comando_v = new ComandoAVocabularioInteragirDefinicao();
         comando_v->Executar(isv);
         delete comando_v;
         break;
-      case kinteragirvocabulario:
-        comando_e = new ComandoAVocabularioInteragirVocabulario();
+      case kinteragirvocabulario:comando_e = new ComandoAVocabularioInteragirVocabulario();
         comando_e->Executar(isv, email);
         delete comando_e;
         break;
@@ -455,7 +440,7 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
   vector<VocabularioControlado> vocabularios;
   try {
     vocabularios = isv->ConsultarVocabularios();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -482,12 +467,12 @@ void ComandoAVocabularioListarVocabularios::Executar(InterfaceServicoVocabulario
   } while (opt != voltar);
 }
 
-void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv, 
-                                              const VocabularioControlado &voc) {
+void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
+                                               const VocabularioControlado &voc) {
   Definicao definicao;
   try {
     definicao = isv->ConsultarDefinicao(voc);
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -496,7 +481,7 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
   vector<Termo> termos;
   try {
     termos = isv->ConsultarTermos(voc);
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -521,7 +506,7 @@ void ComandoAVocabularioListarTermos::Executar(InterfaceServicoVocabulario *isv,
       vector<Definicao> defs;
       try {
         defs = isv->ConsultarDefinicao(termos[opt - 1]);
-      } catch(exception &e) {
+      } catch (exception &e) {
         cout << "\n\t" << e.what() << "\n";
         system(PAUSE);
         return;
@@ -548,7 +533,7 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
 
   try {
     termos = isv->ConsultarTermos();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -567,23 +552,23 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
   cout << voltar << ". Voltar\n\topcao: ";
   cin >> opt;
 
-  if(opt == voltar) {
+  if (opt == voltar) {
     return;
   }
 
-  if(opt < voltar && opt > 0) {
+  if (opt < voltar && opt > 0) {
     termo = termos[opt - 1];
   }
 
   try {
     definicoes = isv->ConsultarDefinicao(termo);
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
 
-  if(definicoes.size() >= kmaxdef_termo) {
+  if (definicoes.size() >= kmaxdef_termo) {
     system(CLEAR);
     cout << "Este termo ja possui o numero maximo de Definicoes\n";
     system(PAUSE);
@@ -592,7 +577,7 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
 
   try {
     definicoes = isv->ConsultarDefinicoes();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -610,11 +595,11 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
   cout << voltar << ". Voltar\n\topcao: ";
   cin >> opt;
 
-  if(opt == voltar) {
+  if (opt == voltar) {
     return;
   }
 
-  if(opt < voltar && opt > 0) {
+  if (opt < voltar && opt > 0) {
     definicao = definicoes[opt - 1];
   }
 
@@ -629,18 +614,18 @@ void ComandoAVocabularioAssociar::Executar(InterfaceServicoVocabulario *isv) {
   system(PAUSE);
 }
 
-void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabulario *isv, 
-                                                        const Email &email) {
+void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabulario *isv,
+                                                         const Email &email) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   try {
-    vocabularios = isv->ConsultarVocabularios(); 
-  } catch(exception &e) {
+    vocabularios = isv->ConsultarVocabularios();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
-  
+
   int voltar = vocabularios.size() + 1;
   int opt;
 
@@ -658,8 +643,8 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
     if (opt < voltar && opt > 0) {
       int desenvolvedores;
       desenvolvedores = isv->ConsultarDesenvolvedores(vocabularios[opt - 1]);
-      
-      if(desenvolvedores >= kmaxdev_voc) {
+
+      if (desenvolvedores >= kmaxdev_voc) {
         system(CLEAR);
         cout << "Este vocabulario ja possui o numero maximo de Desenvolvedores\n";
         system(PAUSE);
@@ -679,18 +664,18 @@ void ComandoAVocabularioCadastrarDesenvolvedor::Executar(InterfaceServicoVocabul
   } while (opt != voltar);
 }
 
-void ComandoAVocabularioCadastrarAdministrador::Executar(InterfaceServicoVocabulario *isv, 
-                                                        const Email &email) {
+void ComandoAVocabularioCadastrarAdministrador::Executar(InterfaceServicoVocabulario *isv,
+                                                         const Email &email) {
   Resultado resultado;
   vector<VocabularioControlado> vocabularios;
   try {
-    vocabularios = isv->ConsultarVocabularios(); 
-  } catch(exception &e) {
+    vocabularios = isv->ConsultarVocabularios();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
-  
+
   int voltar = vocabularios.size() + 1;
   int opt;
 
@@ -750,13 +735,13 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
 
   try {
     vocabularios = isv->ConsultarVocabularios();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
 
-  if(vocabularios.empty()) {
+  if (vocabularios.empty()) {
     system(CLEAR);
     cout << "Nao existem Vocabularios para associar o Termo\n";
     system(PAUSE);
@@ -765,7 +750,7 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
 
   int voltar = vocabularios.size() + 1;
   int opt;
-  
+
   system(CLEAR);
   cout << "Vocabularios Disponiveis" << "\n\n";
   for (int i = 0; i < voltar - 1; i++) {
@@ -787,13 +772,13 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
 
   try {
     definicoes = isv->ConsultarDefinicoes();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
 
-  if(definicoes.empty()) {
+  if (definicoes.empty()) {
     system(CLEAR);
     cout << "Nao existem Definicoes para associar ao Termo\n";
     system(PAUSE);
@@ -801,7 +786,7 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
   }
 
   voltar = definicoes.size() + 1;
-  
+
   system(CLEAR);
   cout << "Definicoes Disponiveis" << "\n\n";
   for (int i = 0; i < voltar - 1; i++) {
@@ -819,7 +804,7 @@ void ComandoAVocabularioInteragirTermo::Criar(InterfaceServicoVocabulario *isv) 
     int termos;
     termos = isv->ConsultarTermos(definicoes[opt - 1]);
 
-    if(termos == 0) {
+    if (termos == 0) {
       preferencia.SetPreferencia("PT");
     } else {
       preferencia.SetPreferencia("NP");
@@ -877,7 +862,7 @@ void ComandoAVocabularioInteragirTermo::Editar(InterfaceServicoVocabulario *isv)
 
   try {
     termos = isv->ConsultarTermos();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -936,8 +921,8 @@ void ComandoAVocabularioInteragirTermo::Excluir(InterfaceServicoVocabulario *isv
   vector<Termo> termos;
 
   try {
-    termos = isv->ConsultarTermos(); 
-  } catch(exception &e) {
+    termos = isv->ConsultarTermos();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -1017,7 +1002,7 @@ void ComandoAVocabularioInteragirDefinicao::Criar(InterfaceServicoVocabulario *i
     data.SetData(idata);
 
     definicao = Definicao(texto, data);
-    
+
     resultado = isv->CriarDefinicao(definicao, texto, data);
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
@@ -1042,7 +1027,7 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
 
   try {
     definicoes = isv->ConsultarDefinicoes();
-  } catch(exception &e) {
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -1096,11 +1081,11 @@ void ComandoAVocabularioInteragirDefinicao::Editar(InterfaceServicoVocabulario *
 
 void ComandoAVocabularioInteragirDefinicao::Excluir(InterfaceServicoVocabulario *isv) {
   Resultado resultado;
-  vector<Definicao> definicoes; 
+  vector<Definicao> definicoes;
 
   try {
-    definicoes = isv->ConsultarDefinicoes(); 
-  } catch(exception &e) {
+    definicoes = isv->ConsultarDefinicoes();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
@@ -1185,7 +1170,7 @@ void ComandoAVocabularioInteragirVocabulario::Criar(InterfaceServicoVocabulario 
     data.SetData(idata);
 
     definicao = Definicao(texto, data);
-    
+
     resultado = isv->CriarDefinicao(definicao, texto, data);
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
@@ -1242,13 +1227,13 @@ void ComandoAVocabularioInteragirVocabulario::Editar(InterfaceServicoVocabulario
   vector<VocabularioControlado> vocabularios;
 
   try {
-    vocabularios = isv->ConsultarVocabularios(); 
-  } catch(exception &e) {
+    vocabularios = isv->ConsultarVocabularios();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
-  
+
   int voltar = vocabularios.size() + 1;
   int opt;
 
@@ -1306,13 +1291,13 @@ void ComandoAVocabularioInteragirVocabulario::Excluir(InterfaceServicoVocabulari
   vector<VocabularioControlado> vocabularios;
 
   try {
-    vocabularios = isv->ConsultarVocabularios(); 
-  } catch(exception &e) {
+    vocabularios = isv->ConsultarVocabularios();
+  } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     system(PAUSE);
     return;
   }
-  
+
   int voltar = vocabularios.size() + 1;
   int opt;
 

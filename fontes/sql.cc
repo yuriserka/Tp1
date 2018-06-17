@@ -28,8 +28,8 @@ void ComandoSql::Executar() {
   Desconectar();
 }
 
-int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna, 
-                        char **nomecoluna) {
+int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna,
+                         char **nomecoluna) {
   ElementoResultado elemento;
   for (int i = 0; i < argc; i++) {
     elemento.SetNomeColuna(nomecoluna[i]);
@@ -43,8 +43,8 @@ int ComandoSql::Callback(void *nao_usado, int argc, char **valorcoluna,
   return 0;
 }
 
-ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {  
-  cmdSql_  = "CREATE TABLE IF NOT EXISTS usuarios (";
+ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
+  cmdSql_ = "CREATE TABLE IF NOT EXISTS usuarios (";
   cmdSql_ += "nome VARCHAR(21) NOT NULL, ";
   cmdSql_ += "sobrenome VARCHAR(21) NOT NULL, ";
   cmdSql_ += "senha VARCHAR(9) NOT NULL, ";
@@ -283,7 +283,7 @@ vector<VocabularioControlado> ComandoSqlConsultarVocabs::GetVocabs() {
   ElementoResultado resultado;
   VocabularioControlado aux;
 
-  while(!lista_resultado_.empty()) {
+  while (!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -318,7 +318,7 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
   ElementoResultado resultado;
   Termo aux;
 
-  while(!lista_resultado_.empty()) {
+  while (!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -326,7 +326,7 @@ vector<Termo> ComandoSqlConsultarTermos::GetTermos() {
     resultado = lista_resultado_.back();
     lista_resultado_.pop_back();
     aux.SetNome(Nome(resultado.GetValorColuna()));
-  
+
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -354,7 +354,7 @@ vector<Nome> ComandoSqlConsultarTermos::GetNomes() {
   ElementoResultado resultado;
   Nome aux;
 
-  while(!lista_resultado_.empty()) {
+  while (!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -375,7 +375,7 @@ vector<Definicao> ComandoSqlConsultarDefinicao::GetDefinicoes() {
   ElementoResultado resultado;
   Definicao aux;
 
-  while(!lista_resultado_.empty()) {
+  while (!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }
@@ -426,7 +426,7 @@ vector<Email> ComandoSqlConsultarDevs::GetDevs() {
   ElementoResultado resultado;
   Email aux;
 
-  while(!lista_resultado_.empty()) {
+  while (!lista_resultado_.empty()) {
     if (lista_resultado_.empty()) {
       throw invalid_argument("Lista Vazia\n");
     }

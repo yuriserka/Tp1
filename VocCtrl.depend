@@ -505,10 +505,10 @@
 	<ctype.h>
 	<math.h>
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\comandos.cc
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\comandos.cc
 	"../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\includes.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\includes.h
 	<bits/stdc++.h>
 	"dominios.h"
 	"entidades.h"
@@ -523,61 +523,61 @@
 	"servicos.h"
 	"controladores.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\dominios.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\dominios.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\entidades.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\entidades.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\auxiliares.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\auxiliares.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sqlite3.h
+1523383067 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sqlite3.h
 	<stdarg.h>
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sql.h
+1529268244 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sql.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-dominios.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-dominios.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-entidades.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-entidades.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\testes.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\testes.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\interfaces.h
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\interfaces.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\comandos.h
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\comandos.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\servicos.h
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\servicos.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\controladores.h
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\controladores.h
 	"../cabecalhos/../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\controladores.cc
+1529258811 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\controladores.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\dominios.cc
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\dominios.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\entidades.cc
+1528719847 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\entidades.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\main.cc
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\main.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\servicos.cc
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\servicos.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sql.cc
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sql.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sqlite3.c
+1528692480 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sqlite3.c
 	"config.h"
 	<vxWorks.h>
 	<pthread.h>
@@ -635,12 +635,12 @@
 	<ctype.h>
 	<math.h>
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\stubs.cc
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\stubs.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-dominios.cc
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-dominios.cc
 	"../cabecalhos/includes.h"
 
-1529034589 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-entidades.cc
+1528719002 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-entidades.cc
 	"../cabecalhos/includes.h"
 

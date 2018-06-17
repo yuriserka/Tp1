@@ -4,30 +4,33 @@
 #include "../cabecalhos/../cabecalhos/includes.h"
 
 class CtrlServicoControle : public InterfaceServicoControle {
-  public:
-    void Construir() override;
+ public:
+  void Construir() override;
 };
 
 class CtrlServicoAutenticacao : public InterfaceServicoAutenticacao {
-  public:
-    Resultado Autenticar(const Email &, const Senha &) override;
+ public:
+  Resultado Autenticar(const Email &, const Senha &) override;
 };
 
 class CtrlServicoCadastro : public InterfaceServicoCadastro {
-  public: 
+ public:
   Resultado CadastrarLeitor(Leitor &, const Nome &,
-                            const Sobrenome &, const Senha &, const Email &) override;
-                            
+                            const Sobrenome &, const Senha &,
+                            const Email &) override;
+
   Resultado CadastrarDev(Desenvolvedor &, const Nome &,
-                         const Sobrenome &, const Senha &, const Email &, const Data &) override;
+                         const Sobrenome &, const Senha &, const Email &,
+                         const Data &) override;
 
   Resultado CadastrarAdm(Administrador &, const Nome &,
-                         const Sobrenome &, const Senha &, const Email &, const Data &,
-                         const Telefone &, const Address &) override;
+                         const Sobrenome &, const Senha &, const Email &,
+                         const Data &, const Telefone &,
+                         const Address &) override;
 };
 
 class CtrlServicoUsuario : public InterfaceServicoUsuario {
-  public:
+ public:
 
   void Exibir(const Leitor &) override;
   void Exibir(const Desenvolvedor &) override;
@@ -61,33 +64,35 @@ class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
 
   int ConsultarDesenvolvedores(const VocabularioControlado &) override;
 
-  Resultado CadastrarDesenvolvedor(const VocabularioControlado &, const Email &) override;
+  Resultado CadastrarDesenvolvedor(const VocabularioControlado &,
+                                   const Email &) override;
 
-  Resultado CadastrarAdministrador(const VocabularioControlado &, const Email &) override;
+  Resultado CadastrarAdministrador(const VocabularioControlado &,
+                                   const Email &) override;
 
-
-  Resultado CriarTermo(Termo &, 
-                      const Nome &, 
-                      const ClasseDoTermo &,
-                      const Data &, 
-                      const VocabularioControlado &) override;
+  Resultado CriarTermo(Termo &,
+                       const Nome &,
+                       const ClasseDoTermo &,
+                       const Data &,
+                       const VocabularioControlado &) override;
 
   Resultado EditarTermo(Termo &, const Data &) override;
 
   Resultado ExcluirTermo(const Termo &) override;
 
-  Resultado CriarDefinicao(Definicao &, 
-                          const TextoDefinicao &, 
-                          const Data &) override;
+  Resultado CriarDefinicao(Definicao &,
+                           const TextoDefinicao &,
+                           const Data &) override;
 
   Resultado EditarDefinicao(Definicao &, const Data &) override;
 
   Resultado ExcluirDefinicao(const Definicao &) override;
 
   Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
-                        const Idioma &, const Data &, const Definicao &, const Email &) override;
+                             const Idioma &, const Data &, const Definicao &,
+                             const Email &) override;
 
-  Resultado EditarVocabulario(VocabularioControlado &, const Idioma &, 
+  Resultado EditarVocabulario(VocabularioControlado &, const Idioma &,
                               const Data &) override;
 
   Resultado ExcluirVocabulario(const VocabularioControlado &) override;

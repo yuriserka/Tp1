@@ -4,7 +4,7 @@ void CtrlServicoControle::Construir() {
   ComandoSql *servico_sql;
   servico_sql = new ComandoSqlCriarTabelas();
   servico_sql->Executar();
-  
+
   InterfaceApresentacaoAutenticacao *ctrl_aa;
   InterfaceApresentacaoUsuario *ctrl_au;
   InterfaceApresentacaoVocabulario *ctrl_av;
@@ -84,15 +84,15 @@ Resultado CtrlServicoAutenticacao::Autenticar(const Email &email, const Senha &s
     throw invalid_argument("Erro de Sistema!\n");
   }
   delete comando_s;
-  
+
   return resultado;
 }
 
-Resultado CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor, 
-                                        const Nome &nome,
-                                        const Sobrenome &sobrenome, 
-                                        const Senha &senha, 
-                                        const Email &email) {
+Resultado CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor,
+                                               const Nome &nome,
+                                               const Sobrenome &sobrenome,
+                                               const Senha &senha,
+                                               const Email &email) {
   Resultado resultado;
   try {
     novoleitor = Leitor(nome, sobrenome, senha, email);
@@ -129,8 +129,8 @@ Resultado CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor,
 
     comando_pesquisa = new ComandoSqlLerEmail(novoleitor.GetEmail());
     comando_pesquisa->Executar();
-    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
-    if(email_cadastrado == novoleitor.GetEmail().GetEmail()){
+    string email_cadastrado = comando_pesquisa->RecuperaEmail();
+    if (email_cadastrado == novoleitor.GetEmail().GetEmail()) {
       resultado.SetResultado(Resultado::ksucesso_);
     }
   } catch (exception &e) {
@@ -146,11 +146,11 @@ Resultado CtrlServicoCadastro::CadastrarLeitor(Leitor &novoleitor,
 }
 
 Resultado CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
-                                     const Nome &nome,
-                                     const Sobrenome &sobrenome,
-                                     const Senha &senha,
-                                     const Email &email,
-                                     const Data &data) {
+                                            const Nome &nome,
+                                            const Sobrenome &sobrenome,
+                                            const Senha &senha,
+                                            const Email &email,
+                                            const Data &data) {
   Resultado resultado;
   try {
     novodev = Desenvolvedor(nome, sobrenome, senha, email, data);
@@ -187,8 +187,8 @@ Resultado CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
 
     comando_pesquisa = new ComandoSqlLerEmail(novodev.GetEmail());
     comando_pesquisa->Executar();
-    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
-    if(email_cadastrado == novodev.GetEmail().GetEmail()){
+    string email_cadastrado = comando_pesquisa->RecuperaEmail();
+    if (email_cadastrado == novodev.GetEmail().GetEmail()) {
       resultado.SetResultado(Resultado::ksucesso_);
     }
   } catch (exception &e) {
@@ -203,14 +203,14 @@ Resultado CtrlServicoCadastro::CadastrarDev(Desenvolvedor &novodev,
   return resultado;
 }
 
-Resultado CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm, 
-                                     const Nome &nome,
-                                     const Sobrenome &sobrenome, 
-                                     const Senha &senha,
-                                     const Email &email, 
-                                     const Data &data, 
-                                     const Telefone &telefone, 
-                                     const Address &endereco) {
+Resultado CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm,
+                                            const Nome &nome,
+                                            const Sobrenome &sobrenome,
+                                            const Senha &senha,
+                                            const Email &email,
+                                            const Data &data,
+                                            const Telefone &telefone,
+                                            const Address &endereco) {
   Resultado resultado;
   try {
     novoadm = Administrador(nome, sobrenome, senha, email, data, telefone, endereco);
@@ -247,8 +247,8 @@ Resultado CtrlServicoCadastro::CadastrarAdm(Administrador &novoadm,
 
     comando_pesquisa = new ComandoSqlLerEmail(novoadm.GetEmail());
     comando_pesquisa->Executar();
-    string email_cadastrado = comando_pesquisa->RecuperaEmail(); 
-    if(email_cadastrado == novoadm.GetEmail().GetEmail()){
+    string email_cadastrado = comando_pesquisa->RecuperaEmail();
+    if (email_cadastrado == novoadm.GetEmail().GetEmail()) {
       resultado.SetResultado(Resultado::ksucesso_);
     }
   } catch (exception &e) {
@@ -510,8 +510,8 @@ Resultado CtrlServicoUsuario::Excluir(const Email &email) {
   comando_c = new ComandoSqlConsultarVocabs(email);
   comando_c->Executar();
   vocabularios = comando_c->GetVocabs();
-  
-  for(auto i : vocabularios) {
+
+  for (auto i : vocabularios) {
     isv->ExcluirVocabulario(i);
   }
   delete isv;
@@ -542,7 +542,7 @@ vector<VocabularioControlado> CtrlServicoVocabulario::ConsultarVocabularios() {
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }
-  
+
   delete comando;
   return vocabularios;
 }
@@ -559,7 +559,7 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos(const VocabularioControlad
     cout << "\n\t" << e.what() << "\n";
   }
 
-  delete comando;  
+  delete comando;
   return termos;
 }
 
@@ -591,7 +591,7 @@ vector<Termo> CtrlServicoVocabulario::ConsultarTermos() {
     cout << "\n\t" << e.what() << "\n";
   }
 
-  delete comando;  
+  delete comando;
   return termos;
 }
 
@@ -635,7 +635,7 @@ vector<Definicao> CtrlServicoVocabulario::ConsultarDefinicoes() {
     cout << "\n\t" << e.what() << "\n";
     delete comando;
   }
-  
+
   delete comando;
   return definicoes;
 }
@@ -650,12 +650,12 @@ int CtrlServicoVocabulario::ConsultarDesenvolvedores(const VocabularioControlado
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
   }
-  
+
   delete comando;
   return desenvolvedores.size();
 }
 
-Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc, 
+Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioControlado &voc,
                                                          const Email &email) {
   Resultado resultado;
   ComandoSqlAssociar *comando;
@@ -673,7 +673,7 @@ Resultado CtrlServicoVocabulario::CadastrarDesenvolvedor(const VocabularioContro
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioControlado &voc, 
+Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioControlado &voc,
                                                          const Email &email) {
   Resultado resultado;
   ComandoSqlPesquisarUsuario *comando_pesquisar;
@@ -683,7 +683,7 @@ Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioContro
     comando_pesquisar->Executar();
     Administrador adm = comando_pesquisar->GetAdm();
     comando_att = new ComandoSqlAtualizar(adm, voc);
-    comando_att->Executar(); 
+    comando_att->Executar();
   } catch (exception &e) {
     cout << "\n\t" << e.what() << "\n";
     resultado.SetResultado(Resultado::kfalha_);
@@ -697,11 +697,11 @@ Resultado CtrlServicoVocabulario::CadastrarAdministrador(const VocabularioContro
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::CriarTermo(Termo &termo, 
-                                            const Nome &nome, 
-                                            const ClasseDoTermo &classe, 
-                                            const Data &data, 
-                                            const VocabularioControlado &voc) {
+Resultado CtrlServicoVocabulario::CriarTermo(Termo &termo,
+                                             const Nome &nome,
+                                             const ClasseDoTermo &classe,
+                                             const Data &data,
+                                             const VocabularioControlado &voc) {
   Resultado resultado;
 
   try {
@@ -713,7 +713,7 @@ Resultado CtrlServicoVocabulario::CriarTermo(Termo &termo,
   }
 
   ComandoSqlCadastrar *comando;
-  
+
   try {
     comando = new ComandoSqlCadastrar(termo, voc);
     comando->Executar();
@@ -729,8 +729,8 @@ Resultado CtrlServicoVocabulario::CriarTermo(Termo &termo,
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::CriarDefinicao(Definicao &def, 
-                                                 const TextoDefinicao &texto, 
+Resultado CtrlServicoVocabulario::CriarDefinicao(Definicao &def,
+                                                 const TextoDefinicao &texto,
                                                  const Data &data) {
   Resultado resultado;
 
@@ -743,7 +743,7 @@ Resultado CtrlServicoVocabulario::CriarDefinicao(Definicao &def,
   }
 
   ComandoSqlCadastrar *comando;
-  
+
   try {
     comando = new ComandoSqlCadastrar(def);
     comando->Executar();
@@ -759,11 +759,11 @@ Resultado CtrlServicoVocabulario::CriarDefinicao(Definicao &def,
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc, 
-                                                   const Nome &nome, 
-                                                   const Idioma &idioma, 
-                                                   const Data &data, 
-                                                   const Definicao &def, 
+Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc,
+                                                   const Nome &nome,
+                                                   const Idioma &idioma,
+                                                   const Data &data,
+                                                   const Definicao &def,
                                                    const Email &email) {
   Resultado resultado;
 
@@ -776,7 +776,7 @@ Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc,
   }
 
   ComandoSqlCadastrar *comando;
-  
+
   try {
     comando = new ComandoSqlCadastrar(voc, def, email);
     comando->Executar();
@@ -792,7 +792,7 @@ Resultado CtrlServicoVocabulario::CriarVocabulario(VocabularioControlado &voc,
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::EditarTermo(Termo &termo, 
+Resultado CtrlServicoVocabulario::EditarTermo(Termo &termo,
                                               const Data &data) {
   Resultado resultado;
   try {
@@ -813,13 +813,13 @@ Resultado CtrlServicoVocabulario::EditarTermo(Termo &termo,
     delete comando;
     return resultado;
   }
-  
+
   resultado.SetResultado(Resultado::ksucesso_);
   delete comando;
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::EditarDefinicao(Definicao &def, 
+Resultado CtrlServicoVocabulario::EditarDefinicao(Definicao &def,
                                                   const Data &data) {
   Resultado resultado;
   try {
@@ -840,14 +840,14 @@ Resultado CtrlServicoVocabulario::EditarDefinicao(Definicao &def,
     delete comando;
     return resultado;
   }
-  
+
   resultado.SetResultado(Resultado::ksucesso_);
   delete comando;
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc, 
-                                                    const Idioma &idioma, 
+Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc,
+                                                    const Idioma &idioma,
                                                     const Data &data) {
   Resultado resultado;
   try {
@@ -869,7 +869,7 @@ Resultado CtrlServicoVocabulario::EditarVocabulario(VocabularioControlado &voc,
     delete comando;
     return resultado;
   }
-  
+
   resultado.SetResultado(Resultado::ksucesso_);
   delete comando;
   return resultado;
@@ -915,7 +915,7 @@ Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado
   vector<Termo> termos;
   termos = ConsultarTermos(voc);
 
-  for(auto i : termos) {
+  for (auto i : termos) {
     ExcluirTermo(i);
   }
 
@@ -933,8 +933,8 @@ Resultado CtrlServicoVocabulario::ExcluirVocabulario(const VocabularioControlado
   return resultado;
 }
 
-Resultado CtrlServicoVocabulario::AssociarTermoDefinicao(const Termo &termo, 
-                                                  const Definicao &definicao) {
+Resultado CtrlServicoVocabulario::AssociarTermoDefinicao(const Termo &termo,
+                                                         const Definicao &definicao) {
   Resultado resultado;
   ComandoSqlAssociar *comando;
   try {

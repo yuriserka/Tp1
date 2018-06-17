@@ -23,7 +23,7 @@
  * 
  */
 class ComandoACadastro {
- public: 
+ public:
   /**
    * @brief função virtual pura que servirá de base para as diversas outras classes de comando que
    * farão parte da parte de apresentação cadastro.
@@ -273,7 +273,6 @@ class ComandoAVocabularioAdministrador : public ComandoAVocabularioEmail {
   };
 };
 
-
 /**
  * @brief Classe que é responsavel por Cadastrar um Desenvolvedor à algum vocabulario controlado.
  * 
@@ -358,12 +357,12 @@ class ComandoAVocabularioCadastrarAdministrador : public ComandoAVocabularioEmai
 * 
 */
 class ComandoAVocabularioInteragirTermo : public ComandoAVocabulario {
-  public:
-    /**
-      * @brief mostrara as opções disponiveis para manipulação de Termos.
-      * 
-      */
-    void Executar(InterfaceServicoVocabulario *) override;
+ public:
+  /**
+    * @brief mostrara as opções disponiveis para manipulação de Termos.
+    *
+    */
+  void Executar(InterfaceServicoVocabulario *) override;
 
  private:
   enum {

@@ -351,7 +351,11 @@ class InterfaceServicoVocabulario {
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CriarTermo(Termo &, const Nome &, const ClasseDoTermo &, const Data &, const VocabularioControlado &) = 0;
+  virtual Resultado CriarTermo(Termo &,
+                               const Nome &,
+                               const ClasseDoTermo &,
+                               const Data &,
+                               const VocabularioControlado &) = 0;
 
   /**
    * @brief função abstrata que irá Editar um Termo.
@@ -395,14 +399,15 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
-                              const Idioma &, const Data &, const Definicao &, const Email &) = 0;
-  
+                                     const Idioma &, const Data &,
+                                     const Definicao &, const Email &) = 0;
+
   /**
    * @brief função abstrata que irá Editar um Vocabulario.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado EditarVocabulario(VocabularioControlado &, const Idioma &, 
+  virtual Resultado EditarVocabulario(VocabularioControlado &, const Idioma &,
                                       const Data &) = 0;
 
   /**
