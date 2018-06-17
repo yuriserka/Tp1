@@ -336,7 +336,9 @@ class ComandoSqlRemover : public ComandoSql {
     }
 
     explicit ComandoSqlRemover(const VocabularioControlado &voc) {
-      cmdSql_  = "DELETE FROM vocabularios WHERE nome = ";
+      cmdSql_ = "DELETE FROM desenvolvedor_vocabulario WHERE vocabulario = ";
+      cmdSql_ += "'" + voc.GetNome().GetNome() +     "';";
+      cmdSql_ += "DELETE FROM vocabularios WHERE nome = ";
       cmdSql_ += "'" + voc.GetNome().GetNome() +     "';";
     }
 
