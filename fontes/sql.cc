@@ -61,7 +61,7 @@ ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
   cmdSql_ += "data VARCHAR(11) NOT NULL, ";
   cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
   cmdSql_ += "administrador VARCHAR(100) NOT NULL, ";
-  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id), ";
+  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(texto), ";
   cmdSql_ += "FOREIGN KEY(administrador) REFERENCES usuarios(email), ";
   cmdSql_ += "PRIMARY KEY(nome) );";
 
@@ -88,7 +88,7 @@ ComandoSqlCriarTabelas::ComandoSqlCriarTabelas() {
   cmdSql_ += "termo VARCHAR(21) NOT NULL, ";
   cmdSql_ += "definicao VARCHAR(31) NOT NULL, ";
   cmdSql_ += "FOREIGN KEY(termo) REFERENCES termos(nome), ";
-  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(id) );";
+  cmdSql_ += "FOREIGN KEY(definicao) REFERENCES definicoes(texto) );";
 }
 
 string ComandoSqlLerSenha::RecuperaSenha() const {
