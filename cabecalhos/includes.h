@@ -2,7 +2,7 @@
 #define TRABALHO__INC__H__
 
 /**
- * @file ../cabecalhos/../cabecalhos/includes.h
+ * @file includes.h
  * @author Yuri Serka e Thiago Matos
  * @date 19 de Abril de 2018
  * 

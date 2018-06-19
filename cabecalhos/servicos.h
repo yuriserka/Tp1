@@ -58,7 +58,7 @@ class CtrlServicoCadastro : public InterfaceServicoCadastro {
   Resultado CadastrarLeitor(Leitor &, const Nome &,
                             const Sobrenome &, const Senha &,
                             const Email &) override;
-  
+
   /**
    * @brief são passados os argumentos necessarios pora o cadastramento de um Desenvolvedor
    * no banco de dados, e é verificado se ja existem emails cadastrados com o passado.
@@ -69,7 +69,7 @@ class CtrlServicoCadastro : public InterfaceServicoCadastro {
   Resultado CadastrarDev(Desenvolvedor &, const Nome &,
                          const Sobrenome &, const Senha &, const Email &,
                          const Data &) override;
-  
+
   /**
    * @brief são passados os argumentos necessarios pora o cadastramento de um Administrador
    * no banco de dados, e é verificado se ja existem emails cadastrados com o passado.
@@ -107,14 +107,14 @@ class CtrlServicoUsuario : public InterfaceServicoUsuario {
    * 
    */
   void Exibir(const Administrador &) override;
-  
+
   /**
    * @brief Edita os dados do Leitor atualmente logado e atualiza no banco de dados.
    * 
    * @return ResultadoUsuario Retorna um Leitor preenchido com os novos dados.
    */
   ResultadoUsuario Editar(const Leitor &) override;
-  
+
   /**
    * @brief Edita os dados do Desenvolvedor atualmente logado e atualiza no banco de dados.
    * 
@@ -128,7 +128,7 @@ class CtrlServicoUsuario : public InterfaceServicoUsuario {
    * @return ResultadoUsuario Retorna um Leitor preenchido com os novos dados.
    */
   ResultadoUsuario Editar(const Administrador &) override;
-  
+
   /**
    * @brief Exclui a conta do usuario logado, caso ele seja um administrador, entao 
    * todos os vocabularios associados a este administrador serao excluidos e junto com isso
@@ -143,6 +143,12 @@ class CtrlServicoUsuario : public InterfaceServicoUsuario {
   ResultadoUsuario AtualizaAdministrador(const Email &email);
 };
 
+/**
+ * @brief Classe reponsavel pelos serviços de vocabulario, são eles: listar vocabularios, 
+ * escluir, criar ou editar termos, vocabularios ou definicoes alem de poder se cadastrar como
+ * desenvolvedor de vocabularios.
+ * 
+ */
 class CtrlServicoVocabulario : public InterfaceServicoVocabulario {
   /**
    * @brief função herdada que retorna todos os vocabulários armazenados.

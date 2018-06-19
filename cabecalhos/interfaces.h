@@ -172,7 +172,7 @@ class InterfaceServicoCadastro {
    * @return Resultado retorna se foi sucesso ou falha.
    */
   virtual Resultado CadastrarAdm(Administrador &, const Nome &,
-                                 const Sobrenome &, const Senha &, 
+                                 const Sobrenome &, const Senha &,
                                  const Email &, const Data &,
                                  const Telefone &, const Address &) = 0;
 
@@ -183,7 +183,7 @@ class InterfaceServicoCadastro {
    * @return Resultado retorna se foi sucesso ou falha.
    */
   virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &,
-                                 const Sobrenome &, const Senha &, 
+                                 const Sobrenome &, const Senha &,
                                  const Email &, const Data &) = 0;
 
   /**
@@ -382,7 +382,7 @@ class InterfaceServicoVocabulario {
    * @return Resultado sucesso ou falha ao cadastrar o usuário.
    */
   virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &,
-                                          const Email &) = 0;
+                                           const Email &) = 0;
 
   /**
    * @brief função  que retorna a quantidade de desenvolvedores de determinado vocabulário.
