@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="VocCtrl" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/VocCtrl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add option="-Wall" />
+					<Add option="-pedantic" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/VocCtrl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-pedantic" />
+		</Compiler>
+		<Unit filename="cabecalhos/auxiliares.h" />
+		<Unit filename="cabecalhos/comandos.h" />
+		<Unit filename="cabecalhos/controladores.h" />
+		<Unit filename="cabecalhos/dominios.h" />
+		<Unit filename="cabecalhos/entidades.h" />
+		<Unit filename="cabecalhos/includes.h" />
+    <Unit filename="cabecalhos/interfaces.h" />
+    <Unit filename="cabecalhos/servicos.h" />
+    <Unit filename="cabecalhos/teste-entidades.h" />
+		<Unit filename="cabecalhos/testes.h" />
+		<Unit filename="cabecalhos/sql.h" />
+		<Unit filename="cabecalhos/sqlite3.h" />
+		<Unit filename="cabecalhos/teste-dominios.h" />
+		<Unit filename="cabecalhos/stubs.h" />
+		<Unit filename="fontes/comandos.cc" />
+		<Unit filename="fontes/controladores.cc" />
+		<Unit filename="fontes/dominios.cc" />
+		<Unit filename="fontes/entidades.cc" />
+		<Unit filename="fontes/main.cc" />
+		<Unit filename="fontes/servicos.cc" />
+		<Unit filename="fontes/sql.cc" />
+		<Unit filename="fontes/sqlite3.c" />
+		<Unit filename="fontes/stubs.cc" />
+		<Unit filename="fontes/teste-dominios.cc" />
+		<Unit filename="fontes/teste-entidades.cc" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

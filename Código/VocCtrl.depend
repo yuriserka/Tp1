@@ -1,0 +1,646 @@
+# depslib dependency file v1.0
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/dominios.h
+	<iostream>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/entidades.h
+	"dominios.h"
+	<iostream>
+
+1523885309 source:/home/aluno/Área de trabalho/VocCtrl/main.cpp
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/unit-test-dominios.h
+	"dominios.h"
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523885661 /home/aluno/Área de trabalho/VocCtrl/testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523885661 source:/home/aluno/Área de trabalho/VocCtrl/unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/dominios.h
+	<iostream>
+
+1523921406 source:/home/yuriserka/Downloads/VocCtrl/entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921400 /home/yuriserka/Downloads/VocCtrl/entidades.h
+	"dominios.h"
+	<iostream>
+
+1523920341 source:/home/yuriserka/Downloads/VocCtrl/main.cpp
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/unit-test-dominios.h
+	"dominios.h"
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523886672 /home/yuriserka/Downloads/VocCtrl/testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 source:/home/yuriserka/Downloads/VocCtrl/unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921482 source:/home/yuriserka/Downloads/VocCtrl/unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921387 source:/home/yuriserka/Downloads/VocCtrl/main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523886672 source:c:\users\yserk\downloads\vocctrl\dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523886672 c:\users\yserk\downloads\vocctrl\dominios.h
+	<iostream>
+
+1523921406 source:c:\users\yserk\downloads\vocctrl\entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932801 c:\users\yserk\downloads\vocctrl\entidades.h
+	"dominios.h"
+	<iostream>
+
+1523921387 source:c:\users\yserk\downloads\vocctrl\main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523932199 c:\users\yserk\downloads\vocctrl\unit-test-dominios.h
+	"dominios.h"
+
+1523932529 c:\users\yserk\downloads\vocctrl\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523932199 c:\users\yserk\downloads\vocctrl\testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523933069 source:c:\users\yserk\downloads\vocctrl\testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932199 source:c:\users\yserk\downloads\vocctrl\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932529 source:c:\users\yserk\downloads\vocctrl\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921406 source:c:\users\administrador\downloads\vocctrl\entidades.cc
+	"entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932801 c:\users\administrador\downloads\vocctrl\entidades.h
+	"dominios.h"
+	<iostream>
+
+1523886672 c:\users\administrador\downloads\vocctrl\dominios.h
+	<iostream>
+
+1523886672 source:c:\users\administrador\downloads\vocctrl\dominios.cc
+	"dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523921387 source:c:\users\administrador\downloads\vocctrl\main.cc
+	"entidades.h"
+	"dominios.h"
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	"testes.h"
+	<iostream>
+
+1523932199 c:\users\administrador\downloads\vocctrl\unit-test-dominios.h
+	"dominios.h"
+
+1523934383 c:\users\administrador\downloads\vocctrl\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1523932199 c:\users\administrador\downloads\vocctrl\testes.h
+	"unit-test-dominios.h"
+	"unit-test-entidades.h"
+	<iostream>
+
+1523933858 source:c:\users\administrador\downloads\vocctrl\testes.cc
+	"testes.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523933710 source:c:\users\administrador\downloads\vocctrl\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1523932529 source:c:\users\administrador\downloads\vocctrl\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1526785162 source:c:\users\yserk\clionprojects\tp1\dominios.cc
+	"includes.h"
+
+1526785162 c:\users\yserk\clionprojects\tp1\dominios.h
+	"includes.h"
+
+1526785162 source:c:\users\yserk\clionprojects\tp1\entidades.cc
+	"includes.h"
+
+1526974174 c:\users\yserk\clionprojects\tp1\entidades.h
+	"includes.h"
+
+1527993804 source:c:\users\yserk\clionprojects\tp1\main.cc
+	"includes.h"
+
+1524768174 c:\users\yserk\clionprojects\tp1\unit-test-dominios.h
+	"dominios.h"
+
+1524768174 c:\users\yserk\clionprojects\tp1\unit-test-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1526785162 c:\users\yserk\clionprojects\tp1\testes.h
+	"includes.h"
+
+1524783818 c:\users\yserk\clionprojects\tp1\ui.h
+	<vector>
+	"entidades.h"
+
+1524763806 source:c:\users\yserk\clionprojects\tp1\testes.cc
+
+1524782821 source:c:\users\yserk\clionprojects\tp1\ui.cc
+	"UI.h"
+	"dominios.h"
+	"entidades.h"
+	<iostream>
+	<string>
+
+1524765402 source:c:\users\yserk\clionprojects\tp1\unit-test-dominios.cc
+	"unit-test-dominios.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1524767250 source:c:\users\yserk\clionprojects\tp1\unit-test-entidades.cc
+	"unit-test-entidades.h"
+	<iostream>
+	<string>
+	<stdexcept>
+	<exception>
+
+1525571311 source:c:\users\yserk\clionprojects\tp1\apresentacao.cc
+	"apresentacao.h"
+
+1525666333 c:\users\yserk\clionprojects\tp1\apresentacao.h
+	"bits/stdc++.h"
+	"servicos.h"
+
+1528686869 c:\users\yserk\clionprojects\tp1\servicos.h
+	"includes.h"
+
+1528686884 c:\users\yserk\clionprojects\tp1\interfaces.h
+	"includes.h"
+
+1528332881 source:c:\users\yserk\clionprojects\tp1\servicos.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\clionprojects\tp1\teste-dominios.cc
+	"includes.h"
+
+1526974175 c:\users\yserk\clionprojects\tp1\teste-dominios.h
+	"includes.h"
+
+1526785162 source:c:\users\yserk\clionprojects\tp1\teste-entidades.cc
+	"includes.h"
+
+1526974175 c:\users\yserk\clionprojects\tp1\teste-entidades.h
+	"includes.h"
+
+1528332881 source:c:\users\yserk\clionprojects\tp1\comandos.cc
+	"includes.h"
+
+1528691295 c:\users\yserk\clionprojects\tp1\includes.h
+	"bits/stdc++.h"
+	"dominios.h"
+	"entidades.h"
+	"auxiliares.h"
+	"sqlite3.h"
+	"sql.h"
+	"teste-dominios.h"
+	"teste-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"comandos.h"
+	"servicos.h"
+	"controladores.h"
+
+1526974174 c:\users\yserk\clionprojects\tp1\auxiliares.h
+	"includes.h"
+
+1528691960 c:\users\yserk\clionprojects\tp1\comandos.h
+	"includes.h"
+
+1527994336 c:\users\yserk\clionprojects\tp1\stubs.h
+	"includes.h"
+
+1526907057 c:\users\yserk\clionprojects\tp1\controladores.h
+	"includes.h"
+
+1528001142 source:c:\users\yserk\clionprojects\tp1\controladores.cc
+	"includes.h"
+
+1527994647 source:c:\users\yserk\clionprojects\tp1\stubs.cc
+	"includes.h"
+
+1526974174 source:c:\users\yserk\downloads\170024385_170063666\comandos.cc
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\includes.h
+	"bits/stdc++.h"
+	"dominios.h"
+	"entidades.h"
+	"auxiliares.h"
+	"teste-dominios.h"
+	"teste-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"comandos.h"
+	"stubs.h"
+	"controladores.h"
+
+1526785162 c:\users\yserk\downloads\170024385_170063666\dominios.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\entidades.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\auxiliares.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\teste-dominios.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\teste-entidades.h
+	"includes.h"
+
+1526785162 c:\users\yserk\downloads\170024385_170063666\testes.h
+	"includes.h"
+
+1527013492 c:\users\yserk\downloads\170024385_170063666\interfaces.h
+	"includes.h"
+
+1526974174 c:\users\yserk\downloads\170024385_170063666\comandos.h
+	"includes.h"
+
+1526974175 c:\users\yserk\downloads\170024385_170063666\stubs.h
+	"includes.h"
+
+1526907057 c:\users\yserk\downloads\170024385_170063666\controladores.h
+	"includes.h"
+
+1526938583 source:c:\users\yserk\downloads\170024385_170063666\controladores.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\dominios.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\entidades.cc
+	"includes.h"
+
+1526907057 source:c:\users\yserk\downloads\170024385_170063666\main.cc
+	"includes.h"
+
+1526974175 source:c:\users\yserk\downloads\170024385_170063666\stubs.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\teste-dominios.cc
+	"includes.h"
+
+1526785162 source:c:\users\yserk\downloads\170024385_170063666\teste-entidades.cc
+	"includes.h"
+
+1523383067 c:\users\yserk\clionprojects\tp1\sqlite3.h
+	<stdarg.h>
+
+1528688144 c:\users\yserk\clionprojects\tp1\sql.h
+	"includes.h"
+
+1528332881 source:c:\users\yserk\clionprojects\tp1\sql.cc
+	"includes.h"
+
+1523383067 source:c:\users\yserk\clionprojects\tp1\sqlite3.c
+	"config.h"
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	"sqlite_tcl.h"
+	"tcl.h"
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\comandos.cc
+	"../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\includes.h
+	<bits/stdc++.h>
+	"dominios.h"
+	"entidades.h"
+	"auxiliares.h"
+	"sqlite3.h"
+	"sql.h"
+	"teste-dominios.h"
+	"teste-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"comandos.h"
+	"servicos.h"
+	"controladores.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\dominios.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\entidades.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\auxiliares.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1523383067 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sqlite3.h
+	<stdarg.h>
+
+1529268244 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\sql.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-dominios.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\teste-entidades.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\testes.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\interfaces.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\comandos.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1529266400 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\servicos.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1528719001 c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\cabecalhos\controladores.h
+	"../cabecalhos/../cabecalhos/includes.h"
+
+1529258811 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\controladores.cc
+	"../cabecalhos/includes.h"
+
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\dominios.cc
+	"../cabecalhos/includes.h"
+
+1528719847 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\entidades.cc
+	"../cabecalhos/includes.h"
+
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\main.cc
+	"../cabecalhos/includes.h"
+
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\servicos.cc
+	"../cabecalhos/includes.h"
+
+1529266400 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sql.cc
+	"../cabecalhos/includes.h"
+
+1528692480 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\sqlite3.c
+	"config.h"
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	"sqlite_tcl.h"
+	"tcl.h"
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\stubs.cc
+	"../cabecalhos/includes.h"
+
+1528719001 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-dominios.cc
+	"../cabecalhos/includes.h"
+
+1528719002 source:c:\users\yserk\downloads\cic-unb\2018-1\tp1\trabtp1\tp1\fontes\teste-entidades.cc
+	"../cabecalhos/includes.h"
+
