@@ -163,7 +163,7 @@ class ComandoAVocabulario {
 };
 
 /**
- * @brief Classe Abstrata dos Comandos de apresentação vocabulario.
+ * @brief Classe Abstrata dos Comandos de apresentação vocabulario que precisarão do email do usuario.
  * 
  */
 class ComandoAVocabularioEmail {

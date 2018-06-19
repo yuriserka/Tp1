@@ -27,15 +27,14 @@ class InterfaceApresentacaoControle;
  *
  */
 
-
 /**
- * @brief Interface de serviços do controle
+ * @brief Interface de serviços do controle, é responsavel por linkar os modulos do sistema.
  *
  */
 class InterfaceServicoControle {
  public:
   /**
-   * @brief função abstrata que ligará as controladoras com os serviços
+   * @brief função que ligará as controladoras com os serviços
    *
    * Também são chamados de builders, pois fazem todo o processo para que
    * o programa funcione corretamente.
@@ -57,37 +56,37 @@ class InterfaceServicoControle {
 class InterfaceApresentacaoControle {
  public:
   /**
-   * @brief função abstrata que inicializa o menu principal.
+   * @brief função que inicializa o menu principal.
    *
    */
   virtual void Inicializar() = 0;
 
   /**
-   * @brief função abstrata que vai para um menu apos ser logado
+   * @brief função que vai para um menu apos ser logado
    *
    */
   virtual void ControleLogado(const Email &) = 0;
 
   /**
-   * @brief função abstrata que Seta o controle para a parte de apresentação autenticação.
+   * @brief função que Seta o controle para a parte de apresentação autenticação.
    *
    */
   virtual void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *) = 0;
 
   /**
-   * @brief função abstrata que Seta o controle para a parte de apresentação cadastro.
+   * @brief função que Seta o controle para a parte de apresentação cadastro.
    *
    */
   virtual void SetCtrlApresentacaoCadastro(InterfaceApresentacaoCadastro *) = 0;
 
   /**
-   * @brief função abstrata que Seta o controle para a parte de apresentação usuario.
+   * @brief função que Seta o controle para a parte de apresentação usuario.
    *
    */
   virtual void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *) = 0;
 
   /**
-   * @brief função abstrata que Seta o controle para a parte de apresentação vocabulário.
+   * @brief função que Seta o controle para a parte de apresentação vocabulário.
    *
    */
   virtual void SetCtrlApresentacaoVocabulario(InterfaceApresentacaoVocabulario *) = 0;
@@ -100,13 +99,14 @@ class InterfaceApresentacaoControle {
 };
 
 /**
- * @brief Interface de serviços de autenticação
+ * @brief Interface de serviços de autenticação, os dados digitados pelo 
+ * usuario serão válidados de acordo com as regras do sistema.
  *
  */
 class InterfaceServicoAutenticacao {
  public:
   /**
-   * @brief @brief classe virtual que autentica os dados que foram passados
+   * @brief  função que autentica os dados que foram passados
    * quando solicitada a entrada no sistema.
    *
    * @return Resultado retorna um objeto com a informação de sucesso ou
@@ -128,7 +128,7 @@ class InterfaceServicoAutenticacao {
 class InterfaceApresentacaoAutenticacao {
  public:
   /**
-   * @brief função abstrata que autentica os dados do usuario.
+   * @brief função que autentica os dados do usuario.
    *
    * @return ResultadoAutenticar retorna um objeto que conterá email e
    * um resultado que representará sucesso ou falha.
@@ -149,32 +149,42 @@ class InterfaceApresentacaoAutenticacao {
 };
 
 /**
- * @brief Interface de Serviço de Cadastro
- *
+ * @brief Interface de Serviço de Cadastro, responsavel por cadastrar as entidades
+ * do tipo Leitor, Desenvolvedor e Administrador.
+ * *
  */
 class InterfaceServicoCadastro {
  public:
   /**
-   * @brief função abstrata que cadastra um leitor.
-   *
+   * @brief Função que irá receber os argumentos necessarios para a criação de 
+   * um Leitor e irá cadastra-lo ao banco de dados.
+   * 
+   * @return Resultado retorna se foi sucesso ou falha.
    */
   virtual Resultado CadastrarLeitor(Leitor &, const Nome &,
-                                    const Sobrenome &, const Senha &, const Email &) = 0;
+                                    const Sobrenome &, const Senha &,
+                                    const Email &) = 0;
 
   /**
-   * @brief função abstrata que cadastra um administrador.
-   *
+   * @brief Função que irá receber os argumentos necessarios para a criação de 
+   * um Administrador e irá cadastra-lo ao banco de dados.
+   * 
+   * @return Resultado retorna se foi sucesso ou falha.
    */
   virtual Resultado CadastrarAdm(Administrador &, const Nome &,
-                                 const Sobrenome &, const Senha &, const Email &, const Data &,
+                                 const Sobrenome &, const Senha &, 
+                                 const Email &, const Data &,
                                  const Telefone &, const Address &) = 0;
 
   /**
-   * @brief função abstrata que cadastra um desenvolvedor.
-   *
+   * @brief Função que irá receber os argumentos necessarios para a criação de 
+   * um Dcesenvolvedor e irá cadastra-lo ao banco de dados.
+   * 
+   * @return Resultado retorna se foi sucesso ou falha.
    */
   virtual Resultado CadastrarDev(Desenvolvedor &, const Nome &,
-                                 const Sobrenome &, const Senha &, const Email &, const Data &) = 0;
+                                 const Sobrenome &, const Senha &, 
+                                 const Email &, const Data &) = 0;
 
   /**
    * @brief Destrutor virtual padrão da classe.
@@ -184,19 +194,20 @@ class InterfaceServicoCadastro {
 };
 
 /**
- * @brief Interface de Apresentação de Cadastro
+ * @brief Interface de Apresentação de Cadastro, mostrará as opções disponiveis para
+ * cadastro
  *
  */
 class InterfaceApresentacaoCadastro {
  public:
   /**
-   * @brief função abstrata que irá cadastrar um usuario.
+   * @brief função que irá mostrar os tipos de conta que é possível se cadastrar.
    *
    */
   virtual void Cadastrar() = 0;
 
   /**
-   * @brief função abstrata que irá Seta o controle para a parte de
+   * @brief função que irá Seta o controle para a parte de
    * serviço de cadastro.
    *
    */
@@ -216,25 +227,25 @@ class InterfaceApresentacaoCadastro {
 class InterfaceServicoUsuario {
  public:
   /**
-   * @brief função virtual que irá exibir as informações de um leitor.
+   * @brief função que irá exibir as informações de um leitor.
    *
    */
   virtual void Exibir(const Leitor &) = 0;
 
   /**
-   * @brief função virtual que irá exibir as informações de um desenvolvedor.
+   * @brief função que irá exibir as informações de um desenvolvedor.
    *
    */
   virtual void Exibir(const Desenvolvedor &) = 0;
 
   /**
-   * @brief função virtual que irá exibir as informações de um administrador.
+   * @brief função que irá exibir as informações de um administrador.
    *
    */
   virtual void Exibir(const Administrador &) = 0;
 
   /**
-   * @brief função virtual que irá editar as informações de um leitor.
+   * @brief função que irá editar as informações de um leitor.
    *
    * @return ResultadoUsuario retorna um objeto que conterá a informação
    * se foi sucesso ou falha e um objeto da classe Leitor.
@@ -243,7 +254,7 @@ class InterfaceServicoUsuario {
   virtual ResultadoUsuario Editar(const Leitor &) = 0;
 
   /**
-   * @brief função virtual que irá editar as informações de um desenvolvedor.
+   * @brief função que irá editar as informações de um desenvolvedor.
    *
    * @return ResultadoUsuario retorna um objeto que conterá a informação
    * se foi sucesso ou falha e um objeto da classe Desenvolvedor.
@@ -251,7 +262,7 @@ class InterfaceServicoUsuario {
   virtual ResultadoUsuario Editar(const Desenvolvedor &) = 0;
 
   /**
-   * @brief função virtual que irá editar as informações de um administrador.
+   * @brief função que irá editar as informações de um administrador.
    *
    * @return ResultadoUsuario retorna um objeto que conterá a informação
    * se foi sucesso ou falha e um objeto da classe Administrador.
@@ -259,7 +270,8 @@ class InterfaceServicoUsuario {
   virtual ResultadoUsuario Editar(const Administrador &) = 0;
 
   /**
-   * @brief função abstrata que irá excluir a conta do usuario atual.
+   * @brief função que irá excluir a conta do usuario atual, caso seja um
+   * administrador excluirá todos os vocabularios associados a ele.
    *
    * @return Resultado retorna um objeto que conterá a informação
    * se foi sucesso ou falha
@@ -274,13 +286,14 @@ class InterfaceServicoUsuario {
 };
 
 /**
- * @brief Interface de apresentação de usuario
+ * @brief Interface de apresentação de usuario, mostra as opções disponiveis 
+ * na gestão de usuario.
  *
  */
 class InterfaceApresentacaoUsuario {
  public:
   /**
-   * @brief função abstrata que direciona para a tela de gestão de usuarios.
+   * @brief função que direciona para a tela de gestão de usuarios.
    *
    * @return Resultado retorna um objeto que poderá dizer se a conta foi excluida
    * com sucesso ou falha.
@@ -288,7 +301,7 @@ class InterfaceApresentacaoUsuario {
   virtual Resultado Executar(const Email &) = 0;
 
   /**
-   * @brief função abstrata que irá Seta o controle para a parte
+   * @brief função que irá Seta o controle para a parte
    * de serviço de usuario.
    *
    */
@@ -308,14 +321,14 @@ class InterfaceApresentacaoUsuario {
 class InterfaceServicoVocabulario {
  public:
   /**
-   * @brief função abstrata que irá apresentar os vocabularios disponiveis.
+   * @brief função que irá apresentar os vocabularios disponiveis.
    *
    * @return vector<VocabularioControlado> o vetor que possui os vocabularios.
    */
   virtual vector<VocabularioControlado> ConsultarVocabularios() = 0;
 
   /**
-   * @brief função abstrata que irá apresentar os termos disponiveis.
+   * @brief função que irá apresentar os termos disponiveis.
    *
    * @return vector<Termo> o vetor que possui os termos.
    */
@@ -326,7 +339,7 @@ class InterfaceServicoVocabulario {
   virtual vector<Termo> ConsultarTermos() = 0;
 
   /**
-   * @brief função abstrata que irá retornar a definição do vocabulario.
+   * @brief função que irá retornar a definição do vocabulario.
    *
    * @return Definicao a definição procurada.
    */
@@ -339,15 +352,17 @@ class InterfaceServicoVocabulario {
   virtual int ConsultarDesenvolvedores(const VocabularioControlado &) = 0;
 
   /**
-   * @brief função abstrata que irá cadastrar um leitor a um vocabulario controlado.
+   * @brief função que irá cadastrar um leitor a um vocabulario controlado.
    *
    * @return Resultado sucesso ou falha na ação.
    */
-  virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &, const Email &) = 0;
+  virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &,
+                                          const Email &) = 0;
 
-  virtual Resultado CadastrarAdministrador(const VocabularioControlado &, const Email &) = 0;
+  virtual Resultado CadastrarAdministrador(const VocabularioControlado &, 
+                                          const Email &) = 0;
   /**
-   * @brief função abstrata que irá Criar um Termo.
+   * @brief função que irá Criar um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
@@ -358,21 +373,21 @@ class InterfaceServicoVocabulario {
                                const VocabularioControlado &) = 0;
 
   /**
-   * @brief função abstrata que irá Editar um Termo.
+   * @brief função que irá Editar um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarTermo(Termo &, const Data &) = 0;
 
   /**
-   * @brief função abstrata que irá Excluir um Termo.
+   * @brief função que irá Excluir um Termo.
    *
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
-   * @brief função abstrata que irá Criar uma Definição.
+   * @brief função que irá Criar uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
@@ -380,21 +395,21 @@ class InterfaceServicoVocabulario {
                                    const TextoDefinicao &, const Data &) = 0;
 
   /**
-   * @brief função abstrata que irá Editar uma Definição.
+   * @brief função que irá Editar uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado EditarDefinicao(Definicao &, const Data &) = 0;
 
   /**
-   * @brief função abstrata que irá Excluir uma Definição.
+   * @brief função que irá Excluir uma Definição.
    *
    * @return Resultado sucesso ou falha na ação.
    */
   virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
-   * @brief função abstrata que irá Criar um Vocabulario.
+   * @brief função que irá Criar um Vocabulario.
    *
    * @return Resultado sucesso ou falha na ação.
    */
@@ -403,7 +418,7 @@ class InterfaceServicoVocabulario {
                                      const Definicao &, const Email &) = 0;
 
   /**
-   * @brief função abstrata que irá Editar um Vocabulario.
+   * @brief função que irá Editar um Vocabulario.
    *
    * @return Resultado sucesso ou falha na ação.
    */
@@ -411,7 +426,7 @@ class InterfaceServicoVocabulario {
                                       const Data &) = 0;
 
   /**
-   * @brief função abstrata que irá Excluir um Vocabulario.
+   * @brief função que irá Excluir um Vocabulario.
    *
    * @return Resultado sucesso ou falha na ação.
    */
@@ -433,13 +448,13 @@ class InterfaceServicoVocabulario {
 class InterfaceApresentacaoVocabulario {
  public:
   /**
-   * @brief função abstrata que direciona para a tela de gestão de vocabularios.
+   * @brief função que direciona para a tela de gestão de vocabularios.
    *
    */
   virtual void Executar(const Email &) = 0;
 
   /**
-   * @brief função abstrata que Seta o controle para a parte de
+   * @brief função que Seta o controle para a parte de
    * serviços de vocabulário.
    *
    */
