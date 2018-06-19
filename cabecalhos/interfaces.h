@@ -321,50 +321,80 @@ class InterfaceApresentacaoUsuario {
 class InterfaceServicoVocabulario {
  public:
   /**
-   * @brief função que irá apresentar os vocabularios disponiveis.
+   * @brief função  que retorna todos os vocabulários armazenados.
    *
-   * @return vector<VocabularioControlado> o vetor que possui os vocabularios.
+   * @return vector<VocabularioControlado> vetor que contém todos os vocabularios armazenados.
    */
   virtual vector<VocabularioControlado> ConsultarVocabularios() = 0;
 
   /**
-   * @brief função que irá apresentar os termos disponiveis.
+   * @brief função  que retorna todos os termos armazenados.
    *
-   * @return vector<Termo> o vetor que possui os termos.
+   * @return vector<Termo> vetor que contém todos os termos armazenados.
    */
-  virtual vector<Termo> ConsultarTermos(const VocabularioControlado &) = 0;
-
-  virtual int ConsultarTermos(const Definicao &) = 0;
-
   virtual vector<Termo> ConsultarTermos() = 0;
 
   /**
-   * @brief função que irá retornar a definição do vocabulario.
+   * @brief função  que retorna todos os termos de determinado vocabulário.
    *
-   * @return Definicao a definição procurada.
+   * @return vector<Termo> vetor que contém os termos do vocabulário.
+   */
+  virtual vector<Termo> ConsultarTermos(const VocabularioControlado &) = 0;
+
+  /**
+   * @brief função  que retorna a quantidade de termos associados a determinada definição.
+   *
+   * @return int quantidade de termos associados a definição.
+   */
+  virtual int ConsultarTermos(const Definicao &) = 0;
+
+  /**
+   * @brief função  que retorna todas as definições armazenadas.
+   *
+   * @return vector<Definicao> vetor que contém todas as definições armazenadas.
+   */
+  virtual vector<Definicao> ConsultarDefinicoes() = 0;
+
+  /**
+   * @brief função  que retorna todas as definições de determinado termo.
+   *
+   * @return vector<Definicao> vetor que contém todas as definições do termo.
    */
   virtual vector<Definicao> ConsultarDefinicao(const Termo &) = 0;
 
+  /**
+   * @brief função  que retorna a definição de determinado vocabulário.
+   *
+   * @return Definicao definição do vocabulário.
+   */
   virtual Definicao ConsultarDefinicao(const VocabularioControlado &) = 0;
 
-  virtual vector<Definicao> ConsultarDefinicoes() = 0;
-
-  virtual int ConsultarDesenvolvedores(const VocabularioControlado &) = 0;
+  /**
+   * @brief função  que cadastra um usuário como administrador de determinado vocabulario.
+   *
+   * @return Resultado sucesso ou falha ao cadastrar o usuário.
+   */
+  virtual Resultado CadastrarAdministrador(const VocabularioControlado &, const Email &) = 0;
 
   /**
-   * @brief função que irá cadastrar um leitor a um vocabulario controlado.
+   * @brief função  que cadastra um usuário como desenvolvedor de determinado vocabulario.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao cadastrar o usuário.
    */
   virtual Resultado CadastrarDesenvolvedor(const VocabularioControlado &,
                                           const Email &) = 0;
 
-  virtual Resultado CadastrarAdministrador(const VocabularioControlado &, 
-                                          const Email &) = 0;
   /**
-   * @brief função que irá Criar um Termo.
+   * @brief função  que retorna a quantidade de desenvolvedores de determinado vocabulário.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return int quantidade de desenvolvedores do vocabulário.
+   */
+  virtual int ConsultarDesenvolvedores(const VocabularioControlado &) = 0;
+
+  /**
+   * @brief função  que cria um termo.
+   *
+   * @return Resultado sucesso ou falha ao criar o termo.
    */
   virtual Resultado CriarTermo(Termo &,
                                const Nome &,
@@ -373,65 +403,71 @@ class InterfaceServicoVocabulario {
                                const VocabularioControlado &) = 0;
 
   /**
-   * @brief função que irá Editar um Termo.
+   * @brief função  que edita um termo.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao editar o termo.
    */
   virtual Resultado EditarTermo(Termo &, const Data &) = 0;
 
   /**
-   * @brief função que irá Excluir um Termo.
+   * @brief função  que exclui um termo.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao excluir o termo.
    */
   virtual Resultado ExcluirTermo(const Termo &) = 0;
 
   /**
-   * @brief função que irá Criar uma Definição.
+   * @brief função  que cria uma definição.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao criar a definição.
    */
   virtual Resultado CriarDefinicao(Definicao &,
                                    const TextoDefinicao &, const Data &) = 0;
 
   /**
-   * @brief função que irá Editar uma Definição.
+   * @brief função  que edita uma definição.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao editar a definição.
    */
   virtual Resultado EditarDefinicao(Definicao &, const Data &) = 0;
 
   /**
-   * @brief função que irá Excluir uma Definição.
+   * @brief função  que exclui uma definição.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao excluir a definição.
    */
   virtual Resultado ExcluirDefinicao(const Definicao &) = 0;
 
   /**
-   * @brief função que irá Criar um Vocabulario.
+   * @brief função  que cria um vocabulário.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao criar o vocabulário.
    */
   virtual Resultado CriarVocabulario(VocabularioControlado &, const Nome &,
                                      const Idioma &, const Data &,
                                      const Definicao &, const Email &) = 0;
 
   /**
-   * @brief função que irá Editar um Vocabulario.
+   * @brief função  que edita um vocabulário.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao editar o vocabulário.
    */
   virtual Resultado EditarVocabulario(VocabularioControlado &, const Idioma &,
                                       const Data &) = 0;
 
   /**
    * @brief função que irá Excluir um Vocabulario.
+   * @brief função  que exclui um vocabulário.
    *
-   * @return Resultado sucesso ou falha na ação.
+   * @return Resultado sucesso ou falha ao excluir o vocabulário.
    */
   virtual Resultado ExcluirVocabulario(const VocabularioControlado &) = 0;
 
+  /**
+   * @brief função  que associa uma definição a um termo.
+   *
+   * @return Resultado sucesso ou falha ao associar a definição ao termo.
+   */
   virtual Resultado AssociarTermoDefinicao(const Termo &, const Definicao &) = 0;
 
   /**
@@ -454,8 +490,7 @@ class InterfaceApresentacaoVocabulario {
   virtual void Executar(const Email &) = 0;
 
   /**
-   * @brief função que Seta o controle para a parte de
-   * serviços de vocabulário.
+   * @brief função  que seta o controle para a interface de serviço de vocabulário.
    *
    */
   virtual void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *) = 0;

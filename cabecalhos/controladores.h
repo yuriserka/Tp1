@@ -184,21 +184,21 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario {
 };
 
 /**
- * @brief Classe que será responsável pela parte de gestão de vocabulários.
+ * @brief Classe que implementa a InterfaceServicoVocabulario responsável pela parte de gestão dos vocabulários.
  * 
  */
 class CtrlApresentacaoVocabulario : public InterfaceApresentacaoVocabulario {
  public:
   /**
-   * @brief implementa a classe base e vai para a tela de gestão de vocabularios.
+   * @brief função herdada que direciona para a tela de gestão de vocabularios.
    * 
    */
   void Executar(const Email &) override;
 
   /**
-   * @brief Seta o controle para a parte de serviço de vocabulário.
+   * @brief função herdada que seta o controle para a interface de serviço de vocabulário.
    * 
-   * @param isv objeto de alguma classe derivada da interface de serviço de vocabulário.
+   * @param isv objeto da classe InterfaceServicoVocabulario.
    */
   void SetCtrlServicoVocabulario(InterfaceServicoVocabulario *isv) override {
     this->ctrl_servico_vocabulario_ = isv;
