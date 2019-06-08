@@ -1,32 +1,31 @@
 EXE = exec
-OBJ_DIR = objetos
-SRC_DIR = fontes
+OBJ_DIR = bin
+SRC_DIR = src
 SRC = $(wildcard $(SRC_DIR)/*.cc)
-CSRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:$(SRC_DIR)/%.cc=$(OBJ_DIR)/%.o)
-COBJ = $(CSRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CXX = g++
 CC = gcc
 SQLFLAGS = -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSIONTARGET
 CPPFLAGS = -std=c++11
 CFLAGS = -g -Wall -pedantic
 LDFLAGS =
-LDLIBS = 
+LDLIBS = -Wl,--no-as-needed -ldl
 
 .PHONY: all clean sqlite
 
-all: $(EXE)
+all: create_bin_folder sqlite.o $(EXE)
+
+create_bin_folder:
+	@mkdir -p bin
 
 $(EXE): $(OBJ)
-	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ objetos/sqlite3.o
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@ $(OBJ_DIR)/sqlite3.o
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) -c $< $(CFLAGS) -o $@
 
 clean:
-	$(RM) $(OBJ) $(COBJ)
+	$(RM) $(OBJ_DIR)/* $(EXE)
 
-sqlite: $(COBJ)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(SQLFLAGS) $(CFLAGS) -c $< -o $@
+sqlite.o: src/sqlite3.c
+	$(CC) $(SQLFLAGS) $(CFLAGS) -c $< && mv *.o bin
