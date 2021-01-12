@@ -24,6 +24,18 @@ $(EXE): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
 	$(CXX) $(CPPFLAGS) -c $< $(CFLAGS) -o $@
 
+install:
+	sudo apt install sqlite3
+	sudo apt install libsqlite3-dev
+	sudo apt install unzip
+	wget https://www.sqlite.org/2020/sqlite-amalgamation-3340000.zip \
+		&& unzip sqlite-amalgamation-3340000.zip -d temp \
+		&& cp temp/sqlite-amalgamation-3340000/sqlite3.h ./include \
+		&& cp temp/sqlite-amalgamation-3340000/sqlite3.c ./src
+
+	$(RM) -r temp
+	$(RM) sqlite-amalgamation-3340000.zip
+
 clean:
 	$(RM) $(OBJ_DIR)/* $(EXE)
 

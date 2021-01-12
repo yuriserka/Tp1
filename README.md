@@ -4,11 +4,10 @@ Programa que visa simular um sistema de vocabulários Controlados.
 
 # Antes de Compilar
 
-Assegure que tenha a biblioteca do sqlite3 instalada no linux:
+Assegure que tenha as bibliotecas do sqlite3 instalada no linux executando o comando:
 
 ```
-sudo apt install sqlite3
-sudo apt install libsqlite3-dev
+make install
 ```
 
 # Compilando
